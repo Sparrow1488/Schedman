@@ -6,6 +6,7 @@ namespace ScheduleVkManager.Entities
 {
     public class AuthorsHandler : IAlbumsHandler<AlbumItem>
     {
+        private Album _parentAlbum;
         public Album GetAlbum(string albumPath)
         {
             var result = CreateAlbum(albumPath);
@@ -22,9 +23,17 @@ namespace ScheduleVkManager.Entities
         {
             var dirInfo = new DirectoryInfo(albumPath);
             var result = new Album() {
-                Author = dirInfo.Name.ToLower()?.Replace("author-", "")?.Trim() ?? "unknown",
-                Path = albumPath
+                Path = albumPath,
+                Parent = _parentAlbum
             };
+            string albumName = dirInfo.Name.ToLower();
+            if (albumName.Contains("author")) {
+                result.Author = albumName?.Replace("author-", "")?.Trim() ?? result.Author;
+            }
+            else if (albumName.Contains("chapter") || !albumName.Contains("author")) {
+                result.Chapter = albumName?.Replace("chapter-", "")?.Trim() ?? result.Author;
+            }
+            //_parentAlbum = result;
             //result.UploadStatus = CheckUploadedStatus(result);
             return result;
         }
