@@ -14,33 +14,42 @@ namespace ScheduleVkManager
         public static void Main()
         {
             _logger.Log("Started SheduleVkManager");
-            Task.Run(async () =>
-            {
-                var authDataPath = @"C:\Users\Александр\Downloads\need_delete\delete_pas_log.txt";
-                var authData = new AuthorizeData(authDataPath);
-                var vkManager = new VkManager();
-                var authResult = await vkManager.AuthorizeAsync(authData);
-                if(!(authResult is true)) {
-                    PrintErrors(vkManager.Errors);
-                    vkManager.ClearErrors();
-                }
-                else _logger.Success("Authorize success");
 
-                var group = await vkManager.GetGroupManagerAsync("full party");
-                if(group.Id == 0) {
-                    PrintErrors(vkManager.Errors);
-                }
-                else _logger.Success("Success found group id_" + group.Id);
+            var albumHandler = new AuthorsHandler();
+            var path = _logger.Input("Input album path");
+            path = @"C:\Users\Александр\Downloads\author-smolly_poli";
+            var album = albumHandler.GetAlbum(path);
 
-                var post = CreatePost();
-                post = await group.AddPostAsync(post);
-                if(post.Id == 0) {
-                    _logger.Error("Cannot create post on wall");
-                }
-                else _logger.Success("Success created post on wall id_" + post.Id);
-                PrintPostInfo(post);
+            #region VkManager
 
-            }).GetAwaiter().GetResult();
+            //Task.Run(async () =>
+            //{
+            //    var authDataPath = @"C:\Users\Александр\Downloads\need_delete\delete_pas_log.txt";
+            //    var authData = new AuthorizeData(authDataPath);
+            //    var vkManager = new VkManager();
+            //    var authResult = await vkManager.AuthorizeAsync(authData);
+            //    if(!(authResult is true)) {
+            //        PrintErrors(vkManager.Errors);
+            //        vkManager.ClearErrors();
+            //    }
+            //    else _logger.Success("Authorize success");
+
+            //    var group = await vkManager.GetGroupManagerAsync("full party");
+            //    if(group.Id == 0) {
+            //        PrintErrors(vkManager.Errors);
+            //    }
+            //    else _logger.Success("Success found group id_" + group.Id);
+
+            //    var post = CreatePost();
+            //    post = await group.AddPostAsync(post);
+            //    if(post.Id == 0) {
+            //        _logger.Error("Cannot create post on wall");
+            //    }
+            //    else _logger.Success("Success created post on wall id_" + post.Id);
+            //    PrintPostInfo(post);
+
+            //}).GetAwaiter().GetResult();
+            #endregion
         }
 
         private static IEnumerable<string> GetRandomPhotosUrl()
