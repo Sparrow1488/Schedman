@@ -3,6 +3,7 @@ using ScheduleVkManager.Tools;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScheduleVkManager
@@ -37,6 +38,8 @@ namespace ScheduleVkManager
                     _logger.Error("Cannot create post on wall");
                 }
                 else _logger.Success("Success created post on wall id_" + post.Id);
+                PrintPostInfo(post);
+
             }).GetAwaiter().GetResult();
         }
 
@@ -61,7 +64,23 @@ namespace ScheduleVkManager
             var photos = _logger.Input("Photos url (\"rnd\"if upload random)");
             if(photos == "rnd")
                 result.PhotosUrl = GetRandomPhotosUrl();
+            var date = _logger.Input("Schedule time (time today, use \":\")").Split(':');
+            if(date.Length > 0) { 
+                result.Schedule = new DateTime(DateTime.Now.Year,
+                                       DateTime.Now.Month,
+                                        DateTime.Now.Day,
+                                         int.Parse(date[0]),
+                                          int.Parse(date[1]),
+                                           0);
+                _logger.Log($"Set schedule on {result.Schedule}");
+            }
+
             return result;
+        }
+
+        private static void PrintPostInfo(CreatePost post)
+        {
+            _logger.Log($"[id_{post.Id}] Post info\nMessage: {post.Message}\nPhotos: {post.PhotosUrl.Count()}\nSchedule: {post.Schedule}");
         }
 
         private static void PrintErrors(IEnumerable<string> errors)

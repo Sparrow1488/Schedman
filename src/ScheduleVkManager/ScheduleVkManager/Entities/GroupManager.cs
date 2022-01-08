@@ -26,13 +26,18 @@ namespace ScheduleVkManager.Entities
         public async Task<CreatePost> AddPostAsync(CreatePost post)
         {
             var uploadedPhotos = await UploadWallPhotosAsync(post.PhotosUrl);
+            DateTime? schedule;
+            if (post.Schedule < DateTime.Now)
+                schedule = null;
+            else schedule = post.Schedule;
             var postId = await _api.Wall.PostAsync(new WallPostParams()
             {
                 Signed = false,
                 OwnerId = -Id,
                 Message = post.Message,
                 FromGroup = true,
-                Attachments = uploadedPhotos
+                Attachments = uploadedPhotos,
+                PublishDate = schedule
             });
             post.Id = postId;
             return post;
