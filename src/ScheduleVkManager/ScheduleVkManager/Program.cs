@@ -17,19 +17,37 @@ namespace ScheduleVkManager
         {
             _logger.Log("Started SheduleVkManager");
 
-            var albumHandler = new AuthorsHandler();
-            var mainDir = _logger.Input("Input album path");
-            mainDir = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Testable";
-            var albums = new List<Album>();
-            foreach (var authorDir in Directory.GetDirectories(mainDir)) {
-                albums.Add(albumHandler.GetAlbum(authorDir));
-            }
+            var scheduler = new Scheduler();
+            var times = new List<TimeSpan>() {
+                new TimeSpan(0, 0, 0),
+                new TimeSpan(5, 0, 0),
+                new TimeSpan(7, 0, 0),
+                new TimeSpan(9, 0, 0),
+                new TimeSpan(12, 0, 0),
+                new TimeSpan(14, 0, 0),
+                new TimeSpan(15, 0, 0),
+            };
+            //scheduler.Create(DateTime.Parse("09.01.2022 05:30:00"), TimeSpan.FromHours(1), 10);
+            scheduler.Create(times, 10);
+            foreach (var item in scheduler)
+                _logger.Log(item.ToString());
 
-            var first = albums.First();
-            first.UploadStatus = UploadStatus.Uploaded;
-            ((List<AlbumItem>)first.Items).ForEach(item => item.UploadStatus = UploadStatus.Uploaded);
-            string key = _storage.SaveAlbum(first);
-            var storedAlbum = _storage.GetAlbum(key);
+            #region CreateAlbums
+            //var albumHandler = new AuthorsHandler();
+            //var mainDir = _logger.Input("Input album path");
+            //mainDir = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Testable";
+            //var albums = new List<Album>();
+            //foreach (var authorDir in Directory.GetDirectories(mainDir)) {
+            //    albums.Add(albumHandler.GetAlbum(authorDir));
+            //}
+
+            //var first = albums.First();
+            //first.UploadStatus = UploadStatus.Uploaded;
+            //((List<AlbumItem>)first.Items).ForEach(item => item.UploadStatus = UploadStatus.Uploaded);
+            //string key = _storage.SaveAlbum(first);
+            //var storedAlbum = _storage.GetAlbum(key);
+
+            #endregion
 
             #region VkManager
 
