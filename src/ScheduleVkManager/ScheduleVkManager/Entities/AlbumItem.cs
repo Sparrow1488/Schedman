@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using Newtonsoft.Json;
 
 namespace ScheduleVkManager.Entities
 {
@@ -8,6 +7,7 @@ namespace ScheduleVkManager.Entities
     {
         public string Name { get; set; }
         public string Extension { get; set; }
+        [JsonIgnore]
         public Album Album { get; set; }
         public UploadStatus UploadStatus { get; set; }
     }

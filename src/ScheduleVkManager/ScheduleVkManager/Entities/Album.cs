@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ScheduleVkManager.Entities
 {
@@ -8,10 +8,10 @@ namespace ScheduleVkManager.Entities
     {
         public string Author { get; set; } = "unknown";
         public string Chapter { get; set; } = "unknown";
-        public string Path { get; internal set; }
+        public string Path { get; set; }
         public Album Parent { get; set; }
-        public UploadStatus UploadStatus { get; internal set; }
-        public IEnumerable<AlbumItem> Items { get; internal set; }
-        public IEnumerable<Album> Albums { get; internal set; }
+        public UploadStatus UploadStatus { get; set; }
+        public IEnumerable<AlbumItem> Items { get; set; }
+        public IEnumerable<Album> Albums { get; set; }
     }
 }

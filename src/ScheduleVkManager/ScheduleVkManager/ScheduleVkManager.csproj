@@ -6,10 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Storage\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="VkNet" Version="1.68.0" />
     <PackageReference Include="VkNet.AudioBypassService" Version="1.7.2" />
   </ItemGroup>

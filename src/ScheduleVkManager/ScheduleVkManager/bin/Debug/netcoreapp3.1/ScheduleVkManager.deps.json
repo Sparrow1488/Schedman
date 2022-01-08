@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "ScheduleVkManager/1.0.0": {
         "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
           "VkNet": "1.68.0",
           "VkNet.AudioBypassService": "1.7.2"
         },

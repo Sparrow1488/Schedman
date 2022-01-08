@@ -1,24 +1,35 @@
 ﻿using ScheduleVkManager.Entities;
+using ScheduleVkManager.Storage;
 using ScheduleVkManager.Tools;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ScheduleVkManager
 {
     public class Program
     {
         private static Logger _logger = new Logger();
+        private static FileStorage _storage = new FileStorage();
+
         public static void Main()
         {
             _logger.Log("Started SheduleVkManager");
 
             var albumHandler = new AuthorsHandler();
-            var path = _logger.Input("Input album path");
-            path = @"C:\Users\Александр\Downloads\author-smolly_poli";
-            var album = albumHandler.GetAlbum(path);
+            var mainDir = _logger.Input("Input album path");
+            mainDir = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Testable";
+            var albums = new List<Album>();
+            foreach (var authorDir in Directory.GetDirectories(mainDir)) {
+                albums.Add(albumHandler.GetAlbum(authorDir));
+            }
+
+            var first = albums.First();
+            first.UploadStatus = UploadStatus.Uploaded;
+            ((List<AlbumItem>)first.Items).ForEach(item => item.UploadStatus = UploadStatus.Uploaded);
+            string key = _storage.SaveAlbum(first);
+            var storedAlbum = _storage.GetAlbum(key);
 
             #region VkManager
 
@@ -55,8 +66,8 @@ namespace ScheduleVkManager
         private static IEnumerable<string> GetRandomPhotosUrl()
         {
             var result = new List<string>();
-            string rootDir = @"C:\Users\Александр\Downloads\author-aestheticc_meme";
-            var filesInDir = Directory.GetFiles(rootDir);
+            string mainDirectory = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Testable";
+            var filesInDir = Directory.GetFiles(mainDirectory);
             var rnd = new Random();
             result.Add(filesInDir[rnd.Next(0, filesInDir.Length - 1)]);
             result.Add(filesInDir[rnd.Next(0, filesInDir.Length - 1)]);
