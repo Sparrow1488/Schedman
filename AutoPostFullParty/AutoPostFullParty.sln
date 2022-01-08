@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoPostFullParty", "AutoPostFullParty\AutoPostFullParty.csproj", "{904E16C9-3104-43E4-86B6-25BA35350341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoPostFullParty", "AutoPostFullParty\AutoPostFullParty.csproj", "{904E16C9-3104-43E4-86B6-25BA35350341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleVkManager.UI", "..\src\ScheduleVkManager.UI\ScheduleVkManager.UI.csproj", "{AFF094D9-5071-43B2-ADD5-D6A1060667C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleVkManager", "..\src\ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj", "{F636B073-92B2-4943-A056-0AF4304CBABD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{904E16C9-3104-43E4-86B6-25BA35350341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{904E16C9-3104-43E4-86B6-25BA35350341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{904E16C9-3104-43E4-86B6-25BA35350341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF094D9-5071-43B2-ADD5-D6A1060667C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF094D9-5071-43B2-ADD5-D6A1060667C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF094D9-5071-43B2-ADD5-D6A1060667C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF094D9-5071-43B2-ADD5-D6A1060667C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F636B073-92B2-4943-A056-0AF4304CBABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F636B073-92B2-4943-A056-0AF4304CBABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F636B073-92B2-4943-A056-0AF4304CBABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F636B073-92B2-4943-A056-0AF4304CBABD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

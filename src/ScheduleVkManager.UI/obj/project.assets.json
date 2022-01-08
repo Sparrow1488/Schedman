@@ -136,6 +136,20 @@
         "runtime": {
           "lib/netstandard2.0/VkNet.AudioBypassService.dll": {}
         }
+      },
+      "ScheduleVkManager/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "VkNet": "1.68.0",
+          "VkNet.AudioBypassService": "1.7.2"
+        },
+        "compile": {
+          "bin/placeholder/ScheduleVkManager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ScheduleVkManager.dll": {}
+        }
       }
     }
   },
@@ -446,10 +460,16 @@
         "vknet.audiobypassservice.1.7.2.nupkg.sha512",
         "vknet.audiobypassservice.nuspec"
       ]
+    },
+    "ScheduleVkManager/1.0.0": {
+      "type": "project",
+      "path": "../ScheduleVkManager/ScheduleVkManager/ScheduleVkManager.csproj",
+      "msbuildProject": "../ScheduleVkManager/ScheduleVkManager/ScheduleVkManager.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ScheduleVkManager >= 1.0.0",
       "VkNet >= 1.68.0",
       "VkNet.AudioBypassService >= 1.7.2"
     ]
@@ -460,11 +480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\AutoPostFullParty.csproj",
-      "projectName": "AutoPostFullParty",
-      "projectPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\AutoPostFullParty.csproj",
+      "projectUniqueName": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
+      "projectName": "ScheduleVkManager.UI",
+      "projectPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\obj\\",
+      "outputPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -480,7 +500,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj": {
+              "projectPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -515,6 +539,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"

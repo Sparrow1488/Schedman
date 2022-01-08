@@ -460,11 +460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\AutoPostFullParty.csproj",
-      "projectName": "AutoPostFullParty",
-      "projectPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\AutoPostFullParty.csproj",
+      "projectUniqueName": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
+      "projectName": "ScheduleVkManager",
+      "projectPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\obj\\",
+      "outputPath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",

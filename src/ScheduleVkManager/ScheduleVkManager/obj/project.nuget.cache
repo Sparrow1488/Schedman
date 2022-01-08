@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W/PthUfa4uccBP04WSzbODPb6XUoMdVokxRm82Ixx85fAjJVOj8pehtiae6lxfUBVQtajbrAgfXIH3Cx29BnjA==",
+  "dgSpecHash": "3SypGuaKcobqtUpLJRaZo2/uWOxIH1Xc1cwm0dFgoyhWcpx09tAeOzanfis7ozJeq6QzFJ3MBgG5hYFjQav6Vw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\AutoPostFullParty\\AutoPostFullParty\\AutoPostFullParty.csproj",
+  "projectFilePath": "C:\\Users\\Александр\\Desktop\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Александр\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
