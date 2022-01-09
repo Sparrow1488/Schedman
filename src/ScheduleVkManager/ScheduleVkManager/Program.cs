@@ -12,7 +12,7 @@ using VkNet.Exception;
 
 namespace ScheduleVkManager
 {
-    public class Program
+    internal class Program
     {
         private static GroupManager _group;
         private static readonly Logger _logger = new Logger();
@@ -33,7 +33,6 @@ namespace ScheduleVkManager
                 new TimeSpan(21, 0, 0),
                 new TimeSpan(23, 0, 0)
             };
-        private static readonly IAlbumsHandler<AlbumItem> _albums = new AuthorsHandler();
 
         public static void Main()
         {
@@ -41,12 +40,12 @@ namespace ScheduleVkManager
 
             Task.Run(async () =>
             {
+                _logger.Log("Try authorize...");
                 var authDataPath = ConfigurationManager.AppSettings["auth"];
                 var authData = new AuthorizeData(authDataPath);
                 var vkManager = new VkManager();
                 var authResult = await vkManager.AuthorizeAsync(authData);
-                if (authResult is false)
-                {
+                if (authResult is false) {
                     PrintErrors(vkManager.Errors);
                     vkManager.ClearErrors();
                     throw new Exception("Auth error");
@@ -54,15 +53,17 @@ namespace ScheduleVkManager
                 else _logger.Success("Authorize success");
 
 
-                _group = await vkManager.GetGroupManagerAsync("Full party");
-                if (_group.Id == 0)
-                {
+                string findGroupName = "Full party";
+                _logger.Log($"Get group named \"{findGroupName}\"");
+                _group = await vkManager.GetGroupManagerAsync(findGroupName);
+                if (_group.Id == 0) {
                     PrintErrors(vkManager.Errors);
                     throw new Exception("Cannot find group");
                 }
-                else _logger.Success("Success found group id_" + _group.Id);
+                else _logger.Success("Success found group, id_" + _group.Id);
 
 
+                _logger.Log("Starting create posts...");
                 var posts = _postEditor.CreatePostRange();
                 _scheduler.Create(_times, 30, posts.Count());
                 posts = posts.Shuffle();
@@ -79,29 +80,7 @@ namespace ScheduleVkManager
             }).GetAwaiter().GetResult();
         }
 
-        private static void PrintPostInfo(CreatePost post)
-        {
-            _logger.Log($"[id_{post.Id}] Post info\nMessage: {post.Message}\nPhotos: {post.PhotosUrl.Count()}\nSchedule: {post.Schedule}");
-        }
-
-        private static void PrintErrors(IEnumerable<string> errors)
-        {
-            foreach (var error in errors) {
-                _logger.Error(error);
-            }
-        }
-
-        private static IEnumerable<string> GetRandomPhotosUrl()
-        {
-            var result = new List<string>();
-            string mainDirectory = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Testable";
-            var filesInDir = Directory.GetFiles(mainDirectory);
-            var rnd = new Random();
-            result.Add(filesInDir[rnd.Next(0, filesInDir.Length - 1)]);
-            result.Add(filesInDir[rnd.Next(0, filesInDir.Length - 1)]);
-            result.Add(filesInDir[rnd.Next(0, filesInDir.Length - 1)]);
-
-            return result;
-        }
+        private static void PrintErrors(IEnumerable<string> errors) =>
+            errors.ToList().ForEach(error => _logger.Error(error));
     }
 }

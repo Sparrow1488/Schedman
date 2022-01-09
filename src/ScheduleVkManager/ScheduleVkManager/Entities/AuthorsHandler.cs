@@ -71,23 +71,16 @@ namespace ScheduleVkManager.Entities
         /// <summary>
         /// В AuthorsHandler е по умолчанию используется паттерн для поиска AlbumItems и Album - "author-". Его можно переназначить
         /// </summary>
-        public bool SetPattern(string key, string pattern)
-        {
-            return _patterns.TryAdd(key, pattern);
-        }
+        public bool SetPattern(string key, string pattern) =>
+            _patterns.TryAdd(key, pattern);
+
         public IDictionary<string, string> GetPatterns() => _patterns;
 
-        private UploadStatus CheckUploadedStatus(Album album)
-        {
-            // TODO: interact with storage or db
+        private UploadStatus CheckUploadedStatus(Album album) => 
             throw new NotImplementedException();
-        }
 
-        private UploadStatus CheckUploadedStatus(AlbumItem albumItem)
-        {
-            // TODO: interact with storage or db
+        private UploadStatus CheckUploadedStatus(AlbumItem albumItem) => 
             throw new NotImplementedException();
-        }
 
     }
 }

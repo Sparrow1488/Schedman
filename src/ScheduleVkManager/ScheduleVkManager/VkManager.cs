@@ -80,14 +80,7 @@ namespace ScheduleVkManager
             return new GroupManager(_api, foundGroup?.Id ?? 0);
         }
 
-        public void ClearErrors()
-        {
-            Errors = new List<string>();
-        }
-
-        public IList<string> GetErrors()
-        {
-            return Errors;
-        }
+        public void ClearErrors() => Errors = new List<string>();
+        public IList<string> GetErrors() => Errors;
     }
 }
