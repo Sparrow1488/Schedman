@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj": {}
+    "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj": {
+    "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
+        "projectUniqueName": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
         "projectName": "ScheduleVkManager.UI",
-        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
-        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\obj\\",
+        "projectPath": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\ScheduleVkManager.UI.csproj",
+        "packagesPath": "C:\\Users\\Dom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager.UI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Dom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj": {
-                "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj"
+              "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj": {
+                "projectPath": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj"
               }
             }
           }
@@ -67,12 +63,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.21, 3.1.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -81,25 +71,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj": {
+    "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
+        "projectUniqueName": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
         "projectName": "ScheduleVkManager",
-        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
-        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\obj\\",
+        "projectPath": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\ScheduleVkManager.csproj",
+        "packagesPath": "C:\\Users\\Dom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dom\\Desktop\\Репозитории\\ScheduleVkManager\\src\\ScheduleVkManager\\ScheduleVkManager\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Dom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,6 +115,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "VkNet": {
               "target": "Package",
               "version": "[1.68.0, )"
@@ -148,18 +138,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.21, 3.1.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -12,7 +12,7 @@ namespace ScheduleVkManager.Extensions
         public static TimeSpan GetActualTime(this IEnumerable<TimeSpan> times)
         {
             var today = DateTime.Now;
-            var timeNow = new TimeSpan(23, today.Minute, today.Second);
+            var timeNow = new TimeSpan(today.Hour, today.Minute, today.Second);
             var actual = times.Where(time => time > timeNow).FirstOrDefault();
             if (!times.Contains(actual)) {
                 actual = times.Where(time => time >= new TimeSpan(0, 0, 0)).First();
