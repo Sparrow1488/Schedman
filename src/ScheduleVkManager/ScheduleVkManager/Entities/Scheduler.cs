@@ -25,7 +25,7 @@ namespace ScheduleVkManager.Entities
             }
         }
 
-        public void Create(IEnumerable<TimeSpan> times, int days)
+        public void Create(IEnumerable<TimeSpan> times, int days, DateTime? startTime = null)
         {
             if (times is null) {
                 throw new ArgumentNullException($"{nameof(times)} was null");
@@ -33,14 +33,15 @@ namespace ScheduleVkManager.Entities
 
             var timesArr = times.ToArray();
             var actual = times.GetActualTime();
-            var now = DateTime.Now;
+            var now = startTime ?? DateTime.Now;
+            bool checkFirstDay = false;
             for (int j = 0; j < days; j++) {
                 for (int i = 0; i < timesArr.Length; i++) {
                     DateTime scheduleTime;
-                    if (j == 0) {
+                    if (!checkFirstDay) {
                         var index = Array.IndexOf(timesArr, actual);
                         if (index != 0) i = index;
-                        else j++;
+                        checkFirstDay = true;
                     }
                     scheduleTime = new DateTime(now.Year, now.Month, now.Day, timesArr[i].Hours, timesArr[i].Minutes, timesArr[i].Seconds);
                     scheduleTime = scheduleTime.AddDays(j);
@@ -49,9 +50,9 @@ namespace ScheduleVkManager.Entities
             }
         }
 
-        public void Create(IEnumerable<TimeSpan> times, int days, int limitCount)
+        public void Create(IEnumerable<TimeSpan> times, int days, int limitCount, DateTime? startTime = null)
         {
-            Create(times, days);
+            Create(times, days, startTime);
             if(Times.Count() > limitCount) {
                 var timesArr = Times.ToArray();
                 Array.Resize(ref timesArr, limitCount);

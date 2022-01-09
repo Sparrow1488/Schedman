@@ -27,6 +27,8 @@ namespace ScheduleVkManager.Examples
             }
         }
 
+        
+
         private static CreatePost CreatePost(IEnumerable<AlbumItem> chapterItems, string author)
         {
             var result = new CreatePost();

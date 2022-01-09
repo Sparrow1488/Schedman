@@ -72,7 +72,7 @@ namespace ScheduleVkManager
             var groupsId = new List<string>(userGroups.Where(gr => gr.Id != 0)
                                                         .Select(gr => gr.Id.ToString()));
             var groups = await _api.Groups.GetByIdAsync(groupsId, "", new GroupsFields());
-            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupName))?.FirstOrDefault();
+            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupName.ToLower()))?.FirstOrDefault();
             
             if(foundGroup == null) {
                 Errors.Add("Connot found group named " + groupName);
