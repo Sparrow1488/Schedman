@@ -1,14 +1,21 @@
 ﻿
 using Newtonsoft.Json;
+using ScheduleVkManager.Interfaces;
+using System;
+using System.Collections.Generic;
 
 namespace ScheduleVkManager.Entities
 {
-    public class AlbumItem
+    public class AlbumItem : IAlbumItem
     {
         public string Name { get; set; }
         public string Extension { get; set; }
-        [JsonIgnore]
+        //[JsonIgnore]
         public Album Album { get; set; }
         public UploadStatus UploadStatus { get; set; }
+        public IEnumerable<Album> GetAlbums() => null;
+        public IEnumerable<AlbumItem> GetItems() => new List<AlbumItem>() { this };
+        public bool IsAlbum() => false;
+        public bool IsItem() => true;
     }
 }

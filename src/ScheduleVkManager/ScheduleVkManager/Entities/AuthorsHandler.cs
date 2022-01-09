@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ScheduleVkManager.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ScheduleVkManager.Entities
 {
@@ -14,15 +16,18 @@ namespace ScheduleVkManager.Entities
             _patterns.Add("chapter", "chapter-");
         }
 
-        public Album GetAlbum(string albumPath)
+        public Album GetAlbum(string mainPath)
         {
-            var result = CreateAlbum(albumPath);
+            var result = CreateAlbum(mainPath);
             result = UpdateFiles(result);
             var albums = new List<Album>();
-            foreach (var album in Directory.GetDirectories(albumPath)) {
+            foreach (var album in Directory.GetDirectories(mainPath)) {
                 albums.Add(GetAlbum(album));
             }
-            result.Albums = albums;
+            var itemsList = result.Items.ToList();
+            itemsList.AddRange(albums);
+            result.Items = itemsList;
+
             return result;
         }
 
@@ -57,7 +62,9 @@ namespace ScheduleVkManager.Entities
                     Album = album
                 });
             }
-            album.Items = albumItems;
+            var itemsList = album.Items?.ToList() ?? new List<IAlbumItem>();
+            itemsList.AddRange(albumItems);
+            album.Items = itemsList;
             return album;
         }
 
