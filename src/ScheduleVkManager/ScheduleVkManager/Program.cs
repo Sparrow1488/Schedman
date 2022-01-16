@@ -65,7 +65,7 @@ namespace ScheduleVkManager
 
                 _logger.Log("Starting create posts...");
                 var posts = _postEditor.CreatePostRange();
-                _scheduler.Create(_times, 30, posts.Count());
+                _scheduler.Create(_times, 30, posts.Count(), new DateTime(2022, 01, 22));
                 posts = posts.Shuffle();
                 posts = _postEditor.SetSchedule(posts, _scheduler);
                 foreach (var post in posts) {
@@ -74,6 +74,12 @@ namespace ScheduleVkManager
                         _logger.Success("Post was success loaded");
                     } catch (PostLimitException e) {
                         _logger.Error(e.Message);
+                        using (var swFile = new StreamWriter(File.OpenWrite("./unloaded-errors.txt"))) {
+                            swFile.WriteLine($"@\nmessage:{post.Message}");
+                            foreach (var photo in post.PhotosUrl)
+                                swFile.WriteLine(photo);
+                            swFile.WriteLine("@");
+                        }
                     }
                 }
 

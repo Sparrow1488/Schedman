@@ -22,4 +22,8 @@
     <ProjectReference Include="..\ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
 </Project>
