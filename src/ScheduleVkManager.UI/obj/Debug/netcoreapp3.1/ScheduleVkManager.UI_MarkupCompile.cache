@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\App.xaml
-3-420620118
+4-1666259464
 
-81630891928
+9-1918843262
 203-489781289
-Views\MainView.xaml;Views\StartupView.xaml;Windows\MainWindow.xaml;
+CustomControls\StartupServiceCard.xaml;Views\MainView.xaml;Views\StartupView.xaml;Windows\MainWindow.xaml;
 
 False
 

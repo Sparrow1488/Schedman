@@ -10,6 +10,8 @@
     Title="MainWindow"
     Width="800"
     Height="450"
+    MinWidth="650"
+    MinHeight="350"
     mc:Ignorable="d">
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>

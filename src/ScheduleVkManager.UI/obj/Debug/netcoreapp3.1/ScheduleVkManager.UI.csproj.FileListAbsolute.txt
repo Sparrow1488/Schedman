@@ -55,3 +55,5 @@ C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkMana
 C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\Views\StartupView.g.cs
 C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\Views\MainView.baml
 C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\Views\StartupView.baml
+C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\CustomControls\StartupServiceCard.g.cs
+C:\Users\Dom\Desktop\Репозитории\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\CustomControls\StartupServiceCard.baml
