@@ -16,9 +16,6 @@ namespace ScheduleVkManager
 {
     public class VkManager : IStorableErrors
     {
-        private readonly VkApi _api;
-        public IList<string> Errors { get; private set; }
-
         public VkManager()
         {
             var services = new ServiceCollection();
@@ -26,6 +23,9 @@ namespace ScheduleVkManager
             _api = new VkApi(services);
             Errors = new List<string>();
         }
+
+        private readonly VkApi _api;
+        public IList<string> Errors { get; private set; }
 
         public async Task<bool> AuthorizeAsync(AuthorizeData authorizeData)
         {
