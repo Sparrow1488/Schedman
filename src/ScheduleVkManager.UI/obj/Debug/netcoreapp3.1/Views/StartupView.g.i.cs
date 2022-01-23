@@ -54,7 +54,7 @@ namespace ScheduleVkManager.UI.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ScheduleVkManager.UI;component/views/startupview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ScheduleVkManager.UI;V1.0.0.0;component/views/startupview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\StartupView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
