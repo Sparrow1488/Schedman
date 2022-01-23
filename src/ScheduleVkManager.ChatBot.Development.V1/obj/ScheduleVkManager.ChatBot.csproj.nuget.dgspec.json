@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "VkNet": {
               "target": "Package",
               "version": "[1.41.0, )"

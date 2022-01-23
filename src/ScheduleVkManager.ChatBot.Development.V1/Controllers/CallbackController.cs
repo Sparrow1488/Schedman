@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using ScheduleVkManager.ChatBot.Entities;
+using Serilog;
 using System;
 using System.Threading.Tasks;
 using VkNet.Abstractions;
@@ -28,6 +29,7 @@ namespace ScheduleVkManager.ChatBot.Controllers
         [HttpPost]
         public IActionResult Callback([FromBody] VkCallback vkRequest)
         {
+            Log.Information("Callback method invoked");
             IActionResult response = Ok("ok");
 
             try {
@@ -57,12 +59,17 @@ namespace ScheduleVkManager.ChatBot.Controllers
         public IActionResult SetPause()
         {
             _settings.Pause = !_settings.Pause;
+            Log.Information("Set pause mode: " + _settings.Pause);
             return Ok(_settings.Pause);
         }
 
         [HttpGet("status")]
         public IActionResult GetStatus()
         {
+            if (_api.IsAuthorized)
+            {
+                Log.Warning("Was authorizated on vk");
+            }
             return new JsonResult(new {
                 status = "ok",
                 isAuth = _api.IsAuthorized
