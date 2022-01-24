@@ -16,15 +16,18 @@ namespace ScheduleVkManager.ChatBot.Controllers
     public class CallbackController : ControllerBase
     {
         public CallbackController(
-            IVkApi api, IConfiguration configuration, IVkCommandsSelector commandsHandler) {
+            IVkApi api, IConfiguration configuration, IVkCommandsSelector commandsHandler,
+                IWritableService writable) {
             _api = api;
             _config = configuration;
             _commandsHandler = commandsHandler;
+            _writable = writable;
         }
 
         private readonly IVkApi _api;
         private readonly IConfiguration _config;
         private readonly IVkCommandsSelector _commandsHandler;
+        private readonly IWritableService _writable;
 
         [HttpPost]
         public IActionResult Callback([FromBody] VkCallback vkRequest)
@@ -44,6 +47,7 @@ namespace ScheduleVkManager.ChatBot.Controllers
 
                         commandAdapter.UseApi(_api);
                         var result = commandAdapter.Execute(userInput.Text, vkRequest);
+                        //_writable.Write(result);
                     }
                 }
             } catch (Exception ex) {
@@ -71,7 +75,8 @@ namespace ScheduleVkManager.ChatBot.Controllers
             return new JsonResult(new {
                 status = "ok",
                 isAuth = _api.IsAuthorized,
-                isPaused = _config["BotConfig:Settings:Pause"]
+                isPaused = _config["BotConfig:Settings:Pause"],
+                botVersion = _config["BotConfig:Version"]
             });
         }
     }

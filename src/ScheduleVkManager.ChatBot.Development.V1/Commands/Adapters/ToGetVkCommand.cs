@@ -1,10 +1,8 @@
 ﻿using ScheduleVkManager.ChatBot.Entities;
-using System;
 using System.IO;
 using System.Linq;
 using VkNet.Abstractions;
 using VkNet.Model;
-using VkNet.Model.RequestParams;
 using VkNet.Utils;
 
 namespace ScheduleVkManager.ChatBot.Commands.Adapters
@@ -15,18 +13,19 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
 
         public CommandResult Execute(string command, VkCallback input)
         {
-            CommandResult response = new CommandResult();
+            CommandResult response = null;
             var chaps = command.Split(" ");
             if(chaps.Length >= 2) {
                 string commandTarget = chaps[1];
                 if (commandTarget == "group_name") {
-                    response = WriteGroupName(input);
+                    response = GetGroupName(input);
                 }
                 if (commandTarget == "help") {
-                    response = WriteCommandsInfo(input);
+                    response = GetCommandsInfo(input);
                 }
             }
-            return response;  
+            return response ?? new CommandResult($"Не найдена цель команды \"{command}\"",
+                                                    dialog: Message.FromJson(new VkResponse(input.Object)).PeerId.Value);  
         }
 
         public void UseApi(IVkApi api)
@@ -34,37 +33,23 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
             _vkApi = api;
         }
 
-        private CommandResult WriteGroupName(VkCallback input)
+        private CommandResult GetGroupName(VkCallback input)
         {
             var message = Message.FromJson(new VkResponse(input.Object));
             var groupName = _vkApi.Groups.GetById(null, input.GroupId.ToString(), null)
                                          ?.FirstOrDefault()?.Name ?? string.Empty;
 
-            string commandResult = $"Вы находитесь в сообществе {groupName}! Не забывайте об этом";
-            _vkApi.Messages.Send(new MessagesSendParams() {
-                RandomId = DateTime.Now.Millisecond,
-                PeerId = message.PeerId.Value,
-                Message = commandResult
-            });
-
-            var response = new CommandResult(commandResult);
-            return response;
+            return new CommandResult($"Вы находитесь в сообществе {groupName}! Не забывайте об этом",
+                                        dialog: message.PeerId.Value);
         }
 
-        private CommandResult WriteCommandsInfo(VkCallback input)
+        private CommandResult GetCommandsInfo(VkCallback input)
         {
             var message = Message.FromJson(new VkResponse(input.Object));
             string commandResult = $"Другалек, присаживайся, заваривай шаван и в путь изучать команды бота:\n";
             commandResult += File.ReadAllText("BotCommands.txt");
-            _vkApi.Messages.Send(new MessagesSendParams()
-            {
-                RandomId = DateTime.Now.Millisecond,
-                PeerId = message.PeerId.Value,
-                Message = commandResult
-            });
 
-            var response = new CommandResult(commandResult);
-            return response;
+            return new CommandResult(commandResult, dialog: message.PeerId.Value);
         }
     }
 }

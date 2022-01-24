@@ -1,20 +1,38 @@
-﻿using ScheduleVkManager.ChatBot.Services.Interfaces;
+﻿using ScheduleVkManager.ChatBot.Commands;
+using ScheduleVkManager.ChatBot.Services.Interfaces;
+using System;
 using VkNet.Abstractions;
+using VkNet.Model.RequestParams;
 
 namespace ScheduleVkManager.ChatBot.Services
 {
     public class VkWritableService : IWritableService
     {
-        public VkWritableService(IVkApi api)
+        public VkWritableService(IVkApi vkApi)
         {
-            _api = api;
+            _vkApi = vkApi;
         }
 
-        private readonly IVkApi _api;
+        private readonly IVkApi _vkApi;
 
-        public void Write(string text)
+        public void Write(CommandResult input)
         {
-            throw new System.NotImplementedException();
+            if (IsValid(input)) {
+                _vkApi.Messages.Send(new MessagesSendParams() {
+                    RandomId = DateTime.Now.Millisecond,
+                    PeerId = input.ToDialog,
+                    Message = input.Result
+                });
+            }
+        }
+
+        private bool IsValid(CommandResult input)
+        {
+            bool result = true;
+            if(input.ToDialog == 0) {
+                throw new ArgumentException("Не присвоен идентификатор диалога");
+            }
+            return result;
         }
     }
 }

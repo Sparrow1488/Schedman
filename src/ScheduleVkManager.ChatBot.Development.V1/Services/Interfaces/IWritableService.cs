@@ -1,7 +1,9 @@
-﻿namespace ScheduleVkManager.ChatBot.Services.Interfaces
+﻿using ScheduleVkManager.ChatBot.Commands;
+
+namespace ScheduleVkManager.ChatBot.Services.Interfaces
 {
     public interface IWritableService
     {
-        void Write(string text);
+        void Write(CommandResult input);
     }
 }

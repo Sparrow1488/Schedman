@@ -32,13 +32,8 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
         private CommandResult IncorrectInputCommandHandle(VkCallback input)
         {
             var message = Message.FromJson(new VkResponse(input.Object));
-            string commandResult = $"Команда \"{message}\" не была распознана. Попробуйте \"/get help\"";
-            _vkApi.Messages.Send(new MessagesSendParams() {
-                RandomId = DateTime.Now.Millisecond,
-                PeerId = message.PeerId.Value,
-                Message = commandResult
-            });
-            return new CommandResult(commandResult);
+            string commandResult = $"Команда \"{message.Text}\" не была распознана. Попробуйте \"/get help\"";
+            return new CommandResult(commandResult, dialog: message.PeerId.Value);
         }
     }
 }
