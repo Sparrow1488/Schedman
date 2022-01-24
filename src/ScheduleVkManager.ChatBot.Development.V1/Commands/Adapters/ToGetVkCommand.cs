@@ -1,5 +1,6 @@
 ﻿using ScheduleVkManager.ChatBot.Entities;
 using System;
+using System.IO;
 using System.Linq;
 using VkNet.Abstractions;
 using VkNet.Model;
@@ -17,8 +18,12 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
             CommandResult response = new CommandResult();
             var chaps = command.Split(" ");
             if(chaps.Length >= 2) {
-                if (chaps[1] == "group_name") {
+                string commandTarget = chaps[1];
+                if (commandTarget == "group_name") {
                     response = WriteGroupName(input);
+                }
+                if (commandTarget == "help") {
+                    response = WriteCommandsInfo(input);
                 }
             }
             return response;  
@@ -37,6 +42,22 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
 
             string commandResult = $"Вы находитесь в сообществе {groupName}! Не забывайте об этом";
             _vkApi.Messages.Send(new MessagesSendParams() {
+                RandomId = DateTime.Now.Millisecond,
+                PeerId = message.PeerId.Value,
+                Message = commandResult
+            });
+
+            var response = new CommandResult(commandResult);
+            return response;
+        }
+
+        private CommandResult WriteCommandsInfo(VkCallback input)
+        {
+            var message = Message.FromJson(new VkResponse(input.Object));
+            string commandResult = $"Другалек, присаживайся, заваривай шаван и в путь изучать команды бота:\n";
+            commandResult += File.ReadAllText("BotCommands.txt");
+            _vkApi.Messages.Send(new MessagesSendParams()
+            {
                 RandomId = DateTime.Now.Millisecond,
                 PeerId = message.PeerId.Value,
                 Message = commandResult

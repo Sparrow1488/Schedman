@@ -12,5 +12,11 @@
     <PackageReference Include="VkNet" Version="1.41.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="BotCommands.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

@@ -92,3 +92,4 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\Sche
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.ChatBot.Development.V1\obj\Debug\netcoreapp3.1\ScheduleVkManager.ChatBot.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.ChatBot.Development.V1\obj\Debug\netcoreapp3.1\ScheduleVkManager.ChatBot.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.ChatBot.Development.V1\obj\Debug\netcoreapp3.1\ScheduleVkManager.ChatBot.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.ChatBot.Development.V1\bin\Debug\netcoreapp3.1\BotCommands.txt
