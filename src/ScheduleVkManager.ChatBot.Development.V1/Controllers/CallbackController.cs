@@ -47,7 +47,7 @@ namespace ScheduleVkManager.ChatBot.Controllers
 
                         commandAdapter.UseApi(_api);
                         var result = commandAdapter.Execute(userInput.Text, vkRequest);
-                        //_writable.Write(result);
+                        _writable.Write(result);
                     }
                 }
             } catch (Exception ex) {
