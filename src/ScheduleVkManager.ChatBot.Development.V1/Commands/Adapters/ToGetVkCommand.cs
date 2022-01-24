@@ -1,8 +1,6 @@
 ﻿using ScheduleVkManager.ChatBot.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
@@ -33,19 +31,18 @@ namespace ScheduleVkManager.ChatBot.Commands.Adapters
 
         private CommandResult WriteGroupName(VkCallback input)
         {
-            var response = new CommandResult();
             var message = Message.FromJson(new VkResponse(input.Object));
-            var groups = _vkApi.Groups.GetById(new List<string>() { 
-                _vkApi.UserId.ToString()
-            }, _vkApi.UserId.ToString(), null);
-            var groupName = groups.FirstOrDefault().Name;
-            _vkApi.Messages.Send(new MessagesSendParams()
-            {
+            var groupName = _vkApi.Groups.GetById(null, input.GroupId.ToString(), null)
+                                         ?.FirstOrDefault()?.Name ?? string.Empty;
+
+            string commandResult = $"Вы находитесь в сообществе {groupName}! Не забывайте об этом";
+            _vkApi.Messages.Send(new MessagesSendParams() {
                 RandomId = DateTime.Now.Millisecond,
                 PeerId = message.PeerId.Value,
-                Message = "Название группы: " + groupName
+                Message = commandResult
             });
 
+            var response = new CommandResult(commandResult);
             return response;
         }
     }

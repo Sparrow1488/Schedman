@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager", "ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj", "{68B79CD2-4074-4885-82B8-F917856F059F}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.UI", "Sch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.Examples", "ScheduleVkManager.Examples\ScheduleVkManager.Examples.csproj", "{482CE131-67D2-4FAE-991A-E17D24B8522E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleVkManager.ChatBot", "ScheduleVkManager.ChatBot\ScheduleVkManager.ChatBot.csproj", "{91E4C4A8-CD53-43F6-A7C6-8233E63973F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.ChatBot", "ScheduleVkManager.ChatBot.Development.V1\ScheduleVkManager.ChatBot.csproj", "{D0537770-2169-46BC-9628-B4636CBD05EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91E4C4A8-CD53-43F6-A7C6-8233E63973F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91E4C4A8-CD53-43F6-A7C6-8233E63973F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91E4C4A8-CD53-43F6-A7C6-8233E63973F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91E4C4A8-CD53-43F6-A7C6-8233E63973F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0537770-2169-46BC-9628-B4636CBD05EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0537770-2169-46BC-9628-B4636CBD05EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0537770-2169-46BC-9628-B4636CBD05EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0537770-2169-46BC-9628-B4636CBD05EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

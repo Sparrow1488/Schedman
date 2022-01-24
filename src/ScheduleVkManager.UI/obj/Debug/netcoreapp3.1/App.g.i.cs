@@ -46,7 +46,7 @@ namespace ScheduleVkManager.UI {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.1.0")]
         public static void Main() {
             ScheduleVkManager.UI.App app = new ScheduleVkManager.UI.App();
             app.Run();

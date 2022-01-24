@@ -3,8 +3,8 @@ using ScheduleVkManager.ChatBot.Entities;
 
 namespace ScheduleVkManager.ChatBot.Services.Interfaces
 {
-    public interface IVkCommandsHandler
+    public interface IVkCommandsSelector
     {
-        IVkCommandAdapter Handle(VkCallback request);
+        IVkCommandAdapter Select(VkCallback request);
     }
 }

@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\**" />
+    <Compile Remove="Resources\**" />
     <Compile Remove="Tools\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <EmbeddedResource Remove="Resources\**" />
     <EmbeddedResource Remove="Tools\**" />
+    <None Remove="Pages\**" />
+    <None Remove="Resources\**" />
     <None Remove="Tools\**" />
+    <Page Remove="Pages\**" />
+    <Page Remove="Resources\**" />
     <Page Remove="Tools\**" />
   </ItemGroup>
 
@@ -20,11 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="Resources\Images\" />
   </ItemGroup>
 
 </Project>

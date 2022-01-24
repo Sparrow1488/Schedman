@@ -36,7 +36,7 @@ namespace ScheduleVkManager.ChatBot
                 return api;
             });
             services.AddSingleton<BotSettings>();
-            services.AddSingleton<IVkCommandsHandler, VkCommandsHandler>();
+            services.AddTransient<IVkCommandsSelector, VkCommandsSelector>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
