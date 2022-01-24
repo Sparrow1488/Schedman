@@ -16,17 +16,14 @@ namespace ScheduleVkManager.ChatBot.Controllers
     public class CallbackController : ControllerBase
     {
         public CallbackController(
-            IVkApi api, IConfiguration configuration, 
-                BotSettings settings, IVkCommandsSelector commandsHandler) {
+            IVkApi api, IConfiguration configuration, IVkCommandsSelector commandsHandler) {
             _api = api;
             _config = configuration;
-            _settings = settings;
             _commandsHandler = commandsHandler;
         }
 
         private readonly IVkApi _api;
         private readonly IConfiguration _config;
-        private readonly BotSettings _settings;
         private readonly IVkCommandsSelector _commandsHandler;
 
         [HttpPost]
@@ -41,7 +38,7 @@ namespace ScheduleVkManager.ChatBot.Controllers
                     response = Ok(_config["VkConfig:Confirmation"]);
                 }
                 else if (vkRequest.Type.ToLower().Contains("message_new")) {
-                    if (!_settings.Pause) {
+                    if (!_config.GetValue<bool>("BotConfig:Settings:Pause")) {
                         var commandAdapter = _commandsHandler.Select(vkRequest) ?? new EmptyVkCommand();
                         var userInput = Message.FromJson(new VkResponse(vkRequest.Object));
 
@@ -62,9 +59,10 @@ namespace ScheduleVkManager.ChatBot.Controllers
         [HttpGet("pause")]
         public IActionResult Pause()
         {
-            _settings.Pause = !_settings.Pause;
-            Log.Information("Set pause mode: " + _settings.Pause);
-            return Ok("ok");
+            string sectionName = "BotConfig:Settings:Pause";
+            _config[sectionName] = (!_config.GetValue<bool>(sectionName)).ToString();
+            Log.Information("Set pause mode: " + _config[sectionName]);
+            return Ok(_config[sectionName]);
         }
 
         [HttpGet("status")]
@@ -73,7 +71,7 @@ namespace ScheduleVkManager.ChatBot.Controllers
             return new JsonResult(new {
                 status = "ok",
                 isAuth = _api.IsAuthorized,
-                isPaused = _settings.Pause
+                isPaused = _config["BotConfig:Settings:Pause"]
             });
         }
     }

@@ -35,7 +35,6 @@ namespace ScheduleVkManager.ChatBot
                 else Log.Error("Authorizated on vk was failed");
                 return api;
             });
-            services.AddSingleton<BotSettings>();
             services.AddTransient<IVkCommandsSelector, VkCommandsSelector>();
         }
 
