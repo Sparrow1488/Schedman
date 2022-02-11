@@ -11,3 +11,147 @@
 2022-02-11 20:09:35.257 +03:00 [INF] Try authorize...
 2022-02-11 20:11:15.637 +03:00 [INF] Started SheduleVkManager
 2022-02-11 20:11:15.726 +03:00 [INF] Try authorize...
+2022-02-11 20:15:05.212 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:17:16.776 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:17:16.961 +03:00 [INF] Try authorize...
+2022-02-11 20:17:27.101 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:17:27.586 +03:00 [INF] Try authorize...
+2022-02-11 20:17:44.820 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:17:44.922 +03:00 [INF] Try authorize...
+2022-02-11 20:18:23.957 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:18:24.049 +03:00 [INF] Try authorize...
+2022-02-11 20:18:27.629 +03:00 [INF] Authorize success
+2022-02-11 20:18:27.632 +03:00 [INF] Get group named "Full party"
+2022-02-11 20:18:28.076 +03:00 [INF] Success found group, id_169992105
+2022-02-11 20:18:28.077 +03:00 [INF] Starting create posts...
+2022-02-11 20:20:03.363 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:20:04.549 +03:00 [INF] Try authorize...
+2022-02-11 20:20:07.186 +03:00 [INF] Authorize success
+2022-02-11 20:20:07.187 +03:00 [INF] Get group named "Full party"
+2022-02-11 20:20:07.614 +03:00 [INF] Success found group, id_169992105
+2022-02-11 20:20:07.616 +03:00 [INF] Starting create posts...
+2022-02-11 20:20:07.717 +03:00 [FTL] Unhandle exception
+ScheduleVkManager.Exceptions.InvalidInputDateException: You can't create scheduler with start date in the past!
+   at ScheduleVkManager.Entities.Scheduler.Create(IEnumerable`1 times, Int32 days, Nullable`1 startTime) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\Entities\Scheduler.cs:line 39
+   at ScheduleVkManager.Entities.Scheduler.Create(IEnumerable`1 times, Int32 days, Int32 limitCount, Nullable`1 startTime) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\Entities\Scheduler.cs:line 58
+   at ScheduleVkManager.Program.StartScheduleVkManageAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\Program.cs:line 91
+   at ScheduleVkManager.Program.<>c.<<Main>b__4_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\Program.cs:line 50
+--- End of stack trace from previous location where exception was thrown ---
+   at ScheduleVkManager.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\Program.cs:line 50
+2022-02-11 20:38:00.891 +03:00 [INF] Started SheduleVkManager
+2022-02-11 20:38:01.801 +03:00 [INF] Try authorize...
+2022-02-11 20:38:04.932 +03:00 [INF] Authorize success
+2022-02-11 20:38:04.935 +03:00 [INF] Get group named "Full party"
+2022-02-11 20:38:05.366 +03:00 [INF] Success found group, id_169992105
+2022-02-11 20:38:05.370 +03:00 [INF] Starting create posts...
+2022-02-11 20:38:07.404 +03:00 [INF] Post was success loaded
+2022-02-11 20:39:34.701 +03:00 [INF] Post was success loaded
+2022-02-11 20:40:39.823 +03:00 [INF] Post was success loaded
+2022-02-11 20:41:29.215 +03:00 [INF] Post was success loaded
+2022-02-11 20:41:50.781 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:03.286 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:04.249 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:05.131 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:07.876 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:08.887 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:09.892 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:10.923 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:11.957 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:13.655 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:16.835 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:18.523 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:19.467 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:20.543 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:21.531 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:22.531 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:23.567 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:24.641 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:25.708 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:26.653 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:28.650 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:30.258 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:31.300 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:32.292 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:33.263 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:34.343 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:35.435 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:36.421 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:38.184 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:39.166 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:40.221 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:42.205 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:43.200 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:44.238 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:45.249 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:46.270 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:47.352 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:48.410 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:52.019 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:53.034 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:54.047 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:55.136 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:56.221 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:57.205 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:58.109 +03:00 [INF] Post was success loaded
+2022-02-11 20:42:59.923 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:03.023 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:04.032 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:05.055 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:06.126 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:08.106 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:09.122 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:10.140 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:11.191 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:12.196 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:14.617 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:15.695 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:16.716 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:17.678 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:18.966 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:19.959 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:20.986 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:21.987 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:23.083 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:24.069 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:25.092 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:26.147 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:27.149 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:28.167 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:30.773 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:31.820 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:32.803 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:34.034 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:34.980 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:36.040 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:36.886 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:39.512 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:40.497 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:41.519 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:42.573 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:43.592 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:44.600 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:45.626 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:46.670 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:48.379 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:49.401 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:50.861 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:52.862 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:56.495 +03:00 [INF] Post was success loaded
+2022-02-11 20:43:57.701 +03:00 [INF] Post was success loaded
+2022-02-11 20:44:00.188 +03:00 [INF] Post was success loaded
+2022-02-11 20:44:01.720 +03:00 [INF] Post was success loaded
+2022-02-11 20:44:04.915 +03:00 [INF] Post was success loaded
+2022-02-11 20:44:05.790 +03:00 [FTL] Wrong json data.
+VkNet.Exception.VkApiException: Wrong json data.
+ ---> Newtonsoft.Json.JsonReaderException: Error reading JObject from JsonReader. Path '', line 0, position 0.
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at VkNet.Infrastructure.JsonConfigure.ToJObject(String answer)
+   --- End of inner exception stack trace ---
+   at VkNet.Infrastructure.JsonConfigure.ToJObject(String answer)
+   at VkNet.Categories.PhotoCategory.SaveWallPhoto(String response, Nullable`1 userId, Nullable`1 groupId, String caption)
+   at ScheduleVkManager.Entities.GroupManager.UploadWallPhotosAsync(IEnumerable`1 localUrls)
+   at ScheduleVkManager.Entities.GroupManager.AddPostAsync(CreatePost post)
+   at ScheduleVkManager.Program.StartScheduleVkManageAsync()
+   at ScheduleVkManager.Program.<>c.<<Main>b__5_0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at ScheduleVkManager.Program.Main()

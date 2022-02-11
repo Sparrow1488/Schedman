@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using ScheduleVkManager.Entities;
 using ScheduleVkManager.Extensions;
-using ScheduleVkManager.Storage;
+using ScheduleVkManager.Tools;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +17,7 @@ namespace ScheduleVkManager
         private static GroupManager _group;
         private static readonly Scheduler _scheduler = new Scheduler();
         private static readonly PostEditor _postEditor = new PostEditor();
-        private static readonly FileStorage _storage = new FileStorage();
+        private static readonly PublicationsLogger _postLogger = new PublicationsLogger();
         private static readonly List<TimeSpan> _times = new List<TimeSpan>() {
                 new TimeSpan(0, 0, 0),
                 new TimeSpan(3, 0, 0),
@@ -48,62 +47,77 @@ namespace ScheduleVkManager
 
             Log.Information("Started SheduleVkManager");
 
-
-            Task.Run(async () =>
+            try
             {
-                Log.Information("Try authorize...");
-                var authDataPath = System.Configuration.ConfigurationManager.AppSettings["Auth"];
-                var authData = new AuthorizeData(authDataPath);
-                var vkManager = new VkManager();
-                var authResult = await vkManager.AuthorizeAsync(authData);
-                if (authResult is false)
+                Task.Run(async () => await StartScheduleVkManageAsync()).GetAwaiter().GetResult();
+            }
+            catch(Exception ex)
+            {
+                Log.Fatal(ex, ex.Message);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+        }
+
+        private static async Task StartScheduleVkManageAsync()
+        {
+            Log.Information("Try authorize...");
+            var authDataPath = System.Configuration.ConfigurationManager.AppSettings["Auth"];
+            var authData = new AuthorizeData(authDataPath);
+            var vkManager = new VkManager();
+            var authResult = await vkManager.AuthorizeAsync(authData);
+            if (authResult is false)
+            {
+                vkManager.Errors.PrintErrors();
+                vkManager.ClearErrors();
+                throw new Exception("Auth error");
+            }
+            else Log.Information("Authorize success");
+
+
+            string findGroupName = "Full party";
+            Log.Information($"Get group named \"{findGroupName}\"");
+            _group = await vkManager.GetGroupManagerAsync(findGroupName);
+            if (_group.Id == 0)
+            {
+                vkManager.Errors.PrintErrors();
+                throw new Exception("Cannot find group");
+            }
+            else Log.Information("Success found group, id_" + _group.Id);
+
+
+            Log.Information("Starting create posts...");
+            var posts = _postEditor.CreatePostRange();
+            _scheduler.Create(_times, 30, posts.Count());
+            posts = posts.Shuffle();
+            posts = _postEditor.SetSchedule(posts, _scheduler);
+
+            int postCount = posts.Count();
+            int currentPostNum = 0;
+            foreach (var post in posts)
+            {
+                try
                 {
-                    vkManager.Errors.PrintErrors();
-                    vkManager.ClearErrors();
-                    throw new Exception("Auth error");
+                    var createdPost = await _group.AddPostAsync(post);
+                    Log.Information($"({currentPostNum}|{postCount}) Post was success loaded");
                 }
-                else Log.Information("Authorize success");
-
-
-                string findGroupName = "Full party";
-                Log.Information($"Get group named \"{findGroupName}\"");
-                _group = await vkManager.GetGroupManagerAsync(findGroupName);
-                if (_group.Id == 0)
+                catch (PostLimitException e)
                 {
-                    vkManager.Errors.PrintErrors();
-                    throw new Exception("Cannot find group");
+                    Log.Error(e.Message);
+                    _postLogger.LogNotPublicated(post);
                 }
-                else Log.Information("Success found group, id_" + _group.Id);
-
-
-                Log.Information("Starting create posts...");
-                var posts = _postEditor.CreatePostRange();
-                _scheduler.Create(_times, 30, posts.Count(), new DateTime(2022, 01, 22));
-                posts = posts.Shuffle();
-                posts = _postEditor.SetSchedule(posts, _scheduler);
-                foreach (var post in posts)
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        var createdPost = await _group.AddPostAsync(post);
-                        Log.Information("Post was success loaded");
-                    }
-                    catch (PostLimitException e)
-                    {
-                        Log.Error(e.Message);
-                        using (var swFile = new StreamWriter(File.OpenWrite("./unloaded-errors.txt")))
-                        {
-                            swFile.WriteLine($"@\nmessage:{post.Message}");
-                            foreach (var photo in post.PhotosUrl)
-                                swFile.WriteLine(photo);
-                            swFile.WriteLine("@");
-                        }
-                    }
+                    Log.Fatal(ex, ex.Message);
+                    _postLogger.LogNotPublicated(post);
                 }
-
-            }).GetAwaiter().GetResult();
-
-            Log.CloseAndFlush();
+                finally
+                {
+                    currentPostNum++;
+                }
+            }
         }
 
         private static void InitConfiguration(IConfigurationBuilder builder) =>

@@ -133,3 +133,4 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\Sche
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\obj\Debug\netcoreapp3.1\ScheduleVkManager.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\obj\Debug\netcoreapp3.1\ScheduleVkManager.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\obj\Debug\netcoreapp3.1\ScheduleVkManager.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager\ScheduleVkManager\obj\Debug\netcoreapp3.1\ScheduleVkManager.csproj.AssemblyReference.cache
