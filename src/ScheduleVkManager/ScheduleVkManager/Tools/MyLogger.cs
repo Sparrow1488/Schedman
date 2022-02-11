@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ScheduleVkManager.Tools
 {
-    internal class Logger
+    internal class MyLogger
     {
         public void Log(string message)
         {
