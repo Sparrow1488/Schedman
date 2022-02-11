@@ -1,9 +1,9 @@
-﻿using ScheduleVkManager.Extensions;
+﻿using ScheduleVkManager.Exceptions;
+using ScheduleVkManager.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ScheduleVkManager.Entities
 {
@@ -27,12 +27,15 @@ namespace ScheduleVkManager.Entities
 
         public void Create(IEnumerable<TimeSpan> times, int days, DateTime? startTime = null)
         {
-            if (times is null) {
+            if (times is null) 
                 throw new ArgumentNullException($"{nameof(times)} was null");
-            }
 
             var timesArr = times.ToArray();
             var actual = times.GetActualTime();
+
+            if (startTime < DateTime.Now)
+                throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
+
             var now = startTime ?? DateTime.Now;
             bool checkFirstDay = false;
             for (int j = 0; j < days; j++) {

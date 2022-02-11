@@ -16,8 +16,8 @@ namespace ScheduleVkManager.ChatBot.Controllers
     public class CallbackController : ControllerBase
     {
         public CallbackController(
-            IVkApi api, IConfiguration configuration, IVkCommandsSelector commandsHandler,
-                IWritableService writable) {
+            IVkApi api, IConfiguration configuration, 
+                IVkCommandsSelector commandsHandler, IWritableService writable) {
             _api = api;
             _config = configuration;
             _commandsHandler = commandsHandler;

@@ -5,7 +5,12 @@
       "ProjectGuid": "68b79cd2-4074-4885-82b8-f917856f059f",
       "DisplayName": "ScheduleVkManager",
       "ColorIndex": 0
+    },
+    "d0537770-2169-46bc-9628-b4636cbd05ec": {
+      "ProjectGuid": "d0537770-2169-46bc-9628-b4636cbd05ec",
+      "DisplayName": "ScheduleVkManager.ChatBot",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

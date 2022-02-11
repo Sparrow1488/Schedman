@@ -1,4 +1,5 @@
-﻿using ScheduleVkManager.Interfaces;
+﻿using ScheduleVkManager.Exceptions;
+using ScheduleVkManager.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,11 @@ namespace ScheduleVkManager.Entities
         {
             var uploadedPhotos = await UploadWallPhotosAsync(post.PhotosUrl);
             DateTime? schedule;
+
             if (post.Schedule < DateTime.Now)
-                schedule = null;
+                throw new InvalidInputDateException("You can't create post with past date!");
             else schedule = post.Schedule;
+
             var postId = await _api.Wall.PostAsync(new WallPostParams()
             {
                 Signed = false,
