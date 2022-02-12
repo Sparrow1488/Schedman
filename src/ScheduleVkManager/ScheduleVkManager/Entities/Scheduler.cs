@@ -26,6 +26,8 @@ namespace ScheduleVkManager.Entities
 
         public void Create(DateTime firstTime, TimeSpan interval, int count)
         {
+            if (count < 0)
+                throw new ArgumentException($"{nameof(count)} should be possitive!");
             if (firstTime < DateTime.Now)
                 throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
 
@@ -38,6 +40,8 @@ namespace ScheduleVkManager.Entities
         {
             if (times is null) 
                 throw new ArgumentNullException($"{nameof(times)} was null");
+            if (days < 1)
+                throw new ArgumentException($"{nameof(days)} should be possitive! (more zero)");
 
             var timesArr = times.ToArray();
             var actual = times.GetActualTime();
@@ -64,6 +68,9 @@ namespace ScheduleVkManager.Entities
 
         public void Create(IEnumerable<TimeSpan> times, int days, int limitCount, DateTime? startTime = null)
         {
+            if (limitCount < 1)
+                throw new ArgumentException($"{nameof(limitCount)} should be possitive! (more zero)");
+
             Create(times, days, startTime);
             if(Times.Count() > limitCount) {
                 var timesArr = Times.ToArray();

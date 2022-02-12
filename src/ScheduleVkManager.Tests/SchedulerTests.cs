@@ -66,6 +66,23 @@ namespace ScheduleVkManager.Tests
                                                 scheduler.Create(null));
         }
 
+        [TestMethod]
+        public void Create_UsingNegativeDaysValue_ArgumentException()
+        {
+            var scheduler = new Scheduler();
+            var times = new List<TimeSpan>() { new TimeSpan(2, 0, 0) };
+            Assert.ThrowsException<ArgumentException>(() =>
+                                    scheduler.Create(times, -2, null));
+        }
+
+        [TestMethod]
+        public void Create_UsingNegativeLimitCountValue_ArgumentException()
+        {
+            var scheduler = new Scheduler();
+            Assert.ThrowsException<ArgumentException>(() => 
+                                    scheduler.Create(null, 12, -1, null));
+        }
+
 
         #region Prepared Expired Results
         private List<DateTime> CreateExpiredTimesListFor2DaysUsingStartTime()
