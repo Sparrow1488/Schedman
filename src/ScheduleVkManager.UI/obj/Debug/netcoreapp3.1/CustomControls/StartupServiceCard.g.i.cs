@@ -61,7 +61,7 @@ namespace ScheduleVkManager.UI.CustomControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ScheduleVkManager.UI;V1.0.0.0;component/customcontrols/startupservicecard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ScheduleVkManager.UI;component/customcontrols/startupservicecard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\CustomControls\StartupServiceCard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
