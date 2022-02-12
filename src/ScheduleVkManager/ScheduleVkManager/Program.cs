@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using ScheduleVkManager.Entities;
+using ScheduleVkManager.Exceptions;
 using ScheduleVkManager.Extensions;
 using ScheduleVkManager.Tools;
 using Serilog;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using VkNet.Exception;
 
@@ -18,20 +20,7 @@ namespace ScheduleVkManager
         private static readonly Scheduler _scheduler = new Scheduler();
         private static readonly PostEditor _postEditor = new PostEditor();
         private static readonly PublicationsLogger _postLogger = new PublicationsLogger();
-        private static readonly List<TimeSpan> _times = new List<TimeSpan>() {
-                new TimeSpan(0, 0, 0),
-                new TimeSpan(3, 0, 0),
-                new TimeSpan(5, 0, 0),
-                new TimeSpan(7, 0, 0),
-                new TimeSpan(9, 0, 0),
-                new TimeSpan(12, 0, 0),
-                new TimeSpan(14, 0, 0),
-                new TimeSpan(15, 0, 0),
-                new TimeSpan(17, 0, 0),
-                new TimeSpan(19, 0, 0),
-                new TimeSpan(21, 0, 0),
-                new TimeSpan(23, 0, 0)
-            };
+        private static readonly List<TimeSpan> _times = CreateTimes();
 
         public static void Main()
         {
@@ -72,7 +61,7 @@ namespace ScheduleVkManager
             {
                 vkManager.Errors.PrintErrors();
                 vkManager.ClearErrors();
-                throw new Exception("Auth error");
+                throw new VkAuthorizationException("Auth error");
             }
             else Log.Information("Authorize success");
 
@@ -83,7 +72,7 @@ namespace ScheduleVkManager
             if (_group.Id == 0)
             {
                 vkManager.Errors.PrintErrors();
-                throw new Exception("Cannot find group");
+                throw new GroupFoundException("Cannot find group");
             }
             else Log.Information("Success found group, id_" + _group.Id);
 
@@ -123,5 +112,26 @@ namespace ScheduleVkManager
         private static void InitConfiguration(IConfigurationBuilder builder) =>
             builder.SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+        #region CreateTimesRegion
+
+        private static List<TimeSpan> CreateTimes() =>
+            new List<TimeSpan>() {
+                new TimeSpan(0, 0, 0),
+                new TimeSpan(3, 0, 0),
+                new TimeSpan(5, 0, 0),
+                new TimeSpan(7, 0, 0),
+                new TimeSpan(9, 0, 0),
+                new TimeSpan(12, 0, 0),
+                new TimeSpan(14, 0, 0),
+                new TimeSpan(15, 0, 0),
+                new TimeSpan(17, 0, 0),
+                new TimeSpan(19, 0, 0),
+                new TimeSpan(21, 0, 0),
+                new TimeSpan(23, 0, 0)
+            };
+
+        #endregion
+
     }
 }

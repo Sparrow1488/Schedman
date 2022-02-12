@@ -155,3 +155,11 @@ VkNet.Exception.VkApiException: Wrong json data.
    at ScheduleVkManager.Program.<>c.<<Main>b__5_0>d.MoveNext()
 --- End of stack trace from previous location where exception was thrown ---
    at ScheduleVkManager.Program.Main()
+2022-02-12 23:45:05.709 +03:00 [INF] Started SheduleVkManager
+2022-02-12 23:45:06.662 +03:00 [FTL] Start may not be called on a task that was already started.
+System.InvalidOperationException: Start may not be called on a task that was already started.
+   at System.Threading.Tasks.Task.Start(TaskScheduler scheduler)
+   at System.Threading.Tasks.Task.Start()
+   at ScheduleVkManager.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\ScheduleVkManager\ScheduleVkManager\Program.cs:line 41
+2022-02-12 23:45:50.592 +03:00 [INF] Started SheduleVkManager
+2022-02-12 23:45:50.952 +03:00 [INF] Try authorize...

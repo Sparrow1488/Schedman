@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\
+C:\Users\Александр\Desktop\Repositories\VkSchedman\src\ScheduleVkManager.UI\obj\Debug\netcoreapp3.1\
 ScheduleVkManager.UI
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\ScheduleVkManager\src\ScheduleVkManager.UI\App.xaml
+C:\Users\Александр\Desktop\Repositories\VkSchedman\src\ScheduleVkManager.UI\App.xaml
 4-1700650512
 
 11-1672235305
-223385454045
+223-1440789109
 CustomControls\StartupServiceCard.xaml;Views\MainView.xaml;Views\StartupView.xaml;Windows\MainWindow.xaml;
 
 True
