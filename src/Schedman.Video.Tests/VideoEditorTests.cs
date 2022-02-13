@@ -14,18 +14,22 @@ namespace Schedman.Video.Tests
         {
             _input = new InputOptions();
             _input.AddSource(@"D:\games\ffmpeg\video.mp4");
+            _output = new OutputOptions();
+            _output.SetOutputPath("C:/Users/aleks/Downloads/out-video.mp4");
         }
+
         private IInputOptions _input;
+        private IOutputOptions _output;
         private static string _ffmpegPath = @"D:\games\ffmpeg\ffmpeg.exe";
 
         [TestMethod]
         public void ConvertToExtensionTests()
         {
             var editor = new VideoEditor(_ffmpegPath);
-            editor.OutputFilePath = "C:/Users/aleks/Downloads/out-video.mp4";
-            editor.SetInputOptions(_input);
+            editor.SetOptions(_input);
+            editor.SetOptions(_output);
             editor.ConvertToExtension(FileExtension.AVI);
-            var result = File.Exists(editor.OutputFilePath);
+            var result = File.Exists(_output.GetOutputPath());
 
             Assert.IsTrue(result);
         }
