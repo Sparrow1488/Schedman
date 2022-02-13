@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using VkSchedman.Video;
 using VkSchedman.Video.Abstractions;
+using VkSchedman.Video.Enum;
 using VkSchedman.Video.Options;
 
 namespace Schedman.Video.Tests
@@ -23,7 +24,7 @@ namespace Schedman.Video.Tests
             var editor = new VideoEditor(_ffmpegPath);
             editor.OutputFilePath = "C:/Users/aleks/Downloads/out-video.mp4";
             editor.SetInputOptions(_input);
-            editor.ConvertToExtension();
+            editor.ConvertToExtension(FileExtension.AVI);
             var result = File.Exists(editor.OutputFilePath);
 
             Assert.IsTrue(result);

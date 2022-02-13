@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using VkSchedman.Video.Abstractions;
+using VkSchedman.Video.Enum;
 
 namespace VkSchedman.Video
 {
@@ -26,8 +27,13 @@ namespace VkSchedman.Video
             _inputOptions = options;
         }
 
-        public void ConvertToExtension()
+        public void ConvertToExtension(FileExtension extension)
         {
+            var extensionName = new FileInfo(OutputFilePath).Extension;
+            var outFileWithoutExtension = OutputFilePath.Remove(OutputFilePath.Length - extensionName.Length);
+            outFileWithoutExtension += $".{extension.ToString().ToLower()}";
+            OutputFilePath = outFileWithoutExtension;
+
             var command = BuildOutputCommand();
             var ffmpegStartInfo = new ProcessStartInfo()
             {
