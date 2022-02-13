@@ -10,7 +10,17 @@
       "ProjectGuid": "d0537770-2169-46bc-9628-b4636cbd05ec",
       "DisplayName": "ScheduleVkManager.ChatBot",
       "ColorIndex": 1
+    },
+    "72754d34-3818-4925-ac5a-c4b46f36e7da": {
+      "ProjectGuid": "72754d34-3818-4925-ac5a-c4b46f36e7da",
+      "DisplayName": "VkSchedman.Video",
+      "ColorIndex": 2
+    },
+    "f60dad66-c649-46dc-a3e3-c4731285762d": {
+      "ProjectGuid": "f60dad66-c649-46dc-a3e3-c4731285762d",
+      "DisplayName": "Schedman.Video.Tests",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }
