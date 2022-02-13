@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using VkSchedman.Video.Abstractions;
 
 namespace VkSchedman.Video
 {
@@ -15,34 +16,34 @@ namespace VkSchedman.Video
 
         public readonly string FFmpegPath;
         public string OutputFilePath { get; set; }
-        private List<string> _inputOptions = new List<string>();
         private List<string> _outputOptions = new List<string>();
+        private IInputOptions _inputOptions;
 
-        public void AddVideo(string videoPath)
+        public void SetInputOptions(IInputOptions options)
         {
-            if (string.IsNullOrWhiteSpace(videoPath))
-                throw new ArgumentException($"{nameof(videoPath)} cannot be empty or null!");
-            if (!File.Exists(videoPath))
-                throw new FileLoadException($"File ('{videoPath}') not exists");
-            if (!_inputOptions.Contains("-y"))
-                _inputOptions.Add("-y");
-
-            _inputOptions.Add($"-i {videoPath}");
+            if(options is null)
+                throw new ArgumentNullException($"nameof(options) cannot be null!");
+            _inputOptions = options;
         }
 
-        public void ConvertToAvi()
+        public void ConvertToExtension()
         {
             var command = BuildOutputCommand();
             var ffmpegStartInfo = new ProcessStartInfo()
             {
                 FileName = FFmpegPath,
                 Arguments = command,
-                WorkingDirectory = @"D:\games\ffmpeg\",
+                WorkingDirectory = Directory.GetCurrentDirectory(),
                 CreateNoWindow = true,
                 UseShellExecute = false
             };
 
-            using (var process = new Process() { StartInfo = ffmpegStartInfo })
+            StartFFmpegProcess(ffmpegStartInfo);
+        }
+
+        private void StartFFmpegProcess(ProcessStartInfo startInfo)
+        {
+            using (var process = new Process() { StartInfo = startInfo })
             {
                 process.Start();
                 process.WaitForExit();
@@ -53,12 +54,14 @@ namespace VkSchedman.Video
         {
             if (string.IsNullOrWhiteSpace(OutputFilePath))
                 throw new ArgumentException($"Not set {nameof(OutputFilePath)}");
+            if (_inputOptions is null)
+                throw new ArgumentException($"{nameof(_inputOptions)} cannot be null!");
 
             var builder = new StringBuilder();
-            string betweenTemplate = " ";
-            _inputOptions.ForEach(opt => builder.Append(opt + betweenTemplate));
+            string space = " ";
+            builder.Append(_inputOptions.Build() + space);
             _outputOptions.Add(OutputFilePath);
-            _outputOptions.ForEach(opt => builder.Append(opt + betweenTemplate));
+            _outputOptions.ForEach(opt => builder.Append(opt + space));
             return builder.ToString().Trim();
         }
     }

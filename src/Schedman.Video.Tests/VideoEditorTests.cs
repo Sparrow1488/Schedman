@@ -1,19 +1,29 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using VkSchedman.Video;
+using VkSchedman.Video.Abstractions;
+using VkSchedman.Video.Options;
 
 namespace Schedman.Video.Tests
 {
     [TestClass]
     public class VideoEditorTests
     {
-        [TestMethod]
-        public void ConvertToAviTests()
+        public VideoEditorTests()
         {
-            var editor = new VideoEditor(@"D:\games\ffmpeg\ffmpeg.exe");
+            _input = new InputOptions();
+            _input.AddSource(@"D:\games\ffmpeg\video.mp4");
+        }
+        private IInputOptions _input;
+        private static string _ffmpegPath = @"D:\games\ffmpeg\ffmpeg.exe";
+
+        [TestMethod]
+        public void ConvertToExtensionTests()
+        {
+            var editor = new VideoEditor(_ffmpegPath);
             editor.OutputFilePath = "C:/Users/aleks/Downloads/out-video.mp4";
-            editor.AddVideo(@"D:\games\ffmpeg\video.mp4");
-            editor.ConvertToAvi();
+            editor.SetInputOptions(_input);
+            editor.ConvertToExtension();
             var result = File.Exists(editor.OutputFilePath);
 
             Assert.IsTrue(result);
