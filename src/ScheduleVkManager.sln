@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager", "ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj", "{68B79CD2-4074-4885-82B8-F917856F059F}"
 EndProject
@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.Examples"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.ChatBot", "ScheduleVkManager.ChatBot.Development.V1\ScheduleVkManager.ChatBot.csproj", "{D0537770-2169-46BC-9628-B4636CBD05EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleVkManager.Tests", "ScheduleVkManager.Tests\ScheduleVkManager.Tests.csproj", "{A076FC94-B8C7-4765-8056-2FBD54544F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.Tests", "ScheduleVkManager.Tests\ScheduleVkManager.Tests.csproj", "{A076FC94-B8C7-4765-8056-2FBD54544F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkSchedman.Video", "VkSchedman.Video\VkSchedman.Video.csproj", "{72754D34-3818-4925-AC5A-C4B46F36E7DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedman.Video.Tests", "Schedman.Video.Tests\Schedman.Video.Tests.csproj", "{F60DAD66-C649-46DC-A3E3-C4731285762D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{A076FC94-B8C7-4765-8056-2FBD54544F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A076FC94-B8C7-4765-8056-2FBD54544F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A076FC94-B8C7-4765-8056-2FBD54544F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72754D34-3818-4925-AC5A-C4B46F36E7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72754D34-3818-4925-AC5A-C4B46F36E7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72754D34-3818-4925-AC5A-C4B46F36E7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72754D34-3818-4925-AC5A-C4B46F36E7DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

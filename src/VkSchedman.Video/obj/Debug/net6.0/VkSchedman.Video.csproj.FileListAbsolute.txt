@@ -1,0 +1,12 @@
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\bin\Debug\net6.0\VkSchedman.Video.deps.json
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\bin\Debug\net6.0\VkSchedman.Video.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\bin\Debug\net6.0\ref\VkSchedman.Video.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\bin\Debug\net6.0\VkSchedman.Video.pdb
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.csproj.AssemblyReference.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.AssemblyInfoInputs.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.AssemblyInfo.cs
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.csproj.CoreCompileInputs.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\ref\VkSchedman.Video.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman.Video\obj\Debug\net6.0\VkSchedman.Video.pdb
