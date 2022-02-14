@@ -4,7 +4,7 @@
     {
         MP4 = 0,
         AVI = 10,
-        WebM = 30,
-        GIF = 40
+        WebM = 20,
+        GIF = 30
     }
 }

@@ -15,7 +15,8 @@ namespace Schedman.Video.Tests
             _input = new InputOptions();
             _input.AddSource(@"D:\games\ffmpeg\video.mp4");
             _output = new OutputOptions();
-            _output.SetOutputPath("C:/Users/aleks/Downloads/out-video.mp4");
+            _output.SetOutputPath("C:/Users/aleks/Downloads");
+            _output.SetOutputFileName("test-video");
         }
 
         private IInputOptions _input;
@@ -29,7 +30,7 @@ namespace Schedman.Video.Tests
             editor.SetOptions(_input);
             editor.SetOptions(_output);
             editor.ConvertToExtension(FileExtension.AVI);
-            var result = File.Exists(_output.GetOutputPath());
+            var result = File.Exists(_output.GetResultPath());
 
             Assert.IsTrue(result);
         }

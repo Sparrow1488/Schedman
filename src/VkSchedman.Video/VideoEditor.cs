@@ -7,7 +7,7 @@ namespace VkSchedman.Video
 {
     public class VideoEditor
     {
-        public VideoEditor(string ffmpegPath, string outputFilePath = "")
+        public VideoEditor(string ffmpegPath)
         {
             if (!File.Exists(ffmpegPath))
                 throw new ArgumentException("File not exists!");
@@ -17,6 +17,7 @@ namespace VkSchedman.Video
         public readonly string FFmpegPath;
         private IOutputOptions _outputOptions;
         private IInputOptions _inputOptions;
+        private string _resultFilePath = string.Empty;
 
         public void SetOptions(IInputOptions options)
         {
@@ -34,23 +35,24 @@ namespace VkSchedman.Video
 
         public void ConvertToExtension(FileExtension extension)
         {
-            var outPath = _outputOptions.GetOutputPath();
-            var extensionName = new FileInfo(outPath).Extension;
-            var outFileWithoutExtension = outPath.Remove(outPath.Length - extensionName.Length);
-            outFileWithoutExtension += $".{extension.ToString().ToLower()}";
-            _outputOptions.SetOutputPath(outFileWithoutExtension);
-
+            _outputOptions.SetOutputExtension(extension);
             var command = BuildOutputCommand();
+
+            var ffmpegStartInfo = CreateStartInfoDefault(command);
+            StartFFmpegProcess(ffmpegStartInfo);
+        }
+
+        private ProcessStartInfo CreateStartInfoDefault(string executeCommand)
+        {
             var ffmpegStartInfo = new ProcessStartInfo()
             {
                 FileName = FFmpegPath,
-                Arguments = command,
+                Arguments = executeCommand,
                 WorkingDirectory = Directory.GetCurrentDirectory(),
                 CreateNoWindow = true,
                 UseShellExecute = false
             };
-
-            StartFFmpegProcess(ffmpegStartInfo);
+            return ffmpegStartInfo;
         }
 
         private void StartFFmpegProcess(ProcessStartInfo startInfo)
