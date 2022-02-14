@@ -43,10 +43,14 @@ namespace VkSchedman.Video
 
         public void ConcatFiles()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "files.txt");
-            using (var sw = File.CreateText(path))
-                foreach (var src in _inputOptions.GetSources())
-                    sw.WriteLine($"file '{src}'");
+            var settings = _inputOptions.GetOptionsSettings();
+            settings.IsCombineSourcesInTxt = true;
+            _inputOptions.AddCommand("-safe 0");
+            _inputOptions.AddCommand("-f concat");
+            var command = BuildOutputCommand();
+
+            var ffmpegStartInfo = CreateStartInfoDefault(command);
+            StartFFmpegProcess(ffmpegStartInfo);
         }
 
         private ProcessStartInfo CreateStartInfoDefault(string executeCommand)

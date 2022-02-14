@@ -31,6 +31,7 @@ examples:
 6) ./ffmpeg -stream_loop -1 -i input.mp4 -c copy output.mp4 - бесконечное зацикливание файла. Выход только при нажатии клавиши
 * примечание: без "-c copy" выполняется в разы медленнее
 
+7) ./ffmpeg -f concat -safe 0 -i files.txt -c:v vp9 -r 29 -b:v 1M -s 1080x720 -vf mpdecimate,setpts=N/FRAME_RATE/TB "C:\Users\aleks\Downloads\test-video.mp4"
 
 
 

@@ -1,4 +1,6 @@
-﻿namespace VkSchedman.Video.Abstractions
+﻿using VkSchedman.Video.Options;
+
+namespace VkSchedman.Video.Abstractions
 {
     public interface IInputOptions : IOptions
     {
@@ -6,5 +8,6 @@
         IEnumerable<string> GetSources();
         void SetStartPosition(TimeSpan start);
         void SetEndPosition(TimeSpan end);
+        InputOptionsSettings GetOptionsSettings();
     }
 }

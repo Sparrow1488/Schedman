@@ -10,6 +10,7 @@ namespace VkSchedman.Video.Options
         private StringBuilder _builder = new StringBuilder();
         private List<string> _inputSourceList = new List<string>();
         private List<string> _additionalCommands = new List<string>();
+        private InputOptionsSettings _settings = new InputOptionsSettings();
 
         public void AddSource(string sourcePath)
         {
@@ -26,6 +27,7 @@ namespace VkSchedman.Video.Options
         public void SetStartPosition(TimeSpan start) => _startPosition = start;
         public void SetEndPosition(TimeSpan end) => _endPosition = end;
         public IEnumerable<string> GetSources() => _inputSourceList;
+        public InputOptionsSettings GetOptionsSettings() => _settings;
 
         public string Build()
         {
@@ -34,7 +36,13 @@ namespace VkSchedman.Video.Options
                 commands.Add($"-ss {_startPosition}");
             if(_endPosition > TimeSpan.Zero)
                 commands.Add($"-t {_endPosition}");
-            _inputSourceList.ForEach(src => commands.Add($"-i \"{src}\""));
+            if (_settings.IsCombineSourcesInTxt)
+            {
+                var txtPath = _settings.CombineSourcesInTxt(_inputSourceList);
+                commands.Add($"-i \"{txtPath}\"");
+            }
+            else
+                _inputSourceList.ForEach(src => commands.Add($"-i \"{src}\""));
 
             string space = " ";
             _additionalCommands.ForEach(cmd => _builder.Append(cmd + space));

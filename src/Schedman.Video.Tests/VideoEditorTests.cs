@@ -53,11 +53,16 @@ namespace Schedman.Video.Tests
         {
             var editor = new VideoEditor(_ffmpegPath);
             var input = new InputOptions();
-            input.AddSource(_testFilePath);
-            input.AddSource(_testFilePath);
+
+            foreach (var source in Directory.GetFiles(@"C:\Users\aleks\Downloads\test-videos"))
+                input.AddSource(source);
             editor.SetOptions(input);
+            editor.SetOptions(_output);
             editor.ConcatFiles();
-            Assert.IsTrue(true);
+            var path = _output.GetResultPath();
+            var exists = File.Exists(path);
+
+            Assert.IsTrue(exists);
         }
     }
 }
