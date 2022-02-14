@@ -3,5 +3,6 @@
     public interface IOptions
     {
         string Build();
+        void AddCommand(string command);
     }
 }

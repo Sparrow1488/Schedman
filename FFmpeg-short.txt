@@ -28,6 +28,9 @@ examples:
 
 5) ./ffmpeg.exe -safe 0 -f concat -i files.txt -c copy video-fixed-2.mp4
 
+6) ./ffmpeg -stream_loop -1 -i input.mp4 -c copy output.mp4 - бесконечное зацикливание файла. Выход только при нажатии клавиши
+* примечание: без "-c copy" выполняется в разы медленнее
+
 
 
 

@@ -41,6 +41,14 @@ namespace VkSchedman.Video
             StartFFmpegProcess(ffmpegStartInfo);
         }
 
+        public void ConcatFiles()
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "files.txt");
+            using (var sw = File.CreateText(path))
+                foreach (var src in _inputOptions.GetSources())
+                    sw.WriteLine($"file '{src}'");
+        }
+
         private ProcessStartInfo CreateStartInfoDefault(string executeCommand)
         {
             var ffmpegStartInfo = new ProcessStartInfo()
@@ -78,5 +86,7 @@ namespace VkSchedman.Video
             builder.Append(_outputOptions.Build() + space);
             return builder.ToString().Trim();
         }
+
+        
     }
 }

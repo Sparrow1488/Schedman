@@ -69,6 +69,19 @@ namespace Schedman.Video.Tests
             Assert.AreEqual(expected, command);
         }
 
+        [TestMethod]
+        public void Build_SetSourceAndAdditionalCommands_CommandReturned()
+        {
+            var options = new InputOptions();
+            string expected = $"-safe 0 -f concat -i \"{_testInputPath}\"";
+
+            options.AddSource(_testInputPath);
+            options.AddCommand("-safe 0");
+            options.AddCommand("-f concat");
+            var command = options.Build();
+            Assert.AreEqual(expected, command);
+        }
+
         
     }
 }

@@ -21,6 +21,11 @@ namespace VkSchedman.Video.Options
             _fps = fps;
         }
 
+        public void AddCommand(string command)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SetOutputFileName(string name)
         {
             ThrowIfEmptyOrNull(name, nameof(name));
