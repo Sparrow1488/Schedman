@@ -5,7 +5,7 @@ using VkSchedman.Video.Enum;
 
 namespace VkSchedman.Video
 {
-    public class VideoEditor
+    public class VideoEditor : IVideoEditor
     {
         public VideoEditor(string ffmpegPath)
         {
@@ -17,7 +17,6 @@ namespace VkSchedman.Video
         public readonly string FFmpegPath;
         private IOutputOptions _outputOptions;
         private IInputOptions _inputOptions;
-        private string _resultFilePath = string.Empty;
 
         public void SetOptions(IInputOptions options)
         {

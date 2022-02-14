@@ -13,7 +13,7 @@ namespace Schedman.Video.Tests
         public VideoEditorTests()
         {
             _input = new InputOptions();
-            _input.AddSource(@"D:\games\ffmpeg\video.mp4");
+            _input.AddSource("D:/games/ffmpeg/video.mp4");
             _output = new OutputOptions();
             _output.SetOutputPath("C:/Users/aleks/Downloads");
             _output.SetOutputFileName("test-video");
@@ -21,7 +21,7 @@ namespace Schedman.Video.Tests
 
         private IInputOptions _input;
         private IOutputOptions _output;
-        private static string _ffmpegPath = @"D:\games\ffmpeg\ffmpeg.exe";
+        private static string _ffmpegPath = @"D:/games/ffmpeg/ffmpeg.exe";
 
         [TestMethod]
         public void ConvertToExtensionTests()
