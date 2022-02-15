@@ -25,7 +25,7 @@ namespace ScheduleVkManager.Tests
         }
 
         [TestMethod]
-        public void Create_For2DaysUsingStartTime_9TimesReturned()
+        public void Create_For2DaysUsingStartTime_10TimesReturned()
         {
             var scheduler = new Scheduler();
             var expired = CreateExpiredTimesListFor2DaysUsingStartTime();
@@ -89,6 +89,7 @@ namespace ScheduleVkManager.Tests
         {
             return new List<DateTime>()
             {
+                new DateTime(2029, 1, 1, 0, 0, 0),
                 new DateTime(2029, 1, 1, 5, 0, 0),
                 new DateTime(2029, 1, 1, 9, 0, 0),
                 new DateTime(2029, 1, 1, 18, 0, 0),
