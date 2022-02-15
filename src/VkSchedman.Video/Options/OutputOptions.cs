@@ -11,8 +11,7 @@ namespace VkSchedman.Video.Options
         private double _fps;
         private string _outputPath = "";
         private string _outputName = "out-video";
-        private int _height;
-        private int _width;
+        private VideoQuality _quality;
 
         public void SetFps(double fps)
         {
@@ -51,12 +50,11 @@ namespace VkSchedman.Video.Options
         public string GetResultPath() =>
             Path.Combine(_outputPath, $"{_outputName}.{_outputExtension.ToString().ToLower()}");
 
-        public void SetVideoSize(int width, int height)
+        public void SetVideoQuality(VideoQuality quality)
         {
-            if (width < 5 || height < 5)
-                throw new ArgumentException($"{nameof(width)} or {nameof(height)} should be possitive and more 5!");
-            _height = height;
-            _width = width;
+            if (quality is null)
+                throw new ArgumentException($"{nameof(quality)} is null");
+            _quality = quality;
         }
 
         public string Build()
@@ -68,8 +66,8 @@ namespace VkSchedman.Video.Options
             string space = " ";
             if(_fps > 5)
                 commands.Add($"-r {_fps}");
-            if (_height > 0 && _width > 0)
-                commands.Add($"-s {_width}x{_height}");
+            if (_quality != null)
+                commands.Add($"-s {_quality.Quality}");
 
             commands.ForEach(cmd => _builder.Append(cmd + space));
             var endPath = GetResultPath();

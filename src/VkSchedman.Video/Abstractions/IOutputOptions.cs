@@ -12,6 +12,6 @@ namespace VkSchedman.Video.Abstractions
         FileExtension GetOutputExtension();
         string GetResultPath();
         void SetFps(double fps);
-        void SetVideoSize(int width, int height);
+        void SetVideoQuality(VideoQuality quality);
     }
 }
