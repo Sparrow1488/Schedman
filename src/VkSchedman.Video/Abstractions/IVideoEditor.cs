@@ -6,7 +6,7 @@ namespace VkSchedman.Video.Abstractions
     {
         void SetOptions(IInputOptions options);
         void SetOptions(IOutputOptions options);
-        void ConvertToExtension(FileExtension extension);
-        void ConcatFiles();
+        Task ConvertToExtensionAsync(FileExtension extension);
+        Task ConcatFilesAsync();
     }
 }

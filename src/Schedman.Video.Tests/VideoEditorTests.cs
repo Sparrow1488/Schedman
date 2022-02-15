@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using VkSchedman.Video;
 using VkSchedman.Video.Abstractions;
 using VkSchedman.Video.Enum;
@@ -23,15 +24,15 @@ namespace Schedman.Video.Tests
         private IInputOptions _input;
         private IOutputOptions _output;
         private static string _ffmpegPath = @"D:/games/ffmpeg/ffmpeg.exe";
-        private static readonly string _testFilePath = @"C:\Users\aleks\Downloads\videoplayback.mp4";
+        private static readonly string _testFilePath = @"C:\Users\aleks\Downloads\test-videos-2\3.mp4";
 
         [TestMethod]
-        public void ConvertToExtensionTests()
+        public async Task ConvertToExtensionTests()
         {
             var editor = new VideoEditor(_ffmpegPath);
             editor.SetOptions(_input);
             editor.SetOptions(_output);
-            editor.ConvertToExtension(FileExtension.AVI);
+            await editor.ConvertToExtensionAsync(FileExtension.AVI);
             var result = File.Exists(_output.GetResultPath());
 
             Assert.IsTrue(result);
@@ -49,7 +50,7 @@ namespace Schedman.Video.Tests
         }
 
         [TestMethod]
-        public void ConcatFilesTests()
+        public async Task ConcatFilesTests()
         {
             var editor = new VideoEditor(_ffmpegPath);
             var input = new InputOptions();
@@ -58,7 +59,7 @@ namespace Schedman.Video.Tests
                 input.AddSource(source);
             editor.SetOptions(input);
             editor.SetOptions(_output);
-            editor.ConcatFiles();
+            await editor.ConcatFilesAsync();
             var path = _output.GetResultPath();
             var exists = File.Exists(path);
 

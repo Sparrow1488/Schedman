@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Text;
+﻿using System.Text;
 using VkSchedman.Video.Abstractions;
 using VkSchedman.Video.Enum;
 
@@ -12,11 +11,13 @@ namespace VkSchedman.Video
             if (!File.Exists(ffmpegPath))
                 throw new ArgumentException("File not exists!");
             FFmpegPath = ffmpegPath;
+            _process = new FFmpegProcess(FFmpegPath);
         }
 
         public readonly string FFmpegPath;
         private IOutputOptions _outputOptions;
         private IInputOptions _inputOptions;
+        private IFFmpegProcess _process;
 
         public void SetOptions(IInputOptions options)
         {
@@ -32,16 +33,15 @@ namespace VkSchedman.Video
             _outputOptions = options;
         }
 
-        public void ConvertToExtension(FileExtension extension)
+        public async Task ConvertToExtensionAsync(FileExtension extension)
         {
             _outputOptions.SetOutputExtension(extension);
             var command = BuildOutputCommand();
 
-            var ffmpegStartInfo = CreateStartInfoDefault(command);
-            StartFFmpegProcess(ffmpegStartInfo);
+            await StartProcessAsync(command);
         }
 
-        public void ConcatFiles()
+        public async Task ConcatFilesAsync()
         {
             var settings = _inputOptions.GetOptionsSettings();
             settings.IsCombineSourcesInTxt = true;
@@ -49,30 +49,13 @@ namespace VkSchedman.Video
             _inputOptions.AddCommand("-f concat");
             var command = BuildOutputCommand();
 
-            var ffmpegStartInfo = CreateStartInfoDefault(command);
-            StartFFmpegProcess(ffmpegStartInfo);
+            await StartProcessAsync(command);
         }
 
-        private ProcessStartInfo CreateStartInfoDefault(string executeCommand)
+        private async Task StartProcessAsync(string command)
         {
-            var ffmpegStartInfo = new ProcessStartInfo()
-            {
-                FileName = FFmpegPath,
-                Arguments = executeCommand,
-                WorkingDirectory = Directory.GetCurrentDirectory(),
-                CreateNoWindow = true,
-                UseShellExecute = false
-            };
-            return ffmpegStartInfo;
-        }
-
-        private void StartFFmpegProcess(ProcessStartInfo startInfo)
-        {
-            using (var process = new Process() { StartInfo = startInfo })
-            {
-                process.Start();
-                process.WaitForExit();
-            }
+            var startInfo = _process.CreateDefaultStartInfo();
+            await _process.StartAsync(startInfo, command);
         }
 
         private string BuildOutputCommand()
@@ -91,6 +74,5 @@ namespace VkSchedman.Video
             return builder.ToString().Trim();
         }
 
-        
     }
 }
