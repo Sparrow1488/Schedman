@@ -27,12 +27,12 @@ namespace Schedman.Video.Tests
         private static readonly string _testFilePath = @"C:\Users\aleks\Downloads\test-videos-2\3.mp4";
 
         [TestMethod]
-        public async Task ConvertToExtensionTests()
+        public void ConvertToExtensionTests()
         {
             var editor = new VideoEditor(_ffmpegPath);
             editor.SetOptions(_input);
             editor.SetOptions(_output);
-            await editor.ConvertToExtensionAsync(FileExtension.AVI);
+            editor.ConvertToExtension(FileExtension.AVI);
             var result = File.Exists(_output.GetResultPath());
 
             Assert.IsTrue(result);
@@ -50,7 +50,7 @@ namespace Schedman.Video.Tests
         }
 
         [TestMethod]
-        public async Task ConcatFilesTests()
+        public void ConcatFilesTests()
         {
             var editor = new VideoEditor(_ffmpegPath);
             var input = new InputOptions();
@@ -59,7 +59,7 @@ namespace Schedman.Video.Tests
                 input.AddSource(source);
             editor.SetOptions(input);
             editor.SetOptions(_output);
-            await editor.ConcatFilesAsync();
+            editor.ConcatFiles();
             var path = _output.GetResultPath();
             var exists = File.Exists(path);
 

@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.ChatBot",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.Tests", "ScheduleVkManager.Tests\ScheduleVkManager.Tests.csproj", "{A076FC94-B8C7-4765-8056-2FBD54544F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkSchedman.Video", "VkSchedman.Video\VkSchedman.Video.csproj", "{72754D34-3818-4925-AC5A-C4B46F36E7DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VkSchedman.Video", "VkSchedman.Video\VkSchedman.Video.csproj", "{72754D34-3818-4925-AC5A-C4B46F36E7DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedman.Video.Tests", "Schedman.Video.Tests\Schedman.Video.Tests.csproj", "{F60DAD66-C649-46DC-A3E3-C4731285762D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Video.Tests", "Schedman.Video.Tests\Schedman.Video.Tests.csproj", "{F60DAD66-C649-46DC-A3E3-C4731285762D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VkSchedman.Video.Samples", "..\..\VkSchedman.Video.Samples\VkSchedman.Video.Samples.csproj", "{F8A3E761-3DD6-4E5B-A061-D00123E2DAB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F60DAD66-C649-46DC-A3E3-C4731285762D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A3E761-3DD6-4E5B-A061-D00123E2DAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A3E761-3DD6-4E5B-A061-D00123E2DAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A3E761-3DD6-4E5B-A061-D00123E2DAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A3E761-3DD6-4E5B-A061-D00123E2DAB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

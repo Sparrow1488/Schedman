@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using VkSchedman.Video.Abstractions;
 using VkSchedman.Video.Enum;
 
@@ -15,6 +16,7 @@ namespace VkSchedman.Video
         }
 
         public readonly string FFmpegPath;
+        public bool IsDebugEnable = false;
         private IOutputOptions _outputOptions;
         private IInputOptions _inputOptions;
         private IFFmpegProcess _process;
@@ -48,13 +50,14 @@ namespace VkSchedman.Video
             _inputOptions.AddCommand("-safe 0");
             _inputOptions.AddCommand("-f concat");
             var command = BuildOutputCommand();
-
             await StartProcessAsync(command);
         }
 
         private async Task StartProcessAsync(string command)
         {
             var startInfo = _process.CreateDefaultStartInfo();
+            if (IsDebugEnable)
+                startInfo.UseShellExecute = true;
             await _process.StartAsync(startInfo, command);
         }
 

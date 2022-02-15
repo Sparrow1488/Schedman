@@ -30,7 +30,12 @@
       "ProjectGuid": "a076fc94-b8c7-4765-8056-2fbd54544f40",
       "DisplayName": "ScheduleVkManager.Tests",
       "ColorIndex": 4
+    },
+    "f8a3e761-3dd6-4e5b-a061-d00123e2dab9": {
+      "ProjectGuid": "f8a3e761-3dd6-4e5b-a061-d00123e2dab9",
+      "DisplayName": "VkSchedman.Video.Samples",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 6
 }

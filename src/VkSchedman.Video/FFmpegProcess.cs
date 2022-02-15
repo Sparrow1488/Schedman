@@ -29,18 +29,15 @@ namespace VkSchedman.Video
         public async Task StartAsync(ProcessStartInfo startInfo, string executionCommand)
         {
             startInfo.Arguments = executionCommand;
-
+            
             using (var process = new Process() { StartInfo = startInfo })
             {
-                process.OutputDataReceived += Process_OutputDataReceived;
+                if (process is null)
+                    throw new Exception("Process not started");
+                process.EnableRaisingEvents = true;
                 process.Start();
                 await process.WaitForExitAsync();
             }
-        }
-
-        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Console.WriteLine(e.Data);
         }
     }
 }

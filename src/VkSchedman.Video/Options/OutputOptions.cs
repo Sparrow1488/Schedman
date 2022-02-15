@@ -53,7 +53,7 @@ namespace VkSchedman.Video.Options
 
         public void SetVideoSize(int width, int height)
         {
-            if (width < 5 || _height < 5)
+            if (width < 5 || height < 5)
                 throw new ArgumentException($"{nameof(width)} or {nameof(height)} should be possitive and more 5!");
             _height = height;
             _width = width;
@@ -67,7 +67,7 @@ namespace VkSchedman.Video.Options
             var commands = new List<string>();
             string space = " ";
             if(_fps > 5)
-                commands.Add($"-f {_fps}");
+                commands.Add($"-r {_fps}");
             if (_height > 0 && _width > 0)
                 commands.Add($"-s {_width}x{_height}");
 
