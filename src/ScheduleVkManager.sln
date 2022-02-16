@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager", "ScheduleVkManager\ScheduleVkManager\ScheduleVkManager.csproj", "{68B79CD2-4074-4885-82B8-F917856F059F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.UI", "ScheduleVkManager.UI\ScheduleVkManager.UI.csproj", "{FDB9FE2B-5726-4649-A1AF-15E812F51C64}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.Examples", "ScheduleVkManager.Examples\ScheduleVkManager.Examples.csproj", "{482CE131-67D2-4FAE-991A-E17D24B8522E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleVkManager.ChatBot", "ScheduleVkManager.ChatBot.Development.V1\ScheduleVkManager.ChatBot.csproj", "{D0537770-2169-46BC-9628-B4636CBD05EC}"
@@ -29,10 +27,6 @@ Global
 		{68B79CD2-4074-4885-82B8-F917856F059F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B79CD2-4074-4885-82B8-F917856F059F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B79CD2-4074-4885-82B8-F917856F059F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDB9FE2B-5726-4649-A1AF-15E812F51C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDB9FE2B-5726-4649-A1AF-15E812F51C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDB9FE2B-5726-4649-A1AF-15E812F51C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDB9FE2B-5726-4649-A1AF-15E812F51C64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{482CE131-67D2-4FAE-991A-E17D24B8522E}.Release|Any CPU.ActiveCfg = Release|Any CPU
