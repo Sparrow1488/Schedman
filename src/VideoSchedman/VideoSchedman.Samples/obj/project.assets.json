@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "VideoSchedman/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/VideoSchedman.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VideoSchedman.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "VideoSchedman/1.0.0": {
+      "type": "project",
+      "path": "../VideoSchedman/VideoSchedman.csproj",
+      "msbuildProject": "../VideoSchedman/VideoSchedman.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "VideoSchedman >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\aleks\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman\\VideoSchedman.csproj": {
+              "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman\\VideoSchedman.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

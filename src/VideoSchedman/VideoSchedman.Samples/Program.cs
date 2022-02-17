@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using VideoSchedman;
+
 Console.WriteLine("Hello, World!");
+
+var editor = new FFMpegEditor();
+editor.Configure(config =>
+{
+
+});

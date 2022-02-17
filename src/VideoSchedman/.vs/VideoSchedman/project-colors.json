@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7f597f1b-69ee-42c0-9acc-f003c8ffda2d": {
+      "ProjectGuid": "7f597f1b-69ee-42c0-9acc-f003c8ffda2d",
+      "DisplayName": "VideoSchedman",
+      "ColorIndex": 0
+    },
+    "6c44cbae-9676-4b40-a59a-f67b69dc9a26": {
+      "ProjectGuid": "6c44cbae-9676-4b40-a59a-f67b69dc9a26",
+      "DisplayName": "VideoSchedman.Samples",
+      "ColorIndex": 1
+    },
+    "13590cbb-1586-43d4-b6a3-21f6c2472775": {
+      "ProjectGuid": "13590cbb-1586-43d4-b6a3-21f6c2472775",
+      "DisplayName": "VideoSchedman.Tests",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
