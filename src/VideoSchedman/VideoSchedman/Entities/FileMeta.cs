@@ -4,13 +4,9 @@ namespace VideoSchedman.Entities
 {
     public class FileMeta
     {
-        public FileMeta(string rootPath)
+        internal FileMeta(string rootPath, FileType type)
         {
             RootPath = rootPath;
-        }
-
-        private FileMeta(string rootPath, FileType type) : this(rootPath)
-        {
             Type = type;
         }
 
@@ -18,6 +14,7 @@ namespace VideoSchedman.Entities
         public string RootPath { get; internal set; }
         public string Name { get; internal set; }
         public string Extension { get; internal set; }
+        public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
 
         public static FileMeta From(string filePath)
         {

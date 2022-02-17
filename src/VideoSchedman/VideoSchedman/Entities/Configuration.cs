@@ -1,4 +1,6 @@
-﻿namespace VideoSchedman.Entities
+﻿using VideoSchedman.Enums;
+
+namespace VideoSchedman.Entities
 {
     public class Configuration
     {
@@ -20,7 +22,7 @@
 
         public Configuration SaveTo(string dirPath)
         {
-            _outputFile = new FileMeta(dirPath);
+            _outputFile = new FileMeta(dirPath, FileType.Video);
             return this;
         }
     }

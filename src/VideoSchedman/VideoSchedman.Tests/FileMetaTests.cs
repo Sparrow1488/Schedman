@@ -10,10 +10,10 @@ namespace VideoSchedman.Tests
         public void From_PathToVideo_ValidMeta()
         {
             string expExtension = "mp4";
-            string expName = "1";
-            string expRootPath = @"C:\Users\aleks\Downloads\test-videos-2";
+            string expName = "tHE3rrLdPmWw_stmwrlCIOxWvFNSeNevnkx7wb6lgss";
+            string expRootPath = @"C:\Users\aleks\Downloads";
 
-            var meta = FileMeta.From(@"C:\Users\aleks\Downloads\test-videos-2\1.mp4");
+            var meta = FileMeta.From(@"C:\Users\aleks\Downloads\tHE3rrLdPmWw_stmwrlCIOxWvFNSeNevnkx7wb6lgss.mp4");
 
             Assert.AreEqual(expExtension, meta.Extension);
             Assert.AreEqual(expName, meta.Name);
