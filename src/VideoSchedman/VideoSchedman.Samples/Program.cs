@@ -1,9 +1,9 @@
 ﻿using VideoSchedman;
 
-Console.WriteLine("Hello, World!");
-
-var editor = new FFMpegEditor();
-editor.Configure(config =>
+var editor = new FFMpegEditor().Configure(config =>
 {
-
+    config.AddSrc("./video.mp4")
+          .AddSrc("./video2.mp4")
+          .SaveTo("./save-files/");
 });
+await editor.ConcatSourcesAsync();
