@@ -31,6 +31,11 @@ namespace VideoSchedman.Entities
             return meta;
         }
 
+        public override string ToString()
+        {
+            return $"{Path.Combine(RootPath, Name)}.{Extension}";
+        }
+
         // TODO: переписать
         private static FileType SelectType(string extension)
         {
