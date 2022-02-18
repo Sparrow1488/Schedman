@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "VideoSchedman.Samples/1.0.0": {
+        "dependencies": {
+          "VideoSchedman": "1.0.0"
+        },
+        "runtime": {
+          "VideoSchedman.Samples.dll": {}
+        }
+      },
+      "VideoSchedman/1.0.0": {
+        "runtime": {
+          "VideoSchedman.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VideoSchedman.Samples/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VideoSchedman/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -31,19 +31,14 @@ namespace VideoSchedman.Entities
 
         public IScriptBuilder ChangeFormat(Action<ScriptFormatter> format)
         {
-            throw new NotImplementedException();
-        }
-
-        private void SetValuesFromConfig(Configuration config)
-        {
-            SetInputScriptParams(config);
-            SetOutputScriptParams(config);
+            format(_formatter);
+            return this;
         }
 
         private void SetValuesFromConfigUsingFormatter(Configuration config)
         {
             if (_formatter.CombineSourcesInTxt)
-                _input.Add($"-i {_formatter.Result.CombinedSources}");
+                _input.Add($"-i \"{_formatter.Result.CombinedSources}\"");
             else SetInputScriptParams(config);
             SetOutputScriptParams(config);
         }

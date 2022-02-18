@@ -33,7 +33,7 @@ namespace VideoSchedman.Entities
 
         public override string ToString()
         {
-            return $"{Path.Combine(RootPath, Name)}.{Extension}";
+            return $"{Path.Combine(RootPath, Name)}.{Extension}".Replace('/', '\\');
         }
 
         // TODO: переписать

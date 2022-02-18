@@ -27,5 +27,17 @@ namespace VideoSchedman.Tests
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Build_InpAndOutConfigursAndFormatter_ConvertToExtensionCommand()
+        {
+            var expected = $"-i \"./combined-files".Replace('/', '\\');
+            var result = _builder.Build(_config, format => 
+                                format.CombineSources(_config.Sources)).Replace('/', '\\');
+
+            StringAssert.Contains(result, expected);
+            StringAssert.Contains(result, ".txt");
+            StringAssert.Contains(result, _config.OutputFile.ToString());
+        }
     }
 }
