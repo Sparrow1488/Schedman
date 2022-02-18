@@ -17,6 +17,8 @@ namespace VideoSchedman.Entities
 
         public Configuration AddSrc(string path)
         {
+            if (!File.Exists(path))
+                throw new FileNotFoundException($"File from \"{path}\" not exists");
             _sources.Add(FileMeta.From(path));
             return this;
         }

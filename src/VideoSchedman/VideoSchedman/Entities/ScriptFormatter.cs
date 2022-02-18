@@ -13,7 +13,9 @@
         public ScriptFormatter CombineSources(IEnumerable<FileMeta> sources)
         {
             CombineSourcesInTxt = true;
-            string filePath = $"./combined-files_{DateTime.Now.Ticks}.txt";
+            if (!Directory.Exists("./files-meta"))
+                Directory.CreateDirectory("./files-meta");
+            string filePath = $"./files-meta/combined-files_{DateTime.Now.Ticks}.txt";
             using (var writer = File.CreateText(filePath))
             {
                 foreach (var source in sources)

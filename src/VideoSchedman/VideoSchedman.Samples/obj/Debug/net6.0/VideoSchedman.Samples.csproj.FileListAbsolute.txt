@@ -1,8 +1,3 @@
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.csproj.AssemblyReference.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.AssemblyInfoInputs.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.AssemblyInfo.cs
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.csproj.CoreCompileInputs.cache
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.Samples.exe
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.Samples.deps.json
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.Samples.runtimeconfig.json
@@ -11,6 +6,11 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedm
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.Samples.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\VideoSchedman.pdb
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.csproj.AssemblyReference.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.AssemblyInfoInputs.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.AssemblyInfo.cs
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.csproj.CoreCompileInputs.cache
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.csproj.CopyComplete
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\VideoSchedman.Samples.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\obj\Debug\net6.0\ref\VideoSchedman.Samples.dll

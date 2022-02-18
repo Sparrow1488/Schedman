@@ -2,6 +2,6 @@
 {
     internal interface IExecutableProcess
     {
-        Task StartAsync(IScriptBuilder builder);
+        Task StartAsync(string command);
     }
 }
