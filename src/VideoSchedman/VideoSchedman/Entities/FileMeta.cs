@@ -10,10 +10,11 @@ namespace VideoSchedman.Entities
             Type = type;
         }
 
-        public FileType Type { get; }
+        public FileType Type { get; } = FileType.Undefined;
         public string RootPath { get; internal set; }
         public string Name { get; internal set; }
         public string Extension { get; internal set; }
+        public VideoQuality VideoQuality { get; internal set; } = VideoQuality.Undefined;
         public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
 
         public static FileMeta From(string filePath)

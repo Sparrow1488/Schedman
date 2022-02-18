@@ -38,5 +38,11 @@ namespace VideoSchedman.Entities
             _outputFile.Extension = extension;
             return this;
         }
+
+        public Configuration Quality(VideoQuality quality)
+        {
+            _outputFile.VideoQuality = quality;
+            return this;
+        }
     }
 }

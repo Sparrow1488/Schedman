@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using VideoSchedman.Entities;
 
 namespace VideoSchedman.Tests
@@ -18,6 +19,12 @@ namespace VideoSchedman.Tests
             Assert.AreEqual(expExtension, meta.Extension);
             Assert.AreEqual(expName, meta.Name);
             Assert.AreEqual(expRootPath, meta.RootPath);
+        }
+
+        [TestMethod]
+        public void From_NullOrEmptyValue_ArgumentException()
+        {
+            Assert.ThrowsException<ArgumentException>(() => FileMeta.From(null));
         }
     }
 }

@@ -22,9 +22,9 @@ namespace VideoSchedman.Entities
 
             SetValuesFromConfigUsingFormatter(config);
             builder.AppendJoin(" ", _input);
+            builder.Append(" ");
             builder.AppendJoin(" ", _middle);
-            if (_middle.Count < 1)
-                builder.Append(" ");
+            builder.Append(" ");
             builder.AppendJoin(" ", _output);
             return builder.ToString();
         }
@@ -72,6 +72,8 @@ namespace VideoSchedman.Entities
 
         private void SetOutputScriptParams(Configuration config)
         {
+            //if (config.OutputFile.VideoQuality != null && config.OutputFile.VideoQuality != Enums.VideoQuality.Undefined)
+            //    _middle.Add($"-s {config.OutputFile.VideoQuality.Width}x{config.OutputFile.VideoQuality.Height}");
             _output.Add($"\"{config.OutputFile}\"");
         }
         
