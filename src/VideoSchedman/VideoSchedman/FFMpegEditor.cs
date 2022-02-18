@@ -14,7 +14,6 @@ namespace VideoSchedman
         }
 
         private Configuration _config;
-        private List<string> _filesCopyAsTs = new List<string>();
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
 
@@ -29,6 +28,9 @@ namespace VideoSchedman
 
         public Task ConcatSourcesAsync()
         {
+            _scriptBuilder.Clean();
+            var cachedFiles = GetCachedCopies();
+
             var script = _scriptBuilder?.ConfigureInputs(commands =>
             {
                 commands.Add("-y");
@@ -39,15 +41,8 @@ namespace VideoSchedman
             {
                 commands.Add("-r 30 -b:v 3M");
             })
-            .ChangeFormat(format => format.CombineSources(_config.Sources))
+            .ChangeFormat(format => format.CombineSources(cachedFiles))
             .Build(_config);
-
-            if (File.Exists(_config.OutputFile.ToString()))
-            {
-                Console.WriteLine("Удаляю существующий файл");
-                File.Delete(_config.OutputFile.ToString());
-            }
-
             return _executableProcess.StartAsync(script ?? string.Empty);
         }
 
@@ -59,7 +54,7 @@ namespace VideoSchedman
             {
                 var config = new Configuration()
                              .AddSrc(src.ToString())
-                             .SaveTo(Paths.FilesCache.Path, $"video({counter})")
+                             .SaveTo(Paths.FilesCache.Path, $"{src.Name}({counter})")
                              .SaveAs("ts");
                 var command = scriptBuilder.ConfigureOutputs(commands =>
                                             commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
@@ -71,5 +66,27 @@ namespace VideoSchedman
                 counter++;
             }
         }
+
+        private IEnumerable<FileMeta> GetCachedCopies()
+        {
+            var files = Directory.GetFiles(Paths.FilesCache.Path);
+            var cached = new List<FileMeta>();
+            foreach (var file in files)
+            {
+                cached.Add(FileMeta.From(file));
+            }
+            return cached;
+        }
+
+        //private IEnumerable<FileMeta> GetCachedCopies()
+        //{
+        //    var cachedFiles = new List<FileMeta>();
+        //    var files = Directory.GetFiles(Paths.FilesCache.Path);
+        //    foreach (var file in files)
+        //    {
+        //        var fileInfo = new FileInfo(file);
+        //        _config.Sources.Where(meta => meta.Name.Contains());
+        //    }
+        //} 
     }
 }

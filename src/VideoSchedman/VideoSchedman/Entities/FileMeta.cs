@@ -41,7 +41,7 @@ namespace VideoSchedman.Entities
         {
             var result = FileType.Undefined;
 
-            if (new string[] { "mp4", "avi" }.Contains(extension))
+            if (new string[] { "mp4", "avi", "ts" }.Contains(extension))
                 result = FileType.Video;
             if (new string[] { "mp3", "flac" }.Contains(extension))
                 result = FileType.Audio;

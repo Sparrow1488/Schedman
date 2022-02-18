@@ -27,5 +27,5 @@ await editor.CacheAsTsFormatAsync();
 Log.Debug($"Добавлены файлы из папки \"{rootVideos}\": '{video1}', '{video2}'");
 
 Log.Information("Обрабатываем...");
-//await editor.ConcatSourcesAsync();
+await editor.ConcatSourcesAsync();
 Log.Information("Готово: " + File.Exists(resultPath));
