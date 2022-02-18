@@ -18,6 +18,8 @@ namespace VideoSchedman.Entities
             var builder = new StringBuilder();
             builder.AppendJoin(" ", _input);
             builder.AppendJoin(" ", _middle);
+            if (_middle.Count < 1)
+                builder.Append(" ");
             builder.AppendJoin(" ", _output);
             return builder.ToString();
         }

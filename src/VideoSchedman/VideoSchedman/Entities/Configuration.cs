@@ -20,9 +20,13 @@ namespace VideoSchedman.Entities
             return this;
         }
 
-        public Configuration SaveTo(string dirPath)
+        public Configuration SaveTo(string dirPath, string name)
         {
-            _outputFile = new FileMeta(dirPath, FileType.Video);
+            _outputFile = new FileMeta(dirPath, FileType.Video)
+            {
+                Name = name,
+                Extension = "mp4"
+            };
             return this;
         }
     }
