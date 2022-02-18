@@ -1,4 +1,6 @@
-﻿namespace VideoSchedman.Entities
+﻿using VideoSchedman.Enums;
+
+namespace VideoSchedman.Entities
 {
     public class ScriptFormatter
     {
@@ -13,9 +15,9 @@
         public ScriptFormatter CombineSources(IEnumerable<FileMeta> sources)
         {
             CombineSourcesInTxt = true;
-            if (!Directory.Exists("./files-meta"))
-                Directory.CreateDirectory("./files-meta");
-            string filePath = $"./files-meta/combined-files_{DateTime.Now.Ticks}.txt";
+            if (!Directory.Exists(Paths.Meta.Path))
+                Directory.CreateDirectory(Paths.Meta.Path);
+            string filePath = $"{Paths.Meta.Path}/combined-files_{DateTime.Now.Ticks}.txt";
             using (var writer = File.CreateText(filePath))
             {
                 foreach (var source in sources)

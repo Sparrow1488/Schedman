@@ -47,6 +47,15 @@ namespace VideoSchedman.Entities
             return this;
         }
 
+        public IScriptBuilder Clean()
+        {
+            _input = new List<string>();
+            _output = new List<string>();
+            _middle = new List<string>();
+            _formatter = new ScriptFormatter();
+            return this;
+        }
+
         private void SetValuesFromConfigUsingFormatter(Configuration config)
         {
             if (_formatter.CombineSourcesInTxt)
@@ -65,6 +74,6 @@ namespace VideoSchedman.Entities
         {
             _output.Add($"\"{config.OutputFile}\"");
         }
-
+        
     }
 }

@@ -5,6 +5,7 @@ namespace VideoSchedman.Abstractions
     public interface IVideoEditor
     {
         IVideoEditor Configure(Action<Configuration> config);
+        Task CacheAsTsFormatAsync();
         Task ConcatSourcesAsync();
     }
 }

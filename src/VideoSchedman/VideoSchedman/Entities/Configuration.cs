@@ -32,5 +32,11 @@ namespace VideoSchedman.Entities
             };
             return this;
         }
+
+        public Configuration SaveAs(string extension)
+        {
+            _outputFile.Extension = extension;
+            return this;
+        }
     }
 }

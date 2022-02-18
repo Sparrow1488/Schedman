@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoSchedman.Entities;
+using VideoSchedman.Enums;
 
 namespace VideoSchedman.Tests
 {
@@ -31,7 +32,7 @@ namespace VideoSchedman.Tests
         [TestMethod]
         public void Build_InpAndOutConfigursAndFormatter_ValidScript()
         {
-            var expected = $"-i \"./files-meta/combined-files".Replace('/', '\\');
+            var expected = $"-i \"{Paths.Meta.Path}/combined-files".Replace('/', '\\');
             var result = _builder.Build(_config, format => 
                                 format.CombineSources(_config.Sources)).Replace('/', '\\');
 
