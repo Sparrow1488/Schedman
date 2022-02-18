@@ -34,9 +34,18 @@ namespace VideoSchedman
                 commands.Add("-safe 0");
             })
             .ConfigureOutputs(commands =>
-                commands.Add("-vf mpdecimate,setpts=N/FRAME_RATE/TB"))
+            {
+                commands.Add("-c:v vp9");
+                commands.Add("-r 15 -b:v 1M");
+                commands.Add("-filter:v \"scale = 'min(720,iw)':min'(480,ih)':force_original_aspect_ratio = decrease,pad = 720:480:(ow - iw) / 2:(oh - ih) / 2\"");
+            })
             .ChangeFormat(format => format.CombineSources(_config.Sources))
             .Build(_config);
+            if (File.Exists(_config.OutputFile.ToString()))
+            {
+                Console.WriteLine("Удаляю существующий файл");
+                File.Delete(_config.OutputFile.ToString());
+            }
             return _executableProcess.StartAsync(script ?? string.Empty);
         }
     }
