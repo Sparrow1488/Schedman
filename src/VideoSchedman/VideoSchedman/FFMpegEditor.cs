@@ -35,9 +35,9 @@ namespace VideoSchedman
             })
             .ConfigureOutputs(commands =>
             {
-                commands.Add("-c:v vp9");
+                //commands.Add("-c:v vp9");
                 commands.Add("-r 15 -b:v 1M");
-                commands.Add("-filter:v \"scale = 'min(720,iw)':min'(480,ih)':force_original_aspect_ratio = decrease,pad = 720:480:(ow - iw) / 2:(oh - ih) / 2\"");
+                //commands.Add("-filter:v \"scale = 'min(720,iw)':min'(480,ih)':force_original_aspect_ratio = decrease,pad = 720:480:(ow - iw) / 2:(oh - ih) / 2\"");
             })
             .ChangeFormat(format => format.CombineSources(_config.Sources))
             .Build(_config);

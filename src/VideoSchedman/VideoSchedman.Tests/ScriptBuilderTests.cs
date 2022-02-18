@@ -31,7 +31,7 @@ namespace VideoSchedman.Tests
         [TestMethod]
         public void Build_InpAndOutConfigursAndFormatter_ValidScript()
         {
-            var expected = $"-i \"./combined-files".Replace('/', '\\');
+            var expected = $"-i \"./files-meta/combined-files".Replace('/', '\\');
             var result = _builder.Build(_config, format => 
                                 format.CombineSources(_config.Sources)).Replace('/', '\\');
 
