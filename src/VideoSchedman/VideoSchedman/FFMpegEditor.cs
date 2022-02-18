@@ -39,7 +39,7 @@ namespace VideoSchedman
             })
             .ConfigureOutputs(commands =>
             {
-                commands.Add("-r 30 -b:v 3M");
+                commands.Add("-c copy");
             })
             .ChangeFormat(format => format.CombineSources(cachedFiles))
             .Build(_config);
@@ -67,6 +67,13 @@ namespace VideoSchedman
             }
         }
 
+        public void CleanCache()
+        {
+            var files = Directory.GetFiles(Paths.FilesCache.Path);
+            foreach (var file in files)
+                File.Delete(file);
+        }
+
         private IEnumerable<FileMeta> GetCachedCopies()
         {
             var files = Directory.GetFiles(Paths.FilesCache.Path);
@@ -78,15 +85,5 @@ namespace VideoSchedman
             return cached;
         }
 
-        //private IEnumerable<FileMeta> GetCachedCopies()
-        //{
-        //    var cachedFiles = new List<FileMeta>();
-        //    var files = Directory.GetFiles(Paths.FilesCache.Path);
-        //    foreach (var file in files)
-        //    {
-        //        var fileInfo = new FileInfo(file);
-        //        _config.Sources.Where(meta => meta.Name.Contains());
-        //    }
-        //} 
     }
 }
