@@ -8,14 +8,19 @@ namespace VideoSchedman.Entities
         private List<string> _input = new List<string>();
         private List<string> _middle = new List<string>();
         private List<string> _output = new List<string>();
+        private ScriptFormatter _formatter = new ScriptFormatter();
 
         public string Build(Configuration config)
         {
-            foreach (var source in config.Sources)
-                _input.Add($"-i \"{source}\"");
-            _output.Add($"\"{config.OutputFile}\"");
+            return Build(config, formatter => new ScriptFormatter());
+        }
 
+        public string Build(Configuration config, Action<ScriptFormatter> format)
+        {
+            format(_formatter);
             var builder = new StringBuilder();
+
+            SetValuesFromConfigUsingFormatter(config);
             builder.AppendJoin(" ", _input);
             builder.AppendJoin(" ", _middle);
             if (_middle.Count < 1)
@@ -24,14 +29,34 @@ namespace VideoSchedman.Entities
             return builder.ToString();
         }
 
-        public string Build(Configuration config, Action<ScriptFormat> format)
+        public IScriptBuilder ChangeFormat(Action<ScriptFormatter> format)
         {
             throw new NotImplementedException();
         }
 
-        public IScriptBuilder ChangeFormat(Action<ScriptFormat> format)
+        private void SetValuesFromConfig(Configuration config)
         {
-            throw new NotImplementedException();
+            SetInputScriptParams(config);
+            SetOutputScriptParams(config);
+        }
+
+        private void SetValuesFromConfigUsingFormatter(Configuration config)
+        {
+            if (_formatter.CombineSourcesInTxt)
+                _input.Add($"-i {_formatter.Result.CombinedSources}");
+            else SetInputScriptParams(config);
+            SetOutputScriptParams(config);
+        }
+
+        private void SetInputScriptParams(Configuration config)
+        {
+            foreach (var source in config.Sources)
+                _input.Add($"-i \"{source}\"");
+        }
+
+        private void SetOutputScriptParams(Configuration config)
+        {
+            _output.Add($"\"{config.OutputFile}\"");
         }
     }
 }
