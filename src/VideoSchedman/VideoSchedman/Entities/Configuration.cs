@@ -11,6 +11,7 @@ namespace VideoSchedman.Entities
 
         public IEnumerable<FileMeta> Sources { get => _sources; }
         public FileMeta OutputFile { get => _outputFile; }
+
         private List<FileMeta> _sources;
         private FileMeta _outputFile;
 

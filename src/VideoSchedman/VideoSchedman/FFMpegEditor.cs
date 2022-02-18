@@ -20,14 +20,18 @@ namespace VideoSchedman
         {
             if(configBuilder is null)
                 throw new ArgumentNullException(nameof(configBuilder));
-            if (configBuilder is null)
-                _config = new Configuration();
+            _config = _config ?? new Configuration();
             configBuilder(_config);
             return this;
         }
 
         public Task ConcatSourcesAsync()
         {
+            _scriptBuilder?.ConfigureInputs(commands =>
+            {
+                commands.Add("-f concat");
+                commands.Add("-safe 0");
+            });
             throw new NotImplementedException();
         }
     }
