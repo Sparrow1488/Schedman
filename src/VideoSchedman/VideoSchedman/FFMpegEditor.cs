@@ -55,7 +55,6 @@ namespace VideoSchedman
                 var config = new Configuration()
                              .AddSrc(src.ToString())
                              .SaveTo(Paths.FilesCache.Path, $"{src.Name}({counter})")
-                             .Quality(_config.OutputFile.VideoQuality)
                              .SaveAs("ts");
                 var command = scriptBuilder.ConfigureOutputs(commands =>
                                             commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))

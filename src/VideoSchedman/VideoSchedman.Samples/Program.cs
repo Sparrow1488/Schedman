@@ -9,8 +9,19 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 string ffmpeg = @"D:\games\ffmpeg\ffmpeg.exe";
-string rootVideos = @"E:\Йога\Source-Films-Makers\отдельно sfm\53";
+string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files";
 var files = Directory.GetFiles(rootVideos).ToList();
+foreach (var file in files)
+{
+    var info = new FileInfo(file);
+    File.Move(info.FullName, Path.Combine(info.DirectoryName, info.Name
+                                                                .Replace(";", "")
+                                                                .Replace("-", "")
+                                                                .Replace(" ", "")
+                                                                .Replace("'", "")
+                                                                .ToLower()));
+}
+files = Directory.GetFiles(rootVideos).ToList();
 
 string resultPath = string.Empty;
 
@@ -25,10 +36,10 @@ var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 
 Log.Debug($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
-editor.CleanCache();
+//editor.CleanCache();
 
-Log.Information("Кэшируем добавленные файлы");
-await editor.CacheAsTsFormatAsync();
+//Log.Information("Кэшируем добавленные файлы");
+//await editor.CacheAsTsFormatAsync();
 
 Log.Information("Обрабатываем...");
 await editor.ConcatSourcesAsync();
