@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace VideoSchedman.Tests
 {
@@ -6,20 +7,11 @@ namespace VideoSchedman.Tests
     public class EditorConfigureTests
     {
         [TestMethod]
-        public void Configure_SetInputFilesInfos_ValidInputConfig()
+        public void Configure_NullObject_ArgumentNullException()
         {
+            var editor = new FFMpegEditor(@"D:\games\ffmpeg\ffmpeg.exe");
+            Assert.ThrowsException<ArgumentNullException>(() => editor.Configure(null));
         }
 
-        [TestMethod]
-        public void Configure_GetMetaInfoFromInputFiles_ValidMetaInfos()
-        {
-
-        }
-
-        [TestMethod]
-        public void Configure_SetOutputMetaInfo_ValidMetaInfo()
-        {
-
-        }
     }
 }
