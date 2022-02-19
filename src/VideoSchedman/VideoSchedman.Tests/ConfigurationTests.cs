@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections;
 using System.IO;
 using System.Linq;
 using VideoSchedman.Entities;
@@ -46,6 +45,20 @@ namespace VideoSchedman.Tests
         {
             var config = new Configuration();
             Assert.ThrowsException<ArgumentException>(() => config.SaveTo(null, ""));
+        }
+
+        [TestMethod]
+        public void SaveTo_FilePath_ValidMetaFile()
+        {
+            var config = new Configuration();
+            var expectedName = "[TEST]-Output-Video_File";
+            var expectedDirPath = @"D:\games\ffmpeg";
+
+            config.SaveTo(expectedDirPath, expectedName);
+            var @out = config.OutputFile;
+
+            Assert.AreEqual(expectedDirPath, @out.RootPath);
+            Assert.AreEqual(expectedName, @out.Name);
         }
 
         [TestMethod]

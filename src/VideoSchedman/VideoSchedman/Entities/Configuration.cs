@@ -55,5 +55,6 @@ namespace VideoSchedman.Entities
             _outputFile.VideoQuality = quality;
             return this;
         }
+
     }
 }

@@ -24,7 +24,8 @@ namespace VideoSchedman.Entities
             builder.AppendJoin(" ", _input);
             builder.Append(" ");
             builder.AppendJoin(" ", _middle);
-            builder.Append(" ");
+            if(_middle.Count > 0)
+                builder.Append(" ");
             builder.AppendJoin(" ", _output);
             return builder.ToString();
         }
