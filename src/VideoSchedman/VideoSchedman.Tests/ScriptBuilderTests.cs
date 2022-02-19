@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
@@ -69,6 +70,17 @@ namespace VideoSchedman.Tests
             var result = builder.Build(_config).Replace('/', '\\');
 
             Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void MoreMethods_NullValues_Exception()
+        {
+            var builder = new ScriptBuilder();
+            Assert.ThrowsException<ArgumentNullException>(() => builder.Build(null, null));
+            Assert.ThrowsException<ArgumentNullException>(() => builder.ChangeFormat(null));
+            Assert.ThrowsException<ArgumentNullException>(() => builder.ConfigureInputs(null));
+            Assert.ThrowsException<ArgumentNullException>(() => builder.ConfigureOutputs(null));
+            Assert.ThrowsException<ArgumentNullException>(() => builder.ConfigureOutputs(null));
         }
     }
 }

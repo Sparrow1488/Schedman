@@ -17,6 +17,10 @@ namespace VideoSchedman.Entities
 
         public string Build(Configuration config, Action<ScriptFormatter> format)
         {
+            if (config is null)
+                throw new ArgumentNullException($"{nameof(config)} cannot be null!");
+            if (format is null)
+                throw new ArgumentNullException($"Configure method '{nameof(format)}' cannot be null!");
             format(_formatter);
             var builder = new StringBuilder();
 
@@ -32,18 +36,24 @@ namespace VideoSchedman.Entities
 
         public IScriptBuilder ChangeFormat(Action<ScriptFormatter> format)
         {
+            if (format is null)
+                throw new ArgumentNullException($"Configure method '{nameof(format)}' cannot be null!");
             format(_formatter);
             return this;
         }
 
         public IScriptBuilder ConfigureInputs(Action<IList<string>> commands)
         {
+            if (commands is null)
+                throw new ArgumentNullException($"Configure method '{nameof(commands)}' cannot be null!");
             commands(_input);
             return this;
         }
 
         public IScriptBuilder ConfigureOutputs(Action<IList<string>> commands)
         {
+            if (commands is null)
+                throw new ArgumentNullException($"Configure method '{nameof(commands)}' cannot be null!");
             commands(_output);
             return this;
         }
