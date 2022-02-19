@@ -18,8 +18,25 @@ namespace VideoSchedman.Entities
                 throw new ArgumentException(nameof(command));
 
             var startInfo = CreateStartInfoDefault();
-            startInfo.Arguments = command;
 
+            startInfo.Arguments = command;
+            using (var process = new Process() { StartInfo = startInfo })
+            {
+                if (process is null)
+                    throw new Exception("Process not started");
+                process.Start();
+                await process.WaitForExitAsync();
+            }
+        }
+
+        public async Task StartDebugAsync(string command)
+        {
+            if (string.IsNullOrWhiteSpace(command))
+                throw new ArgumentException(nameof(command));
+
+            var startInfo = CreateStartInfoDebug();
+
+            startInfo.Arguments = command;
             using (var process = new Process() { StartInfo = startInfo })
             {
                 if (process is null)
@@ -27,6 +44,10 @@ namespace VideoSchedman.Entities
                 process.EnableRaisingEvents = true;
                 process.Start();
                 await process.WaitForExitAsync();
+                var outString = process.StandardError.ReadToEnd();
+                if(!string.IsNullOrWhiteSpace(outString))
+                    Console.WriteLine(outString);
+                process.StandardError.Dispose();
             }
         }
 
@@ -41,5 +62,14 @@ namespace VideoSchedman.Entities
             };
             return ffmpegStartInfo;
         }
+
+        private ProcessStartInfo CreateStartInfoDebug()
+        {
+            var ffmpegStartInfo = CreateStartInfoDefault();
+            ffmpegStartInfo.RedirectStandardError = true;
+            ffmpegStartInfo.RedirectStandardOutput = true;
+            return ffmpegStartInfo;
+        }
+        
     }
 }

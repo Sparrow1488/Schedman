@@ -9,7 +9,7 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 string ffmpeg = @"D:\games\ffmpeg\ffmpeg.exe";
-string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files";
+string rootVideos = @"D:\games\ffmpeg\test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
@@ -18,11 +18,12 @@ Log.Information("Запускаем");
 var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 {
     files.ForEach(file => config.AddSrc(file));
-    config.SaveTo("./", "result").Quality(VideoQuality.Preview);
+    config.SaveTo("./", "result")
+          .Quality(VideoQuality.Preview);
     resultPath = config.OutputFile.ToString();
 });
 
-Log.Debug($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
+Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
 editor.CleanCache();
 

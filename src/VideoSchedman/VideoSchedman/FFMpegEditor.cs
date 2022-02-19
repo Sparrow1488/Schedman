@@ -43,7 +43,7 @@ namespace VideoSchedman
             })
             .ChangeFormat(format => format.CombineSources(cachedFiles))
             .Build(_config);
-            return _executableProcess.StartAsync(script ?? string.Empty);
+            return _executableProcess.StartDebugAsync(script ?? string.Empty);
         }
 
         public async Task CacheAsTsFormatAsync()
