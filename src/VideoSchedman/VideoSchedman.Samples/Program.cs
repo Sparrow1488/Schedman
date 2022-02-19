@@ -11,18 +11,6 @@ Log.Logger = new LoggerConfiguration()
 string ffmpeg = @"D:\games\ffmpeg\ffmpeg.exe";
 string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files";
 var files = Directory.GetFiles(rootVideos).ToList();
-foreach (var file in files)
-{
-    var info = new FileInfo(file);
-    File.Move(info.FullName, Path.Combine(info.DirectoryName, info.Name
-                                        .Replace(";", "")
-                                        .Replace("-", "")
-                                        .Replace(" ", "")
-                                        .Replace("'", "")
-                                        .ToLower()));
-}
-files = Directory.GetFiles(rootVideos).ToList();
-
 string resultPath = string.Empty;
 
 Log.Information("Запускаем");

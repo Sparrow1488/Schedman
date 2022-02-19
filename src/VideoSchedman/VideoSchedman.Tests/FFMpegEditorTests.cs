@@ -4,7 +4,7 @@ using System;
 namespace VideoSchedman.Tests
 {
     [TestClass]
-    public class EditorConfigureTests
+    public class FFMpegEditorTests
     {
         [TestMethod]
         public void Configure_NullObject_ArgumentNullException()
