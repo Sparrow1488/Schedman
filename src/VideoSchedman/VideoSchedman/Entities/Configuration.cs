@@ -23,8 +23,15 @@ namespace VideoSchedman.Entities
             return this;
         }
 
-        public Configuration SaveTo(string dirPath, string name)
+        public Configuration SaveTo(string dirPath, string name, bool createDirIfNotExists = false)
         {
+            if (string.IsNullOrWhiteSpace(dirPath) || string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException($"{nameof(dirPath)} and {nameof(name)} cannot be empty or null!");
+            if (createDirIfNotExists)
+                Directory.CreateDirectory(dirPath);
+            if (!Directory.Exists(dirPath))
+                throw new DirectoryNotFoundException($"\"{dirPath}\" not found!");
+
             _outputFile = new FileMeta(dirPath, FileType.Video)
             {
                 Name = name,
@@ -35,12 +42,16 @@ namespace VideoSchedman.Entities
 
         public Configuration SaveAs(string extension)
         {
+            if (string.IsNullOrWhiteSpace(extension))
+                throw new ArgumentException($"{nameof(extension)} cannot be null!");
             _outputFile.Extension = extension;
             return this;
         }
 
         public Configuration Quality(VideoQuality quality)
         {
+            if (quality is null)
+                throw new ArgumentException($"{nameof(quality)} cannot be null!");
             _outputFile.VideoQuality = quality;
             return this;
         }

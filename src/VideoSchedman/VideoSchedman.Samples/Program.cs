@@ -15,11 +15,11 @@ foreach (var file in files)
 {
     var info = new FileInfo(file);
     File.Move(info.FullName, Path.Combine(info.DirectoryName, info.Name
-                                                                .Replace(";", "")
-                                                                .Replace("-", "")
-                                                                .Replace(" ", "")
-                                                                .Replace("'", "")
-                                                                .ToLower()));
+                                        .Replace(";", "")
+                                        .Replace("-", "")
+                                        .Replace(" ", "")
+                                        .Replace("'", "")
+                                        .ToLower()));
 }
 files = Directory.GetFiles(rootVideos).ToList();
 
@@ -36,10 +36,10 @@ var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 
 Log.Debug($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
-//editor.CleanCache();
+editor.CleanCache();
 
-//Log.Information("Кэшируем добавленные файлы");
-//await editor.CacheAsTsFormatAsync();
+Log.Information("Кэшируем добавленные файлы");
+await editor.CacheAsTsFormatAsync();
 
 Log.Information("Обрабатываем...");
 await editor.ConcatSourcesAsync();

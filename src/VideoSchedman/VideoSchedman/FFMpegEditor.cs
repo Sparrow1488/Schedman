@@ -20,7 +20,7 @@ namespace VideoSchedman
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
             if(configBuilder is null)
-                throw new ArgumentNullException(nameof(configBuilder));
+                throw new ArgumentNullException($"{nameof(configBuilder)} cannot be null!");
             _config = _config ?? new Configuration();
             configBuilder(_config);
             return this;

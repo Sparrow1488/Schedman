@@ -13,7 +13,7 @@ namespace VideoSchedman.Tests
             _config = new Configuration()
                           .AddSrc(_rootPath + "1.mp4")
                           .AddSrc(_rootPath + "2.mp4")
-                          .SaveTo("./result-dir", "result");
+                          .SaveTo("./result-dir", "result", true);
         }
 
         private string _rootPath = @"C:\Users\aleks\Downloads\test-videos-2\";
