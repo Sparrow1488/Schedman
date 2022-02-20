@@ -44,9 +44,9 @@ namespace VideoSchedman.Entities
                 process.EnableRaisingEvents = true;
                 process.Start();
                 await process.WaitForExitAsync();
-                var outString = process.StandardError.ReadToEnd();
-                if(!string.IsNullOrWhiteSpace(outString))
-                    Console.WriteLine(outString);
+                //var outString = process.StandardError.ReadToEnd();
+                //if(!string.IsNullOrWhiteSpace(outString))
+                //    Console.WriteLine(outString);
                 process.StandardError.Dispose();
             }
         }
@@ -58,7 +58,7 @@ namespace VideoSchedman.Entities
                 FileName = _ffmpegPath,
                 WorkingDirectory = Directory.GetCurrentDirectory(),
                 CreateNoWindow = true,
-                UseShellExecute = false
+                UseShellExecute = true
             };
             return ffmpegStartInfo;
         }
@@ -66,8 +66,8 @@ namespace VideoSchedman.Entities
         private ProcessStartInfo CreateStartInfoDebug()
         {
             var ffmpegStartInfo = CreateStartInfoDefault();
-            ffmpegStartInfo.RedirectStandardError = true;
-            ffmpegStartInfo.RedirectStandardOutput = true;
+            //ffmpegStartInfo.RedirectStandardError = true;
+            //ffmpegStartInfo.RedirectStandardOutput = true;
             return ffmpegStartInfo;
         }
         

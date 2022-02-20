@@ -9,7 +9,7 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 string ffmpeg = @"D:\games\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg.exe";
-string rootVideos = @"D:\games\ffmpeg\test";
+string rootVideos = @"E:\Йога\Source-Films-Makers\отдельно sfm\52\3\cuts";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
@@ -35,5 +35,5 @@ await editor.ConcatSourcesAsync();
 Log.Information("Готово: " + File.Exists(resultPath));
 
 Log.Information("Очищаем использованный кэш...");
-editor.CleanCache();
+//editor.CleanCache();
 Log.Information("Успешно");

@@ -39,11 +39,14 @@ namespace VideoSchedman
             })
             .ConfigureOutputs(commands =>
             {
-                commands.Add("-c copy");
+                //commands.Add("-c copy");
+                //commands.Add("-c:a aac -c:v copy");
+                //commands.Add("-vf scale=1920x1080:force_original_aspect_ratio=decrease -c:a copy -c:v libx264");
+                commands.Add("-c:a aac -c:v libx264");
             })
             .ChangeFormat(format => format.CombineSources(cachedFiles))
             .Build(_config);
-            return _executableProcess.StartDebugAsync(script ?? string.Empty);
+            return _executableProcess.StartAsync(script ?? string.Empty);
         }
 
         public async Task CacheAsTsFormatAsync()
@@ -57,13 +60,14 @@ namespace VideoSchedman
                              .SaveTo(Paths.FilesCache.Path, $"{src.Name}({counter})")
                              .SaveAs("ts");
                 var command = scriptBuilder.ConfigureOutputs(commands =>
-                                            commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
-                                           .ConfigureInputs(commands => commands.Add("-y"))
-                                           .Build(config);
-                await _executableProcess.StartDebugAsync(command);
+                {
+                    //commands.Add("-c:v libx264 -preset slow -crf 22 -level 4.1 -threads 0 -c:a aac");
+                    commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts");
+                    //commands.Add("-c:v vp9 -c:a aac");
+                }).ConfigureInputs(commands => commands.Add("-y")).Build(config);
+                await _executableProcess.StartAsync(command);
                 if(!File.Exists(src.ToString()))
                     Console.WriteLine("Не кэшировано");
-
                 scriptBuilder.Clean();
                 counter++;
                 //./ffmpeg -i "C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\meta-files\combined-files_637809563174498961.txt" -filter_complex "concat=n=3:v=0:a=1" -f MOV -vn -y -map "[v]" -map "[a]" output.mp4

@@ -25,7 +25,7 @@ namespace VideoSchedman.Entities
                 throw new ArgumentException($"{nameof(filePath)} cannot be empty or null!");
             // TODO: раскоммитить
             if (!IsFilePathCharsValid(filePath))
-                throw new InvalidOperationException($"{filePath} contains invalid chars unusable in ffmpeg (' ' ', '$') or file path too long");
+                new InvalidOperationException($"{filePath} contains invalid chars unusable in ffmpeg (' ' ', '$') or file path too long");
             var info = new FileInfo(filePath);
             string correctExtension = info.Extension.Remove(0, 1).ToLower();
             string correctName = info.Name.Remove(info.Name.Length - info.Extension.Length, info.Extension.Length);
