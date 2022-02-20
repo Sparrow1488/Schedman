@@ -60,12 +60,13 @@ namespace VideoSchedman
                                             commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
                                            .ConfigureInputs(commands => commands.Add("-y"))
                                            .Build(config);
-                await _executableProcess.StartAsync(command);
+                await _executableProcess.StartDebugAsync(command);
                 if(!File.Exists(src.ToString()))
                     Console.WriteLine("Не кэшировано");
 
                 scriptBuilder.Clean();
                 counter++;
+                //./ffmpeg -i "C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\meta-files\combined-files_637809563174498961.txt" -filter_complex "concat=n=3:v=0:a=1" -f MOV -vn -y -map "[v]" -map "[a]" output.mp4
             }
         }
 

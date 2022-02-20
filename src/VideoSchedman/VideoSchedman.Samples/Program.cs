@@ -8,7 +8,7 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-string ffmpeg = @"D:\games\ffmpeg\ffmpeg.exe";
+string ffmpeg = @"D:\games\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg.exe";
 string rootVideos = @"D:\games\ffmpeg\test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
