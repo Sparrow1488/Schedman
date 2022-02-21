@@ -23,8 +23,10 @@ namespace VideoSchedman.Entities
             return this;
         }
 
-        public Configuration SaveTo(string dirPath, string name, bool createDirIfNotExists = false)
+        public Configuration SaveTo(string name, string dirPath = "", bool createDirIfNotExists = false)
         {
+            if (string.IsNullOrWhiteSpace(dirPath))
+                dirPath = Paths.OutputFiles.Path;
             if (string.IsNullOrWhiteSpace(dirPath) || string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException($"{nameof(dirPath)} and {nameof(name)} cannot be empty or null!");
             if (createDirIfNotExists)

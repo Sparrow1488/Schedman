@@ -18,7 +18,7 @@ Log.Information("Запускаем");
 var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 {
     files.ForEach(file => config.AddSrc(file));
-    config.SaveTo("./", "result")
+    config.SaveTo("result")
           .Quality(VideoQuality.Preview);
     resultPath = config.OutputFile.ToString();
 });

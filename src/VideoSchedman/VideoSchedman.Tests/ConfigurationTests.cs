@@ -13,10 +13,10 @@ namespace VideoSchedman.Tests
         public void AddSrc_ValidVideoPath_SuccessAddedInCollection()
         {
             var config = new Configuration();
-            var filePath = @"D:\games\ffmpeg\video.avi";
-            string expectedFileName = "video";
-            string expectedFileExtension = "avi";
-            string expectedRootPath = @"D:\games\ffmpeg";
+            var filePath = @"C:\Users\aleks\Videos\Desktop\Desktop 2021.12.08 - 16.38.02.03.mp4";
+            string expectedFileName = "Desktop 2021.12.08 - 16.38.02.03";
+            string expectedFileExtension = "mp4";
+            string expectedRootPath = @"C:\Users\aleks\Videos\Desktop";
 
             config.AddSrc(filePath);
             var addedFile = config.Sources.FirstOrDefault();
@@ -54,7 +54,7 @@ namespace VideoSchedman.Tests
             var expectedName = "[TEST]-Output-Video_File";
             var expectedDirPath = @"D:\games\ffmpeg";
 
-            config.SaveTo(expectedDirPath, expectedName);
+            config.SaveTo(expectedName, expectedDirPath);
             var @out = config.OutputFile;
 
             Assert.AreEqual(expectedDirPath, @out.RootPath);

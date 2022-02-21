@@ -14,7 +14,7 @@ namespace VideoSchedman.Tests
             _config = new Configuration()
                           .AddSrc(_rootPath + "1.mp4")
                           .AddSrc(_rootPath + "2.mp4")
-                          .SaveTo("./result-dir", "result", true);
+                          .SaveTo("result");
         }
 
         private string _rootPath = @"C:\Users\aleks\Downloads\test-videos-2\";
@@ -24,7 +24,7 @@ namespace VideoSchedman.Tests
         [TestMethod]
         public void Build_InpAndOutConfigurs_ValidScript()
         {
-            var expected = $"-i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" \"./result-dir/result.mp4\"".Replace('/', '\\');
+            var expected = $"-i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" \"{Paths.OutputFiles}/result.mp4\"".Replace('/', '\\');
             var result = _builder.Build(_config).Replace('/', '\\');
 
             Assert.AreEqual(expected, result);
@@ -51,7 +51,7 @@ namespace VideoSchedman.Tests
                 commands.Add("-f concat");
                 commands.Add("-safe 0");
             });
-            var expected = $"-f concat -safe 0 -i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" \"./result-dir/result.mp4\"".Replace('/', '\\');
+            var expected = $"-f concat -safe 0 -i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" \"{Paths.OutputFiles}/result.mp4\"".Replace('/', '\\');
 
             var result = builder.Build(_config).Replace('/', '\\');
 
@@ -65,7 +65,7 @@ namespace VideoSchedman.Tests
             builder.ConfigureOutputs(commands => {
                 commands.Add("-c copy");
             });
-            var expected = $"-i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" -c copy \"./result-dir/result.mp4\"".Replace('/', '\\');
+            var expected = $"-i \"{_rootPath}1.mp4\" -i \"{_rootPath}2.mp4\" -c copy \"{Paths.OutputFiles}/result.mp4\"".Replace('/', '\\');
 
             var result = builder.Build(_config).Replace('/', '\\');
 

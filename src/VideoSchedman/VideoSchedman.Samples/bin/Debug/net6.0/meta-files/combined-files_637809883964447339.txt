@@ -1,1 +1,0 @@
-file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\1528557734580(0).ts'
