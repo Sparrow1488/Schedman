@@ -7,7 +7,7 @@ namespace VideoSchedman.Abstractions
     {
         IVideoEditor Configure(Action<Configuration> config);
         Task CacheAsTsFormatAsync();
-        void CleanCache();
+        void CleanTsCache();
         Task ConcatSourcesAsync(ConcatType concatType);
     }
 }
