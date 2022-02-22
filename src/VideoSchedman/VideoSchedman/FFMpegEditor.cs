@@ -64,6 +64,10 @@ namespace VideoSchedman
                                            .Build(_config, format => format.CombineSources(cachedFiles));
                 await _executableProcess.StartAsync(script);
             }
+            if (concatType == ConcatType.Demuxer)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #region TO REMOVE

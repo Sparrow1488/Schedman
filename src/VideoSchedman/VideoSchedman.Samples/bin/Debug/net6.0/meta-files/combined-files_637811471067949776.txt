@@ -1,3 +1,0 @@
-file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\project_257a1af4-5788-4697-9488-f7f741c29fa5\video1.mp4'
-file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\project_257a1af4-5788-4697-9488-f7f741c29fa5\video2.mp4'
-file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\project_257a1af4-5788-4697-9488-f7f741c29fa5\video3.mp4'

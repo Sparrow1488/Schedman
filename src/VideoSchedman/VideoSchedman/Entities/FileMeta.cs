@@ -4,18 +4,19 @@ namespace VideoSchedman.Entities
 {
     public class FileMeta
     {
-        internal FileMeta(string rootPath, FileType type)
+        public FileMeta(string rootPath, FileType type)
         {
             RootPath = rootPath;
             Type = type;
         }
 
-        public FileType Type { get; } = FileType.Undefined;
+        public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
+
         public string RootPath { get; internal set; }
         public string Name { get; internal set; }
         public string Extension { get; internal set; }
+        public FileType Type { get; } = FileType.Undefined;
         public VideoQuality VideoQuality { get; internal set; } = VideoQuality.Undefined;
-        public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
 
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="InvalidOperationException"></exception>

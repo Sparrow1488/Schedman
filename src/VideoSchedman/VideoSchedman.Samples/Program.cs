@@ -16,12 +16,9 @@ string resultPath = string.Empty;
 Log.Information("Запускаем");
 
 var editor = new FFMpegEditor(ffmpeg).Configure(config =>
-{
-    files.ForEach(file => config.AddSrc(file));
-    config.SaveTo("project_c6149ba7-3dcf-4e57-b85b-a682eebfc781")
-          .Quality(VideoQuality.FHD);
-    resultPath = config.OutputFile.ToString();
-});
+                config.AddSrcRange(files)
+                      .SaveTo("project_c6149ba7-3dcf-4e57-b85b-a682eebfc781")
+                      .Quality(VideoQuality.FHD));
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 

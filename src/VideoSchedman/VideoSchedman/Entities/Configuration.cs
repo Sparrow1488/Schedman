@@ -23,6 +23,15 @@ namespace VideoSchedman.Entities
             return this;
         }
 
+        public Configuration AddSrcRange(IEnumerable<string> paths)
+        {
+            if (paths is null)
+                throw new ArgumentNullException($"{nameof(paths)} cannot be null!");
+            foreach (var path in paths)
+                _sources.Add(FileMeta.From(path));
+            return this;
+        }
+
         public Configuration SaveTo(string name, string dirPath = "", bool createDirIfNotExists = false)
         {
             if (string.IsNullOrWhiteSpace(dirPath))
