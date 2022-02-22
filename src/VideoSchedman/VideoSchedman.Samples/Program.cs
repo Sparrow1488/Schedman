@@ -25,15 +25,5 @@ var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
-editor.CleanCache();
-
-Log.Information("Кэшируем добавленные файлы");
-await editor.CacheAsTsFormatAsync();
-
-Log.Information("Обрабатываем...");
-await editor.ConcatSourcesAsync();
-Log.Information("Готово: " + File.Exists(resultPath));
-
-Log.Information("Очищаем использованный кэш...");
-//editor.CleanCache();
+await editor.ConcatSourcesAsync(ConcatType.ReencodingConcat);
 Log.Information("Успешно");

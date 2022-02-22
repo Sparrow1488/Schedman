@@ -11,11 +11,17 @@ namespace VideoSchedman
             _config = new Configuration();
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = new ExecutableProcess(ffmpegPath);
+
+            var projectPath = $"{Paths.FilesCache}/{_projectName}";
+            if (!Directory.Exists(projectPath))
+                Directory.CreateDirectory(projectPath);
         }
 
         private Configuration _config;
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
+        //private string _projectName = $"project_{Guid.NewGuid()}";
+        private string _projectName = $"project_02fbf88b-b142-41be-8af6-5e1240405c21";
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -24,6 +30,18 @@ namespace VideoSchedman
             _config = _config ?? new Configuration();
             configBuilder(_config);
             return this;
+        }
+
+        public async Task ConcatSourcesAsync(ConcatType concatType)
+        {
+            _scriptBuilder.Clean();
+            if(concatType == ConcatType.ReencodingConcat)
+            {
+                foreach (var src in _config.Sources)
+                    await CacheSource(src, _config.OutputFile.VideoQuality);
+                var cachedFiles = GetCachedCopies();
+                // reencoding to 1920x1080
+            }
         }
 
         public Task ConcatSourcesAsync()
@@ -49,6 +67,24 @@ namespace VideoSchedman
             return _executableProcess.StartAsync(script ?? string.Empty);
         }
 
+        private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
+        {
+            var config = new Configuration();
+            string cacheDirPath = Path.Combine(Paths.FilesCache.Path, _projectName);
+            var cachedFilesCount = Directory.GetFiles(cacheDirPath).Length;
+            config.AddSrc(fileMeta.ToString())
+                  .SaveTo($"video{cachedFilesCount+1}", cacheDirPath)
+                  .SaveAs("mp4")
+                  .Quality(quality);
+            var scriptBuilder = new ScriptBuilder();
+            scriptBuilder.ConfigureInputs(commands => commands.Add($"-i {Paths.Resources}/black1920x1080.png"));
+            scriptBuilder.ConfigureOutputs(commands => commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -profile:v high -preset fast -crf 16 -r 45"));
+            var script = scriptBuilder.Build(config);
+            await _executableProcess.StartAsync(script);
+            if (!File.Exists(config.OutputFile.ToString()))
+                throw new Exception("Failed caching file!");
+        }
+
         public async Task CacheAsTsFormatAsync()
         {
             int counter = 0;
@@ -64,11 +100,12 @@ namespace VideoSchedman
                 {
                     //commands.Add("-c:v libx264 -preset slow -crf 22 -level 4.1 -threads 0 -c:a aac");
                     //commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts");
-                    commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -preset slow -crf 10 -r 45");
+                    commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -profile:v high -preset fast -crf 16 -r 45");
                     //commands.Add("-c:v vp9 -c:a aac");
                 }).ConfigureInputs(commands =>
                 {
-                    commands.Add("-i D:/games/ffmpeg/ffmpeg-master-latest-win64-gpl-shared/bin/black.png");
+                    // TODO: вынести в ресурсы
+                    commands.Add($"-i {Paths.Resources}/black1920x1080.png");
                     commands.Add("-y");
                 }).Build(config);
                 await _executableProcess.StartAsync(command);
@@ -89,7 +126,8 @@ namespace VideoSchedman
 
         private IEnumerable<FileMeta> GetCachedCopies()
         {
-            var files = Directory.GetFiles(Paths.FilesCache.Path);
+            var projectCachedFilesPath = Path.Combine(Paths.FilesCache.Path, _projectName);
+            var files = Directory.GetFiles(projectCachedFilesPath);
             var cached = new List<FileMeta>();
             foreach (var file in files)
             {
@@ -98,5 +136,6 @@ namespace VideoSchedman
             return cached;
         }
 
+        
     }
 }
