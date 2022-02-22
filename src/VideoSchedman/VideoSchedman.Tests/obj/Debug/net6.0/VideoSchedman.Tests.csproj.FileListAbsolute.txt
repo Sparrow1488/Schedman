@@ -99,3 +99,4 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedm
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Tests\obj\Debug\net6.0\ref\VideoSchedman.Tests.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Tests\obj\Debug\net6.0\VideoSchedman.Tests.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Tests\obj\Debug\net6.0\VideoSchedman.Tests.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Tests\bin\Debug\net6.0\Resources\black1920x1080.png

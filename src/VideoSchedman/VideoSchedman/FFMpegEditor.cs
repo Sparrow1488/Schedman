@@ -20,8 +20,8 @@ namespace VideoSchedman
         private Configuration _config;
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
-        //private string _projectName = $"project_{Guid.NewGuid()}";
-        private string _projectName = $"project_02fbf88b-b142-41be-8af6-5e1240405c21";
+        private string _projectName = $"project_{Guid.NewGuid()}";
+        //private string _projectName = $"project_02fbf88b-b142-41be-8af6-5e1240405c21";
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -40,7 +40,10 @@ namespace VideoSchedman
                 foreach (var src in _config.Sources)
                     await CacheSource(src, _config.OutputFile.VideoQuality);
                 var cachedFiles = GetCachedCopies();
-                // reencoding to 1920x1080
+                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0"))
+                                           .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
+                                           .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
+                await _executableProcess.StartAsync(script);
             }
         }
 
@@ -62,7 +65,7 @@ namespace VideoSchedman
                 //commands.Add("-vf scale=1920x1080:force_original_aspect_ratio=decrease -c:a copy -c:v libx264");
                 commands.Add("-c:a aac -c:v libx264");
             })
-            .ChangeFormat(format => format.CombineSources(cachedFiles))
+            .ChangeFormat(format => format.CombineSourcesInTxt(cachedFiles))
             .Build(_config);
             return _executableProcess.StartAsync(script ?? string.Empty);
         }
@@ -77,7 +80,7 @@ namespace VideoSchedman
                   .SaveAs("mp4")
                   .Quality(quality);
             var scriptBuilder = new ScriptBuilder();
-            scriptBuilder.ConfigureInputs(commands => commands.Add($"-i {Paths.Resources}/black1920x1080.png"));
+            scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black1920x1080.png"));
             scriptBuilder.ConfigureOutputs(commands => commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -profile:v high -preset fast -crf 16 -r 45"));
             var script = scriptBuilder.Build(config);
             await _executableProcess.StartAsync(script);

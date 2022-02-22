@@ -69,8 +69,8 @@ namespace VideoSchedman.Entities
 
         private void SetValuesFromConfigUsingFormatter(Configuration config)
         {
-            if (_formatter.CombineSourcesInTxt)
-                _input.Add($"-i \"{_formatter.Result.CombinedSources}\"");
+            if (_formatter.IsCombinedSourcesInTxt)
+                _input.Add($"-i \"{_formatter.Result.CombinedSourcesInTxt}\"");
             else SetInputScriptParams(config);
             SetOutputScriptParams(config);
         }
