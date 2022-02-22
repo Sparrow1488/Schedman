@@ -57,14 +57,20 @@ namespace VideoSchedman
             {
                 var config = new Configuration()
                              .AddSrc(src.ToString())
-                             .SaveTo(Paths.FilesCache.Path, $"{src.Name}({counter})")
-                             .SaveAs("ts");
+                             .SaveTo($"{src.Name}({counter})", Paths.FilesCache.Path)
+                             //.SaveAs("ts");
+                             .SaveAs("mp4");
                 var command = scriptBuilder.ConfigureOutputs(commands =>
                 {
                     //commands.Add("-c:v libx264 -preset slow -crf 22 -level 4.1 -threads 0 -c:a aac");
-                    commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts");
+                    //commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts");
+                    commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -preset slow -crf 10 -r 45");
                     //commands.Add("-c:v vp9 -c:a aac");
-                }).ConfigureInputs(commands => commands.Add("-y")).Build(config);
+                }).ConfigureInputs(commands =>
+                {
+                    commands.Add("-i D:/games/ffmpeg/ffmpeg-master-latest-win64-gpl-shared/bin/black.png");
+                    commands.Add("-y");
+                }).Build(config);
                 await _executableProcess.StartAsync(command);
                 if(!File.Exists(src.ToString()))
                     Console.WriteLine("Не кэшировано");

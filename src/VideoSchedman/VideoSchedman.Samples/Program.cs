@@ -9,7 +9,7 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 string ffmpeg = @"D:\games\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg.exe";
-string rootVideos = @"E:\Йога\Source-Films-Makers\отдельно sfm\52\3\cuts";
+string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
