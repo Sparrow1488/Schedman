@@ -35,7 +35,7 @@ namespace VideoSchedman.Tests
         {
             var expected = $"-i \"{Paths.Meta.Path}/combined-files".Replace('/', '\\');
             var result = _builder.Build(_config, format => 
-                                format.CombineSources(_config.Sources)).Replace('/', '\\');
+                                format.CombineSourcesInTxt(_config.Sources)).Replace('/', '\\');
 
             StringAssert.Contains(result, expected);
             StringAssert.Contains(result, ".txt");

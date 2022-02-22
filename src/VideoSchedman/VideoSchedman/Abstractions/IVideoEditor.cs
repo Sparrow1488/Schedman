@@ -1,4 +1,5 @@
 ﻿using VideoSchedman.Entities;
+using VideoSchedman.Enums;
 
 namespace VideoSchedman.Abstractions
 {
@@ -6,7 +7,7 @@ namespace VideoSchedman.Abstractions
     {
         IVideoEditor Configure(Action<Configuration> config);
         Task CacheAsTsFormatAsync();
-        void CleanCache();
-        Task ConcatSourcesAsync();
+        void CleanTsCache();
+        Task ConcatSourcesAsync(ConcatType concatType);
     }
 }
