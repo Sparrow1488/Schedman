@@ -25,5 +25,5 @@ var editor = new FFMpegEditor(ffmpeg).Configure(config =>
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
-await editor.ConcatSourcesAsync(ConcatType.ReencodingConcat);
+await editor.ConcatSourcesAsync(ConcatType.ReencodingComplexFilter);
 Log.Information("Успешно");

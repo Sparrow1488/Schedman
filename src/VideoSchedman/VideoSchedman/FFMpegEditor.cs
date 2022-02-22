@@ -1,4 +1,5 @@
-﻿using VideoSchedman.Abstractions;
+﻿using System.Text;
+using VideoSchedman.Abstractions;
 using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
@@ -20,8 +21,8 @@ namespace VideoSchedman
         private Configuration _config;
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
-        private string _projectName = $"project_{Guid.NewGuid()}";
-        //private string _projectName = $"project_02fbf88b-b142-41be-8af6-5e1240405c21";
+        //private string _projectName = $"project_{Guid.NewGuid()}";
+        private string _projectName = $"project_257a1af4-5788-4697-9488-f7f741c29fa5";
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -35,18 +36,29 @@ namespace VideoSchedman
         public async Task ConcatSourcesAsync(ConcatType concatType)
         {
             _scriptBuilder.Clean();
-            if(concatType == ConcatType.ReencodingConcat)
+            //foreach (var src in _config.Sources)
+            //    await CacheSource(src, _config.OutputFile.VideoQuality);
+            var cachedFiles = GetCachedCopies().ToArray();
+            if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
+            if (concatType == ConcatType.ReencodingConcat)
             {
-                foreach (var src in _config.Sources)
-                    await CacheSource(src, _config.OutputFile.VideoQuality);
-                var cachedFiles = GetCachedCopies();
                 var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
                                            .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
                 await _executableProcess.StartAsync(script);
             }
+            if (concatType == ConcatType.ReencodingComplexFilter)
+            {
+                var filterComplexArgs = new StringBuilder();
+                cachedFiles.ToList().ForEach(file => filterComplexArgs.Append($"[{Array.IndexOf(cachedFiles, file)}:v]"));
+                filterComplexArgs.Append($"concat=n={cachedFiles.Length}");
+                var script = _scriptBuilder.ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
+                                           .Build(_config, format => format.CombineSources(cachedFiles));
+                await _executableProcess.StartAsync(script);
+            }
         }
 
+        #region TO REMOVE
         public Task ConcatSourcesAsync()
         {
             _scriptBuilder.Clean();
@@ -69,6 +81,7 @@ namespace VideoSchedman
             .Build(_config);
             return _executableProcess.StartAsync(script ?? string.Empty);
         }
+        #endregion
 
         private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
         {
@@ -81,7 +94,7 @@ namespace VideoSchedman
                   .Quality(quality);
             var scriptBuilder = new ScriptBuilder();
             scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black1920x1080.png"));
-            scriptBuilder.ConfigureOutputs(commands => commands.Add("-filter_complex \"[1:v]scale=1920:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -profile:v high -preset fast -crf 16 -r 45"));
+            scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -profile:v high -preset fast -crf 16 -r 45"));
             var script = scriptBuilder.Build(config);
             await _executableProcess.StartAsync(script);
             if (!File.Exists(config.OutputFile.ToString()))
