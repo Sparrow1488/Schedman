@@ -3,6 +3,7 @@ using System.Text;
 using VideoSchedman.Abstractions;
 using VideoSchedman.Entities;
 using VideoSchedman.Enums;
+using static VideoSchedman.Abstractions.IVideoEditor;
 
 namespace VideoSchedman
 {
@@ -29,7 +30,12 @@ namespace VideoSchedman
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
         private string _projectName = $"project_{Guid.NewGuid()}";
+
+        public event LogAction OnCachedSource;
+        public event LogAction OnConvertedSource;
+
         //private string _projectName = $"project_c6149ba7-3dcf-4e57-b85b-a682eebfc781";
+
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -118,6 +124,7 @@ namespace VideoSchedman
             if (!File.Exists(config.OutputFile.ToString()))
                 throw new Exception("Failed caching file!");
             fileMeta.Links.Converted = config.OutputFile.ToString();
+            OnCachedSource?.Invoke($"file: {fileMeta.Name} was cached");
             SaveFilesMeta();
         }
 
@@ -140,11 +147,11 @@ namespace VideoSchedman
                                            .ConfigureOutputs(commands => commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
                                            .Build(config);
                 await _executableProcess.StartAsync(command);
-                if(!File.Exists(src.ToString()))
-                    Console.WriteLine("Не кэшировано");
                 scriptBuilder.Clean();
                 counter++;
+                OnConvertedSource?.Invoke($"file: {new FileInfo(src).Name} was converted to .ts");
             }
+            
             SaveFilesMeta();
         }
 

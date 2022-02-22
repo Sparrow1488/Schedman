@@ -18,6 +18,8 @@ var editor = new FFMpegEditor().Configure(config =>
                          config.AddSrcRange(files)
                                .SaveTo("concated-file-name")
                                .Quality(VideoQuality.FHD));
+editor.OnCachedSource += (cached) => Log.Information(cached);
+editor.OnConvertedSource += (converted) => Log.Information(converted);
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
