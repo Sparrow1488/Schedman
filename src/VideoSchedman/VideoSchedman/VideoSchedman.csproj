@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Resources\black1920x1080.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

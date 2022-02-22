@@ -4,5 +4,6 @@
     {
         Task StartAsync(string command);
         Task StartDebugAsync(string command);
+        IExecutableProcess FilePathFromConfig();
     }
 }

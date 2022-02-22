@@ -7,11 +7,12 @@ namespace VideoSchedman
 {
     public class FFMpegEditor : IVideoEditor
     {
-        public FFMpegEditor(string ffmpegPath)
+        public FFMpegEditor(string ffmpegPath = "")
         {
             _config = new Configuration();
             _scriptBuilder = new ScriptBuilder();
-            _executableProcess = new ExecutableProcess(ffmpegPath);
+            _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
+                                    new ExecutableProcess().FilePathFromConfig() : new ExecutableProcess(ffmpegPath);
 
             var projectPath = $"{Paths.FilesCache}/{_projectName}";
             if (!Directory.Exists(projectPath))

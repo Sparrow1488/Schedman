@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "XYCRlUvu/mp2pKVzYjbL4Yl5xriNYhabuIYSNDkz/vwXcQ86+6cKu4NayNwklFQZJZoWOK/KcHUTxL0xtX8UlA==",
+  "dgSpecHash": "iEX7Zc4XcB8txWfIEa1p0QeJFklAtyWnViVcoO6L09URRus+Hgg4CZFErJkR78UDKwc18A9nCGmPTaqeSbnCfg==",
   "success": true,
   "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman\\VideoSchedman.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

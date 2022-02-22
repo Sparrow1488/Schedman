@@ -1,16 +1,23 @@
-﻿using System.Diagnostics;
+﻿using System.Configuration;
+using System.Diagnostics;
 using VideoSchedman.Abstractions;
 
 namespace VideoSchedman.Entities
 {
     internal class ExecutableProcess : IExecutableProcess
     {
-        public ExecutableProcess(string ffmpegPath)
+        public ExecutableProcess(string ffmpegPath = "")
         {
             _ffmpegPath = ffmpegPath;
         }
 
         private string _ffmpegPath = string.Empty;
+
+        public IExecutableProcess FilePathFromConfig()
+        {
+            _ffmpegPath = ConfigurationManager.AppSettings["ffmpegPath"] ?? throw new KeyNotFoundException("Not found executable file file path in app.config!");
+            return this;
+        }
 
         public async Task StartAsync(string command)
         {
@@ -44,9 +51,6 @@ namespace VideoSchedman.Entities
                 process.EnableRaisingEvents = true;
                 process.Start();
                 await process.WaitForExitAsync();
-                //var outString = process.StandardError.ReadToEnd();
-                //if(!string.IsNullOrWhiteSpace(outString))
-                //    Console.WriteLine(outString);
                 process.StandardError.Dispose();
             }
         }
@@ -66,10 +70,8 @@ namespace VideoSchedman.Entities
         private ProcessStartInfo CreateStartInfoDebug()
         {
             var ffmpegStartInfo = CreateStartInfoDefault();
-            //ffmpegStartInfo.RedirectStandardError = true;
-            //ffmpegStartInfo.RedirectStandardOutput = true;
             return ffmpegStartInfo;
         }
-        
+
     }
 }
