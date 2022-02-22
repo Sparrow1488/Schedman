@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Newtonsoft.Json;
+using System.Text;
 using VideoSchedman.Abstractions;
 using VideoSchedman.Entities;
 using VideoSchedman.Enums;
@@ -13,6 +14,10 @@ namespace VideoSchedman
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
                                     new ExecutableProcess().FilePathFromConfig() : new ExecutableProcess(ffmpegPath);
+            _jsonSettings = new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            };
 
             var projectPath = $"{Paths.FilesCache}/{_projectName}";
             if (!Directory.Exists(projectPath))
@@ -22,8 +27,9 @@ namespace VideoSchedman
         private Configuration _config;
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
-        //private string _projectName = $"project_{Guid.NewGuid()}";
-        private string _projectName = $"project_c6149ba7-3dcf-4e57-b85b-a682eebfc781";
+        private JsonSerializerSettings _jsonSettings;
+        private string _projectName = $"project_{Guid.NewGuid()}";
+        //private string _projectName = $"project_c6149ba7-3dcf-4e57-b85b-a682eebfc781";
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -31,23 +37,22 @@ namespace VideoSchedman
                 throw new ArgumentNullException($"{nameof(configBuilder)} cannot be null!");
             _config = _config ?? new Configuration();
             configBuilder(_config);
+            SaveFilesMeta();
             return this;
         }
 
         public async Task ConcatSourcesAsync(ConcatType concatType)
         {
             _scriptBuilder.Clean();
-            //foreach (var src in _config.Sources)
-            //    await CacheSource(src, _config.OutputFile.VideoQuality);
-            //var cachedFiles = GetCachedCopies().ToArray();
-            //await CacheAsTsFormatAsync();
+            foreach (var src in _config.Sources)
+                await CacheSource(src, _config.OutputFile.VideoQuality);
             var cachedFiles = GetCachedCopies().ToArray();
             if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
             if (concatType == ConcatType.ReencodingConcat || concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
             {
                 if(concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
                 {
-                    await CacheAsTsFormatAsync();
+                    await ConvertToTsFormatAsync();
                     cachedFiles = GetCachedTsCopies().ToArray();
                 }
                 var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
@@ -112,9 +117,11 @@ namespace VideoSchedman
             await _executableProcess.StartAsync(script);
             if (!File.Exists(config.OutputFile.ToString()))
                 throw new Exception("Failed caching file!");
+            fileMeta.Links.Converted = config.OutputFile.ToString();
+            SaveFilesMeta();
         }
 
-        public async Task CacheAsTsFormatAsync()
+        public async Task ConvertToTsFormatAsync()
         {
             int counter = 0;
             var scriptBuilder = new ScriptBuilder();
@@ -138,6 +145,7 @@ namespace VideoSchedman
                 scriptBuilder.Clean();
                 counter++;
             }
+            SaveFilesMeta();
         }
 
         public void CleanTsCache()
@@ -168,6 +176,19 @@ namespace VideoSchedman
             foreach (var file in files)
                 cached.Add(FileMeta.From(file));
             return cached;
+        }
+
+        private void SaveFilesMeta()
+        {
+            var metaPath = Path.Combine(Paths.FilesCache.ToString(), _projectName);
+            metaPath += "/meta.txt";
+            if(File.Exists(metaPath))
+                File.Delete(metaPath);
+            using (var sw = File.CreateText(metaPath))
+            {
+                var json = JsonConvert.SerializeObject(_config.Sources, _jsonSettings);
+                sw.WriteLine(json);
+            }
         }
 
 

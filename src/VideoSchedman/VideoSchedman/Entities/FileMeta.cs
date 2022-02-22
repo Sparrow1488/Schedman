@@ -8,6 +8,8 @@ namespace VideoSchedman.Entities
         {
             RootPath = rootPath;
             Type = type;
+            Links = new FileLinks();
+            Links.Original = rootPath;
         }
 
         public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
@@ -15,6 +17,7 @@ namespace VideoSchedman.Entities
         public string RootPath { get; internal set; }
         public string Name { get; internal set; }
         public string Extension { get; internal set; }
+        public FileLinks Links { get; set; }
         public FileType Type { get; } = FileType.Undefined;
         public VideoQuality VideoQuality { get; internal set; } = VideoQuality.Undefined;
 
