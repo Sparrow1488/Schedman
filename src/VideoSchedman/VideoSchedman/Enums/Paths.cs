@@ -8,14 +8,6 @@
             Path = path;
         }
 
-        //public static void SetProject(string projectName)
-        //{
-        //    ProjectPath.Path = string.Format(ProjectPath.Path, projectName);
-        //    FilesCache.Path = string.Format(FilesCache.Path, ProjectPath.Path);
-        //    ConvertedFiles.Path = string.Format(ConvertedFiles.Path, ProjectPath.Path);
-        //    TsFiles.Path = string.Format(TsFiles.Path, ProjectPath.Path);
-        //}
-
         public string Path { get; private set; } // относительно запускаемого проекта
 
         public static readonly Paths Meta = new Paths("./meta-files");

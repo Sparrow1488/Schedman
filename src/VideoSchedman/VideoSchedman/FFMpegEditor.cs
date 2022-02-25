@@ -29,12 +29,12 @@ namespace VideoSchedman
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
-        private string _projectName = $"project_{Guid.NewGuid()}";
+        //private string _projectName = $"project_{Guid.NewGuid()}";
 
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;
 
-        //private string _projectName = $"project_c6149ba7-3dcf-4e57-b85b-a682eebfc781";
+        private string _projectName = $"project_fe23dd5a-e8a0-41a0-96d2-3973b56d8cbf";
 
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
@@ -56,12 +56,12 @@ namespace VideoSchedman
             if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
             if (concatType == ConcatType.ReencodingConcat || concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
             {
-                if(concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
+                if (concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
                 {
                     await ConvertToTsFormatAsync();
                     cachedFiles = GetCachedTsCopies().ToArray();
-                }
-                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
+                } 
+            var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v copy -preset fast -vsync cfr -r 45"))
                                            .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
                 await _executableProcess.StartAsync(script);
