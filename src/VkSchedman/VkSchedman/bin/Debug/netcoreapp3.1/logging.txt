@@ -231,3 +231,182 @@ VkNet.Exception.VkAuthorizationException: Authorize failed
 2022-02-25 19:10:57.965 +03:00 [INF] Started SheduleVkManager
 2022-02-25 19:10:58.784 +03:00 [INF] Try authorize...
 2022-02-25 19:11:02.176 +03:00 [INF] Authorize success
+2022-02-25 21:55:55.840 +03:00 [INF] Started SheduleVkManager
+2022-02-25 21:56:00.810 +03:00 [INF] Try authorize...
+2022-02-25 21:56:07.722 +03:00 [INF] Authorize success
+2022-02-25 22:01:37.382 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:01:39.009 +03:00 [INF] Try authorize...
+2022-02-25 22:01:43.955 +03:00 [INF] Authorize success
+2022-02-25 22:09:13.285 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:09:15.200 +03:00 [INF] Try authorize...
+2022-02-25 22:09:18.577 +03:00 [INF] Authorize success
+2022-02-25 22:18:24.324 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:18:25.961 +03:00 [INF] Try authorize...
+2022-02-25 22:18:30.284 +03:00 [FTL] Authorize failed
+VkNet.Exception.VkAuthorizationException: Authorize failed
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 65
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:18:50.036 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:18:51.407 +03:00 [INF] Try authorize...
+2022-02-25 22:18:54.885 +03:00 [INF] Authorize success
+2022-02-25 22:19:19.415 +03:00 [FTL] The remote server returned an error: (400) Bad Request.
+System.Net.WebException: The remote server returned an error: (400) Bad Request.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 98
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:19:52.261 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:19:53.353 +03:00 [INF] Try authorize...
+2022-02-25 22:19:56.187 +03:00 [INF] Authorize success
+2022-02-25 22:27:10.235 +03:00 [FTL] The remote server returned an error: (400) Bad Request.
+System.Net.WebException: The remote server returned an error: (400) Bad Request.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Net.WebClient.GetWebResponse(WebRequest request)
+   at System.Net.WebClient.DownloadBits(WebRequest request, Stream writeStream)
+   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 98
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:29:31.182 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:29:33.713 +03:00 [INF] Try authorize...
+2022-02-25 22:29:37.364 +03:00 [INF] Authorize success
+2022-02-25 22:38:12.993 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:38:14.150 +03:00 [INF] Try authorize...
+2022-02-25 22:38:17.546 +03:00 [INF] Authorize success
+2022-02-25 22:38:29.224 +03:00 [FTL] Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas.mp4'.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas.mp4'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes)
+   at System.IO.File.WriteAllBytes(String path, Byte[] bytes)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 85
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:40:15.727 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:40:16.975 +03:00 [INF] Try authorize...
+2022-02-25 22:40:20.406 +03:00 [INF] Authorize success
+2022-02-25 22:40:36.390 +03:00 [FTL] Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas_8f24938a-0cd5-4948-8559-26405fe2abe5.mp4'.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas_8f24938a-0cd5-4948-8559-26405fe2abe5.mp4'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes)
+   at System.IO.File.WriteAllBytes(String path, Byte[] bytes)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 85
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:41:40.076 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:41:41.198 +03:00 [INF] Try authorize...
+2022-02-25 22:41:44.003 +03:00 [INF] Authorize success
+2022-02-25 22:41:49.003 +03:00 [FTL] Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas_c42c8dc4-0f01-4923-b441-e2452e37cd15.mp4'.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\K\DA All Out Series. League of Legends. Ahri. K\DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas_c42c8dc4-0f01-4923-b441-e2452e37cd15.mp4'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes)
+   at System.IO.File.WriteAllBytes(String path, Byte[] bytes)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 85
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 22:42:30.580 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:42:31.722 +03:00 [INF] Try authorize...
+2022-02-25 22:42:34.882 +03:00 [INF] Authorize success
+2022-02-25 22:44:25.201 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:44:26.421 +03:00 [INF] Try authorize...
+2022-02-25 22:44:29.489 +03:00 [INF] Authorize success
+2022-02-25 22:50:39.695 +03:00 [INF] Started SheduleVkManager
+2022-02-25 22:50:41.133 +03:00 [INF] Try authorize...
+2022-02-25 22:50:44.277 +03:00 [INF] Authorize success
+2022-02-25 22:50:50.508 +03:00 [INF] Downloaded "K/DA All Out Series. League of Legends. Ahri. K/DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas"
+2022-02-25 22:51:53.608 +03:00 [INF] Downloaded "Samsung_Sam - EPIC!!! 13"
+2022-02-25 22:52:09.069 +03:00 [INF] Downloaded "Overwatch - Tracer vaginal penetration [Cawneil] voice by [PleasedByViolet]"
+2022-02-25 22:52:13.629 +03:00 [INF] Downloaded "(Sound)D.Va female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:18.186 +03:00 [INF] Downloaded "(Sound)Mercy female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:21.813 +03:00 [INF] Downloaded "(Sound)Tracer female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:25.691 +03:00 [INF] Downloaded "(Sound)Sombra female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:29.459 +03:00 [INF] Downloaded "(Sound)Ashe female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:33.988 +03:00 [INF] Downloaded "(Sound)Widowmaker female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-02-25 22:52:57.640 +03:00 [INF] Downloaded "(Sound)Hatsune Miku female solo dildo anal masturbation [Vocaloid;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;вокалоид]"
+2022-02-25 22:53:08.145 +03:00 [INF] Downloaded "Tracer Perfect Evening Anal Sex"
+2022-02-25 22:53:14.665 +03:00 [INF] Downloaded "Widowmaker"
+2022-02-25 22:53:26.397 +03:00 [INF] Downloaded "Final Fantasy VII - Tifa Lockhart riding, vaginal penetration [Puuguy] sound by [Audiodude] voice by [CottontailVA]"
+2022-02-25 22:53:31.115 +03:00 [INF] Downloaded "Final Fantasy VII - Tifa Lockhart riding, vaginal penetration [Puuguy] sound by [Audiodude] voice by [CottontailVA]"
+2022-02-25 22:53:35.614 +03:00 [INF] Downloaded "Джилл Валентайн Resident Evil sex секс"
+2022-02-25 22:53:54.056 +03:00 [INF] Downloaded "Кара Detroit Become Human sex секс anal анал наш выбор"
+2022-02-25 22:53:57.537 +03:00 [INF] Downloaded "Элли The Last of Us sex секс лезби lesbie"
+2022-02-25 22:54:08.695 +03:00 [INF] Downloaded "Элли The Last of Us sex секс"
+2022-02-25 22:54:15.297 +03:00 [INF] Downloaded "Элизабет Bioshock sex tits секс сиськи"
+2022-02-25 22:54:19.877 +03:00 [INF] Downloaded "Тифа Final Fantasy sex tits секс сиськи"
+2022-02-25 22:54:24.719 +03:00 [INF] Downloaded "Зельда Legend of Zelda sex tits секс сиськи"
+2022-02-25 22:54:26.584 +03:00 [INF] Downloaded "Йеннефер The Witcher sex blowjob секс минет"
+2022-02-25 22:54:33.636 +03:00 [INF] Downloaded "Кара Detroit Become Human sex секс"
+2022-02-25 22:54:36.131 +03:00 [INF] Downloaded "Рей Дарт Вейдер Star Wars sex секс"
+2022-02-25 22:54:43.457 +03:00 [INF] Downloaded "Рей Star Wars sex секс"
+2022-02-25 22:54:47.097 +03:00 [INF] Downloaded "Rainbow Six Siege sex секс"
+2022-02-25 22:54:48.858 +03:00 [INF] Downloaded "Риноа Хартили Final Fantasy sex секс"
+2022-02-25 22:54:55.750 +03:00 [INF] Downloaded "Хонока Dead or Alive sex tits секс сиськи"
+2022-02-25 22:55:00.777 +03:00 [INF] Downloaded "Мари Роуз Dead or ALive sex секс"
+2022-02-25 22:55:02.624 +03:00 [INF] Downloaded "Ниотенгу Dead or Alive sex секс"
+2022-02-25 22:55:04.603 +03:00 [INF] Downloaded "Мари Роуз Dead or Alive sex секс group групповой anal анал"
+2022-02-25 22:55:20.237 +03:00 [INF] Downloaded "Мари Роуз Dead or Alive sex секс"
+2022-02-25 22:55:32.561 +03:00 [INF] Downloaded "Ада Вонг Resident Evil sex секс"
+2022-02-25 22:55:34.913 +03:00 [INF] Downloaded "Draenei WoW sex anal секс анал"
+2022-02-25 22:55:38.848 +03:00 [INF] Downloaded "Мари Роуз Dead or Alive sex anal анал bondage секс бондаж"
+2022-02-25 22:55:42.071 +03:00 [INF] Downloaded "Мари Роуз Dead or Alive sex blowjob секс минет"
+2022-02-25 22:55:52.317 +03:00 [INF] Downloaded "Мари Роуз Dead or Alive sex anal секс анал"
+2022-02-25 22:56:38.080 +03:00 [INF] Downloaded "D.Va Overwatch sex секс наш выбор longtime"
+2022-02-25 22:56:41.784 +03:00 [INF] Downloaded "Judy Tribbing by Pewposterous"
+2022-02-25 22:56:49.790 +03:00 [INF] Downloaded "Tifa Spitroast by Pewposterous"
+2022-02-25 22:56:52.211 +03:00 [INF] Downloaded "Tyrande by Fpsblyck"
+2022-02-25 22:56:59.799 +03:00 [INF] Downloaded "Tifa Analplug by Xordel"
+2022-02-25 22:57:21.562 +03:00 [INF] Downloaded "Ciri Dp Spoon by Pewposterous"
+2022-02-25 22:57:25.960 +03:00 [INF] Downloaded "Widow by Rekin3D"
+2022-02-25 22:57:28.213 +03:00 [INF] Downloaded "Chloe and Rachel"
+2022-02-25 22:57:31.114 +03:00 [INF] Downloaded "Tifa Machine by Spook's Stuff"
+2022-02-25 22:57:33.418 +03:00 [INF] Downloaded "Mercy by Spok's Stuff"
+2022-02-25 22:57:36.590 +03:00 [INF] Downloaded "Eliza by Bouquetman"
+2022-02-25 22:57:41.734 +03:00 [INF] Downloaded "Eliza by Bouquetman"
+2022-02-25 22:57:43.695 +03:00 [INF] Downloaded "D.Va"
+2022-02-25 22:57:47.091 +03:00 [INF] Downloaded "Tifa Lockhart 3 part 2 by Idemi"
+2022-02-25 22:59:19.993 +03:00 [INF] Downloaded "Tracer by MeltRib"
+2022-02-25 22:59:26.219 +03:00 [INF] Downloaded "Blue Moon by Rescraft"
+2022-02-25 22:59:32.128 +03:00 [INF] Downloaded "Mai-cowgirl"
+2022-02-25 22:59:35.454 +03:00 [INF] Downloaded "Widowmaker"
+2022-02-25 22:59:39.420 +03:00 [INF] Downloaded "Chloe by fjaye"
+2022-02-25 22:59:43.550 +03:00 [INF] Downloaded "Max bj by fjaye"
+2022-02-25 22:59:47.937 +03:00 [INF] Downloaded "Chloe  fucked by fjaye"
+2022-02-25 22:59:49.962 +03:00 [INF] Downloaded "Mercy"
+2022-02-25 22:59:54.016 +03:00 [INF] Downloaded "Panam Palmer by fatcat17"
+2022-02-25 22:59:58.418 +03:00 [INF] Downloaded "Panam Palmer by fatcat17"
+2022-02-25 23:00:01.373 +03:00 [INF] Downloaded "Widowmaker and D.Va"
+2022-02-25 23:15:18.116 +03:00 [INF] Started SheduleVkManager
+2022-02-25 23:15:19.341 +03:00 [INF] Try authorize...
+2022-02-25 23:15:22.298 +03:00 [INF] Authorize success
+2022-02-25 23:16:06.011 +03:00 [INF] [1/62] Downloaded "K/DA All Out Series. League of Legends. Ahri. K/DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas"
+2022-02-25 23:18:27.514 +03:00 [INF] Started SheduleVkManager
+2022-02-25 23:18:30.222 +03:00 [INF] Try authorize...
+2022-02-25 23:18:33.075 +03:00 [INF] Authorize success
+2022-02-25 23:18:43.158 +03:00 [INF] [1/62] Downloaded "K/DA All Out Series. League of Legends. Ahri. K/DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas"

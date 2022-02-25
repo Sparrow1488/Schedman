@@ -18,6 +18,7 @@ using System.Net;
 using System;
 using Serilog;
 using System.IO;
+using AngleSharp.Html.Parser;
 
 namespace VkSchedman
 {
@@ -65,27 +66,23 @@ namespace VkSchedman
             return videos;
         }
 
-        public async Task DownloadVideosAsync(VkCollection<Video> videos)
+        public async Task DownloadVideosAsync(VkCollection<Video> videos, string albumTitle = "")
         {
-            foreach (var video in videos)
+            for (int i = 0; i < videos.Count; i++)
             {
-                var save = await _api.Video.SaveAsync(new VideoSaveParams()
-                {
-                    Name = video.Title,
-                });
-                if (save.UploadUrl is null)
-                {
-                    Log.Error($"Failed download {video.Title}");
-                }
-                else
-                {
-                    using (var client = new WebClient())
-                    {
-                        var bytes = client.DownloadData(save.UploadUrl.AbsoluteUri);
-                        if (bytes.Length > 0)
-                            File.WriteAllBytes($"./video_{Guid.NewGuid()}.mp4", bytes);
-                    }
-                }
+                var video = videos[i];
+                var data = DownloadVideo(video);
+                string videoTitle = video.Title.Replace("\\", "") // make valid path
+                                               .Replace("/", "");
+                string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(albumTitle) ? $"/{albumTitle}" : "");
+                Directory.CreateDirectory(saveDirectory);
+                string saveVideoName = $"./downloads/{videoTitle}";
+                var existsFiles = Directory.GetFiles(saveDirectory)
+                                           .Where(file => file.Contains(videoTitle)).Count();
+                saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
+                if (data.Length > 0)
+                    await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
+                Log.Information($"[{i+1}/{videos.Count}] Downloaded \"{video.Title}\"");
             }
         }
 
@@ -129,6 +126,35 @@ namespace VkSchedman
             }
 
             return resultSuccess;
+        }
+
+        private byte[] DownloadVideo(Video video)
+        {
+            string htmlVkPlayer = "";
+            using (var client = CreateWebClient())
+                htmlVkPlayer = client.DownloadString($"http://m.vk.com/video{video.OwnerId}_{video.Id}");
+            var parser = new HtmlParser();
+            var document = parser.ParseDocument(htmlVkPlayer);
+            var vkPlayer = document.QuerySelector(".vv_inline_video");
+            var videoSources = vkPlayer.QuerySelectorAll("source")
+                                        .Where(elem => elem.GetAttribute("type") == "video/mp4")
+                                        .ToArray();
+            var bestQualitySource = videoSources[0].GetAttribute("src");
+
+            byte[] videoData = new byte[0];
+            using (var client = CreateWebClient())
+                videoData = client.DownloadData(bestQualitySource);
+            
+            return videoData;
+        }
+
+        private WebClient CreateWebClient()
+        {
+            var client = new WebClient();
+            client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36");
+            client.Headers.Add("Cookie", "remixQUIC=1; remixflash=0.0.0; remixscreen_width=1366; remixscreen_height=768; remixscreen_depth=24; remixdt=0; tmr_lvid=05f35707f7ec075e5841b98d2c6ebd8f; tmr_lvidTS=1638717699149; remixstid=80506122_ND2UqCKmW1MClLMRC9BngxwpVQh07zoYmrVqCAHNiNc; remixuas=NGIxNGExZGUzZjkyMmI5MDk1NzZiYWY4; remixab=1; remixlang=100; remixrefkey=36ae53b1a349b277e2; remixseenads=0; remixscreen_orient=1; remixgp=95cde981785780b21e62adf1c4b16e8c; remixscreen_dpr=1.100000023841858; remixscreen_winzoom=1.10; remixnsid=999a3fb1077ffc518bc9c8b9fc1b053604ca10d3bbcf698d15c6484594dabe1dbd5a96f2c238793b471e8; remixsid=1_6CHzMrPKg2i1LoVDnrGfYyRvMX1h7-31xgac_UgzNSVQXYznXEzDQAK1NqjMNP7PSrw4lFPKnwC6PCrX3hFTSQ; remixua=41%7C-1%7C194%7C3261248227; remixaudio_show_alert_today=0; remixmdevice=1366/768/1/!!-!!!!!; remixdark_color_scheme=1; remixcolor_scheme_mode=auto; remixff=1011111111; remixcurr_audio=undefined; remixmvk-fp=474ef59f77db5e5fe758883e1724747e; tmr_detect=1%7C1645812811636; remixmdv=hBb5cYtgUVWIaudH; remixstickers_hash=b43161d3350153b4f74460fa5b7f846b; tmr_reqNum=1273");
+            client.Headers.Add("Accept", "*/*");
+            return client;
         }
     }
 }
