@@ -180,3 +180,54 @@ System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\User
 2022-02-25 16:59:01.481 +03:00 [INF] Started SheduleVkManager
 2022-02-25 16:59:01.981 +03:00 [INF] Try authorize...
 2022-02-25 16:59:04.228 +03:00 [INF] Authorize success
+2022-02-25 17:06:14.172 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:06:14.583 +03:00 [INF] Try authorize...
+2022-02-25 17:06:17.744 +03:00 [INF] Authorize success
+2022-02-25 17:11:14.819 +03:00 [ERR] Failed download Samsung_Sam - EPIC!!! 13
+2022-02-25 17:11:39.937 +03:00 [ERR] Failed download Overwatch - Tracer vaginal penetration [Cawneil] voice by [PleasedByViolet]
+2022-02-25 17:11:40.647 +03:00 [ERR] Failed download (Sound)D.Va female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]
+2022-02-25 17:11:41.548 +03:00 [ERR] Failed download (Sound)Mercy female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]
+2022-02-25 17:11:42.278 +03:00 [ERR] Failed download (Sound)Tracer female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]
+2022-02-25 17:11:43.485 +03:00 [ERR] Failed download (Sound)Sombra female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]
+2022-02-25 17:12:15.066 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:12:16.686 +03:00 [INF] Try authorize...
+2022-02-25 17:12:18.437 +03:00 [FTL] Authorize failed
+VkNet.Exception.VkAuthorizationException: Authorize failed
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 65
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 17:12:25.335 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:12:26.585 +03:00 [INF] Try authorize...
+2022-02-25 17:12:28.430 +03:00 [INF] Authorize success
+2022-02-25 17:12:29.428 +03:00 [FTL] Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at System.Net.WebClient.DownloadData(Uri address)
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 86
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 17:12:43.626 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:12:44.127 +03:00 [INF] Try authorize...
+2022-02-25 17:12:46.451 +03:00 [INF] Authorize success
+2022-02-25 17:13:33.469 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:13:35.142 +03:00 [INF] Try authorize...
+2022-02-25 17:13:37.260 +03:00 [INF] Authorize success
+2022-02-25 17:20:50.082 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:20:50.791 +03:00 [INF] Try authorize...
+2022-02-25 17:20:52.795 +03:00 [INF] Authorize success
+2022-02-25 17:38:06.722 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:38:07.417 +03:00 [INF] Try authorize...
+2022-02-25 17:38:10.032 +03:00 [FTL] Authorize failed
+VkNet.Exception.VkAuthorizationException: Authorize failed
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 65
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-25 17:38:14.886 +03:00 [INF] Started SheduleVkManager
+2022-02-25 17:38:16.506 +03:00 [INF] Try authorize...
+2022-02-25 17:38:18.793 +03:00 [INF] Authorize success
+2022-02-25 19:10:57.965 +03:00 [INF] Started SheduleVkManager
+2022-02-25 19:10:58.784 +03:00 [INF] Try authorize...
+2022-02-25 19:11:02.176 +03:00 [INF] Authorize success

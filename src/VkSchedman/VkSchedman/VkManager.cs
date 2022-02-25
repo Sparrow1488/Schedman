@@ -14,6 +14,10 @@ using VkNet.Model.RequestParams;
 using VkSchedman.Exceptions;
 using VkNet.Utils;
 using VkNet.Model.Attachments;
+using System.Net;
+using System;
+using Serilog;
+using System.IO;
 
 namespace VkSchedman
 {
@@ -59,6 +63,30 @@ namespace VkSchedman
                 AlbumId = foundAlbum.Id
             });
             return videos;
+        }
+
+        public async Task DownloadVideosAsync(VkCollection<Video> videos)
+        {
+            foreach (var video in videos)
+            {
+                var save = await _api.Video.SaveAsync(new VideoSaveParams()
+                {
+                    Name = video.Title,
+                });
+                if (save.UploadUrl is null)
+                {
+                    Log.Error($"Failed download {video.Title}");
+                }
+                else
+                {
+                    using (var client = new WebClient())
+                    {
+                        var bytes = client.DownloadData(save.UploadUrl.AbsoluteUri);
+                        if (bytes.Length > 0)
+                            File.WriteAllBytes($"./video_{Guid.NewGuid()}.mp4", bytes);
+                    }
+                }
+            }
         }
 
         public async Task<GroupManager> GetGroupManagerAsync(string groupName)
