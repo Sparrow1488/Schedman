@@ -23,6 +23,6 @@
 Вы можете ознакомиться с вышеперечисленными библиотеками, перейдя по следующим ссылкам:
 
 * [VideoSchedman](https://github.com/Sparrow1488/VkSchedman/tree/master/src/VideoSchedman)
-* [VkSchedman.Manager](https://github.com/Sparrow1488/VkSchedman/tree/master/src/ScheduleVkManager)
-* [VkSchedman.Chatbot](https://github.com/Sparrow1488/VkSchedman/tree/master/src/ScheduleVkManager.ChatBot.Development.V1)
+* [VkSchedman](https://github.com/Sparrow1488/VkSchedman/tree/master/src/VkSchedman/VkSchedman)
+* [VkSchedman.Chatbot](https://github.com/Sparrow1488/VkSchedman/tree/master/src/VkSchedman/VkSchedman.ChatBot.Development.V1)
 
