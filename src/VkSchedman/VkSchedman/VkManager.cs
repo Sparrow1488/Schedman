@@ -11,6 +11,9 @@ using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
+using VkSchedman.Exceptions;
+using VkNet.Utils;
+using VkNet.Model.Attachments;
 
 namespace VkSchedman
 {
@@ -45,23 +48,17 @@ namespace VkSchedman
             return authSuccess;
         }
 
-        private async Task<bool> TryAuthorizeAsync(VkApi api, AuthorizeData authorizeData)
+        public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle)
         {
-            bool resultSuccess = true;
-            try {
-                await api.AuthorizeAsync(new ApiAuthParams {
-                    Login = authorizeData.Login,
-                    Password = authorizeData.Password,
-                });
-            }
-            catch (VkAuthException authError) {
-                Errors.Add(authError.Message);
-            }
-            catch {
-                resultSuccess = false;
-            }
-
-            return resultSuccess;
+            var albums = await _api.Video.GetAlbumsAsync(count: 100);
+            var foundAlbum = albums.Where(album => album.Title.ToUpper() == albumTitle.ToUpper()).FirstOrDefault();
+            if (foundAlbum is null)
+                throw new AlbumNotFoundException("");
+            var videos = await _api.Video.GetAsync(new VideoGetParams()
+            {
+                AlbumId = foundAlbum.Id
+            });
+            return videos;
         }
 
         public async Task<GroupManager> GetGroupManagerAsync(string groupName)
@@ -82,5 +79,28 @@ namespace VkSchedman
 
         public void ClearErrors() => Errors = new List<string>();
         public IList<string> GetErrors() => Errors;
+
+        private async Task<bool> TryAuthorizeAsync(VkApi api, AuthorizeData authorizeData)
+        {
+            bool resultSuccess = true;
+            try
+            {
+                await api.AuthorizeAsync(new ApiAuthParams
+                {
+                    Login = authorizeData.Login,
+                    Password = authorizeData.Password,
+                });
+            }
+            catch (VkAuthException authError)
+            {
+                Errors.Add(authError.Message);
+            }
+            catch
+            {
+                resultSuccess = false;
+            }
+
+            return resultSuccess;
+        }
     }
 }

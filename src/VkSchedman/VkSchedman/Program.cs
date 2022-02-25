@@ -13,7 +13,7 @@ using VkSchedman.Tools;
 
 namespace VkSchedman
 {
-    internal class Program
+    public sealed class Program
     {
         private static GroupManager _group;
         private static readonly Scheduler _scheduler = new Scheduler();
@@ -37,7 +37,8 @@ namespace VkSchedman
 
             try
             {
-                Task.Run(async () => await StartScheduleVkManageAsync()).GetAwaiter().GetResult();
+                //Task.Run(async () => await StartScheduleVkManagerAsync()).GetAwaiter().GetResult();
+                Task.Run(async () => await ProcessVideosAsync()).GetAwaiter().GetResult();
             }
             catch(Exception ex)
             {
@@ -49,7 +50,21 @@ namespace VkSchedman
             }
         }
 
-        private static async Task StartScheduleVkManageAsync()
+        private static async Task ProcessVideosAsync()
+        {
+            var authDataPath = System.Configuration.ConfigurationManager.AppSettings["Auth"];
+            var authData = new AuthorizeData(authDataPath);
+            var vkManager = new VkManager();
+            Log.Information("Try authorize...");
+            if (await vkManager.AuthorizeAsync(authData))
+            {
+                Log.Information("Authorize success");
+                var videos = await vkManager.GetVideosFromAlbumAsync("53");
+            }
+            else throw new VkAuthorizationException("Authorize failed");
+        }
+
+        private static async Task StartScheduleVkManagerAsync()
         {
             Log.Information("Try authorize...");
             var authDataPath = System.Configuration.ConfigurationManager.AppSettings["Auth"];

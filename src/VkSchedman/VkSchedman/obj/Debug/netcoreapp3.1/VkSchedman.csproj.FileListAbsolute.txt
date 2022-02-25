@@ -131,3 +131,4 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.csproj.AssemblyReference.cache
