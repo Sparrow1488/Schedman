@@ -1,2 +1,0 @@
-file 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\project_0452dc71-a04c-4119-9771-431bde2cf86d\ts\videoTransportStream(0).ts'
-file 'C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\cached-files\project_0452dc71-a04c-4119-9771-431bde2cf86d\ts\videoTransportStream(1).ts'

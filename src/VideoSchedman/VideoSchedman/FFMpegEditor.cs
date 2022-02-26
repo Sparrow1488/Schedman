@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Serilog;
 using System.Text;
 using VideoSchedman.Abstractions;
 using VideoSchedman.Entities;
@@ -19,7 +20,6 @@ namespace VideoSchedman
             {
                 Formatting = Formatting.Indented
             };
-
             var projectPath = $"{Paths.FilesCache}/{_projectName}";
             if (!Directory.Exists(projectPath))
                 Directory.CreateDirectory(projectPath);
@@ -72,7 +72,8 @@ namespace VideoSchedman
                 var filterComplexArgs = new StringBuilder();
                 cachedFiles.ToList().ForEach(file => filterComplexArgs.Append($"[{Array.IndexOf(cachedFiles, file)}:v]"));
                 filterComplexArgs.Append($"concat=n={cachedFiles.Length}");
-                var script = _scriptBuilder.ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
+                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y"))
+                                           .ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
                                            .Build(_config, format => format.CombineSources(cachedFiles));
                 await _executableProcess.StartAsync(script);
             }
@@ -124,10 +125,12 @@ namespace VideoSchedman
             scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black1920x1080.png"));
             scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 16 -r 45"));
             var script = scriptBuilder.Build(config);
+            Log.Debug($"Кэшируем файл {fileMeta.Name}...");
             await _executableProcess.StartAsync(script);
             if (!File.Exists(config.OutputFile.ToString()))
                 throw new Exception("Failed caching file!");
             fileMeta.Links.Converted = config.OutputFile.ToString();
+            Log.Debug($"Кэширован файл {fileMeta.Name}");
             OnCachedSource?.Invoke($"file: {fileMeta.Name} was cached");
             
             SaveFilesMeta();
@@ -152,9 +155,11 @@ namespace VideoSchedman
                 var command = scriptBuilder.ConfigureInputs(commands => commands.Add("-y"))
                                            .ConfigureOutputs(commands => commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
                                            .Build(config);
+                Log.Debug("Конвертируем файлы в формат .ts");
                 await _executableProcess.StartAsync(command);
                 scriptBuilder.Clean();
                 counter++;
+                Log.Debug($"Файл: {new string(Path.GetFileName(src))} успешно конвертирован в формат .ts");
                 OnConvertedSource?.Invoke($"file: {new string(Path.GetFileName(src))} was converted to .ts");
             }
             
@@ -163,6 +168,7 @@ namespace VideoSchedman
 
         public void CleanTsCache()
         {
+            Log.Debug("Очищаем файлы кэшей с расширением .ts");
             var tsCacheFiles = Path.Combine(Paths.FilesCache.ToString(), _projectName, "ts");
             var files = Directory.GetFiles(tsCacheFiles);
             foreach (var file in files)
@@ -202,14 +208,16 @@ namespace VideoSchedman
                 var json = JsonConvert.SerializeObject(_config.Sources, _jsonSettings);
                 sw.WriteLine(json);
             }
+            Log.Debug("Сохранены мета файлы");
         }
 
         private async Task PutSilentOnVideoAsync(FileMeta fileMeta)
         {
+            Log.Debug("Добавляем аудиодорожку немому видео");
             string endPattern = "(silent)";
             string oldName = fileMeta.Name;
             string newFileName = $"{oldName}{endPattern}";
-            await _executableProcess.StartAsync($"-f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i \"{fileMeta}\" -c:v copy -c:a aac -shortest \"{fileMeta.RootPath}/{newFileName}.{fileMeta.Extension}\"");
+            await _executableProcess.StartAsync($"-y -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i \"{fileMeta}\" -c:v copy -c:a aac -shortest \"{fileMeta.RootPath}/{newFileName}.{fileMeta.Extension}\"");
             fileMeta.Name = newFileName;
             File.Delete($"{fileMeta.RootPath}/{oldName}.{fileMeta.Extension}");
         }

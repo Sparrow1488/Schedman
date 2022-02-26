@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using VideoSchedman;
+using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
 Log.Logger = new LoggerConfiguration()
@@ -18,8 +19,6 @@ var editor = new FFMpegEditor().Configure(config =>
                          config.AddSrcRange(files)
                                .SaveTo("Compilation")
                                .Quality(VideoQuality.FHD));
-editor.OnCachedSource += (cached) => Log.Information(cached);
-editor.OnConvertedSource += (converted) => Log.Information(converted);
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 
