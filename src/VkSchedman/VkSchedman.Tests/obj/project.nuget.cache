@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "tdRCIayEB++EoFQR0gULbQ07pNz8bHKsxywJVcAO2bJe9d/bFvMA4fGcHUYTLLGz1pufizVGoA2wtg6KrbtJOw==",
+  "dgSpecHash": "pa1dUjoV1qk7u9oxxPeYud5kT1NIoyNdx31tQkZ5Q3ghWUmCo4S7MZH3lrJiE1KY9lYPPWkIv9QMcA4nlPsapA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Александр\\Desktop\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Александр\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
@@ -62,7 +61,7 @@
     "C:\\Users\\Александр\\.nuget\\packages\\serilog.sinks.console\\4.0.1\\serilog.sinks.console.4.0.1.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
-    "C:\\Users\\Александр\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
