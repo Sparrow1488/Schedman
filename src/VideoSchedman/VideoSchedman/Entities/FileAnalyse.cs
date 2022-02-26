@@ -4,7 +4,10 @@ namespace VideoSchedman.Entities
 {
     public class FileAnalyse
     {
-        public IEnumerable<FileAnalyseStream> Streams { get; set; }
+        public IEnumerable<FileAnalyseStream> Streams { get; set; } = new FileAnalyseStream[0];
+
+        public bool WithAudio() => 
+            Streams.Where(stream => stream?.CodecType?.Contains("audio") ?? false).Any();
     }
 
     public class FileAnalyseStream

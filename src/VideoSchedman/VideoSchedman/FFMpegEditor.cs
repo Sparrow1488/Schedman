@@ -14,7 +14,7 @@ namespace VideoSchedman
             _config = new Configuration();
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
-                                    new ExecutableProcess().FilePathFromConfig("ffprobePath") : new ExecutableProcess(ffmpegPath);
+                                    new ExecutableProcess().FilePathFromConfig("ffmpegPath") : new ExecutableProcess(ffmpegPath);
             _jsonSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
@@ -29,12 +29,12 @@ namespace VideoSchedman
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
-        //private string _projectName = $"project_{Guid.NewGuid()}";
+        private string _projectName = $"project_{Guid.NewGuid()}";
 
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;
 
-        private string _projectName = $"project_fe23dd5a-e8a0-41a0-96d2-3973b56d8cbf";
+        //private string _projectName = $"project_fe23dd5a-e8a0-41a0-96d2-3973b56d8cbf";
 
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
@@ -61,7 +61,7 @@ namespace VideoSchedman
                     await ConvertToTsFormatAsync();
                     cachedFiles = GetCachedTsCopies().ToArray();
                 } 
-            var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
+                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v copy -preset fast -vsync cfr -r 45"))
                                            .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
                 await _executableProcess.StartAsync(script);
@@ -109,6 +109,9 @@ namespace VideoSchedman
 
         private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
         {
+            if (!fileMeta.Analyse.WithAudio())
+                await PutSilentOnVideoAsync(fileMeta);
+
             var config = new Configuration();
             string cacheDirPath = Path.Combine(Paths.FilesCache.Path, _projectName);
             var cachedFilesCount = Directory.GetFiles(cacheDirPath).Length;
@@ -116,6 +119,7 @@ namespace VideoSchedman
                   .SaveTo($"video{cachedFilesCount+1}", cacheDirPath)
                   .SaveAs("mp4")
                   .Quality(quality);
+
             var scriptBuilder = new ScriptBuilder();
             scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black1920x1080.png"));
             scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 16 -r 45"));
@@ -125,6 +129,7 @@ namespace VideoSchedman
                 throw new Exception("Failed caching file!");
             fileMeta.Links.Converted = config.OutputFile.ToString();
             OnCachedSource?.Invoke($"file: {fileMeta.Name} was cached");
+            
             SaveFilesMeta();
         }
 
@@ -135,7 +140,8 @@ namespace VideoSchedman
             var tsCachedFilesDir = Path.Combine(Paths.FilesCache.ToString(), _projectName, "ts");
             if (!Directory.Exists(tsCachedFilesDir))
                 Directory.CreateDirectory(tsCachedFilesDir);
-            var existsCachedFiles = Directory.GetFiles(Path.Combine(Paths.FilesCache.ToString(), _projectName));
+            var existsCachedFiles = Directory.GetFiles(Path.Combine(Paths.FilesCache.ToString(), _projectName))
+                                             .Where(file => file.EndsWith(".mp4"));
             CleanTsCache();
             foreach (var src in existsCachedFiles)
             {
@@ -149,7 +155,7 @@ namespace VideoSchedman
                 await _executableProcess.StartAsync(command);
                 scriptBuilder.Clean();
                 counter++;
-                OnConvertedSource?.Invoke($"file: {new FileInfo(src).Name} was converted to .ts");
+                OnConvertedSource?.Invoke($"file: {new string(Path.GetFileName(src))} was converted to .ts");
             }
             
             SaveFilesMeta();
@@ -198,6 +204,14 @@ namespace VideoSchedman
             }
         }
 
-
+        private async Task PutSilentOnVideoAsync(FileMeta fileMeta)
+        {
+            string endPattern = "(silent)";
+            string oldName = fileMeta.Name;
+            string newFileName = $"{oldName}{endPattern}";
+            await _executableProcess.StartAsync($"-f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i \"{fileMeta}\" -c:v copy -c:a aac -shortest \"{fileMeta.RootPath}/{newFileName}.{fileMeta.Extension}\"");
+            fileMeta.Name = newFileName;
+            File.Delete($"{fileMeta.RootPath}/{oldName}.{fileMeta.Extension}");
+        }
     }
 }
