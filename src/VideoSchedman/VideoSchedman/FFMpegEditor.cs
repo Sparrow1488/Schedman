@@ -14,7 +14,7 @@ namespace VideoSchedman
             _config = new Configuration();
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
-                                    new ExecutableProcess().FilePathFromConfig() : new ExecutableProcess(ffmpegPath);
+                                    new ExecutableProcess().FilePathFromConfig("ffprobePath") : new ExecutableProcess(ffmpegPath);
             _jsonSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented

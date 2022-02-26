@@ -13,9 +13,9 @@ namespace VideoSchedman.Entities
 
         private string _ffmpegPath = string.Empty;
 
-        public IExecutableProcess FilePathFromConfig()
+        public IExecutableProcess FilePathFromConfig(string configKey)
         {
-            _ffmpegPath = ConfigurationManager.AppSettings["ffmpegPath"] ?? throw new KeyNotFoundException("Not found executable file file path in app.config!");
+            _ffmpegPath = ConfigurationManager.AppSettings[configKey] ?? throw new KeyNotFoundException("Not found executable file file path in app.config!");
             return this;
         }
 
@@ -36,12 +36,13 @@ namespace VideoSchedman.Entities
             }
         }
 
-        public async Task StartDebugAsync(string command)
+        public async Task<string> StartWithOutputCatchAsync(string command)
         {
             if (string.IsNullOrWhiteSpace(command))
                 throw new ArgumentException(nameof(command));
 
             var startInfo = CreateStartInfoDebug();
+            string result = "";
 
             startInfo.Arguments = command;
             using (var process = new Process() { StartInfo = startInfo })
@@ -50,9 +51,10 @@ namespace VideoSchedman.Entities
                     throw new Exception("Process not started");
                 process.EnableRaisingEvents = true;
                 process.Start();
+                result = await process.StandardOutput.ReadToEndAsync();
                 await process.WaitForExitAsync();
-                process.StandardError.Dispose();
             }
+            return result;
         }
 
         private ProcessStartInfo CreateStartInfoDefault()
@@ -70,6 +72,11 @@ namespace VideoSchedman.Entities
         private ProcessStartInfo CreateStartInfoDebug()
         {
             var ffmpegStartInfo = CreateStartInfoDefault();
+            ffmpegStartInfo.RedirectStandardError = true;
+            ffmpegStartInfo.RedirectStandardOutput = true;
+            ffmpegStartInfo.RedirectStandardInput = true;
+            ffmpegStartInfo.UseShellExecute = false;
+            ffmpegStartInfo.CreateNoWindow = true;
             return ffmpegStartInfo;
         }
 

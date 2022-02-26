@@ -40,6 +40,7 @@ namespace VideoSchedman.Entities
                 Name = correctName,
                 RootPath = info.DirectoryName ?? string.Empty,
             };
+            var fileAnalyse = new FFProbeAnalyser().AnalyseAsync(filePath).GetAwaiter().GetResult();
             return meta;
         }
 

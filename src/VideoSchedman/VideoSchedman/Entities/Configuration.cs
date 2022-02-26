@@ -17,6 +17,8 @@ namespace VideoSchedman.Entities
 
         public Configuration AddSrc(string path)
         {
+            string fileMeta = new ExecutableProcess().FilePathFromConfig("ffprobePath").StartWithOutputCatchAsync("" +
+                $"-i \"{path}\" -v quiet -print_format json -show_format -show_streams").GetAwaiter().GetResult();
             if (!File.Exists(path))
                 throw new FileNotFoundException($"File from \"{path}\" not exists");
             _sources.Add(FileMeta.From(path));

@@ -8,7 +8,7 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2";
+string rootVideos = @"D:\Закачки\ffmpeg_build\ffmpeg\bin\to_test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
