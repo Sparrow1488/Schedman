@@ -760,3 +760,84 @@ VkNet.Exception.VkAuthorizationException: Authorize failed
 2022-02-26 17:00:38.113 +03:00 [INF] [60/100] Downloaded "The Last of Us Part II - Ellie licking pussy, lesbian cunnilingus [ChameleonHops]"
 2022-02-26 17:00:40.659 +03:00 [INF] [61/100] Downloaded "Apex Legends - Loba blowjob deepthroat [Vekkte] voice by [CottontailVA]"
 2022-02-26 17:00:41.795 +03:00 [INF] [62/100] Downloaded "Samsung - Samsung Sam facefuck [Vekkte]"
+2022-02-26 17:20:50.531 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:20:52.795 +03:00 [INF] Try authorize...
+2022-02-26 17:21:01.607 +03:00 [INF] Authorize success
+2022-02-26 17:21:02.748 +03:00 [FTL] One of the parameters specified was missing or invalid: count should be less or equal to 200
+VkNet.Exception.ParameterMissingOrInvalidException: One of the parameters specified was missing or invalid: count should be less or equal to 200
+   at VkNet.Utils.VkErrors.IfErrorThrowException(String json)
+   at VkNet.VkApi.Invoke(String methodName, IDictionary`2 parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.CallBase(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.Call(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.Categories.VideoCategory.Get(VideoGetParams params)
+   at VkNet.Categories.VideoCategory.<>c__DisplayClass0_0.<GetAsync>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.VkManager.GetVideosFromAlbumAsync(String albumTitle, Int32 count) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 60
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-26 17:21:36.219 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:21:38.789 +03:00 [INF] Try authorize...
+2022-02-26 17:21:42.263 +03:00 [INF] Authorize success
+2022-02-26 17:21:43.020 +03:00 [FTL] One of the parameters specified was missing or invalid: count should be less or equal to 200
+VkNet.Exception.ParameterMissingOrInvalidException: One of the parameters specified was missing or invalid: count should be less or equal to 200
+   at VkNet.Utils.VkErrors.IfErrorThrowException(String json)
+   at VkNet.VkApi.Invoke(String methodName, IDictionary`2 parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.CallBase(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.Call(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.Categories.VideoCategory.Get(VideoGetParams params)
+   at VkNet.Categories.VideoCategory.<>c__DisplayClass0_0.<GetAsync>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.VkManager.GetVideosFromAlbumAsync(String albumTitle, Int32 count) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 60
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-26 17:24:13.727 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:24:14.876 +03:00 [INF] Try authorize...
+2022-02-26 17:24:18.376 +03:00 [INF] Authorize success
+2022-02-26 17:24:19.025 +03:00 [FTL] One of the parameters specified was missing or invalid: count should be less or equal to 100
+VkNet.Exception.ParameterMissingOrInvalidException: One of the parameters specified was missing or invalid: count should be less or equal to 100
+   at VkNet.Utils.VkErrors.IfErrorThrowException(String json)
+   at VkNet.VkApi.Invoke(String methodName, IDictionary`2 parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.CallBase(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.VkApi.Call(String methodName, VkParameters parameters, Boolean skipAuthorization)
+   at VkNet.Categories.VideoCategory.GetAlbums(Nullable`1 ownerId, Nullable`1 offset, Nullable`1 count, Nullable`1 extended, Nullable`1 needSystem)
+   at VkNet.Categories.VideoCategory.<>c__DisplayClass7_0.<GetAlbumsAsync>b__0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.VkManager.GetVideosFromAlbumAsync(String albumTitle, Int32 count) in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 55
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 63
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-02-26 17:25:24.117 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:25:25.501 +03:00 [INF] Try authorize...
+2022-02-26 17:25:28.819 +03:00 [INF] Authorize success
+2022-02-26 17:27:58.001 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:27:59.050 +03:00 [INF] Try authorize...
+2022-02-26 17:28:01.987 +03:00 [INF] Authorize success
+2022-02-26 17:29:41.735 +03:00 [INF] Started SheduleVkManager
+2022-02-26 17:29:44.643 +03:00 [INF] Try authorize...
+2022-02-26 17:29:48.836 +03:00 [INF] Authorize success
+2022-02-26 17:29:53.721 +03:00 [INF] [1/127] Downloaded "Overflame (ashe EPIC ASS FCUK! animation#154)"
+2022-02-26 17:29:55.708 +03:00 [INF] [2/127] Downloaded "Mass Effect 3 - Liara T'Soni reverse vaginal penetration [Tomoganim]"
+2022-02-26 17:29:57.309 +03:00 [INF] [3/127] Downloaded "Mass Effect 3 - Liara T'Soni riding vaginal penetration (slow) [Tomoganim]"

@@ -60,7 +60,7 @@ namespace VkSchedman
             {
                 Log.Information("Authorize success");
                 string videosAlbumTitle = "52";
-                var videos = await vkManager.GetVideosFromAlbumAsync(videosAlbumTitle);
+                var videos = await vkManager.GetVideosFromAlbumAsync(videosAlbumTitle, count:1000);
                 await vkManager.DownloadVideosAsync(videos, videosAlbumTitle);
             }
             else throw new VkAuthorizationException("Authorize failed");

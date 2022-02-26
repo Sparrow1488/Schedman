@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "+WTjWWp7MvVnTFwsOV5yck5b/5llc+KCNx48a7whYqwyBL3GydFZegcYeyQKvRi47eqJkw6UYqjPM8exv/ELdg==",
+  "dgSpecHash": "WbsVRja8qi8Q71+Yt54HuCHCKe9xGVW4oaNPQZNfyn6UEwlq5ICjRHXimitK+B0rNtZn3eXKn3gCXcVZ+/t4JQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Александр\\Desktop\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Александр\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
@@ -34,7 +33,6 @@
     "C:\\Users\\Александр\\.nuget\\packages\\serilog.settings.configuration\\3.3.0\\serilog.settings.configuration.3.3.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\serilog.sinks.console\\4.0.1\\serilog.sinks.console.4.0.1.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
-    "C:\\Users\\Александр\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

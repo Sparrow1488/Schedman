@@ -1,25 +1,22 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using VkSchedman.Entities;
-using VkSchedman.Interfaces;
+using Serilog;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using VkNet;
 using VkNet.AudioBypassService.Exceptions;
 using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
 using VkNet.Model;
-using VkNet.Model.RequestParams;
-using VkSchedman.Exceptions;
-using VkNet.Utils;
 using VkNet.Model.Attachments;
-using System.Net;
-using System;
-using Serilog;
-using System.IO;
-using AngleSharp.Html.Parser;
-using VkNet.Exception;
+using VkNet.Model.RequestParams;
+using VkNet.Utils;
+using VkSchedman.Entities;
+using VkSchedman.Exceptions;
+using VkSchedman.Interfaces;
 
 namespace VkSchedman
 {
@@ -42,29 +39,34 @@ namespace VkSchedman
             var emptyContext = new ValidationContext(authorizeData);
             var validationErrors = authorizeData.Validate(emptyContext);
 
-            if(validationErrors.Count() > 0) {
-                foreach (var error in validationErrors) {
+            if(validationErrors.Count() > 0)
+                foreach (var error in validationErrors)
                     Errors.Add(error.ErrorMessage);
-                }
-            }
-            else {
-                authSuccess = await TryAuthorizeAsync(_api, authorizeData);
-            }
+            else authSuccess = await TryAuthorizeAsync(_api, authorizeData);
 
             return authSuccess;
         }
 
-        public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle)
+        public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
         {
+            int maxVideosInRequest = 200;
+            int downloadIterations = count / maxVideosInRequest;
             var albums = await _api.Video.GetAlbumsAsync(count: 100);
             var foundAlbum = albums.Where(album => album.Title.ToUpper() == albumTitle.ToUpper()).FirstOrDefault();
             if (foundAlbum is null)
-                throw new AlbumNotFoundException("");
-            var videos = await _api.Video.GetAsync(new VideoGetParams()
+                throw new AlbumNotFoundException("Album not found");
+            
+            var videos = new List<Video>();
+            for (int i = 1; i <= downloadIterations + 1; i++)
             {
-                AlbumId = foundAlbum.Id
-            });
-            return videos;
+                videos.AddRange(await _api.Video.GetAsync(new VideoGetParams()
+                {
+                    AlbumId = foundAlbum.Id,
+                    Offset = videos.Count,
+                    Count = maxVideosInRequest
+                }));
+            }
+            return new VkCollection<Video>((ulong)videos.Count, videos);
         }
 
         public async Task DownloadVideosAsync(VkCollection<Video> videos, string albumTitle = "")
