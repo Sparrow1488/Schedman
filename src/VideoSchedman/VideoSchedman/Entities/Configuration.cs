@@ -1,4 +1,6 @@
-﻿using VideoSchedman.Enums;
+﻿using Serilog;
+using Serilog.Core;
+using VideoSchedman.Enums;
 
 namespace VideoSchedman.Entities
 {
@@ -67,5 +69,6 @@ namespace VideoSchedman.Entities
             return this;
         }
 
+        
     }
 }

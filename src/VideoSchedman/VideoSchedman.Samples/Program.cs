@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using VideoSchedman;
+using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
 Log.Logger = new LoggerConfiguration()
@@ -8,7 +9,7 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2";
+string rootVideos = @"D:\Закачки\ffmpeg_build\ffmpeg\bin\to_test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
@@ -18,8 +19,6 @@ var editor = new FFMpegEditor().Configure(config =>
                          config.AddSrcRange(files)
                                .SaveTo("Compilation")
                                .Quality(VideoQuality.FHD));
-editor.OnCachedSource += (cached) => Log.Information(cached);
-editor.OnConvertedSource += (converted) => Log.Information(converted);
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 

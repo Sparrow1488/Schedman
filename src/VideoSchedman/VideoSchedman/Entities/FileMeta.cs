@@ -19,6 +19,7 @@ namespace VideoSchedman.Entities
         public string Extension { get; internal set; }
         public FileLinks Links { get; set; }
         public FileType Type { get; } = FileType.Undefined;
+        public FileAnalyse Analyse { get; internal set; }
         public VideoQuality VideoQuality { get; internal set; } = VideoQuality.Undefined;
 
         /// <exception cref="ArgumentException"></exception>
@@ -27,7 +28,6 @@ namespace VideoSchedman.Entities
         {
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException($"{nameof(filePath)} cannot be empty or null!");
-            // TODO: раскоммитить
             if (!IsFilePathCharsValid(filePath))
                 new InvalidOperationException($"{filePath} contains invalid chars unusable in ffmpeg (' ' ', '$') or file path too long");
             var info = new FileInfo(filePath);
@@ -40,6 +40,7 @@ namespace VideoSchedman.Entities
                 Name = correctName,
                 RootPath = info.DirectoryName ?? string.Empty,
             };
+            meta.Analyse = new FFProbeAnalyser().AnalyseAsync(filePath).GetAwaiter().GetResult();
             return meta;
         }
 

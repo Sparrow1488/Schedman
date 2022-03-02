@@ -59,8 +59,9 @@ namespace VkSchedman
             if (await vkManager.AuthorizeAsync(authData))
             {
                 Log.Information("Authorize success");
-                var videos = await vkManager.GetVideosFromAlbumAsync("53");
-                await vkManager.DownloadVideosAsync(videos);
+                string videosAlbumTitle = "52";
+                var videos = await vkManager.GetVideosFromAlbumAsync(videosAlbumTitle, count:1000);
+                await vkManager.DownloadVideosAsync(videos, videosAlbumTitle);
             }
             else throw new VkAuthorizationException("Authorize failed");
         }
