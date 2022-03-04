@@ -43,6 +43,8 @@ namespace VideoSchedman.Entities
 
         public Configuration SaveTo(string name, string dirPath = "", bool createDirIfNotExists = false)
         {
+            if (Project.IsAvailable && string.IsNullOrWhiteSpace(dirPath))
+                dirPath = Paths.OutputProjectFiles.Path;
             if (string.IsNullOrWhiteSpace(dirPath))
                 dirPath = Paths.OutputFiles.Path;
             if (string.IsNullOrWhiteSpace(dirPath) || string.IsNullOrWhiteSpace(name))

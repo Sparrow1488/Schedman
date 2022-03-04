@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using VideoSchedman;
+using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
 Log.Logger = new LoggerConfiguration()
@@ -14,6 +15,7 @@ string resultPath = string.Empty;
 
 Log.Information("Запускаем");
 
+Project.UseExistsProject("project_8f9fe638-bdd0-4acb-982c-976571b5809b");
 var editor = new FFMpegEditor().Configure(config =>
                                //config.AddSrcRange(files)
                                config.RestoreSrc()

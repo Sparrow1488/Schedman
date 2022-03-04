@@ -16,11 +16,14 @@ namespace VideoSchedman
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
                                     new ExecutableProcess().FilePathFromConfig("ffmpegPath") : new ExecutableProcess(ffmpegPath);
+            if (Project.IsAvailable)
+                _projectName = Project.Name;
+            else _projectName = Project.CreateProject();
+
             _jsonSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
             };
-            Paths.CreateProject(_projectName);
         }
 
         private Configuration _config;
@@ -32,7 +35,7 @@ namespace VideoSchedman
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;
 
-        private string _projectName = $"project_8f9fe638-bdd0-4acb-982c-976571b5809b";
+        private string _projectName;
 
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
