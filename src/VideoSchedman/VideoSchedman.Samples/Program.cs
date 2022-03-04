@@ -18,11 +18,10 @@ Log.Information("Запускаем");
 
 Project.UseExistsProject("project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95");
 var editor = new FFMpegEditor().Configure(config =>
-                               //config.AddSrcRange(files)
-                               config.RestoreSrc()
-                               .AddSrc(@"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\D.Va Overwatch sex секс (1).mp4")
-                               .SaveTo("Compilation")
-                               .Quality(VideoQuality.FHD));
+                                config.RestoreSrc()
+                                      .AddDistinctSrcRange(files)
+                                      .SaveTo("Compilation")
+                                      .Quality(VideoQuality.FHD));
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
 

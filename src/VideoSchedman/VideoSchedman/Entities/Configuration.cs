@@ -41,6 +41,16 @@ namespace VideoSchedman.Entities
             return this;
         }
 
+        public Configuration AddDistinctSrcRange(IEnumerable<string> paths)
+        {
+            if (paths is null)
+                throw new ArgumentNullException($"{nameof(paths)} cannot be null!");
+            foreach (var path in paths)
+                if(!_sources.Any(src => src.Links.Original == path))
+                    _sources.Add(FileMeta.From(path));
+            return this;
+        }
+
         public Configuration SaveTo(string name, string dirPath = "", bool createDirIfNotExists = false)
         {
             if (Project.IsAvailable && string.IsNullOrWhiteSpace(dirPath))

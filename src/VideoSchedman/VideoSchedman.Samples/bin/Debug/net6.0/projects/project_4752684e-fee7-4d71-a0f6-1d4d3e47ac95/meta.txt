@@ -126,5 +126,37 @@
       "Width": 0,
       "Name": "Undefined"
     }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no",
+    "Name": "R34 - 9fe1d7a7174bf257dfd5c4ae2a4f22a2",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no\\R34 - 9fe1d7a7174bf257dfd5c4ae2a4f22a2.mp4",
+      "Converted": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\converted\\video5.mp4",
+      "Ts": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\ts\\videoTransportStream(4).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
   }
 ]
