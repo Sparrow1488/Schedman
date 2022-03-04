@@ -122,7 +122,7 @@ namespace VideoSchedman
                   .Quality(quality);
 
             var scriptBuilder = new ScriptBuilder();
-            scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black1920x1080.png"));
+            scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black{config.OutputFile.VideoQuality}.png"));
             scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 16 -r 45"));
             var script = scriptBuilder.Build(config);
             Log.Debug($"Кэшируем файл {fileMeta.Name}...");

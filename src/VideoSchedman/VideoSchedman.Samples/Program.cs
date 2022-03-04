@@ -1,6 +1,5 @@
 ﻿using Serilog;
 using VideoSchedman;
-using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
 Log.Logger = new LoggerConfiguration()
@@ -9,7 +8,7 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-string rootVideos = @"D:\Закачки\ffmpeg_build\ffmpeg\bin\to_test";
+string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test\noaudio";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
