@@ -20,21 +20,19 @@ namespace VideoSchedman
             {
                 Formatting = Formatting.Indented
             };
-            var projectPath = $"{Paths.FilesCache}/{_projectName}";
-            if (!Directory.Exists(projectPath))
-                Directory.CreateDirectory(projectPath);
+            Paths.CreateProject(_projectName);
         }
 
         private Configuration _config;
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
-        private string _projectName = $"project_{Guid.NewGuid()}";
+        //private string _projectName = $"project_{Guid.NewGuid()}";
 
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;
 
-        //private string _projectName = $"project_fe23dd5a-e8a0-41a0-96d2-3973b56d8cbf";
+        private string _projectName = $"project_8f9fe638-bdd0-4acb-982c-976571b5809b";
 
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
@@ -50,8 +48,8 @@ namespace VideoSchedman
         public async Task ConcatSourcesAsync(ConcatType concatType)
         {
             _scriptBuilder.Clean();
-            foreach (var src in _config.Sources)
-                await CacheSource(src, _config.OutputFile.VideoQuality);
+            //foreach (var src in _config.Sources)
+            //    await CacheSource(src, _config.OutputFile.VideoQuality);
             var cachedFiles = GetCachedCopies().ToArray();
             if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
             if (concatType == ConcatType.ReencodingConcat || concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
@@ -114,7 +112,7 @@ namespace VideoSchedman
                 await PutSilentOnVideoAsync(fileMeta);
 
             var config = new Configuration();
-            string cacheDirPath = Path.Combine(Paths.FilesCache.Path, _projectName);
+            string cacheDirPath = Paths.ConvertedFiles.Path;
             var cachedFilesCount = Directory.GetFiles(cacheDirPath).Length;
             config.AddSrc(fileMeta.ToString())
                   .SaveTo($"video{cachedFilesCount+1}", cacheDirPath)
@@ -123,7 +121,7 @@ namespace VideoSchedman
 
             var scriptBuilder = new ScriptBuilder();
             scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black{config.OutputFile.VideoQuality}.png"));
-            scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 16 -r 45"));
+            scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 18 -r 40"));
             var script = scriptBuilder.Build(config);
             Log.Debug($"Кэшируем файл {fileMeta.Name}...");
             await _executableProcess.StartAsync(script);
@@ -136,14 +134,14 @@ namespace VideoSchedman
             SaveFilesMeta();
         }
 
-        public async Task ConvertToTsFormatAsync()
+        private async Task ConvertToTsFormatAsync()
         {
             int counter = 0;
             var scriptBuilder = new ScriptBuilder();
-            var tsCachedFilesDir = Path.Combine(Paths.FilesCache.ToString(), _projectName, "ts");
+            var tsCachedFilesDir = Paths.TsFiles.Path;
             if (!Directory.Exists(tsCachedFilesDir))
                 Directory.CreateDirectory(tsCachedFilesDir);
-            var existsCachedFiles = Directory.GetFiles(Path.Combine(Paths.FilesCache.ToString(), _projectName))
+            var existsCachedFiles = Directory.GetFiles(Paths.ConvertedFiles.Path)
                                              .Where(file => file.EndsWith(".mp4"));
             CleanTsCache();
             foreach (var src in existsCachedFiles)
@@ -166,10 +164,10 @@ namespace VideoSchedman
             SaveFilesMeta();
         }
 
-        public void CleanTsCache()
+        private void CleanTsCache()
         {
             Log.Debug("Очищаем файлы кэшей с расширением .ts");
-            var tsCacheFiles = Path.Combine(Paths.FilesCache.ToString(), _projectName, "ts");
+            var tsCacheFiles = Paths.TsFiles.Path;
             var files = Directory.GetFiles(tsCacheFiles);
             foreach (var file in files)
                 File.Delete(file);
@@ -177,7 +175,7 @@ namespace VideoSchedman
 
         private IEnumerable<FileMeta> GetCachedCopies()
         {
-            var projectCachedFilesPath = Path.Combine(Paths.FilesCache.Path, _projectName);
+            var projectCachedFilesPath = Paths.ConvertedFiles.Path;
             var files = Directory.GetFiles(projectCachedFilesPath);
             var cached = new List<FileMeta>();
             foreach (var file in files)
@@ -189,7 +187,7 @@ namespace VideoSchedman
 
         private IEnumerable<FileMeta> GetCachedTsCopies()
         {
-            var projectCachedFilesPath = Path.Combine(Paths.FilesCache.Path, _projectName, "ts");
+            var projectCachedFilesPath = Paths.TsFiles.Path;
             var files = Directory.GetFiles(projectCachedFilesPath);
             var cached = new List<FileMeta>();
             foreach (var file in files)
@@ -199,8 +197,7 @@ namespace VideoSchedman
 
         private void SaveFilesMeta()
         {
-            var metaPath = Path.Combine(Paths.FilesCache.ToString(), _projectName);
-            metaPath += "/meta.txt";
+            var metaPath = Paths.CurrentProject + "/meta.txt";
             if(File.Exists(metaPath))
                 File.Delete(metaPath);
             using (var sw = File.CreateText(metaPath))

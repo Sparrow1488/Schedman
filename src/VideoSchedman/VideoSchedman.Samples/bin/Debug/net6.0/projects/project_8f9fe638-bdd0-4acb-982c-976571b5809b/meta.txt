@@ -1,0 +1,66 @@
+[
+  {
+    "RootPath": "C:\\Users\\aleks\\Downloads\\videos",
+    "Name": "Nature Beautiful short video 720p HD",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\Downloads\\videos\\Nature Beautiful short video 720p HD.mp4",
+      "Converted": null,
+      "Ts": null
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\Downloads\\videos",
+    "Name": "production ID_4763824(silent)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\Downloads\\videos\\production ID_4763824(silent).mp4",
+      "Converted": null,
+      "Ts": null
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  }
+]
