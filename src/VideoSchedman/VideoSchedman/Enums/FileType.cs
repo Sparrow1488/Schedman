@@ -1,7 +1,10 @@
-﻿namespace VideoSchedman.Enums
+﻿using Newtonsoft.Json;
+
+namespace VideoSchedman.Enums
 {
     public class FileType
     {
+        [JsonConstructor]
         private FileType(string name) 
         { 
             Name = name;

@@ -5,8 +5,8 @@
     "Extension": "mp4",
     "Links": {
       "Original": "C:\\Users\\aleks\\Downloads\\videos\\Nature Beautiful short video 720p HD.mp4",
-      "Converted": null,
-      "Ts": null
+      "Converted": ".\\projects\\project_8f9fe638-bdd0-4acb-982c-976571b5809b\\converted\\video3.mp4",
+      "Ts": ".\\projects\\project_8f9fe638-bdd0-4acb-982c-976571b5809b\\ts\\videoTransportStream(0).ts"
     },
     "Type": {
       "Name": "Video"
@@ -37,8 +37,8 @@
     "Extension": "mp4",
     "Links": {
       "Original": "C:\\Users\\aleks\\Downloads\\videos\\production ID_4763824(silent).mp4",
-      "Converted": null,
-      "Ts": null
+      "Converted": ".\\projects\\project_8f9fe638-bdd0-4acb-982c-976571b5809b\\converted\\video2.mp4",
+      "Ts": ".\\projects\\project_8f9fe638-bdd0-4acb-982c-976571b5809b\\ts\\videoTransportStream(1).ts"
     },
     "Type": {
       "Name": "Video"

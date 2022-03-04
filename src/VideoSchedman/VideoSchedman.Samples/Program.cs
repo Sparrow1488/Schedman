@@ -15,7 +15,8 @@ string resultPath = string.Empty;
 Log.Information("Запускаем");
 
 var editor = new FFMpegEditor().Configure(config =>
-                         config.AddSrcRange(files)
+                               //config.AddSrcRange(files)
+                               config.RestoreSrc()
                                .SaveTo("Compilation")
                                .Quality(VideoQuality.FHD));
 

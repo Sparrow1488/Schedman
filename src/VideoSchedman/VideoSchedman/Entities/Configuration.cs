@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Newtonsoft.Json;
+using Serilog;
 using Serilog.Core;
 using VideoSchedman.Enums;
 
@@ -22,6 +23,12 @@ namespace VideoSchedman.Entities
             if (!File.Exists(path))
                 throw new FileNotFoundException($"File from \"{path}\" not exists");
             _sources.Add(FileMeta.From(path));
+            return this;
+        }
+
+        public Configuration RestoreSrc()
+        {
+            _sources = new List<FileMeta>(RestoreFilesMeta());
             return this;
         }
 
@@ -69,6 +76,17 @@ namespace VideoSchedman.Entities
             return this;
         }
 
-        
+        private IEnumerable<FileMeta> RestoreFilesMeta()
+        {
+            IEnumerable<FileMeta> result = new List<FileMeta>();
+            var metaPath = Paths.CurrentProject + "/meta.txt";
+            if (File.Exists(metaPath))
+            {
+                var metaJson = File.ReadAllText(metaPath);
+                result = JsonConvert.DeserializeObject<IEnumerable<FileMeta>>(metaJson) ?? throw new Exception("Failed restore files meta");
+            }
+            else Log.Error("Не удалось восстановить мету файлов, т.к. файл с сохранением не обнаружен");
+            return result;
+        }
     }
 }

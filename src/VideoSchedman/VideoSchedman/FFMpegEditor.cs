@@ -48,18 +48,21 @@ namespace VideoSchedman
         public async Task ConcatSourcesAsync(ConcatType concatType)
         {
             _scriptBuilder.Clean();
-            //foreach (var src in _config.Sources)
-            //    await CacheSource(src, _config.OutputFile.VideoQuality);
+            var notCached = _config.Sources.Where(src => string.IsNullOrWhiteSpace(src.Links.Converted));
+            foreach (var src in notCached)
+                await CacheSource(src, _config.OutputFile.VideoQuality);
             var cachedFiles = GetCachedCopies().ToArray();
             if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
             if (concatType == ConcatType.ReencodingConcat || concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
             {
                 if (concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
                 {
-                    await ConvertToTsFormatAsync();
+                    CleanTsCache();
+                    foreach (var source in _config.Sources)
+                        await ConvertToTsFormatAsync(source);
                     cachedFiles = GetCachedTsCopies().ToArray();
                 } 
-                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-f concat -safe 0 -err_detect ignore_err"))
+                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y -f concat -safe 0 -err_detect ignore_err"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v copy -preset fast -vsync cfr -r 45"))
                                            .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
                 await _executableProcess.StartAsync(script);
@@ -134,32 +137,26 @@ namespace VideoSchedman
             SaveFilesMeta();
         }
 
-        private async Task ConvertToTsFormatAsync()
+        private async Task ConvertToTsFormatAsync(FileMeta file)
         {
-            int counter = 0;
             var scriptBuilder = new ScriptBuilder();
             var tsCachedFilesDir = Paths.TsFiles.Path;
             if (!Directory.Exists(tsCachedFilesDir))
                 Directory.CreateDirectory(tsCachedFilesDir);
-            var existsCachedFiles = Directory.GetFiles(Paths.ConvertedFiles.Path)
-                                             .Where(file => file.EndsWith(".mp4"));
-            CleanTsCache();
-            foreach (var src in existsCachedFiles)
-            {
-                var config = new Configuration()
-                             .AddSrc(src.ToString())
-                             .SaveTo($"videoTransportStream({counter})", tsCachedFilesDir)
-                             .SaveAs("ts");
-                var command = scriptBuilder.ConfigureInputs(commands => commands.Add("-y"))
-                                           .ConfigureOutputs(commands => commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
-                                           .Build(config);
-                Log.Debug("Конвертируем файлы в формат .ts");
-                await _executableProcess.StartAsync(command);
-                scriptBuilder.Clean();
-                counter++;
-                Log.Debug($"Файл: {new string(Path.GetFileName(src))} успешно конвертирован в формат .ts");
-                OnConvertedSource?.Invoke($"file: {new string(Path.GetFileName(src))} was converted to .ts");
-            }
+            var tsFileCount = Directory.GetFiles(tsCachedFilesDir).Length;
+            var config = new Configuration()
+                            .AddSrc(file.Links.Converted)
+                            .SaveTo($"videoTransportStream({tsFileCount})", tsCachedFilesDir)
+                            .SaveAs("ts");
+            var command = scriptBuilder.ConfigureInputs(commands => commands.Add("-y"))
+                                        .ConfigureOutputs(commands => commands.Add("-acodec copy -vcodec copy -vbsf h264_mp4toannexb -f mpegts"))
+                                        .Build(config);
+            file.Links.Ts = config.OutputFile.ToString();
+            Log.Debug("Конвертируем файлы в формат .ts");
+            await _executableProcess.StartAsync(command);
+            scriptBuilder.Clean();
+            Log.Debug($"Файл: {new string(Path.GetFileName(file.ToString()))} успешно конвертирован в формат .ts");
+            OnConvertedSource?.Invoke($"file: {new string(Path.GetFileName(file.ToString()))} was converted to .ts");
             
             SaveFilesMeta();
         }

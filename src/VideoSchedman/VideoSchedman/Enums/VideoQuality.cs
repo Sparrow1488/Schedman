@@ -1,7 +1,10 @@
-﻿namespace VideoSchedman.Enums
+﻿using Newtonsoft.Json;
+
+namespace VideoSchedman.Enums
 {
     public class VideoQuality
     {
+        [JsonConstructor]
         private VideoQuality(int width, int height, string name)
         {
             Height = height;

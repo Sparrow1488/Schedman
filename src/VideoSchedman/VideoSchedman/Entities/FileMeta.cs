@@ -1,4 +1,5 @@
-﻿using VideoSchedman.Enums;
+﻿using Newtonsoft.Json;
+using VideoSchedman.Enums;
 
 namespace VideoSchedman.Entities
 {
@@ -14,12 +15,17 @@ namespace VideoSchedman.Entities
 
         public static readonly FileMeta Empty = new FileMeta("./", FileType.Undefined);
 
+        [JsonProperty]
         public string RootPath { get; internal set; }
+        [JsonProperty]
         public string Name { get; internal set; }
+        [JsonProperty]
         public string Extension { get; internal set; }
         public FileLinks Links { get; set; }
         public FileType Type { get; } = FileType.Undefined;
+        [JsonProperty]
         public FileAnalyse Analyse { get; internal set; }
+        [JsonProperty]
         public VideoQuality VideoQuality { get; internal set; } = VideoQuality.Undefined;
 
         /// <exception cref="ArgumentException"></exception>
