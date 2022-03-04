@@ -30,13 +30,10 @@ namespace VideoSchedman
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
-        //private string _projectName = $"project_{Guid.NewGuid()}";
+        private string _projectName;
 
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;
-
-        private string _projectName;
-
 
         public IVideoEditor Configure(Action<Configuration> configBuilder)
         {
@@ -86,31 +83,6 @@ namespace VideoSchedman
                 throw new NotImplementedException();
             }
         }
-
-        #region TO REMOVE
-        public Task ConcatSourcesAsync()
-        {
-            _scriptBuilder.Clean();
-            var cachedFiles = GetCachedCopies();
-
-            var script = _scriptBuilder?.ConfigureInputs(commands =>
-            {
-                commands.Add("-y");
-                commands.Add("-f concat");
-                commands.Add("-safe 0");
-            })
-            .ConfigureOutputs(commands =>
-            {
-                //commands.Add("-c copy");
-                //commands.Add("-c:a aac -c:v copy");
-                //commands.Add("-vf scale=1920x1080:force_original_aspect_ratio=decrease -c:a copy -c:v libx264");
-                commands.Add("-c:a aac -c:v libx264");
-            })
-            .ChangeFormat(format => format.CombineSourcesInTxt(cachedFiles))
-            .Build(_config);
-            return _executableProcess.StartAsync(script ?? string.Empty);
-        }
-        #endregion
 
         private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
         {

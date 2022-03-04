@@ -1,0 +1,130 @@
+[
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no",
+    "Name": "R34 - Jxg4E(silent)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no\\R34 - Jxg4E(silent).mp4",
+      "Converted": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\converted\\video1.mp4",
+      "Ts": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\ts\\videoTransportStream(0).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no",
+    "Name": "АнимеХентайГуроФурриИгрыМультикиRule34 18 - Detroit Become Human - Kara ass penetration [FUGTRUP](silent)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no\\АнимеХентайГуроФурриИгрыМультикиRule34 18 - Detroit Become Human - Kara ass penetration [FUGTRUP](silent).mp4",
+      "Converted": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\converted\\video2.mp4",
+      "Ts": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\ts\\videoTransportStream(1).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no",
+    "Name": "Голые девочки из игр. Гифки. Видео. - D.Va Overwatch sex anal секс анал наш выбор(silent)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\no\\Голые девочки из игр. Гифки. Видео. - D.Va Overwatch sex anal секс анал наш выбор(silent).mp4",
+      "Converted": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\converted\\video3.mp4",
+      "Ts": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\ts\\videoTransportStream(2).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2",
+    "Name": "D.Va Overwatch sex секс (1)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\D.Va Overwatch sex секс (1).mp4",
+      "Converted": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\converted\\video4.mp4",
+      "Ts": ".\\projects\\project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95\\ts\\videoTransportStream(3).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  }
+]

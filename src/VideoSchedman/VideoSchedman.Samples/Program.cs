@@ -9,16 +9,18 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-string rootVideos = @"C:\Users\aleks\Downloads\videos";
+//string rootVideos = @"C:\Users\aleks\Downloads\videos";
+string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\no";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
 Log.Information("Запускаем");
 
-Project.UseExistsProject("project_8f9fe638-bdd0-4acb-982c-976571b5809b");
+Project.UseExistsProject("project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95");
 var editor = new FFMpegEditor().Configure(config =>
                                //config.AddSrcRange(files)
                                config.RestoreSrc()
+                               .AddSrc(@"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\D.Va Overwatch sex секс (1).mp4")
                                .SaveTo("Compilation")
                                .Quality(VideoQuality.FHD));
 
