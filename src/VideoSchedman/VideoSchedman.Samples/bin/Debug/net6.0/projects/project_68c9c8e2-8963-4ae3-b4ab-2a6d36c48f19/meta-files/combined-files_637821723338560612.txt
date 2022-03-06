@@ -1,0 +1,2 @@
+file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\projects\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\ts\videoTransportStream(0).ts'
+file 'C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\bin\Debug\net6.0\projects\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\ts\videoTransportStream(1).ts'

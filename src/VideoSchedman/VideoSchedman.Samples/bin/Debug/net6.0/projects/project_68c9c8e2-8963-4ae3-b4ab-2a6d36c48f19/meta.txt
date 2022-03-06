@@ -1,0 +1,74 @@
+[
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test",
+    "Name": "D.Va's room - D.Va's room [621]",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\D.Va's room - D.Va's room [621].mp4",
+      "Converted": ".\\projects\\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\\converted\\video1.mp4",
+      "Ts": ".\\projects\\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\\ts\\videoTransportStream(0).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "Width": 1080,
+          "Height": 1920
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "Width": 0,
+          "Height": 0
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test",
+    "Name": "gsdrghseryersiserhserhlentVideo1",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\gsdrghseryersiserhserhlentVideo1.mp4",
+      "Converted": ".\\projects\\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\\converted\\video2.mp4",
+      "Ts": ".\\projects\\project_68c9c8e2-8963-4ae3-b4ab-2a6d36c48f19\\ts\\videoTransportStream(1).ts"
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "Width": 1920,
+          "Height": 1080
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "Width": 0,
+          "Height": 0
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  }
+]

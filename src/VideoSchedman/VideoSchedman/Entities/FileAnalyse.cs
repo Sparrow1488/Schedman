@@ -17,5 +17,7 @@ namespace VideoSchedman.Entities
         public string CodecName { get; set; }
         [JsonProperty("codec_type")]
         public string CodecType { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }

@@ -10,13 +10,15 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 //string rootVideos = @"C:\Users\aleks\Downloads\videos";
-string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\no";
+//string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\no";
+string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
 
 Log.Information("Запускаем");
 
-Project.UseExistsProject("project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95");
+//Project.UseExistsProject("project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95");
+Project.CreateProject();
 var editor = new FFMpegEditor().Configure(config =>
                                 config.RestoreSrc()
                                       .AddDistinctSrcRange(files)

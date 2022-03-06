@@ -80,12 +80,13 @@ namespace VideoSchedman
             }
             if (concatType == ConcatType.Demuxer)
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException("Please, dont use this concationation type, it while not work correct");
             }
         }
 
         private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
         {
+            // TODO: работает только для видео и картинок, нужно бы завезти кэширование отдельно аудио
             if (!fileMeta.Analyse.WithAudio())
                 await PutSilentOnVideoAsync(fileMeta);
 
@@ -99,7 +100,14 @@ namespace VideoSchedman
 
             var scriptBuilder = new ScriptBuilder();
             scriptBuilder.ConfigureInputs(commands => commands.Add($"-y -i {Paths.Resources}/black{config.OutputFile.VideoQuality}.png"));
-            scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={quality.Width}:-1[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\" -vsync cfr -qscale:v 2 -preset fast -crf 18 -r 40"));
+            
+            string filterScaleArgument = string.Empty;
+            var videoStream = fileMeta.Analyse.Streams.First(file => file.CodecType.ToUpper().Contains("VIDEO"));
+            if (videoStream.Width > videoStream.Height)
+                filterScaleArgument = $"{quality.Width}:-1";
+            else filterScaleArgument = $"-1:{quality.Height}";
+            scriptBuilder.ConfigureOutputs(commands => commands.Add($"-filter_complex \"[1:v]scale={filterScaleArgument}[v2];[0:v][v2]overlay=(main_w - overlay_w)/2:(main_h - overlay_h)/2\""));
+            
             var script = scriptBuilder.Build(config);
             Log.Debug($"Кэшируем файл {fileMeta.Name}...");
             await _executableProcess.StartAsync(script);
