@@ -44,7 +44,7 @@ namespace VideoSchedman.Entities
             IsCombinedSources = true;
             var builder = new StringBuilder();
             sources = ApplyAdditionalSettings(sources);
-            sources.ToList().ForEach(source => builder.Append($"-i \"{source}\""));
+            sources.ToList().ForEach(source => builder.Append($"-i \"{Path.GetFullPath(source.Links.Ts)}\" "));
             Result.CombinedSources = builder.ToString();
             return this;
         }

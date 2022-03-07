@@ -71,6 +71,8 @@ namespace VideoSchedman.Entities
         {
             if (_formatter.IsCombinedSourcesInTxt)
                 _input.Add($"-i \"{_formatter.Result.CombinedSourcesInTxt}\"");
+            else if (_formatter.IsCombinedSources)
+                _input.Add(_formatter.Result.CombinedSources);
             else SetInputScriptParams(config);
             SetOutputScriptParams(config);
         }
