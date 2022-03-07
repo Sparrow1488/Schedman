@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
@@ -85,6 +86,7 @@ namespace VkSchedman
                 saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
                 if (data.Length > 0)
                     await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
+                else Log.Error($"File not downloaded! ({video.Title})");
                 Log.Information($"[{i+1}/{videos.Count}] Downloaded \"{video.Title}\"");
             }
         }
@@ -134,8 +136,22 @@ namespace VkSchedman
         private byte[] DownloadVideo(Video video)
         {
             var videoData = new byte[0];
-            using (var client = new WebClient())
-                videoData = client.DownloadData(video.Files.Mp4_1080);
+            Uri downloadUri = null;
+            if (!string.IsNullOrWhiteSpace(video.Files.Mp4_1080?.ToString()))
+                downloadUri = video.Files.Mp4_1080;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_720?.ToString()))
+                downloadUri = video.Files.Mp4_720;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_480?.ToString()))
+                downloadUri = video.Files.Mp4_480;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_360?.ToString()))
+                downloadUri = video.Files.Mp4_360;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_240?.ToString()))
+                downloadUri = video.Files.Mp4_240;
+            if (downloadUri != null)
+            {
+                using (var client = new WebClient())
+                    videoData = client.DownloadData(downloadUri);
+            }
             
             return videoData;
         }

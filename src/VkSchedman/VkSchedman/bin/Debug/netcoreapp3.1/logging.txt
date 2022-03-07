@@ -841,3 +841,89 @@ VkNet.Exception.ParameterMissingOrInvalidException: One of the parameters specif
 2022-02-26 17:29:53.721 +03:00 [INF] [1/127] Downloaded "Overflame (ashe EPIC ASS FCUK! animation#154)"
 2022-02-26 17:29:55.708 +03:00 [INF] [2/127] Downloaded "Mass Effect 3 - Liara T'Soni reverse vaginal penetration [Tomoganim]"
 2022-02-26 17:29:57.309 +03:00 [INF] [3/127] Downloaded "Mass Effect 3 - Liara T'Soni riding vaginal penetration (slow) [Tomoganim]"
+2022-03-07 21:45:13.870 +03:00 [INF] Started SheduleVkManager
+2022-03-07 21:45:15.079 +03:00 [INF] Try authorize...
+2022-03-07 21:45:17.236 +03:00 [FTL] Authorize failed
+VkNet.Exception.VkAuthorizationException: Authorize failed
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 66
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-03-07 21:45:38.753 +03:00 [INF] Started SheduleVkManager
+2022-03-07 21:45:39.206 +03:00 [INF] Try authorize...
+2022-03-07 21:45:42.040 +03:00 [INF] Authorize success
+2022-03-07 21:45:49.906 +03:00 [INF] [1/26] Downloaded "Widowmaker by VGErotica"
+2022-03-07 21:45:50.262 +03:00 [INF] [2/26] Downloaded "Tracer by VGErotica"
+2022-03-07 21:45:50.775 +03:00 [INF] [3/26] Downloaded "Mercy"
+2022-03-07 21:46:11.166 +03:00 [INF] [4/26] Downloaded "D.Va Xmas by VGErotica"
+2022-03-07 21:46:11.590 +03:00 [INF] [5/26] Downloaded "Tifa Lockhart by VGErotica"
+2022-03-07 21:46:12.020 +03:00 [INF] [6/26] Downloaded "Harley Quinn by Spoks"
+2022-03-07 21:46:12.153 +03:00 [FTL] Value cannot be null. (Parameter 'address')
+System.ArgumentNullException: Value cannot be null. (Parameter 'address')
+   at System.Net.WebClient.DownloadData(Uri address)
+   at VkSchedman.VkManager.DownloadVideo(Video video) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 138
+   at VkSchedman.VkManager.DownloadVideosAsync(VkCollection`1 videos, String albumTitle) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\VkManager.cs:line 77
+   at VkSchedman.Program.ProcessVideosAsync() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 64
+   at VkSchedman.Program.<>c.<<Main>b__5_0>d.MoveNext() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at VkSchedman.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Program.cs:line 41
+2022-03-07 21:51:07.790 +03:00 [INF] Started SheduleVkManager
+2022-03-07 21:51:08.673 +03:00 [INF] Try authorize...
+2022-03-07 21:51:10.648 +03:00 [INF] Authorize success
+2022-03-07 21:51:13.193 +03:00 [INF] [1/26] Downloaded "Widowmaker by VGErotica"
+2022-03-07 21:51:13.503 +03:00 [INF] [2/26] Downloaded "Tracer by VGErotica"
+2022-03-07 21:51:14.001 +03:00 [INF] [3/26] Downloaded "Mercy"
+2022-03-07 21:51:34.210 +03:00 [INF] [4/26] Downloaded "D.Va Xmas by VGErotica"
+2022-03-07 21:51:34.549 +03:00 [INF] [5/26] Downloaded "Tifa Lockhart by VGErotica"
+2022-03-07 21:51:35.037 +03:00 [INF] [6/26] Downloaded "Harley Quinn by Spoks"
+2022-03-07 21:51:35.531 +03:00 [INF] [7/26] Downloaded "Tracer titfuck by Yeero"
+2022-03-07 21:51:36.130 +03:00 [INF] [8/26] Downloaded "Ciri and Yennefer Threesome by Pewposterous"
+2022-03-07 21:52:00.708 +03:00 [INF] [9/26] Downloaded "Tracer & tentacles by MeltRib"
+2022-03-07 21:52:01.111 +03:00 [INF] [10/26] Downloaded "Mercy Fucked in the Bathroom at the Party (Grand Cupido)"
+2022-03-07 21:52:28.159 +03:00 [INF] [11/26] Downloaded "Marie Rose by Nagoonimation"
+2022-03-07 21:52:28.600 +03:00 [INF] [12/26] Downloaded "Mercy Passionately Riding Cock on Top (Grand Cupido)"
+2022-03-07 21:52:28.934 +03:00 [INF] [13/26] Downloaded "Jill x Claire by Yeero"
+2022-03-07 21:52:29.649 +03:00 [INF] [14/26] Downloaded "Taki Fellatio by Bouquetman"
+2022-03-07 21:52:31.091 +03:00 [INF] [15/26] Downloaded "Catwoman by Rescraft"
+2022-03-07 21:52:31.563 +03:00 [INF] [16/26] Downloaded "Widowmaker Mouthfucked on the Table Sigma Throat (Grand Cupido)"
+2022-03-07 21:52:32.048 +03:00 [INF] [17/26] Downloaded "Power Girl by nikovako"
+2022-03-07 21:52:32.340 +03:00 [INF] [18/26] Downloaded "Ashe POV by Tiaz3DX"
+2022-03-07 21:52:32.812 +03:00 [INF] [19/26] Downloaded "Widowmaker by FPSBlyck"
+2022-03-07 21:52:33.606 +03:00 [INF] [20/26] Downloaded "Tifa Lockhart by darkholestuff"
+2022-03-07 21:52:33.881 +03:00 [INF] [21/26] Downloaded "Widowmaker by VGErotica"
+2022-03-07 21:52:34.383 +03:00 [INF] [22/26] Downloaded "2B by darkholestuff"
+2022-03-07 21:53:10.073 +03:00 [INF] [23/26] Downloaded "Tifa Lockhart"
+2022-03-07 21:53:30.082 +03:00 [INF] [24/26] Downloaded "Ada Wong by BulgingSenpai"
+2022-03-07 21:53:30.497 +03:00 [INF] [25/26] Downloaded "Ada Wong"
+2022-03-07 21:53:30.894 +03:00 [INF] [26/26] Downloaded "Beautiful Widowmaker Magical Sex Big Ass Riding"
+2022-03-07 22:07:47.810 +03:00 [INF] Started SheduleVkManager
+2022-03-07 22:07:48.274 +03:00 [INF] Try authorize...
+2022-03-07 22:07:51.323 +03:00 [INF] Authorize success
+2022-03-07 22:07:54.075 +03:00 [INF] [1/28] Downloaded "Max Caulfield by Idemi"
+2022-03-07 22:07:54.809 +03:00 [INF] [2/28] Downloaded "Rita (Cyberpunk) by Rescraft"
+2022-03-07 22:07:55.114 +03:00 [INF] [3/28] Downloaded "A big reward for Lara"
+2022-03-07 22:07:55.669 +03:00 [INF] [4/28] Downloaded "Mercy by nikovako"
+2022-03-07 22:07:56.116 +03:00 [INF] [5/28] Downloaded "Tracer Baseball Training by Grand Cupido"
+2022-03-07 22:07:56.584 +03:00 [INF] [6/28] Downloaded "Shadowheart by Pewposterous"
+2022-03-07 22:07:56.896 +03:00 [INF] [7/28] Downloaded "Kassandra by Pewposterous"
+2022-03-07 22:07:57.241 +03:00 [INF] [8/28] Downloaded "Triss by Pewpostrous"
+2022-03-07 22:07:57.574 +03:00 [INF] [9/28] Downloaded "Tifa Lockhart by midnightNSFW"
+2022-03-07 22:07:57.998 +03:00 [INF] [10/28] Downloaded "Widowmaker by VGErotica"
+2022-03-07 22:07:58.355 +03:00 [INF] [11/28] Downloaded "Kassandra by Pewposterous"
+2022-03-07 22:07:58.668 +03:00 [INF] [12/28] Downloaded "Widowmaker by darkholestuff"
+2022-03-07 22:07:59.054 +03:00 [INF] [13/28] Downloaded "Chloe riding by fjaye"
+2022-03-07 22:07:59.488 +03:00 [INF] [14/28] Downloaded "Chloe bj by fjaye"
+2022-03-07 22:07:59.785 +03:00 [INF] [15/28] Downloaded "Max and Chloe by fjaye"
+2022-03-07 22:08:00.367 +03:00 [INF] [16/28] Downloaded "Tifa (Against wall)"
+2022-03-07 22:08:05.853 +03:00 [INF] [17/28] Downloaded "Tifa (CowgirlHandHold)"
+2022-03-07 22:08:06.575 +03:00 [INF] [18/28] Downloaded "Tifa (Spooning)"
+2022-03-07 22:08:07.219 +03:00 [INF] [19/28] Downloaded "Tifa (Blowjob)"
+2022-03-07 22:08:07.646 +03:00 [INF] [20/28] Downloaded "Mercy by SageOfOsiris"
+2022-03-07 22:08:08.354 +03:00 [INF] [21/28] Downloaded "Triss and FutaCiri by Pewposterous"
+2022-03-07 22:08:08.673 +03:00 [INF] [22/28] Downloaded "Yennefer x Ciri - Meis3D"
+2022-03-07 22:08:09.079 +03:00 [INF] [23/28] Downloaded "D.Va by KisxSFM"
+2022-03-07 22:08:09.608 +03:00 [INF] [24/28] Downloaded "Mercy Fantastic Sex By The Sea (Grand Cupido)"
+2022-03-07 22:08:10.143 +03:00 [INF] [25/28] Downloaded "Mercy"
+2022-03-07 22:08:10.811 +03:00 [INF] [26/28] Downloaded "Mercy and D.Va by Fpsblyck"
+2022-03-07 22:08:11.145 +03:00 [INF] [27/28] Downloaded "Jill Valentine"
+2022-03-07 22:08:11.826 +03:00 [INF] [28/28] Downloaded "WidowBeachMonthly"

@@ -9,6 +9,8 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
+//string rootVideos = @"C:\Users\aleks\Downloads\videos";
+//string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\no";
 string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\test";
 var files = Directory.GetFiles(rootVideos).ToList();
 string resultPath = string.Empty;
@@ -19,7 +21,6 @@ Project.UseExistsProject("project_07f6e8c4-4147-41c2-894d-0872d3164311");
 //Project.CreateProject();
 var editor = new FFMpegEditor().Configure(config =>
                                 config.RestoreSrc()
-                                      .AddDistinctSrcRange(files)
                                       .SaveTo("Compilation")
                                       .Loop(file => file.Analyse.GetVideo().Duration <= 11, 2)
                                       .Quality(VideoQuality.FHD));

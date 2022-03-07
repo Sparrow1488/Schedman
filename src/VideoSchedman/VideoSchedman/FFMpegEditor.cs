@@ -16,10 +16,7 @@ namespace VideoSchedman
             _scriptBuilder = new ScriptBuilder();
             _executableProcess = string.IsNullOrWhiteSpace(ffmpegPath) ? 
                                     new ExecutableProcess().FilePathFromConfig("ffmpegPath") : new ExecutableProcess(ffmpegPath);
-            if (Project.IsAvailable)
-                _projectName = Project.Name;
-            else _projectName = Project.CreateProject();
-
+            
             _jsonSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
@@ -30,7 +27,6 @@ namespace VideoSchedman
         private IScriptBuilder _scriptBuilder;
         private IExecutableProcess _executableProcess;
         private JsonSerializerSettings _jsonSettings;
-        private string _projectName;
 
         public event LogAction OnCachedSource;
         public event LogAction OnConvertedSource;

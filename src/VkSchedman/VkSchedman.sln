@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VkSchedman.Examples", "VkSc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VkSchedman.Tests", "VkSchedman.Tests\VkSchedman.Tests.csproj", "{5CB7E65E-34FB-491B-B7A9-82AA47CC5171}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{B7D7F4FF-101D-4924-88E5-4E8BD79A903E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5CB7E65E-34FB-491B-B7A9-82AA47CC5171}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CB7E65E-34FB-491B-B7A9-82AA47CC5171}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CB7E65E-34FB-491B-B7A9-82AA47CC5171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D7F4FF-101D-4924-88E5-4E8BD79A903E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D7F4FF-101D-4924-88E5-4E8BD79A903E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D7F4FF-101D-4924-88E5-4E8BD79A903E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D7F4FF-101D-4924-88E5-4E8BD79A903E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
