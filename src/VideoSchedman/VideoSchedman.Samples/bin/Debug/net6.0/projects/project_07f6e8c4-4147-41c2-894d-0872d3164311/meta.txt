@@ -6,7 +6,8 @@
     "Links": {
       "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\D.Va's room - D.Va's room [621].mp4",
       "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video1.mp4",
-      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(0).ts"
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(0).ts",
+      "Current": null
     },
     "Type": {
       "Name": "Video"
@@ -18,14 +19,16 @@
           "codec_name": "h264",
           "codec_type": "video",
           "Width": 1080,
-          "Height": 1920
+          "Height": 1920,
+          "Duration": 22.379767
         },
         {
           "Index": 1,
           "codec_name": "aac",
           "codec_type": "audio",
           "Width": 0,
-          "Height": 0
+          "Height": 0,
+          "Duration": 22.407234
         }
       ]
     },
@@ -42,7 +45,8 @@
     "Links": {
       "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\gsdrghseryersiserhserhlentVideo1.mp4",
       "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video2.mp4",
-      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(1).ts"
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(1).ts",
+      "Current": null
     },
     "Type": {
       "Name": "Video"
@@ -54,14 +58,16 @@
           "codec_name": "h264",
           "codec_type": "video",
           "Width": 1920,
-          "Height": 1080
+          "Height": 1080,
+          "Duration": 8.1598
         },
         {
           "Index": 1,
           "codec_name": "aac",
           "codec_type": "audio",
           "Width": 0,
-          "Height": 0
+          "Height": 0,
+          "Duration": 8.196009
         }
       ]
     },
@@ -78,7 +84,8 @@
     "Links": {
       "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\R34 - 0bc0dc647046fb2404d3c91e94cea54c.mp4",
       "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video3.mp4",
-      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(2).ts"
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(2).ts",
+      "Current": null
     },
     "Type": {
       "Name": "Video"
@@ -90,14 +97,125 @@
           "codec_name": "h264",
           "codec_type": "video",
           "Width": 1280,
-          "Height": 720
+          "Height": 720,
+          "Duration": 10.043356
         },
         {
           "Index": 1,
           "codec_name": "aac",
           "codec_type": "audio",
           "Width": 0,
-          "Height": 0
+          "Height": 0,
+          "Duration": 10.05424
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test",
+    "Name": "tumblr nsfw - D.Va ass fucked by Tiaz3Dx",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\tumblr nsfw - D.Va ass fucked by Tiaz3Dx.mp4",
+      "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video4.mp4",
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(3).ts",
+      "Current": null
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "Width": 1920,
+          "Height": 960,
+          "Duration": 7.946444
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "Width": 0,
+          "Height": 0,
+          "Duration": 7.569683
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test",
+    "Name": "tumblr nsfw - Femshep by midnightsfm",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\tumblr nsfw - Femshep by midnightsfm.mp4",
+      "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video5.mp4",
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(4).ts",
+      "Current": null
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "Width": 1920,
+          "Height": 1080,
+          "Duration": 4.784511
+        },
+        {
+          "Index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "Width": 0,
+          "Height": 0,
+          "Duration": 4.690431
+        }
+      ]
+    },
+    "VideoQuality": {
+      "Height": 0,
+      "Width": 0,
+      "Name": "Undefined"
+    }
+  },
+  {
+    "RootPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test",
+    "Name": "R34 - bfa32266ee701e9d4711547b6b5e8c87(silent)",
+    "Extension": "mp4",
+    "Links": {
+      "Original": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VideoSchedman\\VideoSchedman.Samples\\TestFiles\\test2\\test\\R34 - bfa32266ee701e9d4711547b6b5e8c87.mp4",
+      "Converted": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\converted\\video6.mp4",
+      "Ts": ".\\projects\\project_07f6e8c4-4147-41c2-894d-0872d3164311\\ts\\videoTransportStream(5).ts",
+      "Current": null
+    },
+    "Type": {
+      "Name": "Video"
+    },
+    "Analyse": {
+      "Streams": [
+        {
+          "Index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "Width": 1920,
+          "Height": 1080,
+          "Duration": 6.44
         }
       ]
     },

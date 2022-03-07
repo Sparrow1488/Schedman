@@ -8,6 +8,14 @@ namespace VideoSchedman.Entities
 
         public bool WithAudio() => 
             Streams.Where(stream => stream?.CodecType?.Contains("audio") ?? false).Any();
+
+        public FileAnalyseStream GetVideo()
+        {
+            var videoStream = Streams.Where(stream => stream.CodecType.ToUpper() == "VIDEO").FirstOrDefault();
+            return videoStream ?? new FileAnalyseStream() {
+                Index = -1,
+            };
+        }
     }
 
     public class FileAnalyseStream
@@ -19,5 +27,6 @@ namespace VideoSchedman.Entities
         public string CodecType { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public double Duration { get; set; }
     }
 }

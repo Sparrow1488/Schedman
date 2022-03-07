@@ -51,37 +51,40 @@ namespace VideoSchedman
             var notCached = _config.Sources.Where(src => string.IsNullOrWhiteSpace(src.Links.Converted));
             foreach (var src in notCached)
                 await CacheSource(src, _config.OutputFile.VideoQuality);
-            var cachedFiles = GetCachedCopies().ToArray();
-            if (cachedFiles.Length < 1) throw new Exception("No cached files to processing");
             if (concatType == ConcatType.ReencodingConcat || concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
             {
                 if (concatType == ConcatType.ReencodingConcatConvertedViaTransportStream)
                 {
-                    CleanTsCache();
-                    foreach (var source in _config.Sources)
+                    notCached = _config.Sources.Where(src => string.IsNullOrWhiteSpace(src.Links.Ts) || !File.Exists(src.Links.Ts));
+                    foreach (var source in notCached)
                         await ConvertToTsFormatAsync(source);
-                    cachedFiles = GetCachedTsCopies().ToArray();
-                } 
-                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y -f concat -safe 0 -err_detect ignore_err"))
+                }
+                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y -f concat -safe 0"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v copy -preset fast -vsync cfr -r 45"))
-                                           .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
+                                           .Build(_config, format => format.ChangeAdditionalSettings(_config.Additional)
+                                                                           .CombineSourcesInTxt(_config.Sources));
                 await _executableProcess.StartAsync(script);
             }
+
+            #region NotImplemented
             if (concatType == ConcatType.ReencodingComplexFilter)
             {
                 throw new NotImplementedException("Please, dont use this concationation type, it while not work correct");
-                var filterComplexArgs = new StringBuilder();
-                cachedFiles.ToList().ForEach(file => filterComplexArgs.Append($"[{Array.IndexOf(cachedFiles, file)}:v]"));
-                filterComplexArgs.Append($"concat=n={cachedFiles.Length}");
-                var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y"))
-                                           .ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
-                                           .Build(_config, format => format.CombineSources(cachedFiles));
-                await _executableProcess.StartAsync(script);
+                //var filterComplexArgs = new StringBuilder();
+                //cachedFiles.ToList().ForEach(file => filterComplexArgs.Append($"[{Array.IndexOf(cachedFiles, file)}:v]"));
+                //filterComplexArgs.Append($"concat=n={cachedFiles.Length}");
+                //var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y"))
+                //                           .ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
+                //                           .Build(_config, format => format.ChangeAdditionalSettings(_config.Additional)
+                //                                                           .CombineSources(cachedFiles));
+                //await _executableProcess.StartAsync(script);
             }
             if (concatType == ConcatType.Demuxer)
             {
                 throw new NotImplementedException("Please, dont use this concationation type, it while not work correct");
             }
+            #endregion
+
         }
 
         private async Task CacheSource(FileMeta fileMeta, VideoQuality quality)
