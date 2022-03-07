@@ -21,6 +21,7 @@ var editor = new FFMpegEditor().Configure(config =>
                                 config.RestoreSrc()
                                       .AddDistinctSrcRange(files)
                                       .SaveTo("Compilation")
+                                      .Loop(file => file.Analyse.GetVideo().Duration <= 10, 2)
                                       .Quality(VideoQuality.FHD));
 
 Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");

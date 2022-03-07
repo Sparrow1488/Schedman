@@ -10,13 +10,16 @@ namespace VideoSchedman.Entities
         public Configuration()
         {
             _sources = new List<FileMeta>();
+            _additionalSettings = new List<OutputAdditionalSettings>();
         }
 
         public IEnumerable<FileMeta> Sources { get => _sources; }
         public FileMeta OutputFile { get => _outputFile; }
+        public IEnumerable<OutputAdditionalSettings> Additional { get => _additionalSettings; }
 
         private List<FileMeta> _sources;
         private FileMeta _outputFile;
+        private List<OutputAdditionalSettings> _additionalSettings; 
 
         public Configuration AddSrc(string path)
         {
@@ -29,6 +32,21 @@ namespace VideoSchedman.Entities
         public Configuration RestoreSrc()
         {
             _sources = new List<FileMeta>(RestoreFilesMeta());
+            return this;
+        }
+
+        public Configuration Loop(Func<FileMeta, bool> condition, int loopCount)
+        {
+            foreach (var src in Sources)
+            {
+                var success = condition?.Invoke(src) ?? false;
+                if (success)
+                {
+                    var fileManipulation = new FileManipulation() { Loop = loopCount };
+                    var outputSetting = new OutputAdditionalSettings(src.Links.Original, new[] { fileManipulation });
+                    _additionalSettings.Add(outputSetting);
+                }
+            }
             return this;
         }
 
