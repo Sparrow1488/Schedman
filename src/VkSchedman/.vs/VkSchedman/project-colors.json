@@ -35,7 +35,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "b7d7f4ff-101d-4924-88e5-4e8bd79a903e": {
+      "ProjectGuid": "b7d7f4ff-101d-4924-88e5-4e8bd79a903e",
+      "DisplayName": "ConsoleUI",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 7
 }

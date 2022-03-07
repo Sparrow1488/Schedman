@@ -1,0 +1,97 @@
+2022-03-07 22:43:14.848 +03:00 [INF] Started VkSchedman
+2022-03-07 22:58:43.154 +03:00 [INF] Started VkSchedman
+2022-03-07 22:58:59.990 +03:00 [INF] Started VkSchedman
+2022-03-07 23:19:27.411 +03:00 [INF] Started VkSchedman
+2022-03-07 23:20:22.704 +03:00 [INF] Started VkSchedman
+2022-03-07 23:21:17.119 +03:00 [INF] Try authorize...
+2022-03-07 23:21:17.954 +03:00 [INF] Try authorize...
+2022-03-07 23:21:18.055 +03:00 [INF] Try authorize...
+2022-03-07 23:23:13.718 +03:00 [INF] Started VkSchedman
+2022-03-07 23:23:18.466 +03:00 [FTL] Value cannot be null. (Parameter 'path')
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.File.ReadLines(String path)
+   at VkSchedman.Entities.AuthorizeData..ctor(String fromFilePath) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Entities\AuthorizeData.cs:line 23
+   at VkSchedman.Examples.Program.CreateAuthorizationData() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 104
+   at VkSchedman.Examples.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 49
+2022-03-07 23:24:12.927 +03:00 [INF] Started VkSchedman
+2022-03-07 23:24:15.548 +03:00 [FTL] Could not find a part of the path 'E:\Йога\Source-Films-Makers\отдельно sfm\auth.txt'.
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'E:\Йога\Source-Films-Makers\отдельно sfm\auth.txt'.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadLines(String path)
+   at VkSchedman.Entities.AuthorizeData..ctor(String fromFilePath) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Entities\AuthorizeData.cs:line 23
+   at VkSchedman.Examples.Program.CreateAuthorizationData() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 104
+   at VkSchedman.Examples.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 49
+2022-03-07 23:24:55.737 +03:00 [INF] Started VkSchedman
+2022-03-07 23:24:58.834 +03:00 [INF] Try authorize...
+2022-03-07 23:25:00.795 +03:00 [INF] Authorize success
+2022-03-07 23:41:57.595 +03:00 [INF] Started VkSchedman
+2022-03-07 23:42:00.410 +03:00 [INF] Try authorize...
+2022-03-07 23:42:02.281 +03:00 [INF] Authorize success
+2022-03-07 23:42:13.188 +03:00 [INF] VideosHandleService started
+2022-03-07 23:42:29.670 +03:00 [INF] [1/28] Downloaded "Max Caulfield by Idemi"
+2022-03-07 23:42:30.291 +03:00 [INF] [2/28] Downloaded "Rita (Cyberpunk) by Rescraft"
+2022-03-07 23:42:30.637 +03:00 [INF] [3/28] Downloaded "A big reward for Lara"
+2022-03-07 23:42:31.196 +03:00 [INF] [4/28] Downloaded "Mercy by nikovako"
+2022-03-07 23:42:31.688 +03:00 [INF] [5/28] Downloaded "Tracer Baseball Training by Grand Cupido"
+2022-03-07 23:42:32.150 +03:00 [INF] [6/28] Downloaded "Shadowheart by Pewposterous"
+2022-03-07 23:42:32.465 +03:00 [INF] [7/28] Downloaded "Kassandra by Pewposterous"
+2022-03-07 23:42:32.807 +03:00 [INF] [8/28] Downloaded "Triss by Pewpostrous"
+2022-03-07 23:42:33.347 +03:00 [INF] [9/28] Downloaded "Tifa Lockhart by midnightNSFW"
+2022-03-07 23:42:33.741 +03:00 [INF] [10/28] Downloaded "Widowmaker by VGErotica"
+2022-03-07 23:42:34.129 +03:00 [INF] [11/28] Downloaded "Kassandra by Pewposterous"
+2022-03-07 23:42:34.425 +03:00 [INF] [12/28] Downloaded "Widowmaker by darkholestuff"
+2022-03-07 23:42:34.787 +03:00 [INF] [13/28] Downloaded "Chloe riding by fjaye"
+2022-03-07 23:42:35.210 +03:00 [INF] [14/28] Downloaded "Chloe bj by fjaye"
+2022-03-07 23:42:35.804 +03:00 [INF] [15/28] Downloaded "Max and Chloe by fjaye"
+2022-03-07 23:42:36.444 +03:00 [INF] [16/28] Downloaded "Tifa (Against wall)"
+2022-03-07 23:42:41.657 +03:00 [INF] [17/28] Downloaded "Tifa (CowgirlHandHold)"
+2022-03-07 23:42:42.297 +03:00 [INF] [18/28] Downloaded "Tifa (Spooning)"
+2022-03-07 23:42:42.933 +03:00 [INF] [19/28] Downloaded "Tifa (Blowjob)"
+2022-03-07 23:42:43.307 +03:00 [INF] [20/28] Downloaded "Mercy by SageOfOsiris"
+2022-03-07 23:42:44.006 +03:00 [INF] [21/28] Downloaded "Triss and FutaCiri by Pewposterous"
+2022-03-07 23:42:44.332 +03:00 [INF] [22/28] Downloaded "Yennefer x Ciri - Meis3D"
+2022-03-07 23:42:45.097 +03:00 [INF] [23/28] Downloaded "D.Va by KisxSFM"
+2022-03-07 23:42:45.626 +03:00 [INF] [24/28] Downloaded "Mercy Fantastic Sex By The Sea (Grand Cupido)"
+2022-03-07 23:42:46.063 +03:00 [INF] [25/28] Downloaded "Mercy"
+2022-03-07 23:42:46.445 +03:00 [INF] [26/28] Downloaded "Mercy and D.Va by Fpsblyck"
+2022-03-07 23:42:46.753 +03:00 [INF] [27/28] Downloaded "Jill Valentine"
+2022-03-07 23:42:47.445 +03:00 [INF] [28/28] Downloaded "WidowBeachMonthly"
+2022-03-07 23:42:47.447 +03:00 [INF] Videos downloaded
+2022-03-07 23:50:23.655 +03:00 [INF] Started VkSchedman
+2022-03-07 23:50:31.405 +03:00 [INF] Try authorize...
+2022-03-07 23:50:33.248 +03:00 [INF] Authorize success
+2022-03-07 23:50:35.091 +03:00 [INF] VideosHandleService started
+2022-03-07 23:50:42.051 +03:00 [INF] [1/26] Downloaded "Widowmaker by VGErotica"
+2022-03-07 23:50:42.394 +03:00 [INF] [2/26] Downloaded "Tracer by VGErotica"
+2022-03-07 23:50:42.951 +03:00 [INF] [3/26] Downloaded "Mercy"
+2022-03-07 23:51:03.839 +03:00 [INF] [4/26] Downloaded "D.Va Xmas by VGErotica"
+2022-03-07 23:51:04.163 +03:00 [INF] [5/26] Downloaded "Tifa Lockhart by VGErotica"
+2022-03-07 23:51:04.721 +03:00 [INF] [6/26] Downloaded "Harley Quinn by Spoks"
+2022-03-07 23:51:05.127 +03:00 [INF] [7/26] Downloaded "Tracer titfuck by Yeero"
+2022-03-07 23:51:05.670 +03:00 [INF] [8/26] Downloaded "Ciri and Yennefer Threesome by Pewposterous"
+2022-03-07 23:51:30.781 +03:00 [INF] [9/26] Downloaded "Tracer & tentacles by MeltRib"
+2022-03-07 23:53:28.703 +03:00 [INF] Started VkSchedman
+2022-03-07 23:53:35.411 +03:00 [INF] Try authorize...
+2022-03-07 23:53:37.240 +03:00 [INF] Authorize success
+2022-03-07 23:53:38.298 +03:00 [INF] VideosHandleService started
+2022-03-07 23:57:26.564 +03:00 [INF] Started VkSchedman
+2022-03-07 23:57:28.315 +03:00 [INF] Try authorize...
+2022-03-07 23:57:30.580 +03:00 [INF] Authorize success
+2022-03-07 23:57:30.584 +03:00 [INF] VideosHandleService started
+2022-03-07 23:57:36.372 +03:00 [INF] [1/62] Downloaded "K/DA All Out Series. League of Legends. Ahri. K/DA Out Ahri. (artist: kinkycat3d). Ahegao. Big Ass. Creampie. Ejaculation. Orgas"
+2022-03-07 23:57:56.061 +03:00 [INF] [2/62] Downloaded "Samsung_Sam - EPIC!!! 13"
+2022-03-07 23:57:56.997 +03:00 [INF] [3/62] Downloaded "Overwatch - Tracer vaginal penetration [Cawneil] voice by [PleasedByViolet]"
+2022-03-07 23:57:57.667 +03:00 [INF] [4/62] Downloaded "(Sound)D.Va female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-03-07 23:57:58.306 +03:00 [INF] [5/62] Downloaded "(Sound)Mercy female solo beach masturbation [Overwatch;Porn;Hentai;R34;Sex;Blender;порно;секс;хентай;соло;овервотч]"
+2022-03-08 00:15:34.046 +03:00 [INF] Started VkSchedman
+2022-03-08 00:15:36.451 +03:00 [INF] Try authorize...
+2022-03-08 00:15:38.373 +03:00 [INF] Authorize success
+2022-03-08 00:15:39.086 +03:00 [INF] VideosHandleService started
+2022-03-08 00:16:19.859 +03:00 [INF] Started VkSchedman
+2022-03-08 00:16:22.076 +03:00 [INF] Try authorize...
+2022-03-08 00:16:24.199 +03:00 [INF] Authorize success
+2022-03-08 00:16:24.875 +03:00 [INF] VideosHandleService started

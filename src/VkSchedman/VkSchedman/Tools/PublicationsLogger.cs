@@ -5,7 +5,7 @@ using System.IO;
 
 namespace VkSchedman.Tools
 {
-    internal class PublicationsLogger
+    public class PublicationsLogger
     {
         public void LogNotPublicated(CreatePost post)
         {

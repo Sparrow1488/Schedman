@@ -11,6 +11,7 @@ using VkNet;
 using VkNet.AudioBypassService.Exceptions;
 using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
+using VkNet.Exception;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
@@ -31,10 +32,14 @@ namespace VkSchedman
             Errors = new List<string>();
         }
 
-        private readonly VkApi _api;
         public IList<string> Errors { get; private set; }
+        public bool IsAuthorizated { get => _api.IsAuthorized; }
+        public delegate void LoadProgress(int percent);
+        public event LoadProgress OnLoadProgress;
+        private readonly VkApi _api;
+        
 
-        public async Task<bool> AuthorizeAsync(AuthorizeData authorizeData)
+        public async Task AuthorizeAsync(AuthorizeData authorizeData)
         {
             bool authSuccess = false;
             var emptyContext = new ValidationContext(authorizeData);
@@ -44,8 +49,8 @@ namespace VkSchedman
                 foreach (var error in validationErrors)
                     Errors.Add(error.ErrorMessage);
             else authSuccess = await TryAuthorizeAsync(_api, authorizeData);
-
-            return authSuccess;
+            if(!authSuccess)
+                throw new VkAuthorizationException("Auth failed");
         }
 
         public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
@@ -70,15 +75,15 @@ namespace VkSchedman
             return new VkCollection<Video>((ulong)videos.Count, videos);
         }
 
-        public async Task DownloadVideosAsync(VkCollection<Video> videos, string albumTitle = "")
+        public async Task DownloadVideosAsync(VkCollection<Video> videos, string saveAlbumTitle = "")
         {
             for (int i = 0; i < videos.Count; i++)
             {
                 var video = videos[i];
-                var data = DownloadVideo(video);
+                var data = await DownloadVideoAsync(video);
                 string videoTitle = video.Title.Replace("\\", "") // make valid path
                                                .Replace("/", "");
-                string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(albumTitle) ? $"/{albumTitle}" : "");
+                string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(saveAlbumTitle) ? $"/{saveAlbumTitle}" : "");
                 Directory.CreateDirectory(saveDirectory);
                 string saveVideoName = Path.Combine(saveDirectory, videoTitle);
                 var existsFiles = Directory.GetFiles(saveDirectory)
@@ -133,7 +138,7 @@ namespace VkSchedman
             return resultSuccess;
         }
 
-        private byte[] DownloadVideo(Video video)
+        private async Task<byte[]> DownloadVideoAsync(Video video)
         {
             var videoData = new byte[0];
             Uri downloadUri = null;
@@ -150,11 +155,24 @@ namespace VkSchedman
             if (downloadUri != null)
             {
                 using (var client = new WebClient())
-                    videoData = client.DownloadData(downloadUri);
+                {
+                    client.DownloadProgressChanged += DownloadVideoProgress;
+                    videoData = await client.DownloadDataTaskAsync(downloadUri);
+                }
             }
             
             return videoData;
         }
 
+        private void DownloadVideoProgress(object sender, DownloadProgressChangedEventArgs e)
+        {
+            var onePercent = (e.TotalBytesToReceive / 100);
+            int percent = 0;
+            unchecked
+            {
+                percent = (int)(e.BytesReceived / onePercent);
+            };
+            OnLoadProgress?.Invoke(percent);
+        }
     }
 }

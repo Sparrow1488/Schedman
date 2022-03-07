@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VkSchedman\VkSchedman.csproj" />
+    <PackageReference Include="Spectre.Console" Version="0.43.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\VkSchedman\VkSchedman.csproj" />
   </ItemGroup>
 

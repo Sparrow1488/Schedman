@@ -1,7 +1,3 @@
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.deps.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.runtimeconfig.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.runtimeconfig.dev.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.exe
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.Examples.exe
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.Examples.dll.config
@@ -38,6 +34,7 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\Spectre.Console.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
