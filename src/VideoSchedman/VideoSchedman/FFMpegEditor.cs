@@ -64,7 +64,8 @@ namespace VideoSchedman
                 } 
                 var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y -f concat -safe 0 -err_detect ignore_err"))
                                            .ConfigureOutputs(cmd => cmd.Add("-c:a copy -c:v copy -preset fast -vsync cfr -r 45"))
-                                           .Build(_config, format => format.CombineSourcesInTxt(cachedFiles));
+                                           .Build(_config, format => format.ChangeAdditionalSettings(_config.Additional)
+                                                                           .CombineSourcesInTxt(cachedFiles));
                 await _executableProcess.StartAsync(script);
             }
             if (concatType == ConcatType.ReencodingComplexFilter)
@@ -75,7 +76,8 @@ namespace VideoSchedman
                 filterComplexArgs.Append($"concat=n={cachedFiles.Length}");
                 var script = _scriptBuilder.ConfigureInputs(cmd => cmd.Add("-y"))
                                            .ConfigureOutputs(cmd => cmd.Add($"-filter_complex \"{filterComplexArgs}\" -c:a copy -c:v libx264 -preset fast -vsync cfr -r 45"))
-                                           .Build(_config, format => format.CombineSources(cachedFiles));
+                                           .Build(_config, format => format.ChangeAdditionalSettings(_config.Additional)
+                                                                           .CombineSources(cachedFiles));
                 await _executableProcess.StartAsync(script);
             }
             if (concatType == ConcatType.Demuxer)

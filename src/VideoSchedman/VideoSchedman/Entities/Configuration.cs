@@ -43,7 +43,7 @@ namespace VideoSchedman.Entities
                 if (success)
                 {
                     var fileManipulation = new FileManipulation() { Loop = loopCount };
-                    var outputSetting = new OutputAdditionalSettings(src.Links.Original, new[] { fileManipulation });
+                    var outputSetting = new OutputAdditionalSettings(src.Links.Original, fileManipulation);
                     _additionalSettings.Add(outputSetting);
                 }
             }

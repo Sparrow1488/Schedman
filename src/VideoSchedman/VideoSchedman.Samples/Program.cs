@@ -15,8 +15,8 @@ string resultPath = string.Empty;
 
 Log.Information("Запускаем");
 
-//Project.UseExistsProject("project_4752684e-fee7-4d71-a0f6-1d4d3e47ac95");
-Project.CreateProject();
+Project.UseExistsProject("project_bdb68489-378e-4f1f-b514-ce96aa38bb11");
+//Project.CreateProject();
 var editor = new FFMpegEditor().Configure(config =>
                                 config.RestoreSrc()
                                       .AddDistinctSrcRange(files)

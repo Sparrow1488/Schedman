@@ -13,10 +13,19 @@ namespace VideoSchedman.Entities
         public bool IsCombinedSourcesInTxt { get; private set; }
         public bool IsCombinedSources { get; private set; }
         public ScriptFormatterResult Result { get; private set; }
+        public IEnumerable<OutputAdditionalSettings> AdditionalSettings { get; private set; }
+
+        public ScriptFormatter ChangeAdditionalSettings(IEnumerable<OutputAdditionalSettings> settings)
+        {
+            if (settings != null)
+                AdditionalSettings = settings;
+            return this;
+        }
 
         public ScriptFormatter CombineSourcesInTxt(IEnumerable<FileMeta> sources)
         {
             IsCombinedSourcesInTxt = true;
+            sources = ApplyAdditionalSettings(sources);
             if (!Directory.Exists(Paths.Meta.Path))
                 Directory.CreateDirectory(Paths.Meta.Path);
             string filePath = $"{Paths.Meta.Path}/combined-files_{DateTime.Now.Ticks}.txt";
@@ -37,6 +46,33 @@ namespace VideoSchedman.Entities
             sources.ToList().ForEach(source => builder.Append($"-i \"{source}\""));
             Result.CombinedSources = builder.ToString();
             return this;
+        }
+
+        private IEnumerable<FileMeta> ApplyAdditionalSettings(IEnumerable<FileMeta> sources)
+        {
+            var sourcesWithSettings = new List<FileMeta>();
+            foreach (var src in sources)
+            {
+                var existsSetting = AdditionalSettings.Where(settings => settings.OriginalSource == src.Links.Original).FirstOrDefault();
+                if(existsSetting != null)
+                {
+                    sourcesWithSettings.AddRange(CreateLoopCollection(src, existsSetting.Manipulation.Loop));
+                }
+                else
+                {
+                    sourcesWithSettings.Add(src);
+                }
+            }
+            return sourcesWithSettings;
+        }
+
+        private IEnumerable<FileMeta> CreateLoopCollection(FileMeta file, int loop)
+        {
+            var loops = new List<FileMeta>();
+            if (loop < 1) loops.Add(file);
+            for (int i = 0; i < loop; i++)
+                loops.Add(file);
+            return loops;
         }
     }
 }

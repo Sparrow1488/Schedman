@@ -5,33 +5,27 @@
         public OutputAdditionalSettings(string originalSource)
         {
             OriginalSource = originalSource;
-            _manipulations = new List<FileManipulation>();
+            _manipulation = new FileManipulation();
         }
 
-        public OutputAdditionalSettings(string originalSource, IEnumerable<FileManipulation> manipulations) : this(originalSource)
+        public OutputAdditionalSettings(string originalSource, FileManipulation manipulation) : this(originalSource)
         {
-            AddSettingsRange(manipulations);
+            AddSettings(manipulation);
         }
 
         public string OriginalSource { get; private set; }
-        public IEnumerable<FileManipulation> Manipulations { get => _manipulations; }
-        private List<FileManipulation> _manipulations;
+        public FileManipulation Manipulation { get => _manipulation; }
+        private FileManipulation _manipulation;
 
         public void AddSettings(FileManipulation manipulation)
         {
             if (manipulation != null)
-                _manipulations.Add(manipulation);
-        }
-
-        public void AddSettingsRange(IEnumerable<FileManipulation> manipulations)
-        {
-            if (manipulations != null)
-                _manipulations.AddRange(manipulations);
+                _manipulation = manipulation;
         }
     }
 
     public class FileManipulation
     {
-        public int Loop { get; set; }
+        public int Loop { get; set; } = 1;
     }
 }
