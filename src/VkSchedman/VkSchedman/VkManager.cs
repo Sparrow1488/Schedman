@@ -81,19 +81,51 @@ namespace VkSchedman
             {
                 var video = videos[i];
                 var data = await DownloadVideoAsync(video);
-                string videoTitle = video.Title.Replace("\\", "") // make valid path
-                                               .Replace("/", "");
-                string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(saveAlbumTitle) ? $"/{saveAlbumTitle}" : "");
-                Directory.CreateDirectory(saveDirectory);
-                string saveVideoName = Path.Combine(saveDirectory, videoTitle);
-                var existsFiles = Directory.GetFiles(saveDirectory)
-                                           .Where(file => file.Contains(videoTitle)).Count();
-                saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
-                if (data.Length > 0)
-                    await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
-                else Log.Error($"File not downloaded! ({video.Title})");
-                Log.Information($"[{i+1}/{videos.Count}] Downloaded \"{video.Title}\"");
+                await SaveVideoLocalAsync(video, data, saveAlbumTitle);
+                Log.Debug($"[{i+1}/{videos.Count}] Downloaded \"{video.Title}\"");
             }
+        }
+
+        public async Task<byte[]> DownloadVideoAsync(Video video)
+        {
+            var videoData = new byte[0];
+            Uri downloadUri = null;
+            if (!string.IsNullOrWhiteSpace(video.Files.Mp4_1080?.ToString()))
+                downloadUri = video.Files.Mp4_1080;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_720?.ToString()))
+                downloadUri = video.Files.Mp4_720;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_480?.ToString()))
+                downloadUri = video.Files.Mp4_480;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_360?.ToString()))
+                downloadUri = video.Files.Mp4_360;
+            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_240?.ToString()))
+                downloadUri = video.Files.Mp4_240;
+            if (downloadUri != null)
+            {
+                using (var client = new WebClient())
+                {
+                    client.DownloadProgressChanged += DownloadVideoProgress;
+                    //videoData = await client.DownloadDataTaskAsync(downloadUri);
+                    videoData = await client.DownloadDataTaskAsync(downloadUri);
+                }
+            }
+
+            return videoData;
+        }
+
+        public async Task SaveVideoLocalAsync(Video video, byte[] data, string saveAlbumTitle = "")
+        {
+            string videoTitle = video.Title.Replace("\\", "") // make valid path
+                                               .Replace("/", "");
+            string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(saveAlbumTitle) ? $"/{saveAlbumTitle}" : "");
+            Directory.CreateDirectory(saveDirectory);
+            string saveVideoName = Path.Combine(saveDirectory, videoTitle);
+            var existsFiles = Directory.GetFiles(saveDirectory)
+                                       .Where(file => file.Contains(videoTitle)).Count();
+            saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
+            if (data.Length > 0)
+                await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
+            else Log.Error($"File not downloaded! ({video.Title})");
         }
 
         public async Task<GroupManager> GetGroupManagerAsync(string groupName)
@@ -136,32 +168,6 @@ namespace VkSchedman
             }
 
             return resultSuccess;
-        }
-
-        private async Task<byte[]> DownloadVideoAsync(Video video)
-        {
-            var videoData = new byte[0];
-            Uri downloadUri = null;
-            if (!string.IsNullOrWhiteSpace(video.Files.Mp4_1080?.ToString()))
-                downloadUri = video.Files.Mp4_1080;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_720?.ToString()))
-                downloadUri = video.Files.Mp4_720;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_480?.ToString()))
-                downloadUri = video.Files.Mp4_480;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_360?.ToString()))
-                downloadUri = video.Files.Mp4_360;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_240?.ToString()))
-                downloadUri = video.Files.Mp4_240;
-            if (downloadUri != null)
-            {
-                using (var client = new WebClient())
-                {
-                    client.DownloadProgressChanged += DownloadVideoProgress;
-                    videoData = await client.DownloadDataTaskAsync(downloadUri);
-                }
-            }
-            
-            return videoData;
         }
 
         private void DownloadVideoProgress(object sender, DownloadProgressChangedEventArgs e)

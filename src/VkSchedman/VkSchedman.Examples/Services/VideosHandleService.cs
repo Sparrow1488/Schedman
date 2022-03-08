@@ -32,26 +32,15 @@ namespace VkSchedman.Examples.Services
         {
             string videosAlbumTitle = AnsiConsole.Ask<string>("Album title: ");
             var videos = await _vkManager.GetVideosFromAlbumAsync(videosAlbumTitle, count: 1000);
-            //TODO: доделац
-            await AnsiConsole.Progress()
-            .StartAsync(async ctx =>
+            for (int i = 0; i < videos.Count; i++)
             {
-                var task1 = ctx.AddTask("[green]Reticulating splines[/]");
-                _vkManager.OnLoadProgress += _vkManager_OnLoadProgress;
-                await _vkManager.DownloadVideosAsync(videos, videosAlbumTitle);
-
-                while (!ctx.IsFinished)
-                {
-                    task1.Increment(1);
-                }
-            });
-
-            
+                var video = videos[i];
+                Log.Information($"[{i + 1}/{videos.Count}] Start Download " + video.Title);
+                var videoData = await _vkManager.DownloadVideoAsync(video);
+                await _vkManager.SaveVideoLocalAsync(video, videoData);
+                Log.Information($"[{i + 1}/{videos.Count}] Downloaded");
+            }
             Log.Information("Videos downloaded");
-        }
-
-        private void _vkManager_OnLoadProgress(int percent)
-        {
         }
     }
 }
