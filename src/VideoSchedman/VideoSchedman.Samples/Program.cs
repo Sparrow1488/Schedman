@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using VideoSchedman;
+using VideoSchedman.Abstractions;
 using VideoSchedman.Entities;
 using VideoSchedman.Enums;
 
@@ -9,23 +10,64 @@ Log.Logger = new LoggerConfiguration()
               .WriteTo.Console()
               .CreateLogger();
 
-//string rootVideos = @"C:\Users\aleks\Downloads\videos";
-//string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\no";
-string rootVideos = @"C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VideoSchedman\VideoSchedman.Samples\TestFiles\test2\test";
-var files = Directory.GetFiles(rootVideos).ToList();
-string resultPath = string.Empty;
+Log.Information("VideoSchedman started");
+//args = new[] { @"E:\Йога\Source-Films-Makers\отдельно sfm\50", "new" };
 
-Log.Information("Запускаем");
+string rootVideos = "";
+PrepareEnvironment();
+var editor = CreateVideoEditor(args);
 
-Project.UseExistsProject("project_07f6e8c4-4147-41c2-894d-0872d3164311");
-//Project.CreateProject();
-var editor = new FFMpegEditor().Configure(config =>
+Log.Information("Mode: Concationates videos");
+await editor.ConcatSourcesAsync(ConcatType.ReencodingConcatConvertedViaTransportStream);
+Log.Information("Completed");
+
+IVideoEditor CreateVideoEditor(string[] args)
+{
+    var files = Directory.GetFiles(rootVideos).ToList();
+    Log.Information($"New files from directory \"{rootVideos}\" ({files.Count})");
+    var editor = new FFMpegEditor().Configure(config =>
                                 config.RestoreSrc()
+                                      .AddDistinctSrcRange(files)
                                       .SaveTo("Compilation")
                                       .Loop(file => file.Analyse.GetVideo().Duration <= 11, 2)
                                       .Quality(VideoQuality.FHD));
+    return editor;
+}
 
-Log.Information($"Добавлены файлы из папки \"{rootVideos}\" ({files.Count})");
+void PrepareEnvironment()
+{
+    string commands = string.Empty;
+    foreach (var arg in args)
+    {
+        commands += arg + "___";
+    }
+    Log.Information("Input commands: " + commands);
 
-await editor.ConcatSourcesAsync(ConcatType.ReencodingConcatConvertedViaTransportStream);
-Log.Information("Успешно");
+    if (args.Length == 0)
+    {
+        Log.Information("Input args is empty");
+    }
+    else
+    {
+        rootVideos = args[0];
+        Log.Information($"Processing directory path: \"{rootVideos}\"");
+    }
+    if (args.Length == 2)
+    {
+        if (args[1] == "new")
+        {
+            Project.CreateProject();
+            Log.Information("Create new project");
+        }
+        else
+        {
+            Project.UseExistsProject(args[1]);
+            Log.Information("Using exists project " + args[1]);
+        }
+    }
+    else
+    {
+        Project.CreateProject();
+        Log.Information("(NOT Specify) Create new project");
+    }
+}
