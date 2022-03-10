@@ -1,0 +1,8 @@
+{
+  "Id": 0,
+  "Message": "Author-inamitsu_shinji",
+  "PhotosUrl": [
+    "C:\\Users\\aleks\\Downloads\\in_group\\author-inamitsu_shinji\\dcc425ba1b8df2622993798e6c5367cf.jpg"
+  ],
+  "Schedule": "2022-03-11T17:00:00"
+}

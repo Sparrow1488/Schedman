@@ -54,7 +54,7 @@ namespace VkSchedman.Entities
             for (int j = 0; j < days; j++) {
                 for (int i = 0; i < timesArr.Length; i++) {
                     DateTime scheduleTime;
-                    if (!checkFirstDay && startTime == null) {
+                    if (!checkFirstDay && startTime != null) {
                         var index = Array.IndexOf(timesArr, actual);
                         if (index != 0) i = index;
                         checkFirstDay = true;

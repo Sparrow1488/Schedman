@@ -132,7 +132,6 @@ C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSch
 C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.pdb
 C:\Users\Александр\Desktop\Repositories\VkSchedman\src\VkSchedman\VkSchedman\obj\Debug\netcoreapp3.1\VkSchedman.genruntimeconfig.cache
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\VkSchedman.dll.config
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\VkSchedman.deps.json
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\VkSchedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\bin\Debug\netcoreapp3.1\VkSchedman.pdb

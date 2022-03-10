@@ -26,27 +26,20 @@ namespace VkSchedman.Examples.Services
         private readonly PublicationsLogger _postLogger = new PublicationsLogger();
         private readonly List<TimeSpan> _times = CreateTimes();
 
-        public Task StartAsync()
+        public async Task StartAsync()
         {
-            throw new NotImplementedException();
+            _group = await _vkManager.GetGroupManagerAsync("full party");
+            await StartScheduleVkManagerAsync();
         }
 
         private async Task StartScheduleVkManagerAsync()
         {
             string findGroupName = "Full party";
             Log.Information($"Get group named \"{findGroupName}\"");
-            //_group = await vkManager.GetGroupManagerAsync(findGroupName);
-            //if (_group.Id == 0)
-            //{
-            //    vkManager.Errors.PrintErrors();
-            //    throw new GroupFoundException("Cannot find group");
-            //}
-            //else Log.Information("Success found group, id_" + _group.Id);
-
 
             Log.Information("Starting create posts...");
             var posts = _postEditor.CreatePostRange();
-            _scheduler.Create(_times, 30, posts.Count());
+            _scheduler.Create(_times, 30, posts.Count(), startTime: new DateTime(2022, 3, 11, 21, 0, 0));
             posts = posts.Shuffle();
             posts = _postEditor.SetSchedule(posts, _scheduler);
 
@@ -57,7 +50,7 @@ namespace VkSchedman.Examples.Services
                 try
                 {
                     var createdPost = await _group.AddPostAsync(post);
-                    Log.Information($"({currentPostNum}|{postCount}) Post was success loaded");
+                    Log.Information($"({currentPostNum + 1}|{postCount}) Post was success loaded");
                 }
                 catch (PostLimitException e)
                 {
@@ -81,16 +74,12 @@ namespace VkSchedman.Examples.Services
         private static List<TimeSpan> CreateTimes() =>
             new List<TimeSpan>() {
                 new TimeSpan(0, 0, 0),
-                new TimeSpan(3, 0, 0),
                 new TimeSpan(5, 0, 0),
-                new TimeSpan(7, 0, 0),
                 new TimeSpan(9, 0, 0),
                 new TimeSpan(12, 0, 0),
                 new TimeSpan(14, 0, 0),
-                new TimeSpan(15, 0, 0),
                 new TimeSpan(17, 0, 0),
                 new TimeSpan(19, 0, 0),
-                new TimeSpan(21, 0, 0),
                 new TimeSpan(23, 0, 0)
             };
 

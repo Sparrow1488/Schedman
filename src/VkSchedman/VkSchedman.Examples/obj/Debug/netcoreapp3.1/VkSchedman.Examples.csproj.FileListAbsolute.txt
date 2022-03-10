@@ -59,7 +59,6 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.pdb
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\bin\Debug\netcoreapp3.1\VkSchedman.dll.config
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\obj\Debug\netcoreapp3.1\VkSchedman.Examples.csproj.AssemblyReference.cache
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\obj\Debug\netcoreapp3.1\VkSchedman.Examples.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\obj\Debug\netcoreapp3.1\VkSchedman.Examples.AssemblyInfoInputs.cache

@@ -1,0 +1,8 @@
+{
+  "Id": 0,
+  "Message": "Author-unknown",
+  "PhotosUrl": [
+    "C:\\Users\\aleks\\Downloads\\in_group\\asd\\492875623894756237984652345\\rak-(kuraga)-artist-Helltaker-porn-r34-6219617.jpeg"
+  ],
+  "Schedule": "2022-03-11T03:00:00"
+}
