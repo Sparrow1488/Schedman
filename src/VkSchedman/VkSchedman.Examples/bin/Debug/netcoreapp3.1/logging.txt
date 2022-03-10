@@ -631,3 +631,46 @@ VkNet.Exception.VkApiException: Wrong json data.
 2022-03-10 14:58:14.370 +03:00 [INF] (78|221) Post was success loaded
 2022-03-10 14:58:15.346 +03:00 [INF] (79|221) Post was success loaded
 2022-03-10 14:58:16.365 +03:00 [INF] (80|221) Post was success loaded
+2022-03-10 15:17:34.033 +03:00 [INF] Started VkSchedman
+2022-03-10 15:17:36.310 +03:00 [FTL] Could not find file 'C:\Users\aleks\Downloads\auth.txt'.
+System.IO.FileNotFoundException: Could not find file 'C:\Users\aleks\Downloads\auth.txt'.
+File name: 'C:\Users\aleks\Downloads\auth.txt'
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadLines(String path)
+   at VkSchedman.Entities.AuthorizeData..ctor(String fromFilePath) in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman\Entities\AuthorizeData.cs:line 23
+   at VkSchedman.Examples.Program.CreateAuthorizationData() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 93
+   at VkSchedman.Examples.Program.Main() in C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\VkSchedman\VkSchedman.Examples\Program.cs:line 36
+2022-03-10 15:17:44.151 +03:00 [INF] Started VkSchedman
+2022-03-10 15:18:42.898 +03:00 [INF] Started VkSchedman
+2022-03-10 15:18:44.826 +03:00 [INF] Try authorize...
+2022-03-10 15:18:47.264 +03:00 [INF] Authorize success
+2022-03-10 15:18:49.056 +03:00 [INF] VideosHandleService started
+2022-03-10 15:18:54.665 +03:00 [INF] [1/24] Starting Download Ashe by Tiaz3DX
+2022-03-10 15:18:55.078 +03:00 [INF] [2/24] Starting Download Tracer Chooses Sex Sports
+2022-03-10 15:18:55.590 +03:00 [INF] [3/24] Starting Download Max&Chloe by ChameleonHops
+2022-03-10 15:18:56.030 +03:00 [INF] [4/24] Starting Download Widowmaker
+2022-03-10 15:19:03.588 +03:00 [INF] [5/24] Starting Download Widowmaker
+2022-03-10 15:19:17.037 +03:00 [INF] [6/24] Starting Download Dva jumping on the couch
+2022-03-10 15:19:17.531 +03:00 [INF] [7/24] Starting Download Yennefer by Pewposterous
+2022-03-10 15:19:18.002 +03:00 [INF] [8/24] Starting Download Dr.Mercy facefuck by Yeero
+2022-03-10 15:19:18.537 +03:00 [INF] [9/24] Starting Download D.Va on the couch by Tiaz3DX
+2022-03-10 15:19:19.204 +03:00 [INF] [10/24] Starting Download D.Va on the couch  by Tiaz3DX
+2022-03-10 15:19:19.589 +03:00 [INF] [11/24] Starting Download Widowmaker and D.Va by SaveAss
+2022-03-10 15:19:19.970 +03:00 [INF] [12/24] Starting Download Aerith by Pewposterous
+2022-03-10 15:19:20.707 +03:00 [INF] [13/24] Starting Download D.Va back series by Tiaz3DX
+2022-03-10 15:19:21.080 +03:00 [INF] [14/24] Starting Download Miranda by Pewposterous
+2022-03-10 15:19:21.905 +03:00 [INF] [15/24] Starting Download Lara Croft by Xordel
+2022-03-10 15:19:35.495 +03:00 [INF] [16/24] Starting Download Blue Moon (Cyberpunk 2077)
+2022-03-10 15:19:35.993 +03:00 [INF] [17/24] Starting Download Panam riding on top by fatcat17
+2022-03-10 15:19:36.389 +03:00 [INF] [18/24] Starting Download Yennefer by Pewposterous
+2022-03-10 15:19:37.399 +03:00 [INF] [19/24] Starting Download Dva Passionately Riding Dick On Top by GrandCupido
+2022-03-10 15:19:37.804 +03:00 [INF] [20/24] Starting Download Ashe by GrandCupido
+2022-03-10 15:19:39.433 +03:00 [INF] [21/24] Starting Download Widowmaker by GrandCupido
+2022-03-10 15:19:39.897 +03:00 [INF] [22/24] Starting Download Ciri
+2022-03-10 15:19:40.202 +03:00 [INF] [23/24] Starting Download Tracer by Tiaz3DX
+2022-03-10 15:19:40.660 +03:00 [INF] [24/24] Starting Download Cassandra by HydraFXX
+2022-03-10 15:19:58.196 +03:00 [INF] Videos downloaded

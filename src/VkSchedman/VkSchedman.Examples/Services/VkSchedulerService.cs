@@ -1,4 +1,4 @@
-﻿using Serilog;
+﻿using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Entities;
 using VkSchedman.Examples.Abstractions;
+using VkSchedman.Examples.Entities;
 using VkSchedman.Extensions;
 using VkSchedman.Tools;
 
@@ -20,7 +21,7 @@ namespace VkSchedman.Examples.Services
         }
 
         private GroupManager _group;
-        private VkManager _vkManager;
+        private readonly VkManager _vkManager;
         private readonly Scheduler _scheduler = new Scheduler();
         private readonly PostEditor _postEditor = new PostEditor();
         private readonly PublicationsLogger _postLogger = new PublicationsLogger();
@@ -28,16 +29,14 @@ namespace VkSchedman.Examples.Services
 
         public async Task StartAsync()
         {
-            _group = await _vkManager.GetGroupManagerAsync("full party");
+            _group = await _vkManager.GetGroupManagerAsync("Full party");
+            Logger.Info("Group title: " + _group.Title);
             await StartScheduleVkManagerAsync();
         }
 
         private async Task StartScheduleVkManagerAsync()
         {
-            string findGroupName = "Full party";
-            Log.Information($"Get group named \"{findGroupName}\"");
-
-            Log.Information("Starting create posts...");
+            Logger.Info("Starting create posts...");
             var posts = _postEditor.CreatePostRange();
             _scheduler.Create(_times, 30, posts.Count(), startTime: new DateTime(2022, 3, 11, 21, 0, 0));
             posts = posts.Shuffle();
@@ -50,16 +49,16 @@ namespace VkSchedman.Examples.Services
                 try
                 {
                     var createdPost = await _group.AddPostAsync(post);
-                    Log.Information($"({currentPostNum + 1}|{postCount}) Post was success loaded");
+                    Logger.Info($"({currentPostNum + 1}|{postCount}) Post was success loaded");
                 }
-                catch (PostLimitException e)
+                catch (PostLimitException ex)
                 {
-                    Log.Error(e.Message);
+                    Logger.Exception(ex);
                     _postLogger.LogNotPublicated(post);
                 }
                 catch (Exception ex)
                 {
-                    Log.Fatal(ex, ex.Message);
+                    Logger.Exception(ex);
                     _postLogger.LogNotPublicated(post);
                 }
                 finally

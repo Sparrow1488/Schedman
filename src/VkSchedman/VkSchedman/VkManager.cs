@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,10 +18,11 @@ using VkNet.Utils;
 using VkSchedman.Entities;
 using VkSchedman.Exceptions;
 using VkSchedman.Interfaces;
+using VkSchedman.Logging;
 
 namespace VkSchedman
 {
-    public class VkManager : IStorableErrors
+    public sealed class VkManager : IStorableErrors
     {
         public VkManager()
         {
@@ -82,7 +82,7 @@ namespace VkSchedman
                 var video = videos[i];
                 var data = await DownloadVideoAsync(video);
                 await SaveVideoLocalAsync(video, data, saveAlbumTitle);
-                Log.Debug($"[{i+1}/{videos.Count}] Downloaded \"{video.Title}\"");
+                Logger.Debug($"[{i + 1}/{videos.Count}] Downloaded \"{video.Title}\"");
             }
         }
 
@@ -105,7 +105,6 @@ namespace VkSchedman
                 using (var client = new WebClient())
                 {
                     client.DownloadProgressChanged += DownloadVideoProgress;
-                    //videoData = await client.DownloadDataTaskAsync(downloadUri);
                     videoData = await client.DownloadDataTaskAsync(downloadUri);
                 }
             }
@@ -125,7 +124,7 @@ namespace VkSchedman
             saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
             if (data.Length > 0)
                 await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
-            else Log.Error($"File not downloaded! ({video.Title})");
+            else Logger.Error($"File not downloaded! ({video.Title})");
         }
 
         public async Task<GroupManager> GetGroupManagerAsync(string groupName)
@@ -141,7 +140,7 @@ namespace VkSchedman
             if(foundGroup == null) {
                 Errors.Add("Connot found group named " + groupName);
             }
-            return new GroupManager(_api, foundGroup?.Id ?? 0);
+            return new GroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
         public void ClearErrors() => Errors = new List<string>();

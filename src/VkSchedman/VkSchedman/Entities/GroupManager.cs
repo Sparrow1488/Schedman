@@ -9,22 +9,24 @@ using System.Threading.Tasks;
 using VkNet;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
-using Serilog;
 using Newtonsoft.Json;
+using VkSchedman.Logging;
 
 namespace VkSchedman.Entities
 {
     public class GroupManager : IStorableErrors
     {
-        public long Id { get; }
-        private readonly VkApi _api;
-        public IList<string> Errors { get; set; }
-
-        public GroupManager(VkApi api, long groupId)
+        public GroupManager(VkApi api, long groupId, string groupTitle = "")
         {
             Id = groupId;
             _api = api;
+            Title = groupTitle;
         }
+
+        public long Id { get; }
+        public string Title { get; private set; }
+        private readonly VkApi _api;
+        public IList<string> Errors { get; set; }
 
         public async Task<CreatePost> AddPostAsync(CreatePost post)
         {
@@ -78,7 +80,7 @@ namespace VkSchedman.Entities
                 }
                 catch(JsonException)
                 {
-                    Log.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
+                    Logger.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
                 }
                 finally
                 {

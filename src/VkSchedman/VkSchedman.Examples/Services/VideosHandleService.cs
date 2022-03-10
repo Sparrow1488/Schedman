@@ -1,8 +1,8 @@
-﻿using Serilog;
-using Spectre.Console;
+﻿using Spectre.Console;
 using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Examples.Abstractions;
+using VkSchedman.Examples.Entities;
 
 namespace VkSchedman.Examples.Services
 {
@@ -19,7 +19,7 @@ namespace VkSchedman.Examples.Services
 
         public async Task StartAsync()
         {
-            Log.Information($"{nameof(VideosHandleService)} started");
+            Logger.Info($"{nameof(VideosHandleService)} started");
             var serviceChapters = new[] { nameof(DownloadOwnVideos) };
             var serviceChapter = AnsiConsole.Prompt(new SelectionPrompt<string>()
                                                     .Title("Select service chapter: ")
@@ -35,12 +35,11 @@ namespace VkSchedman.Examples.Services
             for (int i = 0; i < videos.Count; i++)
             {
                 var video = videos[i];
-                Log.Information($"[{i + 1}/{videos.Count}] Start Download " + video.Title);
+                Logger.Info($"[{i + 1}/{videos.Count}] Starting Download " + video.Title);
                 var videoData = await _vkManager.DownloadVideoAsync(video);
-                await _vkManager.SaveVideoLocalAsync(video, videoData);
-                Log.Information($"[{i + 1}/{videos.Count}] Downloaded");
+                await _vkManager.SaveVideoLocalAsync(video, videoData, saveAlbumTitle: videosAlbumTitle);
             }
-            Log.Information("Videos downloaded");
+            Logger.Info("Videos downloaded");
         }
     }
 }

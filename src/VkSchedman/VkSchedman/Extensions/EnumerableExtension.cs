@@ -1,7 +1,7 @@
-﻿using Serilog;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using VkSchedman.Logging;
 
 namespace VkSchedman.Extensions
 {
@@ -18,7 +18,7 @@ namespace VkSchedman.Extensions
         {
             foreach (var error in errorCollection)
             {
-                Log.Error(error);
+                Logger.Error(error);
             }
         }
     }

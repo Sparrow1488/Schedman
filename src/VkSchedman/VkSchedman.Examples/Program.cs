@@ -1,16 +1,12 @@
-﻿using Microsoft.Extensions.Configuration;
-using Serilog;
-using Spectre.Console;
+﻿using Spectre.Console;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Entities;
+using VkSchedman.Examples.Entities;
 using VkSchedman.Examples.Services;
 using VkSchedman.Extensions;
-using VkSchedman.Tools;
+using VkLogger = VkSchedman.Logging.Logger;
 
 namespace VkSchedman.Examples
 {
@@ -18,18 +14,10 @@ namespace VkSchedman.Examples
     {
         public static async Task Main()
         {
-            var builder = new ConfigurationBuilder();
-            InitConfiguration(builder);
-            Log.Logger = new LoggerConfiguration()
-                         .MinimumLevel.Debug()
-                         .ReadFrom.Configuration(builder.Build())
-                         .WriteTo.Console()
-                         .WriteTo.File("logging.txt")
-                         .CreateLogger();
-
+            InitLoggers();
             Console.Title = "VkSchedman [not authorizated]";
-            AnsiConsole.Write(new FigletText("VkSchedman").Color(Color.SkyBlue1).LeftAligned());
-            Log.Information("Started VkSchedman");
+            AnsiConsole.Write(new FigletText("VkSchedman").Color(Color.Purple3).LeftAligned());
+            Logger.Info("Started VkSchedman");
             
             try
             {
@@ -49,11 +37,7 @@ namespace VkSchedman.Examples
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, ex.Message);
-            }
-            finally
-            {
-                Log.CloseAndFlush();
+                Logger.Exception(ex);
             }
         }
 
@@ -62,14 +46,14 @@ namespace VkSchedman.Examples
             int attempts = 3;
             do
             {
-                Log.Information("Try authorize...");
+                Logger.Info("Try authorize...");
                 try
                 {
                     await manager.AuthorizeAsync(authData);
                 }
                 catch (VkAuthorizationException)
                 {
-                    Log.Error("Authorize failed");
+                    Logger.Info("Authorize failed");
                 }
                 if (manager.IsAuthorizated)
                     attempts = -1;
@@ -78,7 +62,7 @@ namespace VkSchedman.Examples
             while (attempts > 0);
 
             manager.ThrowIfNotAuth();
-            Log.Information("Authorize success");
+            Logger.Info("Authorize success");
             Console.Title = "VkSchedman";
         }
 
@@ -92,13 +76,21 @@ namespace VkSchedman.Examples
             if (authType == "Configuration")
                 authDataPath = new AuthorizeData(System.Configuration.ConfigurationManager.AppSettings["Auth"]);
             else if (authType == "Login&pass")
-                authDataPath = new AuthorizeData(AnsiConsole.Ask("[blue]Login[/]: ", string.Empty), 
-                                                 AnsiConsole.Ask("[blue]Password[/]: ", string.Empty));
+                authDataPath = new AuthorizeData(AnsiConsole.Ask("Login: ", string.Empty), 
+                                                 AnsiConsole.Ask("Password: ", string.Empty));
             return authDataPath;
         }
 
-        private static void InitConfiguration(IConfigurationBuilder builder) =>
-           builder.SetBasePath(Directory.GetCurrentDirectory())
-                  .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+        private static void InitLoggers()
+        {
+            VkLogger.SetDebugLogging(message => AnsiConsole.WriteLine($"[Debug] " + message));
+            VkLogger.SetInfoLogging(message => AnsiConsole.WriteLine($"[Info] " + message));
+            VkLogger.SetErrorLogging(message => AnsiConsole.WriteLine($"[Error] " + message));
+
+            Logger.SetDebugLogging(message => AnsiConsole.WriteLine($"[Debug] " + message));
+            Logger.SetInfoLogging(message => AnsiConsole.WriteLine($"[Info] " + message));
+            Logger.SetErrorLogging(message => AnsiConsole.WriteLine($"[Error] " + message));
+            Logger.SetExceptionLogging(ex => AnsiConsole.WriteException(ex));
+        }
     }
 }
