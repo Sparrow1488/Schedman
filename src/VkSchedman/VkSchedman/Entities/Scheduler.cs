@@ -46,7 +46,7 @@ namespace VkSchedman.Entities
             var timesArr = times.ToArray();
             var actual = times.GetActualTime();
 
-            if (startTime < DateTime.Now)
+            if (startTime != null && startTime < DateTime.Now)
                 throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
 
             var now = startTime ?? DateTime.Now;
@@ -54,7 +54,7 @@ namespace VkSchedman.Entities
             for (int j = 0; j < days; j++) {
                 for (int i = 0; i < timesArr.Length; i++) {
                     DateTime scheduleTime;
-                    if (!checkFirstDay && startTime != null) {
+                    if (!checkFirstDay) {
                         var index = Array.IndexOf(timesArr, actual);
                         if (index != 0) i = index;
                         checkFirstDay = true;

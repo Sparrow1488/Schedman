@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj": {}
+    "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
         "projectName": "VkSchedman.Tests",
-        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
-        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\obj\\",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
+        "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilyao\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj": {
-                "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj"
+              "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj": {
+                "projectPath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj"
               }
             }
           }
@@ -81,24 +80,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj",
         "projectName": "VkSchedman",
-        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj",
-        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman\\obj\\",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\VkSchedman.csproj",
+        "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\VkSchedman\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilyao\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -107,7 +106,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -166,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

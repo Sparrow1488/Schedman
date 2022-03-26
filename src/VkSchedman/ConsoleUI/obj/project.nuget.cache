@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YhxitG6LcsaCJyhaIJhvUZe1AZETS9AZ4tBrR8SYnAlM+qNOwU6B+Nv5RQWP5jvkskkMzgua5X95P8nQY0a3Wg==",
+  "dgSpecHash": "hQBKpMeiMJZ8qAzfr47gI2yUO5zuXGjhQOCsdgAZAkB5uW7sKE0UP3aZClUsjKlV+DPwYnFLzLax/JvShEU2Jg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\ConsoleUI\\ConsoleUI.csproj",
+  "projectFilePath": "C:\\Users\\ilyao\\Desktop\\Repos\\VkSchedman\\src\\VkSchedman\\ConsoleUI\\ConsoleUI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\aleks\\.nuget\\packages\\spectre.console\\0.43.0\\spectre.console.0.43.0.nupkg.sha512",
-    "C:\\Users\\aleks\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
+    "C:\\Users\\ilyao\\.nuget\\packages\\spectre.console\\0.43.0\\spectre.console.0.43.0.nupkg.sha512",
+    "C:\\Users\\ilyao\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
