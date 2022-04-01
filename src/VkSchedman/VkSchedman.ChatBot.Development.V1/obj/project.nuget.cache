@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bHJq/nv91t6ea1cvn3l64KuWsEHYfzfwTcbVRlajqHBUfcnsPgu+gzoBN1CxOqcrg523hKLml9lPKiVJPqJb2Q==",
+  "dgSpecHash": "kpDmWdGhGa/9axxQd8TviKGwABOiGV6FEKCYYCTokkkgD+E8j9qh/C9p7Aj50To2DslZcyYO2sRnUsKQwO/nnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.ChatBot.Development.V1\\VkSchedman.ChatBot.csproj",
   "expectedPackageFiles": [
@@ -81,7 +81,8 @@
     "C:\\Users\\aleks\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\aleks\\.nuget\\packages\\vknet\\1.41.0\\vknet.1.41.0.nupkg.sha512"
+    "C:\\Users\\aleks\\.nuget\\packages\\vknet\\1.41.0\\vknet.1.41.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6KGchMnBh5i7esT7JLelt3sasGnA71cuDwpzrlGK1rGvpZHh2AkAASAi6nZsZDPip5Fyelr4PvOSfdodH33Kog==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman.CI\\Schedman.CI\\Schedman.CI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -38,7 +38,7 @@ namespace VkSchedman.Examples.Services
         {
             Logger.Info("Starting create posts...");
             var posts = _postEditor.CreatePostRange();
-            _scheduler.Create(_times, 30, posts.Count(), startTime: new DateTime(2022, 3, 11, 21, 0, 0));
+            _scheduler.Create(_times, 30, posts.Count());
             posts = posts.Shuffle();
             posts = _postEditor.SetSchedule(posts, _scheduler);
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Examples.Abstractions;
 using VkSchedman.Examples.Entities;
+using VkSchedman.Extensions;
 
 namespace VkSchedman.Examples.Services
 {
@@ -10,9 +11,8 @@ namespace VkSchedman.Examples.Services
     {
         public VideosHandleService(VkManager vkManager)
         {
-            if (vkManager.IsAuthorizated)
-                _vkManager = vkManager;
-            else throw new VkAuthorizationException("VkManager not authorizated!");
+            vkManager.ThrowIfNotAuth();
+            _vkManager = vkManager;
         }
 
         private readonly VkManager _vkManager;
