@@ -21,19 +21,25 @@ namespace VkSchedman.Examples
             
             try
             {
-                var authData = CreateAuthorizationData();
-                var vkManager = new VkManager();
-                await AuthorizeManagerAsync(vkManager, authData);
+                bool isWorking = true;
+                while (isWorking)
+                {
+                    var authData = CreateAuthorizationData();
+                    var vkManager = new VkManager();
+                    await AuthorizeManagerAsync(vkManager, authData);
 
-                string[] services = new[] { "Download videos", "Autoposter" };
-                var choose = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                                    .Title("Select [green]service[/] to use")
-                                    .AddChoices(services));
+                    string[] services = new[] { "Download videos", "Autoposter", "Exit" };
+                    var choose = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                                        .Title("Select [green]service[/] to use")
+                                        .AddChoices(services));
 
-                if (choose == "Download videos")
-                    await new VideosHandleService(vkManager).StartAsync();
-                if (choose == "Autoposter")
-                    await new VkSchedulerService(vkManager).StartAsync();
+                    if (choose == "Download videos")
+                        await new VideosHandleService(vkManager).StartAsync();
+                    if (choose == "Autoposter")
+                        await new VkSchedulerService(vkManager).StartAsync();
+                    if(choose == "Exit")
+                        isWorking = false;
+                }
             }
             catch (Exception ex)
             {

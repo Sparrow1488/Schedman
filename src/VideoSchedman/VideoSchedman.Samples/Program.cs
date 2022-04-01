@@ -11,7 +11,7 @@ Log.Logger = new LoggerConfiguration()
               .CreateLogger();
 
 Log.Information("VideoSchedman started");
-//args = new[] { @"E:\Йога\Source-Films-Makers\отдельно sfm\50", "new" };
+args = new[] { @"E:\Йога\Source-Films-Makers\отдельно sfm\52\4_compilation", "new" };
 
 string rootVideos = "";
 PrepareEnvironment();
