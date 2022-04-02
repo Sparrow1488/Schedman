@@ -51,7 +51,7 @@
           "dependencies": {
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[5.0.0, )"
             },
             "Serilog.Extensions.Hosting": {
               "target": "Package",
@@ -64,6 +64,10 @@
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "VkNet": {
+              "target": "Package",
+              "version": "[1.68.0, )"
             }
           },
           "imports": [

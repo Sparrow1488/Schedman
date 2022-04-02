@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1603d625-178d-45f2-bfb5-ad6a101a363e": {
+      "ProjectGuid": "1603d625-178d-45f2-bfb5-ad6a101a363e",
+      "DisplayName": "Schedman.CI",
+      "ColorIndex": 0
+    },
+    "cdadc117-b83d-47b5-b0b5-9ed4228d6702": {
+      "ProjectGuid": "cdadc117-b83d-47b5-b0b5-9ed4228d6702",
+      "DisplayName": "VkSchedman",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
