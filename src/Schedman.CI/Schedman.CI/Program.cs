@@ -20,9 +20,10 @@ namespace Schedman.CI
 
         private static IServiceCollection ConfigureServices(IServiceCollection services) =>
             services.AddHostedService<Startup>()
+                    .AddTransient<IVkDownloadService, VkDownloadService>()
                     .AddTransient<IAuthorizationService, VkAuthorizationService>()
                     .AddTransient<IVkApi, VkApi>()
-                    .AddTransient<VkManager>();
+                    .AddSingleton<VkManager>();
 
         private static LoggerConfiguration ConfigureLogger(LoggerConfiguration config) =>
             config.MinimumLevel.Debug()

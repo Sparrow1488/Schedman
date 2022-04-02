@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Schedman.CI.Abstractions;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VkSchedman;

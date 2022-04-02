@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Schedman.CI": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "album": "53",
+        "service": "download"
+      }
+    }
+  }
+}

@@ -79,3 +79,5 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.genruntimeconfig.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.Properties.Resources.resources
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman.CI\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.csproj.GenerateResource.cache
