@@ -1,6 +1,6 @@
 ﻿using VkNet.Exception;
 
-namespace VkSchedman.Extensions
+namespace Schedman.Extensions
 {
     public static class VkManagerExtension
     {

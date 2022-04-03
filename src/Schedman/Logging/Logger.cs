@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VkSchedman.Logging
+namespace Schedman.Logging
 {
     public static class Logger
     {

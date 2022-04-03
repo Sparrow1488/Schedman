@@ -1,11 +1,11 @@
-﻿using VkSchedman.Exceptions;
-using VkSchedman.Extensions;
+﻿using Schedman.Exceptions;
+using Schedman.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class Scheduler : IEnumerable<DateTime>
     {

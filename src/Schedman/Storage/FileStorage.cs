@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using VkSchedman.Entities;
+using Schedman.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace VkSchedman.Storage
+namespace Schedman.Storage
 {
     internal class FileStorage
     {

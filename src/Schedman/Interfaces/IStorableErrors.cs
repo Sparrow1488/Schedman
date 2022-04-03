@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VkSchedman.Interfaces
+namespace Schedman.Interfaces
 {
     public interface IStorableErrors
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VkSchedman.Exceptions
+namespace Schedman.Exceptions
 {
     public class GroupFoundException : Exception
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ylmiNuFvoLoTGG2f7gIyrUqYjKQLPySs4+tvej1yS4C5BCkkzTGsXtGY07pfPcYU9dNsFPMEqgYcrj0QckCACw==",
+  "dgSpecHash": "5QkJPSedJoz2144LrMsLPmOYOcYRQlbloQp+5r6pURxTNiqmGyLVG3R30FbukYemmDGAhSSL1l55m3kju8Wi+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman\\VkSchedman.csproj",
+  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\Schedman.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aleks\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

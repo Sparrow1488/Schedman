@@ -3,7 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class PostEditor
     {

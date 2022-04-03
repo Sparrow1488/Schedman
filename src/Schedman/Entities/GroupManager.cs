@@ -1,5 +1,5 @@
-﻿using VkSchedman.Exceptions;
-using VkSchedman.Interfaces;
+﻿using Schedman.Exceptions;
+using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ using VkNet;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using Newtonsoft.Json;
-using VkSchedman.Logging;
+using Schedman.Logging;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class GroupManager : IStorableErrors
     {

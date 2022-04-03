@@ -1,10 +1,10 @@
-﻿using VkSchedman.Interfaces;
+﻿using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class AuthorsHandler : IAlbumsHandler<AlbumItem>
     {

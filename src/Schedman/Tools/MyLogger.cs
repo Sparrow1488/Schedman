@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VkSchedman.Tools
+namespace Schedman.Tools
 {
     internal class MyLogger
     {

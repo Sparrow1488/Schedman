@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class CreatePost
     {

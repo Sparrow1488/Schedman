@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public enum UploadStatus
     {

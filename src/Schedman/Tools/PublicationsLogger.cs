@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
-using VkSchedman.Entities;
+using Schedman.Entities;
 using System;
 using System.IO;
 
-namespace VkSchedman.Tools
+namespace Schedman.Tools
 {
     public class PublicationsLogger
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using VkSchedman.Interfaces;
+using Schedman.Interfaces;
 
-namespace VkSchedman.Entities
+namespace Schedman.Entities
 {
     public class AlbumItem : IAlbumItem
     {

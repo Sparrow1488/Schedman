@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VkSchedman.Logging;
+using Schedman.Logging;
 
-namespace VkSchedman.Extensions
+namespace Schedman.Extensions
 {
     public static class EnumerableExtension
     {

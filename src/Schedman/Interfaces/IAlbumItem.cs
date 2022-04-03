@@ -1,9 +1,9 @@
-﻿using VkSchedman.Entities;
+﻿using Schedman.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace VkSchedman.Interfaces
+namespace Schedman.Interfaces
 {
     public interface IAlbumItem
     {

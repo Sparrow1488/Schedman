@@ -15,12 +15,12 @@ using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
-using VkSchedman.Entities;
-using VkSchedman.Exceptions;
-using VkSchedman.Interfaces;
-using VkSchedman.Logging;
+using Schedman.Entities;
+using Schedman.Exceptions;
+using Schedman.Interfaces;
+using Schedman.Logging;
 
-namespace VkSchedman
+namespace Schedman
 {
     public sealed class VkManager : IStorableErrors
     {
@@ -38,7 +38,6 @@ namespace VkSchedman
         public event LoadProgress OnLoadProgress;
         private readonly VkApi _api;
         
-
         public async Task AuthorizeAsync(AuthorizeData authorizeData)
         {
             bool authSuccess = false;
