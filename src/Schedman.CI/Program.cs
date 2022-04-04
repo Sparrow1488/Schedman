@@ -6,7 +6,6 @@ using Serilog;
 using System.Threading.Tasks;
 using VkNet;
 using VkNet.Abstractions;
-using VkSchedman;
 
 namespace Schedman.CI
 {
