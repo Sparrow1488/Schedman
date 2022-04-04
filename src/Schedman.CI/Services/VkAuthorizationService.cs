@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Schedman.CI.Abstractions;
+using Schedman.Entities;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using VkSchedman;
-using VkSchedman.Entities;
 
 namespace Schedman.CI.Services
 {

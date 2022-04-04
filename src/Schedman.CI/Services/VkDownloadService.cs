@@ -3,7 +3,6 @@ using Schedman.CI.Abstractions;
 using System.Threading.Tasks;
 using VkNet.Model.Attachments;
 using VkNet.Utils;
-using VkSchedman;
 
 namespace Schedman.CI.Services
 {
