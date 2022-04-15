@@ -1,0 +1,6 @@
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\bin\Debug\netcoreapp3.1\CoverletSourceRootsMapping
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.csproj.AssemblyReference.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.AssemblyInfoInputs.cache
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.AssemblyInfo.cs
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.csproj.CoreCompileInputs.cache

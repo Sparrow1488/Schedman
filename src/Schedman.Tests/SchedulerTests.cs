@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VkSchedman.Entities;
-using VkSchedman.Exceptions;
+using Schedman.Entities;
+using Schedman.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

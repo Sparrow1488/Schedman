@@ -2001,7 +2001,7 @@
           "lib/netstandard2.0/VkNet.AudioBypassService.dll": {}
         }
       },
-      "VkSchedman/1.0.0": {
+      "Schedman/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -2013,10 +2013,10 @@
           "VkNet.AudioBypassService": "1.7.2"
         },
         "compile": {
-          "bin/placeholder/VkSchedman.dll": {}
+          "bin/placeholder/Schedman.dll": {}
         },
         "runtime": {
-          "bin/placeholder/VkSchedman.dll": {}
+          "bin/placeholder/Schedman.dll": {}
         }
       }
     }
@@ -7057,10 +7057,10 @@
         "vknet.audiobypassservice.nuspec"
       ]
     },
-    "VkSchedman/1.0.0": {
+    "Schedman/1.0.0": {
       "type": "project",
-      "path": "../VkSchedman/VkSchedman.csproj",
-      "msbuildProject": "../VkSchedman/VkSchedman.csproj"
+      "path": "../Schedman/Schedman.csproj",
+      "msbuildProject": "../Schedman/Schedman.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7068,7 +7068,7 @@
       "MSTest.TestAdapter >= 2.2.3",
       "MSTest.TestFramework >= 2.2.3",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
-      "VkSchedman >= 1.0.0",
+      "Schedman >= 1.0.0",
       "coverlet.collector >= 3.0.2"
     ]
   },
@@ -7079,11 +7079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
-      "projectName": "VkSchedman.Tests",
-      "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman.Tests\\VkSchedman.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj",
+      "projectName": "Schedman.Tests",
+      "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj",
       "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman.Tests\\obj\\",
+      "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7105,8 +7105,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman\\VkSchedman.csproj": {
-              "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\Schedman\\VkSchedman\\VkSchedman.csproj"
+            "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj": {
+              "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj"
             }
           }
         }
@@ -7153,7 +7153,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

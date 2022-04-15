@@ -9,11 +9,11 @@
       "Schedman.CI/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "5.0.0",
+          "Schedman": "1.0.0",
           "Serilog.Extensions.Hosting": "4.2.0",
           "Serilog.Settings.Configuration": "3.3.0",
           "Serilog.Sinks.Console": "4.0.1",
-          "VkNet": "1.68.0",
-          "VkSchedman": "1.0.0"
+          "VkNet": "1.68.0"
         },
         "runtime": {
           "Schedman.CI.dll": {}
@@ -734,7 +734,7 @@
           }
         }
       },
-      "VkSchedman/1.0.0": {
+      "Schedman/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.FileExtensions": "6.0.0",
           "Microsoft.Extensions.Configuration.Json": "6.0.0",
@@ -744,7 +744,7 @@
           "VkNet.AudioBypassService": "1.7.2"
         },
         "runtime": {
-          "VkSchedman.dll": {}
+          "Schedman.dll": {}
         }
       }
     }
@@ -1133,7 +1133,7 @@
       "path": "vknet.audiobypassservice/1.7.2",
       "hashPath": "vknet.audiobypassservice.1.7.2.nupkg.sha512"
     },
-    "VkSchedman/1.0.0": {
+    "Schedman/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

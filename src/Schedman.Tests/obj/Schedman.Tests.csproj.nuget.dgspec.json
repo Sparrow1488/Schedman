@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.CI\\Schedman.CI.csproj": {}
+    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.CI\\Schedman.CI.csproj": {
+    "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.CI\\Schedman.CI.csproj",
-        "projectName": "Schedman.CI",
-        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.CI\\Schedman.CI.csproj",
+        "projectUniqueName": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj",
+        "projectName": "Schedman.Tests",
+        "projectPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\Schedman.Tests.csproj",
         "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.CI\\obj\\",
+        "outputPath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,25 +49,21 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Microsoft.Extensions.Hosting": {
+            "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[2.2.3, )"
             },
-            "Serilog.Extensions.Hosting": {
+            "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[2.2.3, )"
             },
-            "Serilog.Settings.Configuration": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[3.3.0, )"
+              "version": "[16.9.4, )"
             },
-            "Serilog.Sinks.Console": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[4.0.1, )"
-            },
-            "VkNet": {
-              "target": "Package",
-              "version": "[1.68.0, )"
+              "version": "[3.0.2, )"
             }
           },
           "imports": [
