@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Schedman.Entities;
+using Schedman.Exceptions;
+using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,10 +18,6 @@ using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
-using Schedman.Entities;
-using Schedman.Exceptions;
-using Schedman.Interfaces;
-using Schedman.Logging;
 
 namespace Schedman
 {
@@ -81,7 +80,6 @@ namespace Schedman
                 var video = videos[i];
                 var data = await DownloadVideoAsync(video);
                 await SaveVideoLocalAsync(video, data, saveAlbumTitle);
-                Logger.Debug($"[{i + 1}/{videos.Count}] Downloaded \"{video.Title}\"");
             }
         }
 
@@ -123,7 +121,6 @@ namespace Schedman
             saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
             if (data.Length > 0)
                 await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
-            else Logger.Error($"File not downloaded! ({video.Title})");
         }
 
         public async Task<GroupManager> GetGroupManagerAsync(string groupName)

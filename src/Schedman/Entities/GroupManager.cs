@@ -1,4 +1,5 @@
-﻿using Schedman.Exceptions;
+﻿using Newtonsoft.Json;
+using Schedman.Exceptions;
 using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,6 @@ using System.Threading.Tasks;
 using VkNet;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
-using Newtonsoft.Json;
-using Schedman.Logging;
 
 namespace Schedman.Entities
 {
@@ -80,7 +79,7 @@ namespace Schedman.Entities
                 }
                 catch(JsonException)
                 {
-                    Logger.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
+                    //Logger.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
                 }
                 finally
                 {

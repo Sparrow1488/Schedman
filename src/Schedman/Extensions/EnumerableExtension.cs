@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Schedman.Logging;
 
 namespace Schedman.Extensions
 {
@@ -18,7 +17,7 @@ namespace Schedman.Extensions
         {
             foreach (var error in errorCollection)
             {
-                Logger.Error(error);
+                //Logger.Error(error);
             }
         }
     }
