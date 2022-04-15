@@ -1,12 +1,12 @@
-﻿using Spectre.Console;
+﻿using Schedman;
+using Schedman.Entities;
+using Schedman.Extensions;
+using Spectre.Console;
 using System;
 using System.Threading.Tasks;
 using VkNet.Exception;
-using VkSchedman.Entities;
 using VkSchedman.Examples.Entities;
 using VkSchedman.Examples.Services;
-using VkSchedman.Extensions;
-using VkLogger = VkSchedman.Logging.Logger;
 
 namespace VkSchedman.Examples
 {
@@ -14,7 +14,6 @@ namespace VkSchedman.Examples
     {
         public static async Task Main()
         {
-            InitLoggers();
             Console.Title = "VkSchedman [not authorizated]";
             AnsiConsole.Write(new FigletText("VkSchedman").Color(Color.Purple3).LeftAligned());
             Logger.Info("Started VkSchedman");
@@ -85,18 +84,6 @@ namespace VkSchedman.Examples
                 authDataPath = new AuthorizeData(AnsiConsole.Ask("Login: ", string.Empty), 
                                                  AnsiConsole.Ask("Password: ", string.Empty));
             return authDataPath;
-        }
-
-        private static void InitLoggers()
-        {
-            VkLogger.SetDebugLogging(message => AnsiConsole.WriteLine($"[Debug] " + message));
-            VkLogger.SetInfoLogging(message => AnsiConsole.WriteLine($"[Info] " + message));
-            VkLogger.SetErrorLogging(message => AnsiConsole.WriteLine($"[Error] " + message));
-
-            Logger.SetDebugLogging(message => AnsiConsole.WriteLine($"[Debug] " + message));
-            Logger.SetInfoLogging(message => AnsiConsole.WriteLine($"[Info] " + message));
-            Logger.SetErrorLogging(message => AnsiConsole.WriteLine($"[Error] " + message));
-            Logger.SetExceptionLogging(ex => AnsiConsole.WriteException(ex));
         }
     }
 }

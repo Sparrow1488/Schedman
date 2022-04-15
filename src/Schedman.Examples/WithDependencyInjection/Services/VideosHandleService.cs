@@ -1,9 +1,9 @@
-﻿using Spectre.Console;
+﻿using Schedman;
+using Schedman.Extensions;
+using Spectre.Console;
 using System.Threading.Tasks;
-using VkNet.Exception;
 using VkSchedman.Examples.Abstractions;
 using VkSchedman.Examples.Entities;
-using VkSchedman.Extensions;
 
 namespace VkSchedman.Examples.Services
 {

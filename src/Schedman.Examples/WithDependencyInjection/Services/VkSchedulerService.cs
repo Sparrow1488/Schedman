@@ -1,14 +1,14 @@
-﻿using Spectre.Console;
+﻿using Schedman;
+using Schedman.Entities;
+using Schedman.Extensions;
+using Schedman.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VkNet.Exception;
-using VkSchedman.Entities;
 using VkSchedman.Examples.Abstractions;
 using VkSchedman.Examples.Entities;
-using VkSchedman.Extensions;
-using VkSchedman.Tools;
 
 namespace VkSchedman.Examples.Services
 {

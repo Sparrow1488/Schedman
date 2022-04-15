@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VkSchedman\VkSchedman.csproj" />
+    <ProjectReference Include="..\..\Schedman\Schedman.csproj" />
   </ItemGroup>
 
 </Project>

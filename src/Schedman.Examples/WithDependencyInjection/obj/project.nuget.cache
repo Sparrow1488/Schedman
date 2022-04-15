@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "44Q0Ncpqlvic0ePeIFAF3G6ocBKAKBb+dkJvNacMljmQ5LRuN6/CZbhETf68Ks4TdBgnQxo5GGddRNlgI+3cYg==",
+  "dgSpecHash": "ygz44nKNi2d5GZuD/WVMY4o7xWDthcWwTsNbogXwVSYEqbYD4RBTkcez7bbuqd2grPKIzAw+A233mTtBfZpWaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\VkSchedman\\src\\VkSchedman\\VkSchedman.Examples\\VkSchedman.Examples.csproj",
+  "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman.Examples\\WithDependencyInjection\\Schedman.Examples.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aleks\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
@@ -35,8 +35,7 @@
     "C:\\Users\\aleks\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\vknet\\1.68.0\\vknet.1.68.0.nupkg.sha512",
-    "C:\\Users\\aleks\\.nuget\\packages\\vknet.audiobypassservice\\1.7.2\\vknet.audiobypassservice.1.7.2.nupkg.sha512",
-    "C:\\Users\\aleks\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\aleks\\.nuget\\packages\\vknet.audiobypassservice\\1.7.2\\vknet.audiobypassservice.1.7.2.nupkg.sha512"
   ],
   "logs": []
 }

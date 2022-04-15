@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Tests", "Schedman.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.CI", "Schedman.CI\Schedman.CI.csproj", "{626DC11B-8325-41A8-9976-45ECC0D8AE00}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Examples", "Schedman.Examples\WithDependencyInjection\Schedman.Examples.csproj", "{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
