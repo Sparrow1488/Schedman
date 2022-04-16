@@ -1,11 +1,7 @@
-﻿using System;
-
-namespace Schedman.Exceptions
+﻿namespace Schedman.Exceptions
 {
-    public class InvalidInputDateException : Exception
+    public class InvalidInputDateException : SchedmanException
     {
-        public InvalidInputDateException(string message) : base(message)
-        {
-        }
+        public InvalidInputDateException(string message) : base(message) { }
     }
 }

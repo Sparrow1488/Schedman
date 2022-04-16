@@ -2,10 +2,8 @@
 
 namespace Schedman.Exceptions
 {
-    public class GroupFoundException : Exception
+    public class GroupFoundException : SchedmanException
     {
-        public GroupFoundException(string message) : base(message)
-        {
-        }
+        public GroupFoundException(string message) : base(message) { }
     }
 }

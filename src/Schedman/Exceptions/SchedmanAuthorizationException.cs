@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Schedman.Exceptions
+﻿namespace Schedman.Exceptions
 {
-    public class SchedmanAuthorizationException : Exception
+    public class SchedmanAuthorizationException : SchedmanException
     {
         public SchedmanAuthorizationException() { }
         public override string Message => "Authorization failed";

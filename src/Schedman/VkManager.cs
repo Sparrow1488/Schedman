@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Schedman.Entities;
 using Schedman.Exceptions;
-using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,17 +18,15 @@ using VkNet.Utils;
 
 namespace Schedman
 {
-    public sealed class VkManager : IStorableErrors
+    public sealed class VkManager
     {
         public VkManager()
         {
             var services = new ServiceCollection();
             services.AddAudioBypass();
             _api = new VkApi(services);
-            Errors = new List<string>();
         }
 
-        public IList<string> Errors { get; private set; }
         public bool IsAuthorizated { get => _api.IsAuthorized; }
         public delegate void LoadProgress(int percent);
         public event LoadProgress OnLoadProgress;
@@ -124,14 +121,8 @@ namespace Schedman
             var groups = await _api.Groups.GetByIdAsync(groupsId, "", new GroupsFields());
             var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupName.ToLower()))?.FirstOrDefault();
             
-            if(foundGroup == null) {
-                Errors.Add("Connot found group named " + groupName);
-            }
             return new GroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
-
-        public void ClearErrors() => Errors = new List<string>();
-        public IList<string> GetErrors() => Errors;
 
         private async Task<bool> TryAuthorizeAsync(VkApi api, AccessPermission authorizeData)
         {
@@ -144,9 +135,9 @@ namespace Schedman
                     Password = authorizeData.Password,
                 });
             }
-            catch (VkAuthException authError)
+            catch (VkAuthException)
             {
-                Errors.Add(authError.Message);
+                throw new SchedmanAuthorizationException();
             }
             catch
             {
@@ -159,7 +150,7 @@ namespace Schedman
         private void DownloadVideoProgress(object sender, DownloadProgressChangedEventArgs e)
         {
             var onePercent = (e.TotalBytesToReceive / 100);
-            int percent = 0;
+            int percent;
             unchecked
             {
                 percent = (int)(e.BytesReceived / onePercent);
