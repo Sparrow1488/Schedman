@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman", "Schedman\Schedm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Tests", "Schedman.Tests\Schedman.Tests.csproj", "{B9F1CD1B-B8F1-434A-BF0B-D4660B0A3043}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.CI", "Schedman.CI\Schedman.CI.csproj", "{626DC11B-8325-41A8-9976-45ECC0D8AE00}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Examples", "Schedman.Examples\WithDependencyInjection\Schedman.Examples.csproj", "{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedman.Tools.IO", "Schedman.Tools.IO\Schedman.Tools.IO.csproj", "{AB877768-8018-443D-B969-2FCD5C73A92D}"
@@ -27,10 +25,6 @@ Global
 		{B9F1CD1B-B8F1-434A-BF0B-D4660B0A3043}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F1CD1B-B8F1-434A-BF0B-D4660B0A3043}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F1CD1B-B8F1-434A-BF0B-D4660B0A3043}.Release|Any CPU.Build.0 = Release|Any CPU
-		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{626DC11B-8325-41A8-9976-45ECC0D8AE00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28908BD6-7B7A-4018-BA0E-BD23BB30C9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU

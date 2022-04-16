@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Examples.Abstractions;
-using VkSchedman.Examples.Entities;
 
 namespace VkSchedman.Examples.Services
 {
@@ -28,13 +27,11 @@ namespace VkSchedman.Examples.Services
         public async Task StartAsync()
         {
             _group = await _vkManager.GetGroupManagerAsync("Full party");
-            Logger.Info("Group title: " + _group.Title);
             await StartScheduleVkManagerAsync();
         }
 
         private async Task StartScheduleVkManagerAsync()
         {
-            Logger.Info("Starting create posts...");
             var posts = _postEditor.CreatePostRange();
             _scheduler.Create(_times, 30, posts.Count());
             posts = posts.Shuffle();
@@ -47,15 +44,12 @@ namespace VkSchedman.Examples.Services
                 try
                 {
                     var createdPost = await _group.AddPostAsync(post);
-                    Logger.Info($"({currentPostNum + 1}|{postCount}) Post was success loaded");
                 }
                 catch (PostLimitException ex)
                 {
-                    Logger.Exception(ex);
                 }
                 catch (Exception ex)
                 {
-                    Logger.Exception(ex);
                 }
                 finally
                 {

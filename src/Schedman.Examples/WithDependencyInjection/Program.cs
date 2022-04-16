@@ -5,7 +5,6 @@ using Spectre.Console;
 using System;
 using System.Threading.Tasks;
 using VkNet.Exception;
-using VkSchedman.Examples.Entities;
 using VkSchedman.Examples.Services;
 
 namespace VkSchedman.Examples
@@ -16,7 +15,6 @@ namespace VkSchedman.Examples
         {
             Console.Title = "VkSchedman [not authorizated]";
             AnsiConsole.Write(new FigletText("VkSchedman").Color(Color.Purple3).LeftAligned());
-            Logger.Info("Started VkSchedman");
             
             try
             {
@@ -42,7 +40,6 @@ namespace VkSchedman.Examples
             }
             catch (Exception ex)
             {
-                Logger.Exception(ex);
             }
         }
 
@@ -51,14 +48,12 @@ namespace VkSchedman.Examples
             int attempts = 3;
             do
             {
-                Logger.Info("Try authorize...");
                 try
                 {
                     await manager.AuthorizateAsync(authData);
                 }
                 catch (VkAuthorizationException)
                 {
-                    Logger.Info("Authorize failed");
                 }
                 if (manager.IsAuthorizated)
                     attempts = -1;
@@ -67,7 +62,6 @@ namespace VkSchedman.Examples
             while (attempts > 0);
 
             manager.ThrowIfNotAuth();
-            Logger.Info("Authorize success");
             Console.Title = "VkSchedman";
         }
 
