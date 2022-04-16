@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Schedman.Entities;
 using Schedman.Exceptions;
+using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +19,7 @@ using VkNet.Utils;
 
 namespace Schedman
 {
-    public sealed class VkManager
+    public sealed class VkManager : IAuthorizableSchedman
     {
         public VkManager()
         {
@@ -27,15 +28,17 @@ namespace Schedman
             _api = new VkApi(services);
         }
 
-        public bool IsAuthorizated { get => _api.IsAuthorized; }
+
         public delegate void LoadProgress(int percent);
         public event LoadProgress OnLoadProgress;
+
         private readonly VkApi _api;
-        
-        public async Task AuthorizeAsync(AccessPermission authorizeData)
+        public bool IsAuthorizated => _api.IsAuthorized;
+
+        public async Task AuthorizateAsync(AccessPermission accessPermission)
         {
-            var authSuccess = await TryAuthorizeAsync(_api, authorizeData);
-            if(!authSuccess)
+            var authSuccess = await TryAuthorizeAsync(_api, accessPermission);
+            if (!authSuccess)
                 throw new SchedmanAuthorizationException();
         }
 
@@ -156,6 +159,11 @@ namespace Schedman
                 percent = (int)(e.BytesReceived / onePercent);
             };
             OnLoadProgress?.Invoke(percent);
+        }
+
+        Task IAuthorizableSchedman.AuthorizateAsync(AccessPermission accessPermission)
+        {
+            throw new NotImplementedException();
         }
     }
 }

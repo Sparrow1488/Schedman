@@ -31,7 +31,7 @@ namespace Schedman.CI.Services
             string[] auth = await ReadAuthDataFromFileAsync(filePath);
             _logger.LogDebug($"Login => {auth[0].Replace("\r", "")}; Password => {auth[1]}");
 
-            await _vkManager.AuthorizeAsync(new AccessPermission(filePath));
+            await _vkManager.AuthorizateAsync(new AccessPermission(filePath));
             if (_vkManager.IsAuthorizated)
             {
                 _logger.LogInformation("Authorize success");

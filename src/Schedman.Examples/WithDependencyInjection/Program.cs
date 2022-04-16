@@ -54,7 +54,7 @@ namespace VkSchedman.Examples
                 Logger.Info("Try authorize...");
                 try
                 {
-                    await manager.AuthorizeAsync(authData);
+                    await manager.AuthorizateAsync(authData);
                 }
                 catch (VkAuthorizationException)
                 {

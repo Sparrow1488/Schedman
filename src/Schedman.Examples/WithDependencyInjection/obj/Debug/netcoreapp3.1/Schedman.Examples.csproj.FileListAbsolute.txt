@@ -56,3 +56,10 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Exam
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.genruntimeconfig.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.csproj.AssemblyReference.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.AssemblyInfoInputs.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.AssemblyInfo.cs
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.csproj.CoreCompileInputs.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.pdb
