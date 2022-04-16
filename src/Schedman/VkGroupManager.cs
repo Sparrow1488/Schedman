@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using VkNet;
+using VkNet.Abstractions;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 
@@ -16,13 +17,14 @@ namespace Schedman
 {
     public class VkGroupManager : GroupManager<VkPublishEntity>
     {
-        public VkGroupManager(VkApi api, long groupId, string groupTitle = "") 
+        public VkGroupManager(IVkApi api, long groupId, string groupTitle = "") 
         {
+            _api = api;
             Id = groupId;
             Title = groupTitle;
         }
 
-        private readonly VkApi _api;
+        private readonly IVkApi _api;
 
         public override long Id { get; internal set; }
         public override string Title { get; internal set; }
@@ -30,7 +32,7 @@ namespace Schedman
         public override async Task PublishAsync(VkPublishEntity post)
         {
             var postId = await TryAddPostAsync(post);
-            //post.Uid = postId; // TODO: сделать присваивание
+            post.SetUid(postId);
         }
 
         private async Task<IEnumerable<Photo>> UploadWallPhotosAsync(IEnumerable<string> localUrls)
@@ -88,6 +90,26 @@ namespace Schedman
             }
             if (postId == 0) throw new Exception("Не удалось опубликовать запись");
             return postId;
+        }
+
+        public override async Task<IEnumerable<VkPublishEntity>> GetPublishesAsync()
+        {
+            var publishesList = new List<VkPublishEntity>();
+            var wallParams = new WallGetParams()
+            {
+                Count = 5,
+                OwnerId = -Id
+            };
+            var wallObjects = await _api.Wall.GetAsync(wallParams);
+            var posts = wallObjects.WallPosts.Cast<Post>();
+            foreach (var post in posts)
+            {
+                var publish = new VkPublishEntity();
+                publish.SetMessage(post.Text);
+                publish.SetUid(post.Id ?? -1);
+                publishesList.Add(publish);
+            }
+            return publishesList;
         }
     }
 }

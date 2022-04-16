@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Schedman.Abstractions
 {
@@ -9,5 +10,6 @@ namespace Schedman.Abstractions
         public abstract string Title { get; internal set; }
 
         public abstract Task PublishAsync(TPublish post);
+        public abstract Task<IEnumerable<TPublish>> GetPublishesAsync();
     }
 }
