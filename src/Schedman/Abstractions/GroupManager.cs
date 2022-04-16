@@ -10,6 +10,6 @@ namespace Schedman.Abstractions
         public abstract string Title { get; internal set; }
 
         public abstract Task PublishAsync(TPublish post);
-        public abstract Task<IEnumerable<TPublish>> GetPublishesAsync();
+        public abstract Task<IEnumerable<TPublish>> GetPublishesAsync(int page, int count = 20);
     }
 }

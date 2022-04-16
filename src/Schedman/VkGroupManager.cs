@@ -55,9 +55,9 @@ namespace Schedman
             var uploadedPhotos = await UploadWallPhotosAsync(urls);
             DateTime? schedule;
 
-            if (post.Schedule < DateTime.Now)
+            if (post.CreatedAt < DateTime.Now)
                 throw new InvalidInputDateException("You can't create post with past date!");
-            else schedule = post.Schedule;
+            else schedule = post.CreatedAt;
 
             int attemptMax = 3;
             int attemptCurrent = 0;
@@ -91,12 +91,13 @@ namespace Schedman
             return postId;
         }
 
-        public override async Task<IEnumerable<VkPublishEntity>> GetPublishesAsync()
+        public override async Task<IEnumerable<VkPublishEntity>> GetPublishesAsync(int page = 0, int count = 20)
         {
             var publishesList = new List<VkPublishEntity>();
             var wallParams = new WallGetParams()
             {
-                Count = 5,
+                Count = (ulong)count,
+                Offset = (ulong)page,
                 OwnerId = -Id
             };
             var wallObjects = await _api.Wall.GetAsync(wallParams);
