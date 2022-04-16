@@ -8,7 +8,6 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
@@ -107,9 +106,38 @@ namespace Schedman
                 var publish = new VkPublishEntity();
                 publish.SetMessage(post.Text);
                 publish.SetUid(post.Id ?? -1);
+                var attachments = post.Attachments;
+                foreach (var attach in attachments)
+                {
+                    if(attach.Type.Name.ToUpper() == "VIDEO")
+                    {
+                        var webVideo = await GetWebVideoByIdAsync(
+                                attach.Instance.Id ?? 0,
+                                attach.Instance.OwnerId ?? 0);
+                        publish.MediaCollection.Add(webVideo);
+
+                    }
+                }
                 publishesList.Add(publish);
             }
             return publishesList;
+        }
+
+        private async Task<WebVideo> GetWebVideoByIdAsync(long id, long ownerId)
+        {
+            string videoUrl = string.Empty;
+            var videoParams = new VideoGetParams()
+            {
+                OwnerId = ownerId,
+            };
+            var videosCollection = await _api.Video.GetAsync(videoParams);
+            var foundVideo = videosCollection?.FirstOrDefault(
+                                video => video.Id == id);
+            if (foundVideo != null)
+            {
+                videoUrl = foundVideo.Files.Mp4_480.ToString();
+            }
+            return new WebVideo(videoUrl);
         }
     }
 }

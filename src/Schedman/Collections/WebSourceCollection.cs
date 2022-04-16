@@ -14,6 +14,9 @@ namespace Schedman.Collections
         public IEnumerable<WebImage> Images =>
             (IEnumerable<WebImage>)_sourcesList.Where(m => m.Type.Equals(WebSourceType.Image));
 
+        public void Add(WebSource source) =>
+            _sourcesList.Add(source);
+
         public IEnumerator<WebSource> GetEnumerator() => _sourcesList.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => _sourcesList.GetEnumerator();
     }
