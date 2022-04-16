@@ -1,7 +1,7 @@
 ﻿using Schedman.Entities;
 using System.Threading.Tasks;
 
-namespace Schedman.Interfaces
+namespace Schedman.Abstractions
 {
     public interface IAuthorizableSchedman
     {

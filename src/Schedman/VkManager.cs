@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Schedman.Entities;
 using Schedman.Exceptions;
-using Schedman.Interfaces;
+using Schedman.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -115,17 +115,22 @@ namespace Schedman
                 await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
         }
 
-        public async Task<GroupManager> GetGroupManagerAsync(string groupName)
+        public async Task<VkGroupManager> GetGroupManagerAsync(string groupTitle)
         {
-            var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() {
-                UserId = _api.UserId,
-            });
-            var groupsId = new List<string>(userGroups.Where(gr => gr.Id != 0)
-                                                      .Select(gr => gr.Id.ToString()));
-            var groups = await _api.Groups.GetByIdAsync(groupsId, "", new GroupsFields());
-            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupName.ToLower()))?.FirstOrDefault();
-            
-            return new GroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
+            var foundGroup = await GetGroupManagerOrDefaultAsync(groupTitle);
+            return foundGroup ?? throw new SchedmanGroupNotFoundException($"Cannot found group by name '{groupTitle}'");
+        }
+
+        public async Task<VkGroupManager> GetGroupManagerOrDefaultAsync(string groupTitle)
+        {
+            var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() { UserId = _api.UserId });
+            var groupsIdsList = userGroups.Where(gr => gr.Id != 0)
+                                          .Select(gr => gr.Id.ToString())
+                                          .ToList();
+            var groups = await _api.Groups.GetByIdAsync(groupsIdsList, string.Empty, new GroupsFields());
+            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupTitle.ToLower()))?.FirstOrDefault();
+
+            return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
         private async Task ExecuteVkAuthorizationAsync(AccessPermission access)

@@ -1,36 +1,36 @@
-﻿using Newtonsoft.Json;
+﻿using Schedman.Abstractions;
+using Schedman.Entities;
 using Schedman.Exceptions;
-using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using VkNet;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 
-namespace Schedman.Entities
+namespace Schedman
 {
-    public class GroupManager
+    public class VkGroupManager : GroupManager<VkPublishEntity>
     {
-        public GroupManager(VkApi api, long groupId, string groupTitle = "")
+        public VkGroupManager(VkApi api, long groupId, string groupTitle = "") 
         {
             Id = groupId;
-            _api = api;
             Title = groupTitle;
         }
 
-        public long Id { get; }
-        public string Title { get; private set; }
         private readonly VkApi _api;
 
-        public async Task<CreatePost> AddPostAsync(CreatePost post)
+        public override long Id { get; internal set; }
+        public override string Title { get; internal set; }
+
+        public override async Task PublishAsync(VkPublishEntity post)
         {
             var postId = await TryAddPostAsync(post);
-            post.Id = postId;
-            return post;
+            //post.Uid = postId; // TODO: сделать присваивание
         }
 
         private async Task<IEnumerable<Photo>> UploadWallPhotosAsync(IEnumerable<string> localUrls)
@@ -47,10 +47,11 @@ namespace Schedman.Entities
             return result;
         }
 
-        private async Task<long> TryAddPostAsync(CreatePost post)
+        private async Task<long> TryAddPostAsync(VkPublishEntity post)
         {
             long postId = 0;
-            var uploadedPhotos = await UploadWallPhotosAsync(post.PhotosUrl);
+            var urls = post.MediaCollection.Images.Select(img => img.Url);
+            var uploadedPhotos = await UploadWallPhotosAsync(urls);
             DateTime? schedule;
 
             if (post.Schedule < DateTime.Now)
@@ -73,13 +74,13 @@ namespace Schedman.Entities
                         PublishDate = schedule
                     });
                 }
-                catch(JsonException)
+                catch (JsonException)
                 {
                     //Logger.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
                 }
                 finally
                 {
-                    if(postId != 0)
+                    if (postId != 0)
                         attemptCurrent = 100000;
                     else
                         attemptCurrent++;
