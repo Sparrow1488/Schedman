@@ -28,18 +28,20 @@ namespace Schedman
             _api = new VkApi(services);
         }
 
-
-        public delegate void LoadProgress(int percent);
-        public event LoadProgress OnLoadProgress;
-
-        private readonly VkApi _api;
         public bool IsAuthorizated => _api.IsAuthorized;
+        private readonly VkApi _api;
 
         public async Task AuthorizateAsync(AccessPermission accessPermission)
         {
-            var authSuccess = await TryAuthorizeAsync(_api, accessPermission);
-            if (!authSuccess)
+            try {
+                await ExecuteVkAuthorizationAsync(accessPermission);
+            }
+            catch (VkAuthException) {
                 throw new SchedmanAuthorizationException();
+            }
+            catch (Exception ex) {
+                throw new SchedmanException(ex.Message);
+            }
         }
 
         public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
@@ -92,7 +94,6 @@ namespace Schedman
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadProgressChanged += DownloadVideoProgress;
                     videoData = await client.DownloadDataTaskAsync(downloadUri);
                 }
             }
@@ -127,43 +128,13 @@ namespace Schedman
             return new GroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
-        private async Task<bool> TryAuthorizeAsync(VkApi api, AccessPermission authorizeData)
+        private async Task ExecuteVkAuthorizationAsync(AccessPermission access)
         {
-            bool resultSuccess = true;
-            try
+            await _api.AuthorizeAsync(new ApiAuthParams
             {
-                await api.AuthorizeAsync(new ApiAuthParams
-                {
-                    Login = authorizeData.Login,
-                    Password = authorizeData.Password,
-                });
-            }
-            catch (VkAuthException)
-            {
-                throw new SchedmanAuthorizationException();
-            }
-            catch
-            {
-                resultSuccess = false;
-            }
-
-            return resultSuccess;
-        }
-
-        private void DownloadVideoProgress(object sender, DownloadProgressChangedEventArgs e)
-        {
-            var onePercent = (e.TotalBytesToReceive / 100);
-            int percent;
-            unchecked
-            {
-                percent = (int)(e.BytesReceived / onePercent);
-            };
-            OnLoadProgress?.Invoke(percent);
-        }
-
-        Task IAuthorizableSchedman.AuthorizateAsync(AccessPermission accessPermission)
-        {
-            throw new NotImplementedException();
+                Login = access.Login,
+                Password = access.Password,
+            });
         }
     }
 }
