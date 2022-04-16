@@ -1,0 +1,10 @@
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.deps.json
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.csproj.AssemblyReference.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.AssemblyInfoInputs.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.AssemblyInfo.cs
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.csproj.CoreCompileInputs.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tools.IO\obj\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3g/2xwhC6p3pXPedffM3AjNE4h5DDzhSxwjivpUaCLgKBGyZKNkZN2Pl+eDT0GU7Pop3Z3IBng/cA1G/7v/VFw==",
+  "dgSpecHash": "M8KVL+hN5s+KLc3OiG6SjGFDawrduWYz2eMhFDvDncTyQztL+3QAasvFeTp0/B5qb8dPXtguKtFFLTXlxjMYgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ilyao\\Desktop\\Repos\\Schedman\\src\\Schedman.Examples\\WithDependencyInjection\\Schedman.Examples.csproj",
   "expectedPackageFiles": [

@@ -274,3 +274,5 @@ C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.dll
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.pdb
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\obj\Debug\netcoreapp3.1\Schedman.Tests.genruntimeconfig.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Tests\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb

@@ -1,9 +1,6 @@
-﻿using Schedman.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Schedman.Interfaces
+namespace Schedman.Tools.IO.Interfaces
 {
     public interface IAlbumItem
     {

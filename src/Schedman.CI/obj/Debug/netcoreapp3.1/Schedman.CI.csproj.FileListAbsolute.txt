@@ -247,3 +247,5 @@ C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\bin\Debug\netcoreapp3.1\Sc
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\bin\Debug\netcoreapp3.1\Schedman.pdb
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.csproj.CopyComplete
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\obj\Debug\netcoreapp3.1\Schedman.CI.genruntimeconfig.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.CI\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb

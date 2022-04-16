@@ -114,3 +114,5 @@ C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInject
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\bin\Debug\netcoreapp3.1\Schedman.pdb
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.csproj.CopyComplete
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\obj\Debug\netcoreapp3.1\Schedman.Examples.genruntimeconfig.cache
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman.Examples\WithDependencyInjection\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb
