@@ -36,7 +36,6 @@ namespace Schedman.Entities
             var dirInfo = new DirectoryInfo(albumPath);
             var result = new Album() {
                 Path = albumPath,
-                //Parent = _parentAlbum
             };
             string albumName = dirInfo.Name.ToLower();
             if (albumName.Contains(_patterns["author"])) {
@@ -45,8 +44,6 @@ namespace Schedman.Entities
             else if (albumName.Contains(_patterns["chapter"]) || !albumName.Contains(_patterns["author"])) {
                 result.Chapter = albumName?.Replace(_patterns["chapter"], "")?.Trim() ?? result.Author;
             }
-            //_parentAlbum = result;
-            //result.UploadStatus = CheckUploadedStatus(result);
             return result;
         }
 
@@ -75,12 +72,5 @@ namespace Schedman.Entities
             _patterns.TryAdd(key, pattern);
 
         public IDictionary<string, string> GetPatterns() => _patterns;
-
-        private UploadStatus CheckUploadedStatus(Album album) => 
-            throw new NotImplementedException();
-
-        private UploadStatus CheckUploadedStatus(AlbumItem albumItem) => 
-            throw new NotImplementedException();
-
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Schedman;
 using Schedman.Entities;
 using Schedman.Extensions;
-using Schedman.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +23,6 @@ namespace VkSchedman.Examples.Services
         private readonly VkManager _vkManager;
         private readonly Scheduler _scheduler = new Scheduler();
         private readonly PostEditor _postEditor = new PostEditor();
-        private readonly PublicationsLogger _postLogger = new PublicationsLogger();
         private readonly List<TimeSpan> _times = CreateTimes();
 
         public async Task StartAsync()
@@ -54,12 +52,10 @@ namespace VkSchedman.Examples.Services
                 catch (PostLimitException ex)
                 {
                     Logger.Exception(ex);
-                    _postLogger.LogNotPublicated(post);
                 }
                 catch (Exception ex)
                 {
                     Logger.Exception(ex);
-                    _postLogger.LogNotPublicated(post);
                 }
                 finally
                 {

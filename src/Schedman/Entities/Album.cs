@@ -8,9 +8,7 @@ namespace Schedman.Entities
         public string Author { get; set; } = "unknown";
         public string Chapter { get; set; } = "unknown";
         public string Path { get; set; }
-        //public Album Parent { get; set; }
-        public UploadStatus UploadStatus { get; set; }
-        public IEnumerable<IAlbumItem> Items { get; set; }
+        public IEnumerable<IAlbumItem> Items { get; internal set; }
         public string Name { get; set; }
 
         public IEnumerable<Album> GetAlbums()

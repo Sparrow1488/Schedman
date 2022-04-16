@@ -13,7 +13,7 @@ using VkNet.Model.RequestParams;
 
 namespace Schedman.Entities
 {
-    public class GroupManager : IStorableErrors
+    public class GroupManager
     {
         public GroupManager(VkApi api, long groupId, string groupTitle = "")
         {
@@ -25,7 +25,6 @@ namespace Schedman.Entities
         public long Id { get; }
         public string Title { get; private set; }
         private readonly VkApi _api;
-        public IList<string> Errors { get; set; }
 
         public async Task<CreatePost> AddPostAsync(CreatePost post)
         {
@@ -33,9 +32,6 @@ namespace Schedman.Entities
             post.Id = postId;
             return post;
         }
-
-        public IList<string> GetErrors() => Errors;
-        public void ClearErrors() => Errors = new List<string>();
 
         private async Task<IEnumerable<Photo>> UploadWallPhotosAsync(IEnumerable<string> localUrls)
         {
