@@ -46,7 +46,7 @@ namespace VkSchedman.Examples
             }
         }
 
-        private static async Task AuthorizeManagerAsync(VkManager manager, AuthorizeData authData)
+        private static async Task AuthorizeManagerAsync(VkManager manager, AccessPermission authData)
         {
             int attempts = 3;
             do
@@ -71,17 +71,17 @@ namespace VkSchedman.Examples
             Console.Title = "VkSchedman";
         }
 
-        private static AuthorizeData CreateAuthorizationData()
+        private static AccessPermission CreateAuthorizationData()
         {
             var authTypes = new[] { "Configuration", "Login&pass" };
             var authType = AnsiConsole.Prompt(new SelectionPrompt<string>()
                                 .Title("Select [purple]authorization way[/]")
                                 .AddChoices(authTypes));
-            AuthorizeData authDataPath = null;
+            AccessPermission authDataPath = null;
             if (authType == "Configuration")
-                authDataPath = new AuthorizeData(System.Configuration.ConfigurationManager.AppSettings["Auth"]);
+                authDataPath = new AccessPermission(System.Configuration.ConfigurationManager.AppSettings["Auth"]);
             else if (authType == "Login&pass")
-                authDataPath = new AuthorizeData(AnsiConsole.Ask("Login: ", string.Empty), 
+                authDataPath = new AccessPermission(AnsiConsole.Ask("Login: ", string.Empty), 
                                                  AnsiConsole.Ask("Password: ", string.Empty));
             return authDataPath;
         }

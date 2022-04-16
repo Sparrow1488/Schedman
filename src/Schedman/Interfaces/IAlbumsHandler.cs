@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Schedman.Entities;
+using System.Collections.Generic;
 
-namespace Schedman.Entities
+namespace Schedman.Interfaces
 {
     public interface IAlbumsHandler<T>
         where T : AlbumItem

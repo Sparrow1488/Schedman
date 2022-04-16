@@ -2,9 +2,9 @@
 
 namespace Schedman.Exceptions
 {
-    public class AuthorizationException : Exception
+    public class SchedmanAuthorizationException : Exception
     {
-        public AuthorizationException() { }
+        public SchedmanAuthorizationException() { }
         public override string Message => "Authorization failed";
     }
 }

@@ -4,7 +4,6 @@ using Schedman.Exceptions;
 using Schedman.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -13,7 +12,6 @@ using VkNet;
 using VkNet.AudioBypassService.Exceptions;
 using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
-using VkNet.Exception;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
@@ -37,18 +35,11 @@ namespace Schedman
         public event LoadProgress OnLoadProgress;
         private readonly VkApi _api;
         
-        public async Task AuthorizeAsync(AuthorizeData authorizeData)
+        public async Task AuthorizeAsync(AccessPermission authorizeData)
         {
-            bool authSuccess = false;
-            var emptyContext = new ValidationContext(authorizeData);
-            var validationErrors = authorizeData.Validate(emptyContext);
-
-            if(validationErrors.Count() > 0)
-                foreach (var error in validationErrors)
-                    Errors.Add(error.ErrorMessage);
-            else authSuccess = await TryAuthorizeAsync(_api, authorizeData);
+            var authSuccess = await TryAuthorizeAsync(_api, authorizeData);
             if(!authSuccess)
-                throw new VkAuthorizationException("Auth failed");
+                throw new SchedmanAuthorizationException();
         }
 
         public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
@@ -142,7 +133,7 @@ namespace Schedman
         public void ClearErrors() => Errors = new List<string>();
         public IList<string> GetErrors() => Errors;
 
-        private async Task<bool> TryAuthorizeAsync(VkApi api, AuthorizeData authorizeData)
+        private async Task<bool> TryAuthorizeAsync(VkApi api, AccessPermission authorizeData)
         {
             bool resultSuccess = true;
             try
