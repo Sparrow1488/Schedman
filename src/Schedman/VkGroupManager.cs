@@ -1,11 +1,10 @@
 ﻿using Schedman.Abstractions;
+using Schedman.Data;
 using Schedman.Entities;
 using Schedman.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using VkNet.Abstractions;
@@ -27,37 +26,18 @@ namespace Schedman
 
         public override long Id { get; internal set; }
         public override string Title { get; internal set; }
+        public IUploadServer UploadServer => new VkUploadServer(_api, Id);
 
-        public override async Task PublishAsync(VkPublishEntity post)
-        {
-            var postId = await TryAddPostAsync(post);
-            post.SetUid(postId);
-        }
-
-        private async Task<IEnumerable<Photo>> UploadWallPhotosAsync(IEnumerable<string> localUrls)
-        {
-            var result = new List<Photo>();
-            foreach (var url in localUrls)
-            {
-                var uploadServer = await _api.Photo.GetWallUploadServerAsync(Id);
-                var wc = new WebClient();
-                var responseFile = Encoding.ASCII.GetString(wc.UploadFile(uploadServer.UploadUrl, url));
-                var photos = _api.Photo.SaveWallPhoto(responseFile, (ulong)_api.UserId, (ulong)Id, "Че происходит");
-                result.AddRange(photos.ToArray());
-            }
-            return result;
-        }
-
-        private async Task<long> TryAddPostAsync(VkPublishEntity post)
+        public override async Task PublishAsync(VkPublishEntity post, Action<VkPublishEntity> onPublishFailed)
         {
             long postId = 0;
-            var urls = post.MediaCollection.Images.Select(img => img.Url);
-            var uploadedPhotos = await UploadWallPhotosAsync(urls);
-            DateTime? schedule;
-
-            if (post.CreatedAt < DateTime.Now)
-                throw new InvalidInputDateException("You can't create post with past date!");
-            else schedule = post.CreatedAt;
+            var responses = post.MediaCollection.Images.Select(img => img.Url);
+            var photosList = new List<Photo>();
+            foreach (var response in responses)
+            {
+                var photos = _api.Photo.SaveWallPhoto(response, (ulong)_api.UserId, (ulong)Id, "Posted by : https://github.com/Sparrow1488/Schedman");
+                photosList.AddRange(photos.ToArray());
+            }
 
             int attemptMax = 3;
             int attemptCurrent = 0;
@@ -71,13 +51,11 @@ namespace Schedman
                         OwnerId = -Id,
                         Message = post.Message,
                         FromGroup = true,
-                        Attachments = uploadedPhotos,
-                        PublishDate = schedule
+                        Attachments = photosList,
                     });
                 }
                 catch (JsonException)
                 {
-                    //Logger.Error($"Не удалось опубликовать запись. Повторная попытка ({attemptCurrent + 1}/{attemptMax})");
                 }
                 finally
                 {
@@ -87,8 +65,8 @@ namespace Schedman
                         attemptCurrent++;
                 }
             }
-            if (postId == 0) throw new Exception("Не удалось опубликовать запись");
-            return postId;
+            if (postId == 0) throw new SchedmanPublishFailedException();
+            post.Uid = postId;
         }
 
         public override async Task<IEnumerable<VkPublishEntity>> GetPublishesAsync(int page = 0, int count = 20)
@@ -105,8 +83,8 @@ namespace Schedman
             foreach (var post in posts)
             {
                 var publish = new VkPublishEntity();
-                publish.SetMessage(post.Text);
-                publish.SetUid(post.Id ?? -1);
+                publish.Message = post.Text;
+                publish.Uid = post?.Id ?? 0;
                 var attachments = post.Attachments;
                 foreach (var attach in attachments)
                 {

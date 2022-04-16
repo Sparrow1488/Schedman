@@ -12,7 +12,7 @@ namespace Schedman.Collections
         private readonly IList<WebSource> _sourcesList = new List<WebSource>();
 
         public IEnumerable<WebImage> Images =>
-            (IEnumerable<WebImage>)_sourcesList.Where(m => m.Type.Equals(WebSourceType.Image));
+            _sourcesList.Where(m => m.Type.Equals(WebSourceType.Image)).Cast<WebImage>();
 
         public void Add(WebSource source) =>
             _sourcesList.Add(source);

@@ -1,7 +1,7 @@
 ﻿namespace Schedman.Exceptions
 {
-    public class InvalidInputDateException : SchedmanException
+    public class SchedmanInvalidInputDateException : SchedmanException
     {
-        public InvalidInputDateException(string message) : base(message) { }
+        public SchedmanInvalidInputDateException(string message) : base(message) { }
     }
 }

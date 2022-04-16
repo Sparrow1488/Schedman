@@ -19,6 +19,15 @@ namespace Schedman.Example.Next
                 Console.WriteLine($"GROUP => id:{group.Id}, title:{group.Title}");
                 var publishes = await group.GetPublishesAsync();
                 Console.WriteLine("Publishes count => " + publishes.Count());
+
+                var imageSource = await group.UploadServer.UploadImageAsync(ConfigurationManager.AppSettings["imageFile"]);
+                var publishEntity = new VkPublishEntity()
+                {
+                    Message = "Hello world!"
+                };
+                publishEntity.MediaCollection.Add(imageSource);
+                await group.PublishAsync(publishEntity,
+                            notPublished => Console.WriteLine("NOT PUBLISH => " + notPublished));
             }
             else
             {

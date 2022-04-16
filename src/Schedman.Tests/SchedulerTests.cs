@@ -39,7 +39,7 @@ namespace VkSchedman.Tests
         public void Create_LittleStartTime_InvalidException()
         {
             var scheduler = new Scheduler();
-            Assert.ThrowsException<InvalidInputDateException>(() => 
+            Assert.ThrowsException<SchedmanInvalidInputDateException>(() => 
                                             scheduler.Create(_times, 100, new DateTime(2000, 1, 1)));
         }
 
