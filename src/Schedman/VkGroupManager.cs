@@ -109,13 +109,20 @@ namespace Schedman
                 var attachments = post.Attachments;
                 foreach (var attach in attachments)
                 {
-                    if(attach.Type.Name.ToUpper() == "VIDEO")
+                    string attachTypeUpper = attach.Type.Name.ToUpper();
+                    if (attachTypeUpper == "VIDEO")
                     {
-                        var webVideo = await GetWebVideoByIdAsync(
-                                attach.Instance.Id ?? 0,
-                                attach.Instance.OwnerId ?? 0);
+                        var webVideo = await GetWebVideoAsync(
+                                        attach.Instance.Id ?? 0,
+                                        attach.Instance.OwnerId ?? 0);
                         publish.MediaCollection.Add(webVideo);
-
+                    }
+                    if (attachTypeUpper == "PHOTO")
+                    {
+                        var webImage = await GetWebImageAsync(
+                                        attach.Instance.Id ?? 0,
+                                        attach.Instance.OwnerId ?? 0);
+                        publish.MediaCollection.Add(webImage);
                     }
                 }
                 publishesList.Add(publish);
@@ -123,7 +130,7 @@ namespace Schedman
             return publishesList;
         }
 
-        private async Task<WebVideo> GetWebVideoByIdAsync(long id, long ownerId)
+        private async Task<WebVideo> GetWebVideoAsync(long id, long ownerId)
         {
             string videoUrl = string.Empty;
             var videoParams = new VideoGetParams()
@@ -135,9 +142,22 @@ namespace Schedman
                                 video => video.Id == id);
             if (foundVideo != null)
             {
-                videoUrl = foundVideo.Files.Mp4_480.ToString();
+                videoUrl = foundVideo?.Files?.Mp4_480?.ToString();
             }
             return new WebVideo(videoUrl);
+        }
+
+        private async Task<WebImage> GetWebImageAsync(long id, long ownerId)
+        {
+            string photoUrl = string.Empty;
+            var photosId = new string[]{ ownerId + "_" + id };
+            var photosCollection = await _api.Photo.GetByIdAsync(photosId);
+            var photo = photosCollection?.Cast<Photo>()?.FirstOrDefault();
+            if (photo != null)
+            {
+                photoUrl = photo.Sizes.LastOrDefault()?.Url?.ToString();
+            }
+            return new WebImage(photoUrl);
         }
     }
 }
