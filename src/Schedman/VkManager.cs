@@ -16,6 +16,8 @@ using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
+using Schedman.Clients;
+using Schedman.Commands;
 
 namespace Schedman
 {
@@ -135,11 +137,8 @@ namespace Schedman
 
         private async Task ExecuteVkAuthorizationAsync(AccessPermission access)
         {
-            await _api.AuthorizeAsync(new ApiAuthParams
-            {
-                Login = access.Login,
-                Password = access.Password,
-            });
+            var client = new VkClient();
+            await client.SendRetryAsync(new VkAuthorizationCommand(_api, access));
         }
     }
 }
