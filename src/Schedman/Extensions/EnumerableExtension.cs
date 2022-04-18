@@ -12,13 +12,5 @@ namespace Schedman.Extensions
             collection = collection.OrderBy(x => rnd.Next()).ToArray();
             return collection;
         }
-
-        public static void PrintErrors(this IEnumerable<string> errorCollection)
-        {
-            foreach (var error in errorCollection)
-            {
-                //Logger.Error(error);
-            }
-        }
     }
 }

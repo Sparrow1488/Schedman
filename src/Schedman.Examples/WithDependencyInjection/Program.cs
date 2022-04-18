@@ -5,7 +5,6 @@ using Spectre.Console;
 using System;
 using System.Threading.Tasks;
 using VkNet.Exception;
-using VkSchedman.Examples.Entities;
 using VkSchedman.Examples.Services;
 
 namespace VkSchedman.Examples
@@ -16,7 +15,6 @@ namespace VkSchedman.Examples
         {
             Console.Title = "VkSchedman [not authorizated]";
             AnsiConsole.Write(new FigletText("VkSchedman").Color(Color.Purple3).LeftAligned());
-            Logger.Info("Started VkSchedman");
             
             try
             {
@@ -42,23 +40,20 @@ namespace VkSchedman.Examples
             }
             catch (Exception ex)
             {
-                Logger.Exception(ex);
             }
         }
 
-        private static async Task AuthorizeManagerAsync(VkManager manager, AuthorizeData authData)
+        private static async Task AuthorizeManagerAsync(VkManager manager, AccessPermission authData)
         {
             int attempts = 3;
             do
             {
-                Logger.Info("Try authorize...");
                 try
                 {
-                    await manager.AuthorizeAsync(authData);
+                    await manager.AuthorizateAsync(authData);
                 }
                 catch (VkAuthorizationException)
                 {
-                    Logger.Info("Authorize failed");
                 }
                 if (manager.IsAuthorizated)
                     attempts = -1;
@@ -67,21 +62,20 @@ namespace VkSchedman.Examples
             while (attempts > 0);
 
             manager.ThrowIfNotAuth();
-            Logger.Info("Authorize success");
             Console.Title = "VkSchedman";
         }
 
-        private static AuthorizeData CreateAuthorizationData()
+        private static AccessPermission CreateAuthorizationData()
         {
             var authTypes = new[] { "Configuration", "Login&pass" };
             var authType = AnsiConsole.Prompt(new SelectionPrompt<string>()
                                 .Title("Select [purple]authorization way[/]")
                                 .AddChoices(authTypes));
-            AuthorizeData authDataPath = null;
+            AccessPermission authDataPath = null;
             if (authType == "Configuration")
-                authDataPath = new AuthorizeData(System.Configuration.ConfigurationManager.AppSettings["Auth"]);
+                authDataPath = new AccessPermission(System.Configuration.ConfigurationManager.AppSettings["Auth"]);
             else if (authType == "Login&pass")
-                authDataPath = new AuthorizeData(AnsiConsole.Ask("Login: ", string.Empty), 
+                authDataPath = new AccessPermission(AnsiConsole.Ask("Login: ", string.Empty), 
                                                  AnsiConsole.Ask("Password: ", string.Empty));
             return authDataPath;
         }

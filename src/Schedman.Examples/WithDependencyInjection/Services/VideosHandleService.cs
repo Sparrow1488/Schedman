@@ -3,7 +3,6 @@ using Schedman.Extensions;
 using Spectre.Console;
 using System.Threading.Tasks;
 using VkSchedman.Examples.Abstractions;
-using VkSchedman.Examples.Entities;
 
 namespace VkSchedman.Examples.Services
 {
@@ -19,7 +18,6 @@ namespace VkSchedman.Examples.Services
 
         public async Task StartAsync()
         {
-            Logger.Info($"{nameof(VideosHandleService)} started");
             var serviceChapters = new[] { nameof(DownloadOwnVideos) };
             var serviceChapter = AnsiConsole.Prompt(new SelectionPrompt<string>()
                                                     .Title("Select service chapter: ")
@@ -35,11 +33,9 @@ namespace VkSchedman.Examples.Services
             for (int i = 0; i < videos.Count; i++)
             {
                 var video = videos[i];
-                Logger.Info($"[{i + 1}/{videos.Count}] Starting Download " + video.Title);
                 var videoData = await _vkManager.DownloadVideoAsync(video);
                 await _vkManager.SaveVideoLocalAsync(video, videoData, saveAlbumTitle: videosAlbumTitle);
             }
-            Logger.Info("Videos downloaded");
         }
     }
 }

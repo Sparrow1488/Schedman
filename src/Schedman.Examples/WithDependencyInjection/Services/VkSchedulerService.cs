@@ -1,14 +1,12 @@
 ﻿using Schedman;
 using Schedman.Entities;
 using Schedman.Extensions;
-using Schedman.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VkNet.Exception;
 using VkSchedman.Examples.Abstractions;
-using VkSchedman.Examples.Entities;
 
 namespace VkSchedman.Examples.Services
 {
@@ -24,19 +22,16 @@ namespace VkSchedman.Examples.Services
         private readonly VkManager _vkManager;
         private readonly Scheduler _scheduler = new Scheduler();
         private readonly PostEditor _postEditor = new PostEditor();
-        private readonly PublicationsLogger _postLogger = new PublicationsLogger();
         private readonly List<TimeSpan> _times = CreateTimes();
 
         public async Task StartAsync()
         {
             _group = await _vkManager.GetGroupManagerAsync("Full party");
-            Logger.Info("Group title: " + _group.Title);
             await StartScheduleVkManagerAsync();
         }
 
         private async Task StartScheduleVkManagerAsync()
         {
-            Logger.Info("Starting create posts...");
             var posts = _postEditor.CreatePostRange();
             _scheduler.Create(_times, 30, posts.Count());
             posts = posts.Shuffle();
@@ -49,17 +44,12 @@ namespace VkSchedman.Examples.Services
                 try
                 {
                     var createdPost = await _group.AddPostAsync(post);
-                    Logger.Info($"({currentPostNum + 1}|{postCount}) Post was success loaded");
                 }
                 catch (PostLimitException ex)
                 {
-                    Logger.Exception(ex);
-                    _postLogger.LogNotPublicated(post);
                 }
                 catch (Exception ex)
                 {
-                    Logger.Exception(ex);
-                    _postLogger.LogNotPublicated(post);
                 }
                 finally
                 {

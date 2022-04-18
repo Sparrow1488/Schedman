@@ -19,7 +19,7 @@ namespace Schedman.Entities
             if (times is null)
                 throw new ArgumentNullException($"{nameof(times)} can't be a null!");
             if (times.Any(time => time < DateTime.Now))
-                throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
+                throw new SchedmanInvalidInputDateException("You can't create scheduler with start date in the past!");
 
             _times = times.ToList();
         }
@@ -29,7 +29,7 @@ namespace Schedman.Entities
             if (count < 0)
                 throw new ArgumentException($"{nameof(count)} should be possitive!");
             if (firstTime < DateTime.Now)
-                throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
+                throw new SchedmanInvalidInputDateException("You can't create scheduler with start date in the past!");
 
             for (int i = 0; i < count; i++) {
                 _times.Add(firstTime + interval * i);
@@ -47,7 +47,7 @@ namespace Schedman.Entities
             var actual = times.GetActualTime();
 
             if (startTime != null && startTime < DateTime.Now)
-                throw new InvalidInputDateException("You can't create scheduler with start date in the past!");
+                throw new SchedmanInvalidInputDateException("You can't create scheduler with start date in the past!");
 
             var now = startTime ?? DateTime.Now;
             bool checkFirstDay = false;

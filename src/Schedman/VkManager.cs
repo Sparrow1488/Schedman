@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Schedman.Entities;
 using Schedman.Exceptions;
-using Schedman.Interfaces;
+using Schedman.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -13,7 +12,6 @@ using VkNet;
 using VkNet.AudioBypassService.Exceptions;
 using VkNet.AudioBypassService.Extensions;
 using VkNet.Enums.Filters;
-using VkNet.Exception;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
@@ -21,34 +19,29 @@ using VkNet.Utils;
 
 namespace Schedman
 {
-    public sealed class VkManager : IStorableErrors
+    public sealed class VkManager : IAuthorizableSchedman
     {
         public VkManager()
         {
             var services = new ServiceCollection();
             services.AddAudioBypass();
             _api = new VkApi(services);
-            Errors = new List<string>();
         }
 
-        public IList<string> Errors { get; private set; }
-        public bool IsAuthorizated { get => _api.IsAuthorized; }
-        public delegate void LoadProgress(int percent);
-        public event LoadProgress OnLoadProgress;
+        public bool IsAuthorizated => _api.IsAuthorized;
         private readonly VkApi _api;
-        
-        public async Task AuthorizeAsync(AuthorizeData authorizeData)
-        {
-            bool authSuccess = false;
-            var emptyContext = new ValidationContext(authorizeData);
-            var validationErrors = authorizeData.Validate(emptyContext);
 
-            if(validationErrors.Count() > 0)
-                foreach (var error in validationErrors)
-                    Errors.Add(error.ErrorMessage);
-            else authSuccess = await TryAuthorizeAsync(_api, authorizeData);
-            if(!authSuccess)
-                throw new VkAuthorizationException("Auth failed");
+        public async Task AuthorizateAsync(AccessPermission accessPermission)
+        {
+            try {
+                await ExecuteVkAuthorizationAsync(accessPermission);
+            }
+            catch (VkAuthException) {
+                throw new SchedmanAuthorizationException();
+            }
+            catch (Exception ex) {
+                throw new SchedmanException(ex.Message);
+            }
         }
 
         public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
@@ -101,7 +94,6 @@ namespace Schedman
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadProgressChanged += DownloadVideoProgress;
                     videoData = await client.DownloadDataTaskAsync(downloadUri);
                 }
             }
@@ -123,57 +115,31 @@ namespace Schedman
                 await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
         }
 
-        public async Task<GroupManager> GetGroupManagerAsync(string groupName)
+        public async Task<VkGroupManager> GetGroupManagerAsync(string groupTitle)
         {
-            var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() {
-                UserId = _api.UserId,
+            var foundGroup = await GetGroupManagerOrDefaultAsync(groupTitle);
+            return foundGroup ?? throw new SchedmanGroupNotFoundException($"Cannot found group by name '{groupTitle}'");
+        }
+
+        public async Task<VkGroupManager> GetGroupManagerOrDefaultAsync(string groupTitle)
+        {
+            var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() { UserId = _api.UserId });
+            var groupsIdsList = userGroups.Where(gr => gr.Id != 0)
+                                          .Select(gr => gr.Id.ToString())
+                                          .ToList();
+            var groups = await _api.Groups.GetByIdAsync(groupsIdsList, string.Empty, new GroupsFields());
+            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupTitle.ToLower()))?.FirstOrDefault();
+
+            return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
+        }
+
+        private async Task ExecuteVkAuthorizationAsync(AccessPermission access)
+        {
+            await _api.AuthorizeAsync(new ApiAuthParams
+            {
+                Login = access.Login,
+                Password = access.Password,
             });
-            var groupsId = new List<string>(userGroups.Where(gr => gr.Id != 0)
-                                                      .Select(gr => gr.Id.ToString()));
-            var groups = await _api.Groups.GetByIdAsync(groupsId, "", new GroupsFields());
-            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupName.ToLower()))?.FirstOrDefault();
-            
-            if(foundGroup == null) {
-                Errors.Add("Connot found group named " + groupName);
-            }
-            return new GroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
-        }
-
-        public void ClearErrors() => Errors = new List<string>();
-        public IList<string> GetErrors() => Errors;
-
-        private async Task<bool> TryAuthorizeAsync(VkApi api, AuthorizeData authorizeData)
-        {
-            bool resultSuccess = true;
-            try
-            {
-                await api.AuthorizeAsync(new ApiAuthParams
-                {
-                    Login = authorizeData.Login,
-                    Password = authorizeData.Password,
-                });
-            }
-            catch (VkAuthException authError)
-            {
-                Errors.Add(authError.Message);
-            }
-            catch
-            {
-                resultSuccess = false;
-            }
-
-            return resultSuccess;
-        }
-
-        private void DownloadVideoProgress(object sender, DownloadProgressChangedEventArgs e)
-        {
-            var onePercent = (e.TotalBytesToReceive / 100);
-            int percent = 0;
-            unchecked
-            {
-                percent = (int)(e.BytesReceived / onePercent);
-            };
-            OnLoadProgress?.Invoke(percent);
         }
     }
 }

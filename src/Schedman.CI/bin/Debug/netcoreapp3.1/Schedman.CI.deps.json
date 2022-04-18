@@ -739,12 +739,18 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "6.0.0",
           "Microsoft.Extensions.Configuration.Json": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
+          "Schedman.Tools.IO": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0",
           "VkNet": "1.68.0",
           "VkNet.AudioBypassService": "1.7.2"
         },
         "runtime": {
           "Schedman.dll": {}
+        }
+      },
+      "Schedman.Tools.IO/1.0.0": {
+        "runtime": {
+          "Schedman.Tools.IO.dll": {}
         }
       }
     }
@@ -1134,6 +1140,11 @@
       "hashPath": "vknet.audiobypassservice.1.7.2.nupkg.sha512"
     },
     "Schedman/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Schedman.Tools.IO/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
