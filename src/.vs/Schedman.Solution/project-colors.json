@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b9f1cd1b-b8f1-434a-bf0b-d4660b0a3043": {
+      "ProjectGuid": "b9f1cd1b-b8f1-434a-bf0b-d4660b0a3043",
+      "DisplayName": "Schedman.Tests",
+      "ColorIndex": 0
+    },
+    "37fbc72c-e373-4119-aa3d-77c86264ae5b": {
+      "ProjectGuid": "37fbc72c-e373-4119-aa3d-77c86264ae5b",
+      "DisplayName": "Schedman",
+      "ColorIndex": 1
+    },
+    "28908bd6-7b7a-4018-ba0e-bd23bb30c9cb": {
+      "ProjectGuid": "28908bd6-7b7a-4018-ba0e-bd23bb30c9cb",
+      "DisplayName": "Schedman.Examples",
+      "ColorIndex": 2
+    },
+    "626dc11b-8325-41a8-9976-45ecc0d8ae00": {
+      "ProjectGuid": "626dc11b-8325-41a8-9976-45ecc0d8ae00",
+      "DisplayName": "Schedman.CI",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
