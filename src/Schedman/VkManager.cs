@@ -1,12 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Schedman.Abstractions;
+using Schedman.Clients;
+using Schedman.Commands;
+using Schedman.Commands.Parameters;
 using Schedman.Entities;
 using Schedman.Exceptions;
-using Schedman.Abstractions;
+using Schedman.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using VkNet;
 using VkNet.AudioBypassService.Exceptions;
@@ -16,8 +21,6 @@ using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Utils;
-using Schedman.Clients;
-using Schedman.Commands;
 
 namespace Schedman
 {
@@ -28,15 +31,19 @@ namespace Schedman
             var services = new ServiceCollection();
             services.AddAudioBypass();
             _api = new VkApi(services);
+            _client = new VkClient();
+            _clientWrapper = new HttpClientWrapper();
         }
 
         public bool IsAuthorizated => _api.IsAuthorized;
         private readonly VkApi _api;
+        private readonly IVkClient _client;
+        private readonly HttpClientWrapper _clientWrapper;
 
         public async Task AuthorizateAsync(AccessPermission accessPermission)
         {
             try {
-                await ExecuteVkAuthorizationAsync(accessPermission);
+                await _client.SendRetryAsync(new VkAuthorizationCommand(_api, accessPermission));
             }
             catch (VkAuthException) {
                 throw new SchedmanAuthorizationException();
@@ -46,33 +53,26 @@ namespace Schedman
             }
         }
 
-        public async Task<VkCollection<Video>> GetVideosFromAlbumAsync(string albumTitle, int count = 100)
+        public async Task<IEnumerable<Video>> GetVideosFromOwnAlbumAsync(string albumTitle)
         {
-            int maxVideosInRequest = 200;
-            int downloadIterations = count / maxVideosInRequest;
-            var albums = await _api.Video.GetAlbumsAsync(count: 100);
-            var foundAlbum = albums.Where(album => album.Title.ToUpper() == albumTitle.ToUpper()).FirstOrDefault();
-            if (foundAlbum is null)
-                throw new AlbumNotFoundException("Album not found");
+            var albums = await _client.SendRetryAsync<VkCollection<VideoAlbum>>(
+                            new VkGetVideoAlbumsCommand(_api, VkVariables.MaxVideoAlbumsCountToGet));
+            var foundAlbum = GetVideoAlbumOrThrow(albums, albumTitle);
             
-            var videos = new List<Video>();
-            for (int i = 1; i <= downloadIterations + 1; i++)
-            {
-                videos.AddRange(await _api.Video.GetAsync(new VideoGetParams()
-                {
-                    AlbumId = foundAlbum.Id,
-                    Offset = videos.Count,
-                    Count = maxVideosInRequest
-                }));
-            }
-            return new VkCollection<Video>((ulong)videos.Count, videos);
+            var param = new GetVideoParam(
+                        videoAlbumId: (long)foundAlbum.Id);
+            var albumVideos = await _client.SendRetryAsync<VkCollection<Video>>(new VkGetVideoCommand(_api, param));
+            return albumVideos.Cast<Video>();
         }
 
-        public async Task DownloadVideosAsync(VkCollection<Video> videos, string saveAlbumTitle = "")
+        private VideoAlbum GetVideoAlbumOrThrow(VkCollection<VideoAlbum> collection, string title) =>
+            collection.Where(album => album.Title.ToUpper() == title.ToUpper()).FirstOrDefault()
+                ?? throw new AlbumNotFoundException("Album not found");
+
+        public async Task DownloadVideosAsync(IEnumerable<Video> videos, string saveAlbumTitle = "")
         {
-            for (int i = 0; i < videos.Count; i++)
+            foreach (var video in videos)
             {
-                var video = videos[i];
                 var data = await DownloadVideoAsync(video);
                 await SaveVideoLocalAsync(video, data, saveAlbumTitle);
             }
@@ -80,24 +80,14 @@ namespace Schedman
 
         public async Task<byte[]> DownloadVideoAsync(Video video)
         {
-            var videoData = new byte[0];
-            Uri downloadUri = null;
-            if (!string.IsNullOrWhiteSpace(video.Files.Mp4_1080?.ToString()))
-                downloadUri = video.Files.Mp4_1080;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_720?.ToString()))
-                downloadUri = video.Files.Mp4_720;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_480?.ToString()))
-                downloadUri = video.Files.Mp4_480;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_360?.ToString()))
-                downloadUri = video.Files.Mp4_360;
-            else if (!string.IsNullOrWhiteSpace(video.Files.Mp4_240?.ToString()))
-                downloadUri = video.Files.Mp4_240;
+            var videoData = Array.Empty<byte>();
+            Uri downloadUri = VkVideoHelper.SelectHighVideoQualitySource(video);
+            
             if (downloadUri != null)
             {
-                using (var client = new WebClient())
-                {
-                    videoData = await client.DownloadDataTaskAsync(downloadUri);
-                }
+                var message = new HttpRequestMessage(HttpMethod.Get, downloadUri);
+                var response = await _clientWrapper.SendAsync(message);
+                videoData = await response.Content.ReadAsByteArrayAsync();
             }
 
             return videoData;
@@ -135,10 +125,6 @@ namespace Schedman
             return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
-        private async Task ExecuteVkAuthorizationAsync(AccessPermission access)
-        {
-            var client = new VkClient();
-            await client.SendRetryAsync(new VkAuthorizationCommand(_api, access));
-        }
+        
     }
 }

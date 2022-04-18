@@ -5,6 +5,7 @@ namespace Schedman.Abstractions
     internal abstract class CommandBase
     {
         public abstract Task ExecuteAsync();
-        public abstract TResult GetResultOrDefault<TResult>();
+        public abstract TResult GetResultOrDefault<TResult>()
+            where TResult : class;
     }
 }

@@ -120,6 +120,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.3, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[6.0.0, )"

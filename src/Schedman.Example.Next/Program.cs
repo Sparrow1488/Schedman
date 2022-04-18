@@ -39,6 +39,9 @@ namespace Schedman.Example.Next
                     Console.WriteLine("Не удалось загрузить: " + notUploaded.Count());
                     result.ThrowIfHasFails();
                 }
+
+                var videos = await manager.GetVideosFromOwnAlbumAsync("52");
+                await manager.DownloadVideosAsync(videos, "52 - downloads");
             }
             else
             {
