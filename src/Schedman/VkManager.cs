@@ -69,15 +69,6 @@ namespace Schedman
             collection.Where(album => album.Title.ToUpper() == title.ToUpper()).FirstOrDefault()
                 ?? throw new AlbumNotFoundException("Album not found");
 
-        public async Task DownloadVideosAsync(IEnumerable<Video> videos, string saveAlbumTitle = "")
-        {
-            foreach (var video in videos)
-            {
-                var data = await DownloadVideoAsync(video);
-                await SaveVideoLocalAsync(video, data, saveAlbumTitle);
-            }
-        }
-
         public async Task<byte[]> DownloadVideoAsync(Video video)
         {
             var videoData = Array.Empty<byte>();
@@ -91,20 +82,6 @@ namespace Schedman
             }
 
             return videoData;
-        }
-
-        public async Task SaveVideoLocalAsync(Video video, byte[] data, string saveAlbumTitle = "")
-        {
-            string videoTitle = video.Title.Replace("\\", "") // make valid path
-                                               .Replace("/", "");
-            string saveDirectory = $"./downloads" + (!string.IsNullOrWhiteSpace(saveAlbumTitle) ? $"/{saveAlbumTitle}" : "");
-            Directory.CreateDirectory(saveDirectory);
-            string saveVideoName = Path.Combine(saveDirectory, videoTitle);
-            var existsFiles = Directory.GetFiles(saveDirectory)
-                                       .Where(file => file.Contains(videoTitle)).Count();
-            saveVideoName += existsFiles > 0 ? $"({existsFiles})" : "";
-            if (data.Length > 0)
-                await File.WriteAllBytesAsync(saveVideoName + ".mp4", data);
         }
 
         public async Task<VkGroupManager> GetGroupManagerAsync(string groupTitle)

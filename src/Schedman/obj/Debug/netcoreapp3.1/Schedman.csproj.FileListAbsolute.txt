@@ -9,17 +9,6 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman\bi
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\VkSchedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.pdb
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.deps.json
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.dll
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.pdb
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.AssemblyReference.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.AssemblyInfoInputs.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.AssemblyInfo.cs
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CoreCompileInputs.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.dll
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.pdb
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.AssemblyReference.cache
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.AssemblyInfoInputs.cache
@@ -34,6 +23,3 @@ C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Sched
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb
 C:\Users\ilyao\Desktop\Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CopyComplete
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CopyComplete
