@@ -53,10 +53,10 @@ namespace Schedman.Tools.IO.Services
         {
             var directoryPath = Path.GetDirectoryName(fileFullPath);
             var fileName = Path.GetFileName(fileFullPath);
-            var repeatedFilesInDirectory = Directory.GetFiles(directoryPath)
-                                                    .Where(file => file.Contains(fileName))
-                                                    .Count();
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileFullPath);
+            var repeatedFilesInDirectory = Directory.GetFiles(directoryPath)
+                                                    .Where(file => file.Contains(fileNameWithoutExtension))
+                                                    .Count();
             fileNameWithoutExtension += repeatedFilesInDirectory > 0 ? $" ({repeatedFilesInDirectory})" : "";
             string fileExtension = Path.GetExtension(fileFullPath);
             return Path.Combine(directoryPath, fileNameWithoutExtension) + fileExtension;

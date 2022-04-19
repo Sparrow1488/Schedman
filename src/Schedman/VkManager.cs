@@ -6,6 +6,7 @@ using Schedman.Commands.Parameters;
 using Schedman.Entities;
 using Schedman.Exceptions;
 using Schedman.Helpers;
+using Schedman.Tools.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -59,8 +60,7 @@ namespace Schedman
                             new VkGetVideoAlbumsCommand(_api, VkVariables.MaxVideoAlbumsCountToGet));
             var foundAlbum = GetVideoAlbumOrThrow(albums, albumTitle);
             
-            var param = new GetVideoParam(
-                        videoAlbumId: (long)foundAlbum.Id);
+            var param = new GetVideoParam(videoAlbumId: (long)foundAlbum.Id);
             var albumVideos = await _client.SendRetryAsync<VkCollection<Video>>(new VkGetVideoCommand(_api, param));
             return albumVideos.Cast<Video>();
         }
@@ -69,16 +69,14 @@ namespace Schedman
             collection.Where(album => album.Title.ToUpper() == title.ToUpper()).FirstOrDefault()
                 ?? throw new AlbumNotFoundException("Album not found");
 
-        public async Task<byte[]> DownloadVideoAsync(Video video)
+        public async Task<byte[]> DownloadVideoAsync(Video video, IProgress<IntermediateProgressResult> downloadProgress = null)
         {
             var videoData = Array.Empty<byte>();
             Uri downloadUri = VkVideoHelper.SelectHighVideoQualitySource(video);
             
             if (downloadUri != null)
             {
-                var message = new HttpRequestMessage(HttpMethod.Get, downloadUri);
-                var response = await _clientWrapper.SendAsync(message);
-                videoData = await response.Content.ReadAsByteArrayAsync();
+                videoData = await _clientWrapper.DownloadDataAsync(downloadUri, downloadProgress);
             }
 
             return videoData;

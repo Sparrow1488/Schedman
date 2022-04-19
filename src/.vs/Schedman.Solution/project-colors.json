@@ -20,7 +20,17 @@
       "ProjectGuid": "626dc11b-8325-41a8-9976-45ecc0d8ae00",
       "DisplayName": "Schedman.CI",
       "ColorIndex": 3
+    },
+    "cdf0ddba-673d-417f-b8e3-8e223513c930": {
+      "ProjectGuid": "cdf0ddba-673d-417f-b8e3-8e223513c930",
+      "DisplayName": "Schedman.Example.Next",
+      "ColorIndex": 4
+    },
+    "ab877768-8018-443d-b969-2fcd5c73a92d": {
+      "ProjectGuid": "ab877768-8018-443d-b969-2fcd5c73a92d",
+      "DisplayName": "Schedman.Tools.IO",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 6
 }
