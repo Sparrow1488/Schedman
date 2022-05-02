@@ -9,6 +9,10 @@ namespace Schedman.Helpers
         {
             Uri downloadUri = default;
             if (!string.IsNullOrWhiteSpace(vkVideo.Files.Mp4_1080?.ToString()))
+                downloadUri = vkVideo.Files.Mp4_2160;
+            else if (!string.IsNullOrWhiteSpace(vkVideo.Files.Mp4_1080?.ToString()))
+                downloadUri = vkVideo.Files.Mp4_1440;
+            else if (!string.IsNullOrWhiteSpace(vkVideo.Files.Mp4_1080?.ToString()))
                 downloadUri = vkVideo.Files.Mp4_1080;
             else if (!string.IsNullOrWhiteSpace(vkVideo.Files.Mp4_720?.ToString()))
                 downloadUri = vkVideo.Files.Mp4_720;

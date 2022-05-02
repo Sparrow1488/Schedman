@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "HtmlAgilityPack/1.11.38": {
+      "HtmlAgilityPack/1.11.42": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
@@ -430,10 +430,10 @@
           }
         }
       },
-      "VkNet/1.68.0": {
+      "VkNet/1.69.0": {
         "type": "package",
         "dependencies": {
-          "HtmlAgilityPack": "1.11.38",
+          "HtmlAgilityPack": "1.11.42",
           "Microsoft.Extensions.DependencyInjection": "[5.0.2, 6.0.0)",
           "Microsoft.Extensions.Logging.Abstractions": "[5.0.0, 6.0.0)",
           "Newtonsoft.Json": "13.0.1",
@@ -472,14 +472,14 @@
     }
   },
   "libraries": {
-    "HtmlAgilityPack/1.11.38": {
-      "sha512": "DC1j3GzU9lBp8hSXb9eYRHiJOUS5sxjBjme/4RTYjTXlgiFCOMXkIY+rmL+BtUss1pCwCN4LaVlZ/ci/fWY+lA==",
+    "HtmlAgilityPack/1.11.42": {
+      "sha512": "LDc1bEfF14EY2DZzak4xvzWvbpNXK3vi1u0KQbBpLUN4+cx/VrvXhgCAMSJhSU5vz0oMfW9JZIR20vj/PkDHPA==",
       "type": "package",
-      "path": "htmlagilitypack/1.11.38",
+      "path": "htmlagilitypack/1.11.42",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "htmlagilitypack.1.11.38.nupkg.sha512",
+        "htmlagilitypack.1.11.42.nupkg.sha512",
         "htmlagilitypack.nuspec",
         "lib/Net35/HtmlAgilityPack.dll",
         "lib/Net35/HtmlAgilityPack.pdb",
@@ -1303,10 +1303,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "VkNet/1.68.0": {
-      "sha512": "P4lZmCOPKzrDCSq3pGQ9F8tZ7rwTJhhsGdhRbanBAm+QhQdkV50S8HJAzCPpFD5gSq98cu5f/VtUVhOslplIkw==",
+    "VkNet/1.69.0": {
+      "sha512": "L7JjHLOSEfTvtuhOIz1Djr8i0dZ+eiuHArGDk/DM8qJ9/7ZsY1f6BS4zrBhIjdsWH9SmcvvqmwejHuAKH9/1jw==",
       "type": "package",
-      "path": "vknet/1.68.0",
+      "path": "vknet/1.69.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1318,7 +1318,7 @@
         "lib/netstandard2.0/VkNet.dll",
         "lib/netstandard2.0/VkNet.xml",
         "vknet-icon.PNG",
-        "vknet.1.68.0.nupkg.sha512",
+        "vknet.1.69.0.nupkg.sha512",
         "vknet.nuspec"
       ]
     },
@@ -1350,7 +1350,7 @@
       "Polly >= 7.2.3",
       "Schedman.Tools.IO >= 1.0.0",
       "System.Configuration.ConfigurationManager >= 6.0.0",
-      "VkNet >= 1.68.0",
+      "VkNet >= 1.69.0",
       "VkNet.AudioBypassService >= 1.7.2"
     ]
   },
@@ -1380,7 +1380,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1425,7 +1424,7 @@
           },
           "VkNet": {
             "target": "Package",
-            "version": "[1.68.0, )"
+            "version": "[1.69.0, )"
           },
           "VkNet.AudioBypassService": {
             "target": "Package",
@@ -1447,7 +1446,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

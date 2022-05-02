@@ -37,3 +37,6 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CopyComplete
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.pdb
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\VkNet.dll
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\VkNet.pdb
+C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\VkNet.xml

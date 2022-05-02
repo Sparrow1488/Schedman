@@ -4,6 +4,7 @@ using Schedman.Tools.IO.Configurations;
 using Schedman.Tools.IO.Services;
 using System;
 using System.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Schedman.Example.Next
@@ -40,7 +41,8 @@ namespace Schedman.Example.Next
             //    result.ThrowIfHasFails();
             //}
 
-            var videos = await manager.GetVideosFromOwnAlbumAsync("56");
+            var videos = await manager.GetVideosFromOwnAlbumAsync("57");
+            var firstVideo = videos.First().Files;
             var saveConfig = new SaveServiceConfiguration("56 - downloads", "./downloads");
             var saveService = new SaveService(saveConfig);
             var progress = new Progress<IntermediateProgressResult>(progress =>

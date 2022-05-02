@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Q2IUnrm6RAPDg4pVbXwZCedWZei2WX3hbKfaiPLjSFFclHHgOIUTMd+euoI71REkoLTIdtmB0dQxGVOrwCOF8w==",
+  "dgSpecHash": "xdFH35NF/c1uYbeJRxWfQVrAssSymol5uF1ZJtRR86yDcbgUtQaQZF/GacAvETUiNuBrvYxL1pgFNTtit5MJ4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\aleks\\OneDrive\\Desktop\\Илья\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\aleks\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0\\microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
@@ -34,7 +34,7 @@
     "C:\\Users\\aleks\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
-    "C:\\Users\\aleks\\.nuget\\packages\\vknet\\1.68.0\\vknet.1.68.0.nupkg.sha512",
+    "C:\\Users\\aleks\\.nuget\\packages\\vknet\\1.69.0\\vknet.1.69.0.nupkg.sha512",
     "C:\\Users\\aleks\\.nuget\\packages\\vknet.audiobypassservice\\1.7.2\\vknet.audiobypassservice.1.7.2.nupkg.sha512"
   ],
   "logs": []
