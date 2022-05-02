@@ -84,22 +84,23 @@ namespace Schedman
 
         public async Task<VkGroupManager> GetGroupManagerAsync(string groupTitle)
         {
-            var foundGroup = await GetGroupManagerOrDefaultAsync(groupTitle);
-            return foundGroup ?? throw new SchedmanGroupNotFoundException($"Cannot found group by name '{groupTitle}'");
+            var foundGroup = await GetGroupOrDefaultByTitleAsync(groupTitle)
+                                ?? throw new SchedmanGroupNotFoundException($"Cannot found group by name '{groupTitle}'");
+            if (!foundGroup.IsAdmin)
+                throw new SchedmanNoGroupAccess("You can't mange this group (Admin access denied)");
+
+            return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
-        public async Task<VkGroupManager> GetGroupManagerOrDefaultAsync(string groupTitle)
+        private async Task<Group> GetGroupOrDefaultByTitleAsync(string groupTitle)
         {
             var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() { UserId = _api.UserId });
             var groupsIdsList = userGroups.Where(gr => gr.Id != 0)
                                           .Select(gr => gr.Id.ToString())
                                           .ToList();
             var groups = await _api.Groups.GetByIdAsync(groupsIdsList, string.Empty, new GroupsFields());
-            var foundGroup = groups?.Where(group => group.Name.ToLower().Contains(groupTitle.ToLower()))?.FirstOrDefault();
-
-            return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
+            var foundGroup = groups?.FirstOrDefault(group => group.Name.ToLower().Contains(groupTitle.ToLower()));
+            return foundGroup;
         }
-
-        
     }
 }

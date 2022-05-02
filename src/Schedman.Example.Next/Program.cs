@@ -17,29 +17,29 @@ namespace Schedman.Example.Next
             var manager = new VkManager();
             await manager.AuthorizateAsync(access);
 
-            //var group = await manager.GetGroupManagerAsync("пердельня");
-            //Console.WriteLine($"GROUP => id:{group.Id}, title:{group.Title}");
-            //var publishes = await group.GetPublishesAsync(page: 1, count: 20);
-            //Console.WriteLine("Publishes count => " + publishes.Count());
+            var group = await manager.GetGroupManagerAsync("пердельня");
+            Console.WriteLine($"GROUP => id:{group.Id}, title:{group.Title}");
+            var publishes = await group.GetPublishesAsync(page: 1, count: 20);
+            Console.WriteLine("Publishes count => " + publishes.Count());
 
-            //var imageSource = await group.UploadServer.UploadImageAsync(ConfigurationManager.AppSettings["imageFile"]);
-            //var publishEntity = new VkPublishEntity()
-            //{
-            //    Message = "Hello world!"
-            //};
-            //publishEntity.MediaCollection.Add(imageSource);
+            var imageSource = await group.UploadServer.UploadImageAsync(ConfigurationManager.AppSettings["imageFile"]);
+            var publishEntity = new VkPublishEntity()
+            {
+                Message = "Hello world!"
+            };
+            publishEntity.MediaCollection.Add(imageSource);
 
-            //var result = await group.PublishAsync(publishEntity);
-            //if (result.AllSuccess)
-            //{
-            //    Console.WriteLine("Все публикации успешно загружены");
-            //}
-            //else
-            //{
-            //    var notUploaded = result.FailedToUpload;
-            //    Console.WriteLine("Не удалось загрузить: " + notUploaded.Count());
-            //    result.ThrowIfHasFails();
-            //}
+            var result = await group.PublishAsync(publishEntity);
+            if (result.AllSuccess)
+            {
+                Console.WriteLine("Все публикации успешно загружены");
+            }
+            else
+            {
+                var notUploaded = result.FailedToUpload;
+                Console.WriteLine("Не удалось загрузить: " + notUploaded.Count());
+                result.ThrowIfHasFails();
+            }
 
             var videos = await manager.GetVideosFromOwnAlbumAsync("57");
             var firstVideo = videos.First().Files;

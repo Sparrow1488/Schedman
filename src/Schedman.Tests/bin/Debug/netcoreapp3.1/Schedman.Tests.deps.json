@@ -19,11 +19,11 @@
         }
       },
       "coverlet.collector/3.0.2": {},
-      "HtmlAgilityPack/1.11.38": {
+      "HtmlAgilityPack/1.11.42": {
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "assemblyVersion": "1.11.38.0",
-            "fileVersion": "1.11.38.0"
+            "assemblyVersion": "1.11.42.0",
+            "fileVersion": "1.11.42.0"
           }
         }
       },
@@ -1362,9 +1362,9 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "VkNet/1.68.0": {
+      "VkNet/1.69.0": {
         "dependencies": {
-          "HtmlAgilityPack": "1.11.38",
+          "HtmlAgilityPack": "1.11.42",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
           "Newtonsoft.Json": "13.0.1",
@@ -1379,7 +1379,7 @@
       },
       "VkNet.AudioBypassService/1.7.2": {
         "dependencies": {
-          "VkNet": "1.68.0",
+          "VkNet": "1.69.0",
           "protobuf-net": "3.0.101"
         },
         "runtime": {
@@ -1397,7 +1397,7 @@
           "Polly": "7.2.3",
           "Schedman.Tools.IO": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0",
-          "VkNet": "1.68.0",
+          "VkNet": "1.69.0",
           "VkNet.AudioBypassService": "1.7.2"
         },
         "runtime": {
@@ -1424,12 +1424,12 @@
       "path": "coverlet.collector/3.0.2",
       "hashPath": "coverlet.collector.3.0.2.nupkg.sha512"
     },
-    "HtmlAgilityPack/1.11.38": {
+    "HtmlAgilityPack/1.11.42": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DC1j3GzU9lBp8hSXb9eYRHiJOUS5sxjBjme/4RTYjTXlgiFCOMXkIY+rmL+BtUss1pCwCN4LaVlZ/ci/fWY+lA==",
-      "path": "htmlagilitypack/1.11.38",
-      "hashPath": "htmlagilitypack.1.11.38.nupkg.sha512"
+      "sha512": "sha512-LDc1bEfF14EY2DZzak4xvzWvbpNXK3vi1u0KQbBpLUN4+cx/VrvXhgCAMSJhSU5vz0oMfW9JZIR20vj/PkDHPA==",
+      "path": "htmlagilitypack/1.11.42",
+      "hashPath": "htmlagilitypack.1.11.42.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/16.9.4": {
       "type": "package",
@@ -2208,12 +2208,12 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "VkNet/1.68.0": {
+    "VkNet/1.69.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-P4lZmCOPKzrDCSq3pGQ9F8tZ7rwTJhhsGdhRbanBAm+QhQdkV50S8HJAzCPpFD5gSq98cu5f/VtUVhOslplIkw==",
-      "path": "vknet/1.68.0",
-      "hashPath": "vknet.1.68.0.nupkg.sha512"
+      "sha512": "sha512-L7JjHLOSEfTvtuhOIz1Djr8i0dZ+eiuHArGDk/DM8qJ9/7ZsY1f6BS4zrBhIjdsWH9SmcvvqmwejHuAKH9/1jw==",
+      "path": "vknet/1.69.0",
+      "hashPath": "vknet.1.69.0.nupkg.sha512"
     },
     "VkNet.AudioBypassService/1.7.2": {
       "type": "package",

@@ -119,5 +119,3 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Exam
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Example.Next\obj\Debug\netcoreapp3.1\Schedman.Example.Next.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Example.Next\obj\Debug\netcoreapp3.1\Schedman.Example.Next.pdb
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Example.Next\obj\Debug\netcoreapp3.1\Schedman.Example.Next.genruntimeconfig.cache
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Example.Next\bin\Debug\netcoreapp3.1\VkNet.pdb
-C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Example.Next\bin\Debug\netcoreapp3.1\VkNet.xml
