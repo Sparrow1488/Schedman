@@ -52,6 +52,7 @@ namespace Schedman
                         Signed = false,
                         OwnerId = -Id,
                         Message = post.Message,
+                        PublishDate = post.CreatedAt,
                         FromGroup = true,
                         Attachments = photosList,
                     });

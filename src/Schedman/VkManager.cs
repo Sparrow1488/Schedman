@@ -92,6 +92,14 @@ namespace Schedman
             return new VkGroupManager(_api, foundGroup?.Id ?? 0, foundGroup.Name);
         }
 
+        public async Task<VkGroupReadonly> GetGroupAsync(string groupTitle)
+        {
+            var foundGroup = await GetGroupOrDefaultByTitleAsync(groupTitle)
+                                ?? throw new SchedmanGroupNotFoundException($"Cannot found group by name '{groupTitle}'");
+
+            return new VkGroupReadonly(_api, foundGroup?.Id ?? 0, foundGroup.Name);
+        }
+
         private async Task<Group> GetGroupOrDefaultByTitleAsync(string groupTitle)
         {
             var userGroups = await _api.Groups.GetAsync(new GroupsGetParams() { UserId = _api.UserId });

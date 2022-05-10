@@ -25,7 +25,8 @@ namespace Schedman.Example.Next
             var imageSource = await group.UploadServer.UploadImageAsync(ConfigurationManager.AppSettings["imageFile"]);
             var publishEntity = new VkPublishEntity()
             {
-                Message = "Hello world!"
+                Message = "Hello world!",
+                CreatedAt = DateTime.Now + TimeSpan.FromMinutes(1)
             };
             publishEntity.MediaCollection.Add(imageSource);
 
