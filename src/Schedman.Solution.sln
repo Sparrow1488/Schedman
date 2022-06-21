@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Tools.IO", "Schedm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Example.Next", "Schedman.Example.Next\Schedman.Example.Next.csproj", "{CDF0DDBA-673D-417F-B8E3-8E223513C930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedman.Tests.Unit", "Schedman.Tests.Unit\Schedman.Tests.Unit.csproj", "{51EC8687-C63B-4DF5-BD90-BE07E1C15321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedman.Tests.Unit", "Schedman.Tests.Unit\Schedman.Tests.Unit.csproj", "{51EC8687-C63B-4DF5-BD90-BE07E1C15321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedman.Scripts.DownloadVideos", "Schedman.Scripts.DownloadVideos\Schedman.Scripts.DownloadVideos.csproj", "{A2479B1D-C9BB-4B84-9D80-583DC022A4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{51EC8687-C63B-4DF5-BD90-BE07E1C15321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51EC8687-C63B-4DF5-BD90-BE07E1C15321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51EC8687-C63B-4DF5-BD90-BE07E1C15321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2479B1D-C9BB-4B84-9D80-583DC022A4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2479B1D-C9BB-4B84-9D80-583DC022A4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2479B1D-C9BB-4B84-9D80-583DC022A4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2479B1D-C9BB-4B84-9D80-583DC022A4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

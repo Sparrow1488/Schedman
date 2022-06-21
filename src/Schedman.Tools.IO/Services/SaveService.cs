@@ -47,7 +47,7 @@ namespace Schedman.Tools.IO.Services
         }
 
         private string MakeFileNameValid(string fileName) =>
-            fileName.Replace("\\", "").Replace("/", "");
+            fileName.Replace("\\", "").Replace("/", "").Replace("|", "").Replace(":", "");
 
         private string MakeFileFullPathValidIfRepeatInDirectory(string fileFullPath)
         {

@@ -16,6 +16,7 @@ namespace Schedman.Clients
         {
             _retryPolicy = Policy.Handle<HttpRequestException>()
                                  .Or<WebException>()
+                                 .Or<Exception>()
                                  .WaitAndRetryAsync(3, sleepTime => TimeSpan.FromSeconds(1));
         }
 
@@ -28,7 +29,7 @@ namespace Schedman.Clients
 
         public async Task<byte[]> DownloadDataAsync(Uri url, IProgress<IntermediateProgressResult> downloadProgress = null)
         {
-            var response = await SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
+            var response = await this.SendAsync(new HttpRequestMessage(HttpMethod.Get, url), cancellationToken: default);
             response.EnsureSuccessStatusCode();
             var responseLength = response.Content.Headers.ContentLength;
             var buffer = new byte[(int)responseLength];
