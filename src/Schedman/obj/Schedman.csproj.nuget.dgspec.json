@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj": {}
+    "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
+    "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
         "projectName": "Schedman.Tools.IO",
-        "projectPath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -76,14 +76,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj": {
+    "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj",
         "projectName": "Schedman",
-        "projectPath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -104,8 +104,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj"
+              "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj"
               }
             }
           }

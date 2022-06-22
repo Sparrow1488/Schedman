@@ -16,8 +16,7 @@ namespace Schedman.Clients
         {
             _retryPolicy = Policy.Handle<HttpRequestException>()
                                  .Or<WebException>()
-                                 .Or<Exception>()
-                                 .WaitAndRetryAsync(3, sleepTime => TimeSpan.FromSeconds(1));
+                                 .WaitAndRetryAsync(3, sleepTime => TimeSpan.FromSeconds(2));
         }
 
         private readonly AsyncRetryPolicy _retryPolicy;

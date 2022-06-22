@@ -51,3 +51,17 @@ C:\Users\USER\Desktop\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1
 C:\Users\USER\Desktop\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CopyComplete
 C:\Users\USER\Desktop\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.dll
 C:\Users\USER\Desktop\Repositories\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.pdb
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.deps.json
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.dll
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.pdb
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\bin\Debug\netcoreapp3.1\Schedman.Tools.IO.pdb
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.AssemblyInfo.cs
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.csproj.CopyComplete
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.dll
+C:\Users\USER\Desktop\GitHub Repos\Schedman\src\Schedman\obj\Debug\netcoreapp3.1\Schedman.pdb

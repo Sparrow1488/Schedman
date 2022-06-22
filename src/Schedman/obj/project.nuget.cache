@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aDUPfLM8CQDmN/AeaJcqNX5OsbOoidUd+NqybVV5Kei5p0/LRx9btvMOVnejMxNU52SBR0Kl1BSLrxgA7XFmjA==",
+  "dgSpecHash": "DTzfVd7yOMqqSu+5uxaNBm3QPAe7Aq6zd6WjEwVGpHdk/afUP3BLWQfYjR/lUYR3bByUdM4Jpubtx/srDO3e4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman\\Schedman.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hm6T2y/0w1ukKwkgUi1phDFQlD3/pPjrTVcAKLqxXt28ETIEDYaOBhcjAYBLYYd1mr9Drb0650/V+y4oeajWyg==",
+  "dgSpecHash": "qHA2xfhtCnEMaNe/v/WeMz3bJbhs9zkKBJBtuQl2zNLOitu8QL1JPfwBaBMjm7sZOyqh4uhr95LfV/tERD1VPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\Repositories\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
