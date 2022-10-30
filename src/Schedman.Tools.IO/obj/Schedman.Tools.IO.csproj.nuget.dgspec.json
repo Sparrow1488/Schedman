@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {}
+    "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
+    "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
         "projectName": "Schedman.Tools.IO",
-        "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
+        "projectPath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\Schedman.Tools.IO.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\obj\\",
+        "outputPath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tools.IO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,20 +53,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

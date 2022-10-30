@@ -5136,11 +5136,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
       "projectName": "Schedman.Tests.Unit",
-      "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
+      "projectPath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\obj\\",
+      "outputPath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5161,8 +5161,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj": {
-              "projectPath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj"
+            "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj": {
+              "projectPath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman\\Schedman.csproj"
             }
           }
         }
@@ -5200,20 +5200,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

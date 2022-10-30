@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GKfKhV948/+NZbCQezFFlU1rJrKMqd4OH5rCgMDdWvXHwk7S5S4fAFRlvhYMRspqaWH+kjcPWhgJjosnZiNPsQ==",
+  "dgSpecHash": "RUfcaSgBvNhtEy5m89fX1xFtbkIQOaccB7y/9aYkgbNkyHqhjFt5oGjvpk5MRUjLfTjqmXldQqAeB8SQBhzyZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
+  "projectFilePath": "C:\\Users\\USER\\GitHub Repos\\Schedman\\src\\Schedman.Tests.Unit\\Schedman.Tests.Unit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
@@ -86,10 +86,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\vknet\\1.69.0\\vknet.1.69.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\vknet.audiobypassservice\\1.7.2\\vknet.audiobypassservice.1.7.2.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\USER\\.nuget\\packages\\vknet.audiobypassservice\\1.7.2\\vknet.audiobypassservice.1.7.2.nupkg.sha512"
   ],
   "logs": []
 }
