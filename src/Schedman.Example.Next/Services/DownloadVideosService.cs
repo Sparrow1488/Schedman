@@ -36,10 +36,19 @@ namespace Schedman.Example.Next.Services
                     Console.WriteLine($"File {video.Title} already exists. Continue");
                     continue;
                 }
-                Console.WriteLine("DOWNLOAD STARTED => " + video.Title);
-                var videoBytes = await Manager.DownloadVideoAsync(video, progress);
-                Console.WriteLine("SAVE => " + video.Title);
-                await saveService.SaveLocalAsync(videoBytes, SaveFileInfo.Name(video.Title).Mp4());
+
+                try
+                {
+                    Console.WriteLine("DOWNLOAD STARTED => " + video.Title);
+                    var videoBytes = await Manager.DownloadVideoAsync(video, progress);
+                    Console.WriteLine("SAVE => " + video.Title);
+                    await saveService.SaveLocalAsync(videoBytes, SaveFileInfo.Name(video.Title).Mp4());
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"\tEXCEPTION => {ex.GetType().Name}:{ex.Message}");
+                    Console.WriteLine(ex.StackTrace);
+                }
             }
 
             Console.WriteLine("Tap to exit...");

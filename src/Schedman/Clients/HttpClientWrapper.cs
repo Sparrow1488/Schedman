@@ -17,21 +17,28 @@ namespace Schedman.Clients
             _retryPolicy = Policy.Handle<HttpRequestException>()
                                  .Or<WebException>()
                                  .WaitAndRetryAsync(3, sleepTime => TimeSpan.FromSeconds(2));
+            Timeout = TimeSpan.FromMinutes(1);
+            
         }
 
         private readonly AsyncRetryPolicy _retryPolicy;
 
         public override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken = default)
         {
-            return await _retryPolicy.ExecuteAsync(() => base.SendAsync(request, cancellationToken));
+            return await _retryPolicy.ExecuteAsync(
+                () => base.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken));
         }
 
         public async Task<byte[]> DownloadDataAsync(
             Uri url, IProgress<IntermediateProgressResult> downloadProgress = null)
         {
-            var response = await SendAsync(new HttpRequestMessage(HttpMethod.Get, url), cancellationToken: default);
+            using var response = await SendAsync(new HttpRequestMessage(HttpMethod.Get, url), cancellationToken: default);
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsByteArrayAsync();
+
+            using var stream = await response.Content.ReadAsStreamAsync();
+            using var memory = new MemoryStream();
+            await stream.CopyToAsync(memory);
+            return memory.ToArray();
         }
 
         public async Task<byte[]> DownloadDataAsync(string url) =>
