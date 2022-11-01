@@ -31,7 +31,8 @@ namespace Schedman.Example.Next.Services
 
             foreach (var video in videos)
             {
-                if (File.Exists(Path.Combine(saveConfig.Root, downloadedAlbumName, video.Title + ".mp4")))
+                var videoId = video.Id;
+                if (File.Exists(Path.Combine(saveConfig.Root, downloadedAlbumName, video.Title + videoId + ".mp4")))
                 {
                     Console.WriteLine($"File {video.Title} already exists. Continue");
                     continue;
@@ -42,7 +43,7 @@ namespace Schedman.Example.Next.Services
                     Console.WriteLine("DOWNLOAD STARTED => " + video.Title);
                     var videoBytes = await Manager.DownloadVideoAsync(video, progress);
                     Console.WriteLine("SAVE => " + video.Title);
-                    await saveService.SaveLocalAsync(videoBytes, SaveFileInfo.Name(video.Title).Mp4());
+                    await saveService.SaveLocalAsync(videoBytes, SaveFileInfo.Name(video.Title + videoId).Mp4());
                 }
                 catch(Exception ex)
                 {

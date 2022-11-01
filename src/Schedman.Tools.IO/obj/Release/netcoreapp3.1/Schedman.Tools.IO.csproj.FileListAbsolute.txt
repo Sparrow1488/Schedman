@@ -8,3 +8,13 @@ C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tool
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.csproj.CoreCompileInputs.cache
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.dll
 C:\Users\aleks\OneDrive\Desktop\Илья\Repositories\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.pdb
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\bin\Release\netcoreapp3.1\Schedman.Tools.IO.deps.json
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\bin\Release\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\bin\Release\netcoreapp3.1\Schedman.Tools.IO.pdb
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.csproj.AssemblyReference.cache
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.AssemblyInfoInputs.cache
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.AssemblyInfo.cs
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.csproj.CoreCompileInputs.cache
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.dll
+C:\Users\USER\GitHub Repos\Schedman\src\Schedman.Tools.IO\obj\Release\netcoreapp3.1\Schedman.Tools.IO.pdb
