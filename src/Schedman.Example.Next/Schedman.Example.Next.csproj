@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="App.config">
+    <None Update="schedman.settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

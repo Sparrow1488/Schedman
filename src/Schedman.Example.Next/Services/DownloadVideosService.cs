@@ -2,10 +2,12 @@
 using Schedman.Tools.IO.Configurations;
 using Schedman.Tools.IO.Services;
 using System;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using VkNet.Model.Attachments;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Schedman.Example.Next.Services
 {
@@ -16,20 +18,27 @@ namespace Schedman.Example.Next.Services
             Manager = manager;
         }
 
-        public VkManager Manager { get; }
+        private VkManager Manager { get; }
+
+        public IConfiguration Configuration { get; set; }
 
         public async Task StartAsync()
         {
-            var albumName = ConfigurationManager.AppSettings["downloadAlbumName"];
+            var albumName = Configuration["Action:DownloadAlbumName"];
+
+            Console.WriteLine($"Finding album \"{albumName}\" videos...");
+            await Task.Delay(2500);
+            
             var videos = await Manager.GetVideosFromOwnAlbumAsync(albumName);
-            var firstVideo = videos.First().Files;
-            string downloadedAlbumName = $"{albumName}_downloads";
+            var videosArray = videos.ToArray();
+            var firstVideo = videosArray.First().Files;
+            var downloadedAlbumName = $"{albumName}_downloads";
             var saveConfig = new SaveServiceConfiguration(downloadedAlbumName, "./downloads");
             var saveService = new SaveService(saveConfig);
             var progress = new Progress<IntermediateProgressResult>(progress =>
                     Console.WriteLine($"Downloaded ({progress.CurrentPercentsStringify}%)"));
 
-            foreach (var video in videos)
+            foreach (var video in videosArray)
             {
                 var videoId = video.Id;
                 if (File.Exists(Path.Combine(saveConfig.Root, downloadedAlbumName, video.Title + videoId + ".mp4")))

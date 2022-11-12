@@ -1,8 +1,0 @@
-{
-  "Id": 0,
-  "Message": "Author-follen",
-  "PhotosUrl": [
-    "C:\\Users\\ilyao\\Downloads\\Bad_and_good\\nice\\author-follen\\sample_bc273a3b5dc9bf83972eb752317b0322.jpg"
-  ],
-  "Schedule": "2022-03-26T00:00:00"
-}

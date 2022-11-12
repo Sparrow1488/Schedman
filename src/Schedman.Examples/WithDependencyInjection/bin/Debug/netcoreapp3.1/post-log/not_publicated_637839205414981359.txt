@@ -1,9 +1,0 @@
-{
-  "Id": 0,
-  "Message": "Author-makino_harumaki",
-  "PhotosUrl": [
-    "C:\\Users\\ilyao\\Downloads\\Bad_and_good\\nice\\author-makino_harumaki\\987364532452352345234524526464\\f991aa4b53612de67c04202cc96d8d7b.jpg",
-    "C:\\Users\\ilyao\\Downloads\\Bad_and_good\\nice\\author-makino_harumaki\\987364532452352345234524526464\\sample_88f35da87a113bb3d16f1883b92258c9.jpg"
-  ],
-  "Schedule": "2022-03-26T14:00:00"
-}

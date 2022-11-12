@@ -1,8 +1,9 @@
 ﻿using Schedman.Entities;
 using System;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Schedman.Example.Next.Services
 {
@@ -15,6 +16,8 @@ namespace Schedman.Example.Next.Services
 
         public VkManager Manager { get; }
 
+        public IConfiguration Configuration { get; set; }
+
         public async Task StartAsync()
         {
             var group = await Manager.GetGroupManagerAsync("<group_name>");
@@ -22,7 +25,8 @@ namespace Schedman.Example.Next.Services
             var publishes = await group.GetPublishesAsync(page: 1, count: 20);
             Console.WriteLine("Publishes count => " + publishes.Count());
 
-            var imageSource = await group.UploadServer.UploadImageAsync(ConfigurationManager.AppSettings["imageFile"]);
+            const string noFile = "";
+            var imageSource = await group.UploadServer.UploadImageAsync(noFile);
             var publishEntity = new VkPublishEntity()
             {
                 Message = "Hello world!",
