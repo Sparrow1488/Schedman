@@ -2,12 +2,13 @@
 using Schedman.Tools.IO.Configurations;
 using Schedman.Tools.IO.Services;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using VkNet.Model.Attachments;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
+using Schedman.Example.Next.Models;
 
 namespace Schedman.Example.Next.Services
 {
@@ -31,12 +32,20 @@ namespace Schedman.Example.Next.Services
             
             var videos = await Manager.GetVideosFromOwnAlbumAsync(albumName);
             var videosArray = videos.ToArray();
-            var firstVideo = videosArray.First().Files;
             var downloadedAlbumName = $"{albumName}_downloads";
             var saveConfig = new SaveServiceConfiguration(downloadedAlbumName, "./downloads");
             var saveService = new SaveService(saveConfig);
             var progress = new Progress<IntermediateProgressResult>(progress =>
                     Console.WriteLine($"Downloaded ({progress.CurrentPercentsStringify}%)"));
+            
+            var downloadInfo = new DownloadInfo()
+            {
+                Source = "My vk.com videos",
+                DownloaderVersion = "1.0",
+                Files = new List<DownloadFile>(),
+                DownloadedAt = DateTime.Now,
+                RepositoryLink = "https://github.com/Sparrow1488/Schedman"
+            };
 
             foreach (var video in videosArray)
             {
@@ -47,19 +56,34 @@ namespace Schedman.Example.Next.Services
                     continue;
                 }
 
+                var downloadFile = new DownloadFile()
+                {
+                    SourceName = "undefined",
+                    Name = video.Title
+                };
+
                 try
                 {
                     Console.WriteLine("DOWNLOAD STARTED => " + video.Title);
                     var videoBytes = await Manager.DownloadVideoAsync(video, progress);
                     Console.WriteLine("SAVE => " + video.Title);
                     await saveService.SaveLocalAsync(videoBytes, SaveFileInfo.Name(video.Title + videoId).Mp4());
+
+                    downloadFile.IsSuccess = true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine($"\tEXCEPTION => {ex.GetType().Name}:{ex.Message}");
                     Console.WriteLine(ex.StackTrace);
                 }
+                finally
+                {
+                    downloadInfo.Files.Add(downloadFile);
+                }
             }
+
+            var infoBytes = Encoding.UTF8.GetBytes(downloadInfo.ToString());
+            await saveService.SaveLocalAsync(infoBytes, SaveFileInfo.Name("load_info").Txt());
 
             Console.WriteLine("Tap to exit...");
             Console.ReadKey();

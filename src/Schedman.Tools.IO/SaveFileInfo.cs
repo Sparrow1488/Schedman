@@ -42,5 +42,11 @@
             Extension = ".mp3";
             return this;
         }
+        
+        public SaveFileInfo Txt()
+        {
+            Extension = ".txt";
+            return this;
+        }
     }
 }
